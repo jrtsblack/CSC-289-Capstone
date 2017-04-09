@@ -41,7 +41,7 @@
             // emailEntryTextBox
             // 
             this.emailEntryTextBox.Location = new System.Drawing.Point(101, 57);
-            this.emailEntryTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailEntryTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailEntryTextBox.Name = "emailEntryTextBox";
             this.emailEntryTextBox.Size = new System.Drawing.Size(249, 22);
             this.emailEntryTextBox.TabIndex = 0;
@@ -59,7 +59,7 @@
             // passwordEntryTextBox
             // 
             this.passwordEntryTextBox.Location = new System.Drawing.Point(101, 94);
-            this.passwordEntryTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordEntryTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordEntryTextBox.Name = "passwordEntryTextBox";
             this.passwordEntryTextBox.PasswordChar = '*';
             this.passwordEntryTextBox.Size = new System.Drawing.Size(249, 22);
@@ -89,7 +89,7 @@
             // loginButton
             // 
             this.loginButton.Location = new System.Drawing.Point(23, 154);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(4);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(100, 28);
             this.loginButton.TabIndex = 2;
@@ -100,7 +100,7 @@
             // registerButton
             // 
             this.registerButton.Location = new System.Drawing.Point(137, 154);
-            this.registerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.registerButton.Margin = new System.Windows.Forms.Padding(4);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(100, 28);
             this.registerButton.TabIndex = 3;
@@ -111,7 +111,7 @@
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(252, 154);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(100, 28);
             this.cancelButton.TabIndex = 4;
@@ -132,7 +132,7 @@
             this.Controls.Add(this.passwordEntryTextBox);
             this.Controls.Add(this.emailPromptLabel);
             this.Controls.Add(this.emailEntryTextBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";
             this.Text = "Work Order Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
@@ -142,8 +142,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox emailEntryTextBox;
         private System.Windows.Forms.Label emailPromptLabel;
         private System.Windows.Forms.TextBox passwordEntryTextBox;
         private System.Windows.Forms.Label passwordPromptLabel;
@@ -151,6 +149,7 @@
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button cancelButton;
+        public System.Windows.Forms.TextBox emailEntryTextBox;
     }
 }
 

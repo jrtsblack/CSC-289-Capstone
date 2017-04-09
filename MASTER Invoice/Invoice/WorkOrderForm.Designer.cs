@@ -539,12 +539,10 @@
             // rButtonIncomplete
             // 
             this.rButtonIncomplete.AutoSize = true;
-            this.rButtonIncomplete.Checked = true;
             this.rButtonIncomplete.Location = new System.Drawing.Point(124, 22);
             this.rButtonIncomplete.Name = "rButtonIncomplete";
             this.rButtonIncomplete.Size = new System.Drawing.Size(97, 21);
             this.rButtonIncomplete.TabIndex = 1;
-            this.rButtonIncomplete.TabStop = true;
             this.rButtonIncomplete.Text = "Incomplete";
             this.rButtonIncomplete.UseVisualStyleBackColor = true;
             // 

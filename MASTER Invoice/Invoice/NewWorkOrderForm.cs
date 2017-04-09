@@ -55,9 +55,22 @@ namespace Invoice
         // Close the NewWorkOrder form, and move back to the WorkOrderForm
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-            WorkOrderForm workOrder = new WorkOrderForm();
-            workOrder.Show();
+            // Message to be displayed in MessageBox
+            const string prompt = "Are you sure you would like to cancel? You will lose any unsaved information.";
+            const string caption = "Cancel New Work Order";
+
+            // MessageBox pop up to confirm
+            var result = MessageBox.Show(prompt, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Close form if yes was pressed
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                WorkOrderForm workOrder = new WorkOrderForm();
+                workOrder.Show();
+            }
+            
+            
         }
 
         // Save WorkOrderInfo Method saves the values entered into the ProjectDB
@@ -65,10 +78,14 @@ namespace Invoice
         {
             // Primary phone number variables
             short primaryPhoneNumber;
+            short primaryPhoneExtension;
             string primaryPhoneNum = newInvoicePrimaryPhoneNumberTextBox.Text.Trim();
+            string primaryPhoneExten = newInvoicePrimaryPhoneExtensionTextBox.Text.Trim();
             // Alternate phone number variables
             short alternatePhoneNumber;
+            short alternatePhoneExtension;
             string alternatePhoneNum = newInvoiceAlternatePhoneNumberTextBox.Text.Trim();
+            string altPhoneExt = newInvoiceAlternatePhoneExtensionTextBox.Text.Trim();
             // Incrementory value 
             int i = 0;
 
@@ -95,11 +112,26 @@ namespace Invoice
             if (IsValidPrimaryPhoneNumber(primaryPhoneNum))
             {
                 Int16.TryParse(primaryPhoneNum, out primaryPhoneNumber);
-                OleDbCommand saveOccupantPrimaryPhone = new OleDbCommand("INSERT INTO customer (primary#) VALUES (" +
-                    primaryPhoneNumber + ");");
 
-                // increment i to show something happened.
-                i += saveOccupantPrimaryPhone.ExecuteNonQuery();
+                if (primaryPhoneExten != null)
+                {
+                    Int16.TryParse(primaryPhoneExten, out primaryPhoneExtension);
+                    // Save if extension included
+                    OleDbCommand saveOccupantPrimaryPhone = new OleDbCommand("INSERT INTO customer (primary#, parimary_extension) VALUES (" +
+                    primaryPhoneNumber + ", " + primaryPhoneExtension + ");");
+
+                    // increment i to show something happened.
+                    i += saveOccupantPrimaryPhone.ExecuteNonQuery();
+                }
+                else
+                {
+                    // Save if no extension included
+                    OleDbCommand saveOccPrimPhoneNum = new OleDbCommand("INSERT INTO customer (primary#) VALUES (" +
+                        primaryPhoneNumber + ");");
+
+                    // Increment i to show something happened
+                    i += saveOccPrimPhoneNum.ExecuteNonQuery();
+                }             
 
                 // Check if the Alternate Phone Number textbox is not empty
                 if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
@@ -110,6 +142,14 @@ namespace Invoice
                         Int16.TryParse(alternatePhoneNum, out alternatePhoneNumber);
                         OleDbCommand saveOccupantAlternatePhone = new OleDbCommand("INSERT INTO customer (alternate_phone#) VALUES (" +
                             alternatePhoneNumber + ");");
+
+                        if (altPhoneExt != null)
+                        {
+                            Int16.TryParse(altPhoneExt, out alternatePhoneExtension);
+                            OleDbCommand saveOccAltExt = new OleDbCommand("INSERT INTO customer (alternate_extension) VALUES ("
+                                + alternatePhoneExtension + ");");
+                            i += saveOccAltExt.ExecuteNonQuery();
+                        }
 
                         // increment i to show something happened
                         i += saveOccupantAlternatePhone.ExecuteNonQuery();
@@ -161,6 +201,12 @@ namespace Invoice
 
             // Close the DB connection
             conn.Close();
+
+            if (i > 0)
+            {
+                // Display confirmation that information has been saved
+                MessageBox.Show("Information successfully saved.");
+            }
         }
 
         // Check if the phone number is valid

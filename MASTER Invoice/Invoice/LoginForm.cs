@@ -34,6 +34,21 @@ namespace Invoice
          */
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            // Assign false to logged in.
+            if (!string.IsNullOrEmpty(emailEntryTextBox.Text))
+            {
+                // Open connection to ProjectDB
+                OleDbConnection connection = new OleDbConnection("Provider = Microsoft.ACE.OLEDB.12.0; Data Source = ProjectDB.accdb; Persist Security Info = True");
+                connection.Open();
+
+                // Set command to change login status to false
+                OleDbCommand loggedOut = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '0'" + 
+                    "WHERE Email = " + emailEntryTextBox.Text.ToLower() + ";");
+                loggedOut.ExecuteNonQuery();
+
+                // Close ProjectDB connection
+                connection.Close();
+            }
             Application.Exit();
         }
 
@@ -105,34 +120,37 @@ namespace Invoice
                         if (usertype == "Occupant" || usertype == "Office Worker")
                         {
                             // Set user loggedIn status to True
-                            OleDbCommand loggedIn = new OleDbCommand("INSERT INTO UserAccounts ([LoggedIn]) VALUES ('" + 1 + "')" +
+                            OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '1'" +
                                 "WHERE UserAccounts.Email =" + email, connection);
                             loggedIn.ExecuteNonQuery();
 
                             MessageBox.Show("Login Successful!");
                             WorkOrderForm invoice = new WorkOrderForm();
+                            this.Hide();
                             invoice.Show();
                         }
                         else if (usertype == "Administrator")
                         {
                             // Set user loggedIn status to True
-                            OleDbCommand loggedIn = new OleDbCommand("INSERT INTO UserAccounts ([LoggedIn]) VALUES ('" + 1 + "')" +
+                            OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '1'" +
                                 "WHERE UserAccounts.Email =" + email, connection);
                             loggedIn.ExecuteNonQuery();
 
                             MessageBox.Show("Login Successful!");
                             AdminForm invoice = new AdminForm();
+                            this.Hide();
                             invoice.Show();
                         }
                         else if (usertype == "Contractor")
                         {
                             // Set user loggedIn status to True
-                            OleDbCommand loggedIn = new OleDbCommand("INSERT INTO UserAccounts ([LoggedIn]) VALUES ('" + 1 + "')" +
+                            OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '1'" +
                                 "WHERE UserAccounts.Email =" + email, connection);
                             loggedIn.ExecuteNonQuery();
 
                             MessageBox.Show("Login Successful!");
                             ContractorWorkOrderForm workOrder = new ContractorWorkOrderForm();
+                            this.Hide();
                             workOrder.Show();
                         }
 
@@ -149,7 +167,6 @@ namespace Invoice
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

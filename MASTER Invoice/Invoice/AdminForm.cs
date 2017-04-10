@@ -20,7 +20,9 @@ namespace Invoice
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            
+            // TODO: This line of code loads data into the 'projectDBData.OfficeWorker' table. You can move, or remove it, as needed.
+            this.officeWorkerTableAdapter.Fill(this.projectDBData.OfficeWorker);
+
         }
         OleDbDataAdapter adapter;
         DataSet ds;
@@ -36,14 +38,15 @@ namespace Invoice
                 if (clmSelect.Value != null &&
                        Convert.ToBoolean(clmSelect.Value) == true)
                 {
-                    data += (dataGridView1.Rows[i].Cells[1].Value.ToString()) + ",";
+                    data += "'" + (dataGridView1.Rows[i].Cells[1].Value.ToString()) + "'" + ",";
                 }
             }
+            MessageBox.Show(data);
             data = data.TrimEnd(',');
             OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=ProjectDB.accdb");
 
-            string updatesql = "UPDATE UserAccounts SET Confirmed='1' WHERE email IN ('" + data + "')";
-
+            string updatesql = "UPDATE UserAccounts SET Confirmed='1' WHERE email IN (" + data + ")";
+            MessageBox.Show(updatesql);
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[selected.Name].Value) == true)

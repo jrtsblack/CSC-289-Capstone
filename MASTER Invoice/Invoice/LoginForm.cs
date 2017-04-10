@@ -121,7 +121,7 @@ namespace Invoice
                         {
                             // Set user loggedIn status to True
                             OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '1'" +
-                                "WHERE UserAccounts.Email =" + email, connection);
+                                "WHERE Email =" + "'" + email + "'", connection);
                             loggedIn.ExecuteNonQuery();
 
                             MessageBox.Show("Login Successful!");
@@ -133,8 +133,9 @@ namespace Invoice
                         {
                             // Set user loggedIn status to True
                             OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '1'" +
-                                "WHERE UserAccounts.Email =" + email, connection);
-                            loggedIn.ExecuteNonQuery();
+                                " WHERE Email =" + "'" + email + "'", connection);
+                                loggedIn.ExecuteNonQuery();
+
 
                             MessageBox.Show("Login Successful!");
                             AdminForm invoice = new AdminForm();
@@ -145,7 +146,7 @@ namespace Invoice
                         {
                             // Set user loggedIn status to True
                             OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '1'" +
-                                "WHERE UserAccounts.Email =" + email, connection);
+                                "WHERE Email =" + "'" + email + "'", connection);
                             loggedIn.ExecuteNonQuery();
 
                             MessageBox.Show("Login Successful!");

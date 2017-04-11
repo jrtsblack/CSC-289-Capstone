@@ -35,7 +35,7 @@ namespace Invoice
             OleDbCommand user = new OleDbCommand($"SELECT Community_Name, First, Last, Address,  Email, Primary#, Primary_Phone_Type, Primary_Extension, " + 
                 "Alternate_Phone#, Alternate_Phone_Type, Alternate_Extension, Permission_To_Enter, Pets, Invoice_ID, Invoice_Type, Description, Complete, TimeOfService, Comments " +
                 "FROM Customer, Invoice, InvoiceStatus WHERE Customer.Email ={userName.emailEntryTextBox.Text} AND Customer.Customer_ID LIKE Invoice.Customer_ID AND Invoice.Invoice_Status_ID " + 
-                "LIKE  InvoiceStatus.Invoice_Status_ID;");
+                "LIKE  InvoiceStatus.Invoice_Status_ID;", conn);
             OleDbDataAdapter data = new OleDbDataAdapter(user);
             // Table to hold the user data
             DataTable table1 = new DataTable();
@@ -143,7 +143,19 @@ namespace Invoice
 
         private void invoiceInformationCancelButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Message to be displayed in MessageBox
+            const string prompt = "Are you sure you want to close the program?";
+            const string caption = "Close?";
+
+            // MessageBox pop up to confirm
+            var result = MessageBox.Show(prompt, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Close form if yes was pressed
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

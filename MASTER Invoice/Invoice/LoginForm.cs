@@ -43,7 +43,7 @@ namespace Invoice
 
                 // Set command to change login status to false
                 OleDbCommand loggedOut = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '0'" + 
-                    "WHERE Email = " + emailEntryTextBox.Text.ToLower() + ";");
+                    "WHERE Email = '" + emailEntryTextBox.Text.ToLower() + "';", connection);
                 loggedOut.ExecuteNonQuery();
 
                 // Close ProjectDB connection

@@ -25,7 +25,6 @@ namespace Invoice
         // Save values into the project DB
         private void saveInvoiceButton_Click(object sender, EventArgs e)
         {
-            DisplayTooltips();
             SaveWorkOrderInfo();
         }
 
@@ -43,13 +42,14 @@ namespace Invoice
 
             newInvoiceDescriptionOfRequestRichTextBox.Text = null;
 
-            newInvoiceCommunityComboBox.DisplayMember = null;
-            newInvoiceRequestTimeOfServiceComboBox.DisplayMember = null;
-            newInvoicePrimaryPhoneTypeComboBox.DisplayMember = null;
-            newInvoiceAlternatePhoneTypeComboBox.DisplayMember = null;
-            newInvoiceWorkOrderTypeComboBox.DisplayMember = null;
-            newInvoicePermissionToEnterComboBox.DisplayMember = null;
-            newInvoiceAnimalsInHomeComboBox.DisplayMember = null;
+            newInvoiceCommunityComboBox.SelectedIndex = -1;
+            newInvoiceRequestTimeOfServiceComboBox.SelectedIndex = -1;
+            newInvoicePrimaryPhoneTypeComboBox.SelectedIndex = -1;
+            newInvoiceAlternatePhoneTypeComboBox.SelectedIndex = -1;
+            newInvoiceWorkOrderTypeComboBox.SelectedIndex = -1;
+            newInvoicePermissionToEnterComboBox.SelectedIndex = -1; 
+            newInvoiceAnimalsInHomeComboBox.SelectedIndex = -1;
+            
         }
 
         // Close the NewWorkOrder form, and move back to the WorkOrderForm
@@ -77,13 +77,13 @@ namespace Invoice
         private void SaveWorkOrderInfo()
         {
             // Primary phone number variables
-            short primaryPhoneNumber;
-            short primaryPhoneExtension;
+            int primaryPhoneNumber;
+            int primaryPhoneExtension;
             string primaryPhoneNum = newInvoicePrimaryPhoneNumberTextBox.Text.Trim();
             string primaryPhoneExten = newInvoicePrimaryPhoneExtensionTextBox.Text.Trim();
             // Alternate phone number variables
-            short alternatePhoneNumber;
-            short alternatePhoneExtension;
+            int alternatePhoneNumber;
+            int alternatePhoneExtension;
             string alternatePhoneNum = newInvoiceAlternatePhoneNumberTextBox.Text.Trim();
             string altPhoneExt = newInvoiceAlternatePhoneExtensionTextBox.Text.Trim();
             // Incrementory value 
@@ -94,118 +94,440 @@ namespace Invoice
 
             // Save String Values into the Customer table
             OleDbCommand saveOccupant = new OleDbCommand("INSERT INTO customer (first, last, address, community_name, "
-                + "email, primary_phone_type) VALUES (" +
-                newInvoiceFirstNameTextBox.Text.ToLower() + "," + newInvoiceLastNameTextBox.Text.ToLower() +
-                "," + newInvoiceStreetAddressTextBox.Text.ToLower() +
-                "," + newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower() +
-                "," + newInvoiceEmailTextBox.Text.ToLower() +
-                "," + newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower() + ");");
-
+                + "email, primary_phone_type) VALUES ('" +
+                newInvoiceFirstNameTextBox.Text.ToLower() + "', '" + newInvoiceLastNameTextBox.Text.ToLower() +
+                "', '" + newInvoiceStreetAddressTextBox.Text.ToLower() +
+                "', '" + newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower() +
+                "', '" + newInvoiceEmailTextBox.Text.ToLower() +
+                "', '" + newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower() + "');", conn);
+            
             // Save the String Values into the InvoiceStatus table
             OleDbCommand saveInvoiceStatus = new OleDbCommand("INSERT INTO invoiceStatus (invoice_type, description, " +
-                "complete, timeOfService) VALUES (" +
+                "complete, timeOfService) VALUES ('" +
                 newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower() +
-                "," + newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower() +
-                ",false," + newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower() + ");");
+                "', '" + newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower() +
+                "', false, '" + newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower() + "');", conn);
 
-            // Check if the primary phone number is valid and add to database or display tooltip message and focus the textbox
-            if (IsValidPrimaryPhoneNumber(primaryPhoneNum))
+            if (string.IsNullOrEmpty(newInvoiceFirstNameTextBox.Text))
             {
-                Int16.TryParse(primaryPhoneNum, out primaryPhoneNumber);
-
-                if (primaryPhoneExten != null)
+                FirstNameToolTip();
+                if (string.IsNullOrEmpty(newInvoiceLastNameTextBox.Text))
                 {
-                    Int16.TryParse(primaryPhoneExten, out primaryPhoneExtension);
-                    // Save if extension included
-                    OleDbCommand saveOccupantPrimaryPhone = new OleDbCommand("INSERT INTO customer (primary#, parimary_extension) VALUES (" +
-                    primaryPhoneNumber + ", " + primaryPhoneExtension + ");");
-
-                    // increment i to show something happened.
-                    i += saveOccupantPrimaryPhone.ExecuteNonQuery();
-                }
-                else
-                {
-                    // Save if no extension included
-                    OleDbCommand saveOccPrimPhoneNum = new OleDbCommand("INSERT INTO customer (primary#) VALUES (" +
-                        primaryPhoneNumber + ");");
-
-                    // Increment i to show something happened
-                    i += saveOccPrimPhoneNum.ExecuteNonQuery();
-                }             
-
-                // Check if the Alternate Phone Number textbox is not empty
-                if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
-                {
-                    // Check if Alternate phone number is valid
-                    if (IsValidPrimaryPhoneNumber(alternatePhoneNum))
+                    LastNameToolTip();
+                    if (string.IsNullOrEmpty(newInvoiceStreetAddressTextBox.Text))
                     {
-                        Int16.TryParse(alternatePhoneNum, out alternatePhoneNumber);
-                        OleDbCommand saveOccupantAlternatePhone = new OleDbCommand("INSERT INTO customer (alternate_phone#) VALUES (" +
-                            alternatePhoneNumber + ");");
-
-                        if (altPhoneExt != null)
+                        AddressToolTip();
+                        if (newInvoiceCommunityComboBox.SelectedIndex == -1)
                         {
-                            Int16.TryParse(altPhoneExt, out alternatePhoneExtension);
-                            OleDbCommand saveOccAltExt = new OleDbCommand("INSERT INTO customer (alternate_extension) VALUES ("
-                                + alternatePhoneExtension + ");");
-                            i += saveOccAltExt.ExecuteNonQuery();
+                            CommunityToolTip();
+                            if (string.IsNullOrEmpty(newInvoicePrimaryPhoneNumberTextBox.Text))
+                            {
+                                PrimaryPNumberToolTip();
+                                if (newInvoicePrimaryPhoneTypeComboBox.SelectedIndex == -1)
+                                {
+                                    PrimaryPTypeToolTip();
+                                    if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                                    {
+                                        if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex == -1)
+                                        {
+                                            AlternateTypeToolTip();
+                                        }
+                                    }
+                                    if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
+                                    {
+                                        EmailToolTip();
+                                        if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+                                        {
+                                            DescriptionToolTip();
+                                            if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                                            {
+                                                TimeOfServiceToolTip();
+                                                if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                                                {
+                                                    PTEToolTip();
+                                                    if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                                                    {
+                                                        AnimalToolTip();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
 
-                        // increment i to show something happened
-                        i += saveOccupantAlternatePhone.ExecuteNonQuery();
+                    }
+                }
+            }
+            else if (string.IsNullOrEmpty(newInvoiceLastNameTextBox.Text))
+            {
+                LastNameToolTip();
+                if (string.IsNullOrEmpty(newInvoiceStreetAddressTextBox.Text))
+                {
+                    AddressToolTip();
+                    if (newInvoiceCommunityComboBox.SelectedIndex == -1)
+                    {
+                        CommunityToolTip();
+                        if (string.IsNullOrEmpty(newInvoicePrimaryPhoneNumberTextBox.Text))
+                        {
+                            PrimaryPNumberToolTip();
+                            if (newInvoicePrimaryPhoneTypeComboBox.SelectedIndex == -1)
+                            {
+                                PrimaryPTypeToolTip();
+                                if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                                {
+                                    if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex == -1)
+                                    {
+                                        AlternateTypeToolTip();
+                                    }
+                                }
+                                if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
+                                {
+                                    EmailToolTip();
+                                    if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+                                    {
+                                        DescriptionToolTip();
+                                        if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                                        {
+                                            TimeOfServiceToolTip();
+                                            if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                                            {
+                                                PTEToolTip();
+                                                if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                                                {
+                                                    AnimalToolTip();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            else if (string.IsNullOrEmpty(newInvoiceStreetAddressTextBox.Text))
+            {
+                AddressToolTip();
+                if (newInvoiceCommunityComboBox.SelectedIndex == -1)
+                {
+                    CommunityToolTip();
+                    if (string.IsNullOrEmpty(newInvoicePrimaryPhoneNumberTextBox.Text))
+                    {
+                        PrimaryPNumberToolTip();
+                        if (newInvoicePrimaryPhoneTypeComboBox.SelectedIndex == -1)
+                        {
+                            PrimaryPTypeToolTip();
+                            if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                            {
+                                if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex == -1)
+                                {
+                                    AlternateTypeToolTip();
+                                }
+                            }
+                            if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
+                            {
+                                EmailToolTip();
+                                if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+                                {
+                                    DescriptionToolTip();
+                                    if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                                    {
+                                        TimeOfServiceToolTip();
+                                        if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                                        {
+                                            PTEToolTip();
+                                            if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                                            {
+                                                AnimalToolTip();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            else if (newInvoiceCommunityComboBox.SelectedIndex == -1)
+            {
+                CommunityToolTip();
+                if (string.IsNullOrEmpty(newInvoicePrimaryPhoneNumberTextBox.Text))
+                {
+                    PrimaryPNumberToolTip();
+                    if (newInvoicePrimaryPhoneTypeComboBox.SelectedIndex == -1)
+                    {
+                        PrimaryPTypeToolTip();
+                        if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                        {
+                            if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex == -1)
+                            {
+                                AlternateTypeToolTip();
+                            }
+                        }
+                        if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
+                        {
+                            EmailToolTip();
+                            if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+                            {
+                                DescriptionToolTip();
+                                if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                                {
+                                    TimeOfServiceToolTip();
+                                    if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                                    {
+                                        PTEToolTip();
+                                        if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                                        {
+                                            AnimalToolTip();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (string.IsNullOrEmpty(newInvoicePrimaryPhoneNumberTextBox.Text))
+            {
+                PrimaryPNumberToolTip();
+                if (newInvoicePrimaryPhoneTypeComboBox.SelectedIndex == -1)
+                {
+                    PrimaryPTypeToolTip();
+                    if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                    {
+                        if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex == -1)
+                        {
+                            AlternateTypeToolTip();
+                        }
+                    }
+                    if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
+                    {
+                        EmailToolTip();
+                        if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+                        {
+                            DescriptionToolTip();
+                            if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                            {
+                                TimeOfServiceToolTip();
+                                if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                                {
+                                    PTEToolTip();
+                                    if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                                    {
+                                        AnimalToolTip();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (newInvoicePrimaryPhoneTypeComboBox.SelectedIndex == -1)
+            {
+                PrimaryPTypeToolTip();
+                if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                {
+                    if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex == -1)
+                    {
+                        AlternateTypeToolTip();
+                    }
+                }
+                if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
+                {
+                    EmailToolTip();
+                    if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+                    {
+                        DescriptionToolTip();
+                        if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                        {
+                            TimeOfServiceToolTip();
+                            if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                            {
+                                PTEToolTip();
+                                if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                                {
+                                    AnimalToolTip();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
+            {
+                EmailToolTip();
+                if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                {
+                    if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex == -1)
+                    {
+                        AlternateTypeToolTip();
+                    }
+                }
+                if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+                {
+                    DescriptionToolTip();
+                    if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                    {
+                        TimeOfServiceToolTip();
+                        if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                        {
+                            PTEToolTip();
+                            if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                            {
+                                AnimalToolTip();
+                            }
+                        }
+                    }
+                }
+            }
+            else if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
+            {
+                DescriptionToolTip();
+                if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+                {
+                    TimeOfServiceToolTip();
+                    if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                    {
+                        PTEToolTip();
+                        if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                        {
+                            AnimalToolTip();
+                        }
+                    }
+                }
+            }
+            else if (newInvoiceRequestTimeOfServiceComboBox.SelectedIndex == -1)
+            {
+                TimeOfServiceToolTip();
+                if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+                {
+                    PTEToolTip();
+                    if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                    {
+                        AnimalToolTip();
+                    }
+                }
+            }
+            else if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+            {
+                PTEToolTip();
+                if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+                {
+                    AnimalToolTip();
+                }
+            }
+            else if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+            {
+                AnimalToolTip();
+            }
+            else
+            {
+                // Check if the primary phone number is valid and add to database or display tooltip message and focus the textbox
+                if (IsValidPrimaryPhoneNumber(primaryPhoneNum))
+                {
+                    int.TryParse(primaryPhoneNum, out primaryPhoneNumber);
+
+                    if (newInvoicePrimaryPhoneExtensionTextBox.Text == null)
+                    {
+                        primaryPhoneExten = "0";
+
+                        int.TryParse(primaryPhoneExten, out primaryPhoneExtension);
+                        // Save default extension
+                        OleDbCommand saveOccupantPrimaryPhone = new OleDbCommand("INSERT INTO customer (primary#, primary_extension) VALUES ('" +
+                        primaryPhoneNumber + "', '" + primaryPhoneExtension + "');", conn);
+
+                        // increment i to show something happened.
+                        i += saveOccupantPrimaryPhone.ExecuteNonQuery();
                     }
                     else
                     {
-                        // Display Error
-                        newInvoiceAlternatePhoneNumberTextBox.Focus();
-                        ToolTip wrongFormat = new ToolTip();
-                        wrongFormat.Show("Please use the correct format 9999999999", newInvoiceAlternatePhoneNumberTextBox, 10000);
+                        int.TryParse(primaryPhoneExten, out primaryPhoneExtension);
+                        // Save if extension included
+                        OleDbCommand saveOccupantNumAndExt = new OleDbCommand("INSERT INTO customer (primary#, primary_extension) VALUES ('" +
+                            primaryPhoneNumber + "', '" + primaryPhoneExtension + "');", conn);
+
+                        // Increment i to show something happened
+                        i += saveOccupantNumAndExt.ExecuteNonQuery();
+                    }
+
+                    // Check if the Alternate Phone Number textbox is not empty
+                    if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
+                    {
+                        // Check if Alternate phone number is valid
+                        if (IsValidPrimaryPhoneNumber(alternatePhoneNum))
+                        {
+                            int.TryParse(alternatePhoneNum, out alternatePhoneNumber);
+                            OleDbCommand saveOccupantAlternatePhone = new OleDbCommand("INSERT INTO customer (alternate_phone#) VALUES ('" +
+                                alternatePhoneNumber + "');", conn);
+
+                            if (newInvoiceAlternatePhoneExtensionTextBox.Text != null)
+                            {
+                                int.TryParse(altPhoneExt, out alternatePhoneExtension);
+                                OleDbCommand saveOccAltExt = new OleDbCommand("INSERT INTO customer (alternate_extension) VALUES ('"
+                                    + alternatePhoneExtension + "');", conn);
+                                i += saveOccAltExt.ExecuteNonQuery();
+                            }
+
+                            // increment i to show something happened
+                            i += saveOccupantAlternatePhone.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            // Display Error
+                            newInvoiceAlternatePhoneNumberTextBox.Focus();
+                            ToolTip wrongFormat = new ToolTip();
+                            wrongFormat.Show("Please use the correct format 9999999999", newInvoiceAlternatePhoneNumberTextBox, 10000);
+                        }
                     }
                 }
-            }
-            else
-            {
-                // Display Error
-                newInvoicePrimaryPhoneNumberTextBox.Focus();
-                ToolTip wrongFormat = new ToolTip();
-                wrongFormat.Show("Please use the correct format 9999999999", newInvoicePrimaryPhoneNumberTextBox, 10000);
-            }
+                else
+                {
+                    // Display Error
+                    newInvoicePrimaryPhoneNumberTextBox.Focus();
+                    ToolTip wrongFormat = new ToolTip();
+                    wrongFormat.Show("Please use the correct format 9999999999", newInvoicePrimaryPhoneNumberTextBox, 10000);
+                }
 
-            // Check if user selected yes or no for the permission to enter combobox
-            if (newInvoicePermissionToEnterComboBox.SelectedItem.ToString().ToLower() == "yes")
-            {
-                OleDbCommand pte = new OleDbCommand("INSERT INTO customer (permission_to_enter) VALUES (true);");
-                i += pte.ExecuteNonQuery();
-            }
-            else
-            {
-                OleDbCommand pteNeg = new OleDbCommand("INSERT INTO customer (permission_to_enter) VALUES (false);");
-                i += pteNeg.ExecuteNonQuery();
-            }
-            
-            // Check if the user selected yes or no for the AnimalsInHome combobox
-            if (newInvoiceAnimalsInHomeComboBox.SelectedItem.ToString().ToLower() == "yes")
-            {
-                OleDbCommand pets = new OleDbCommand("INSERT INTO customer (pets) VALUES (true);");
-                i += pets.ExecuteNonQuery();
-            }
-            else
-            {
-                OleDbCommand petsNeg = new OleDbCommand("INSERT INTO customer (pets) VALUES (false);");
-                i += petsNeg.ExecuteNonQuery();
-            }
+                // Check if user selected yes or no for the permission to enter combobox
+                if (newInvoicePermissionToEnterComboBox.SelectedItem.ToString().ToLower() == "yes")
+                {
+                    OleDbCommand pte = new OleDbCommand("INSERT INTO customer (permission_to_enter) VALUES (true);", conn);
+                    i += pte.ExecuteNonQuery();
+                }
+                else
+                {
+                    OleDbCommand pteNeg = new OleDbCommand("INSERT INTO customer (permission_to_enter) VALUES (false);", conn);
+                    i += pteNeg.ExecuteNonQuery();
+                }
 
-            // Save information on the occupant and invoice commands.
-            i += saveOccupant.ExecuteNonQuery();
-            i += saveInvoiceStatus.ExecuteNonQuery();
+                // Check if the user selected yes or no for the AnimalsInHome combobox
+                if (newInvoiceAnimalsInHomeComboBox.SelectedItem.ToString().ToLower() == "yes")
+                {
+                    OleDbCommand pets = new OleDbCommand("INSERT INTO customer (pets) VALUES (true);", conn);
+                    i += pets.ExecuteNonQuery();
+                }
+                else
+                {
+                    OleDbCommand petsNeg = new OleDbCommand("INSERT INTO customer (pets) VALUES (false);", conn);
+                    i += petsNeg.ExecuteNonQuery();
+                }
 
-            // Close the DB connection
-            conn.Close();
+                // Save information on the occupant and invoice commands.
+                i += saveOccupant.ExecuteNonQuery();
+                i += saveInvoiceStatus.ExecuteNonQuery();
 
-            if (i > 0)
-            {
-                // Display confirmation that information has been saved
-                MessageBox.Show("Information successfully saved.");
+                // Close the DB connection
+                conn.Close();
+
+                if (i > 0)
+                {
+                    // Display confirmation that information has been saved
+                    MessageBox.Show("Information successfully saved.");
+                }
             }
         }
 
@@ -235,79 +557,96 @@ namespace Invoice
 
             return valid;
         }
-        
-        // Display Tooltips Method creates a tooltip over the items that are required
-        private void DisplayTooltips()
+
+        // Display Tooltip If first name textbox is empty
+        private void FirstNameToolTip()
         {
-            // Display Tooltips if user hasn't entered in information 
-            if (string.IsNullOrEmpty(newInvoiceFirstNameTextBox.Text))
-            {
                 ToolTip req = new ToolTip();
                 req.Show("Please enter First Name", newInvoiceFirstNameTextBox, 10000);
-            }
-            if (string.IsNullOrEmpty(newInvoiceLastNameTextBox.Text))
-            {
-                ToolTip req1 = new ToolTip();
-                req1.Show("Please enter Last Name", newInvoiceLastNameTextBox, 10000);
-            }
-            if (string.IsNullOrEmpty(newInvoiceStreetAddressTextBox.Text))
-            {
-                ToolTip req2 = new ToolTip();
-                req2.Show("Please enter Street Address", newInvoiceStreetAddressTextBox, 10000);
-            }
-            if (newInvoiceCommunityComboBox.SelectedItem == null)
-            {
-                ToolTip req3 = new ToolTip();
-                req3.Show("Please select a Community", newInvoiceCommunityComboBox, 10000);
-            }
-            if (string.IsNullOrEmpty(newInvoicePrimaryPhoneNumberTextBox.Text))
-            {
-                ToolTip req4 = new ToolTip();
-                req4.Show("Please enter Phone Number (ex: ##########)", newInvoicePrimaryPhoneNumberTextBox, 10000);
-            }
-            if (newInvoicePrimaryPhoneTypeComboBox.SelectedItem == null)
-            {
-                ToolTip req5 = new ToolTip();
-                req5.Show("Please select Phone Type", newInvoicePrimaryPhoneTypeComboBox, 10000);
-            }
-            if (!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text))
-            {
-                if (newInvoiceAlternatePhoneTypeComboBox.SelectedItem == null)
-                {
+        }
+
+        // Display Tooltip if last name text box is empty
+        private void LastNameToolTip()
+        {
+                ToolTip req = new ToolTip();
+                req.Show("Please enter Last Name", newInvoiceLastNameTextBox, 10000);
+        }
+
+        // Diplay tooltip if address text box is empty
+        private void AddressToolTip()
+        {
+                ToolTip req = new ToolTip();
+                req.Show("Please enter Street Address", newInvoiceStreetAddressTextBox, 10000);
+        }
+
+        // Display tooltip if community combobox has nothing selected
+        private void CommunityToolTip()
+        {
+                ToolTip req = new ToolTip();
+                req.Show("Please select a Community", newInvoiceCommunityComboBox, 10000);
+        }
+
+        // Display tooltip if primary phone text box is empty
+        private void PrimaryPNumberToolTip()
+        {
+                ToolTip req = new ToolTip();
+                req.Show("Please enter Phone Number (ex: ##########)", newInvoicePrimaryPhoneNumberTextBox, 10000);
+        }
+
+        // Display tooltip if primary phone type combobox has nothing selected
+        private void PrimaryPTypeToolTip()
+        {
+                ToolTip req = new ToolTip();
+                req.Show("Please select Phone Type", newInvoicePrimaryPhoneTypeComboBox, 10000);
+        }
+
+        // Display tooltip if alternate phone number textbox IS filled, but alt phone type isn't
+        private void AlternateTypeToolTip()
+        {
                     ToolTip altReq = new ToolTip();
                     altReq.Show("Please select Alternate Phone Type", newInvoiceAlternatePhoneTypeComboBox, 10000);
-                }
-            }
-            if (string.IsNullOrEmpty(newInvoiceEmailTextBox.Text))
-            {
+        }
+        
+        // Display tooltip if email text box is empty
+        private void EmailToolTip()
+        {
                 ToolTip req6 = new ToolTip();
                 req6.Show("Please enter an email address", newInvoiceEmailTextBox, 10000);
-            }
-            if (newInvoiceWorkOrderTypeComboBox.SelectedItem == null)
-            {
+        }
+
+        // Display tooltip if workorder type combobox has nothing selected
+        private void WorkOrderTypeToolTip()
+        {
                 ToolTip req7 = new ToolTip();
                 req7.Show("Please select Work Order Type", newInvoiceWorkOrderTypeComboBox, 10000);
-            }
-            if (string.IsNullOrEmpty(newInvoiceDescriptionOfRequestRichTextBox.Text))
-            {
+        }
+
+        // Display tooltip if invoice description rich textbox is empty
+        private void DescriptionToolTip()
+        {
                 ToolTip req8 = new ToolTip();
                 req8.Show("Please describe what you need, including the location", newInvoiceDescriptionOfRequestRichTextBox, 10000);
-            }
-            if (newInvoiceRequestTimeOfServiceComboBox.SelectedItem == null)
-            {
+        }
+
+        // Display tooltip if time of service combobox is empty
+        private void TimeOfServiceToolTip()
+        {
                 ToolTip req9 = new ToolTip();
                 req9.Show("Please select Time of Service", newInvoiceRequestTimeOfServiceComboBox, 10000);
-            }
-            if (newInvoicePermissionToEnterComboBox.SelectedItem == null)
-            {
+        }
+
+        // Display tooltip if permission to enter combobox has nothing selected
+        private void PTEToolTip()
+        {
                 ToolTip req10 = new ToolTip();
                 req10.Show("Please select Yes/No", newInvoicePermissionToEnterComboBox, 10000);
-            }
-            if (newInvoiceAnimalsInHomeComboBox.SelectedItem == null)
-            {
+        }
+
+        // Display tooltip if animal in home combobox has nothing selected
+        private void AnimalToolTip()
+        {
                 ToolTip req11 = new ToolTip();
                 req11.Show("Please select Yes/No", newInvoiceAnimalsInHomeComboBox, 10000);
-            }
         }
-    }
+}
 }

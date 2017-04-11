@@ -127,3 +127,20 @@ C:\Users\renzi\Downloads\CSC-289-Capstone-master\CSC-289-Capstone-master\MASTER 
 C:\Users\renzi\Downloads\CSC-289-Capstone-master\CSC-289-Capstone-master\MASTER Invoice\Invoice\obj\Debug\Invoice.Properties.Resources.resources
 C:\Users\renzi\Downloads\CSC-289-Capstone-master\CSC-289-Capstone-master\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
 C:\Users\renzi\Downloads\CSC-289-Capstone-master\CSC-289-Capstone-master\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\ProjectDB.accdb
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.exe.config
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.exe
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.pdb
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\MySql.Data.xml
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.csprojResolveAssemblyReference.cache
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.AdminForm.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.ContractorWorkOrderForm.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.OfficeWorkOrder.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.WorkOrderForm.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.LoginForm.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.NewWorkOrderForm.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.Properties.Resources.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.exe
+E:\SP2017\CSC 289\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.pdb

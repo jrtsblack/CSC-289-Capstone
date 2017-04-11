@@ -68,7 +68,7 @@
             // 
             // titlePrompt
             // 
-            this.titlePrompt.Location = new System.Drawing.Point(15, 22);
+            this.titlePrompt.Location = new System.Drawing.Point(17, 22);
             this.titlePrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titlePrompt.Name = "titlePrompt";
             this.titlePrompt.Size = new System.Drawing.Size(427, 38);
@@ -82,7 +82,7 @@
             this.submitInvoiceButton.Margin = new System.Windows.Forms.Padding(4);
             this.submitInvoiceButton.Name = "submitInvoiceButton";
             this.submitInvoiceButton.Size = new System.Drawing.Size(100, 28);
-            this.submitInvoiceButton.TabIndex = 18;
+            this.submitInvoiceButton.TabIndex = 16;
             this.submitInvoiceButton.Text = "Submit";
             this.submitInvoiceButton.UseVisualStyleBackColor = true;
             this.submitInvoiceButton.Click += new System.EventHandler(this.saveInvoiceButton_Click);
@@ -93,7 +93,7 @@
             this.clearFieldsButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearFieldsButton.Name = "clearFieldsButton";
             this.clearFieldsButton.Size = new System.Drawing.Size(100, 28);
-            this.clearFieldsButton.TabIndex = 19;
+            this.clearFieldsButton.TabIndex = 17;
             this.clearFieldsButton.Text = "Clear Fields";
             this.clearFieldsButton.UseVisualStyleBackColor = true;
             this.clearFieldsButton.Click += new System.EventHandler(this.clearFieldsButton_Click);
@@ -104,7 +104,7 @@
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(100, 28);
-            this.cancelButton.TabIndex = 21;
+            this.cancelButton.TabIndex = 18;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -261,67 +261,67 @@
             // 
             // newInvoiceFirstNameTextBox
             // 
-            this.newInvoiceFirstNameTextBox.Location = new System.Drawing.Point(233, 64);
+            this.newInvoiceFirstNameTextBox.Location = new System.Drawing.Point(232, 64);
             this.newInvoiceFirstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceFirstNameTextBox.Name = "newInvoiceFirstNameTextBox";
             this.newInvoiceFirstNameTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoiceFirstNameTextBox.TabIndex = 1;
+            this.newInvoiceFirstNameTextBox.TabIndex = 0;
             // 
             // newInvoiceLastNameTextBox
             // 
-            this.newInvoiceLastNameTextBox.Location = new System.Drawing.Point(233, 97);
+            this.newInvoiceLastNameTextBox.Location = new System.Drawing.Point(232, 97);
             this.newInvoiceLastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceLastNameTextBox.Name = "newInvoiceLastNameTextBox";
             this.newInvoiceLastNameTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoiceLastNameTextBox.TabIndex = 2;
+            this.newInvoiceLastNameTextBox.TabIndex = 1;
             // 
             // newInvoiceStreetAddressTextBox
             // 
-            this.newInvoiceStreetAddressTextBox.Location = new System.Drawing.Point(233, 129);
+            this.newInvoiceStreetAddressTextBox.Location = new System.Drawing.Point(232, 129);
             this.newInvoiceStreetAddressTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceStreetAddressTextBox.Name = "newInvoiceStreetAddressTextBox";
             this.newInvoiceStreetAddressTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoiceStreetAddressTextBox.TabIndex = 3;
+            this.newInvoiceStreetAddressTextBox.TabIndex = 2;
             // 
             // newInvoicePrimaryPhoneNumberTextBox
             // 
-            this.newInvoicePrimaryPhoneNumberTextBox.Location = new System.Drawing.Point(233, 196);
+            this.newInvoicePrimaryPhoneNumberTextBox.Location = new System.Drawing.Point(232, 196);
             this.newInvoicePrimaryPhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoicePrimaryPhoneNumberTextBox.Name = "newInvoicePrimaryPhoneNumberTextBox";
             this.newInvoicePrimaryPhoneNumberTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoicePrimaryPhoneNumberTextBox.TabIndex = 5;
+            this.newInvoicePrimaryPhoneNumberTextBox.TabIndex = 4;
             // 
             // newInvoicePrimaryPhoneExtensionTextBox
             // 
-            this.newInvoicePrimaryPhoneExtensionTextBox.Location = new System.Drawing.Point(233, 229);
+            this.newInvoicePrimaryPhoneExtensionTextBox.Location = new System.Drawing.Point(232, 229);
             this.newInvoicePrimaryPhoneExtensionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoicePrimaryPhoneExtensionTextBox.Name = "newInvoicePrimaryPhoneExtensionTextBox";
             this.newInvoicePrimaryPhoneExtensionTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoicePrimaryPhoneExtensionTextBox.TabIndex = 6;
+            this.newInvoicePrimaryPhoneExtensionTextBox.TabIndex = 5;
             // 
             // newInvoiceAlternatePhoneNumberTextBox
             // 
-            this.newInvoiceAlternatePhoneNumberTextBox.Location = new System.Drawing.Point(233, 295);
+            this.newInvoiceAlternatePhoneNumberTextBox.Location = new System.Drawing.Point(232, 295);
             this.newInvoiceAlternatePhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceAlternatePhoneNumberTextBox.Name = "newInvoiceAlternatePhoneNumberTextBox";
             this.newInvoiceAlternatePhoneNumberTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoiceAlternatePhoneNumberTextBox.TabIndex = 8;
+            this.newInvoiceAlternatePhoneNumberTextBox.TabIndex = 7;
             // 
             // newInvoiceAlternatePhoneExtensionTextBox
             // 
-            this.newInvoiceAlternatePhoneExtensionTextBox.Location = new System.Drawing.Point(233, 329);
+            this.newInvoiceAlternatePhoneExtensionTextBox.Location = new System.Drawing.Point(232, 329);
             this.newInvoiceAlternatePhoneExtensionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceAlternatePhoneExtensionTextBox.Name = "newInvoiceAlternatePhoneExtensionTextBox";
             this.newInvoiceAlternatePhoneExtensionTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoiceAlternatePhoneExtensionTextBox.TabIndex = 9;
+            this.newInvoiceAlternatePhoneExtensionTextBox.TabIndex = 8;
             // 
             // newInvoiceEmailTextBox
             // 
-            this.newInvoiceEmailTextBox.Location = new System.Drawing.Point(233, 395);
+            this.newInvoiceEmailTextBox.Location = new System.Drawing.Point(232, 395);
             this.newInvoiceEmailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceEmailTextBox.Name = "newInvoiceEmailTextBox";
             this.newInvoiceEmailTextBox.Size = new System.Drawing.Size(245, 22);
-            this.newInvoiceEmailTextBox.TabIndex = 11;
+            this.newInvoiceEmailTextBox.TabIndex = 10;
             // 
             // newInvoiceCommunityLabelPrompt
             // 
@@ -335,6 +335,7 @@
             // 
             // newInvoiceCommunityComboBox
             // 
+            this.newInvoiceCommunityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newInvoiceCommunityComboBox.FormattingEnabled = true;
             this.newInvoiceCommunityComboBox.Items.AddRange(new object[] {
             "Ardennes/Bataan",
@@ -346,41 +347,44 @@
             "Normandy/Bastogne Gables",
             "Pope",
             "St Mere Eglise"});
-            this.newInvoiceCommunityComboBox.Location = new System.Drawing.Point(233, 161);
+            this.newInvoiceCommunityComboBox.Location = new System.Drawing.Point(232, 161);
             this.newInvoiceCommunityComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceCommunityComboBox.Name = "newInvoiceCommunityComboBox";
             this.newInvoiceCommunityComboBox.Size = new System.Drawing.Size(245, 24);
-            this.newInvoiceCommunityComboBox.TabIndex = 4;
+            this.newInvoiceCommunityComboBox.TabIndex = 3;
             // 
             // newInvoicePrimaryPhoneTypeComboBox
             // 
+            this.newInvoicePrimaryPhoneTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newInvoicePrimaryPhoneTypeComboBox.FormattingEnabled = true;
             this.newInvoicePrimaryPhoneTypeComboBox.Items.AddRange(new object[] {
             "Home",
             "Work",
             "Mobile"});
-            this.newInvoicePrimaryPhoneTypeComboBox.Location = new System.Drawing.Point(233, 262);
+            this.newInvoicePrimaryPhoneTypeComboBox.Location = new System.Drawing.Point(232, 262);
             this.newInvoicePrimaryPhoneTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoicePrimaryPhoneTypeComboBox.Name = "newInvoicePrimaryPhoneTypeComboBox";
             this.newInvoicePrimaryPhoneTypeComboBox.Size = new System.Drawing.Size(245, 24);
-            this.newInvoicePrimaryPhoneTypeComboBox.TabIndex = 7;
+            this.newInvoicePrimaryPhoneTypeComboBox.TabIndex = 6;
             // 
             // newInvoiceAlternatePhoneTypeComboBox
             // 
+            this.newInvoiceAlternatePhoneTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newInvoiceAlternatePhoneTypeComboBox.FormattingEnabled = true;
             this.newInvoiceAlternatePhoneTypeComboBox.Items.AddRange(new object[] {
             "None",
             "Home",
             "Work",
             "Mobile"});
-            this.newInvoiceAlternatePhoneTypeComboBox.Location = new System.Drawing.Point(233, 362);
+            this.newInvoiceAlternatePhoneTypeComboBox.Location = new System.Drawing.Point(232, 362);
             this.newInvoiceAlternatePhoneTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceAlternatePhoneTypeComboBox.Name = "newInvoiceAlternatePhoneTypeComboBox";
             this.newInvoiceAlternatePhoneTypeComboBox.Size = new System.Drawing.Size(245, 24);
-            this.newInvoiceAlternatePhoneTypeComboBox.TabIndex = 10;
+            this.newInvoiceAlternatePhoneTypeComboBox.TabIndex = 9;
             // 
             // newInvoiceWorkOrderTypeComboBox
             // 
+            this.newInvoiceWorkOrderTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newInvoiceWorkOrderTypeComboBox.FormattingEnabled = true;
             this.newInvoiceWorkOrderTypeComboBox.Items.AddRange(new object[] {
             "Plumbing",
@@ -388,11 +392,11 @@
             "Electrical",
             "HVAC",
             "Other"});
-            this.newInvoiceWorkOrderTypeComboBox.Location = new System.Drawing.Point(233, 428);
+            this.newInvoiceWorkOrderTypeComboBox.Location = new System.Drawing.Point(232, 428);
             this.newInvoiceWorkOrderTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceWorkOrderTypeComboBox.Name = "newInvoiceWorkOrderTypeComboBox";
             this.newInvoiceWorkOrderTypeComboBox.Size = new System.Drawing.Size(245, 24);
-            this.newInvoiceWorkOrderTypeComboBox.TabIndex = 13;
+            this.newInvoiceWorkOrderTypeComboBox.TabIndex = 11;
             // 
             // newInvoiceDescriptionOfRequestRichTextBox
             // 
@@ -400,32 +404,34 @@
             this.newInvoiceDescriptionOfRequestRichTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceDescriptionOfRequestRichTextBox.Name = "newInvoiceDescriptionOfRequestRichTextBox";
             this.newInvoiceDescriptionOfRequestRichTextBox.Size = new System.Drawing.Size(456, 117);
-            this.newInvoiceDescriptionOfRequestRichTextBox.TabIndex = 14;
+            this.newInvoiceDescriptionOfRequestRichTextBox.TabIndex = 12;
             this.newInvoiceDescriptionOfRequestRichTextBox.Text = "";
             // 
             // newInvoicePermissionToEnterComboBox
             // 
+            this.newInvoicePermissionToEnterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newInvoicePermissionToEnterComboBox.FormattingEnabled = true;
             this.newInvoicePermissionToEnterComboBox.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.newInvoicePermissionToEnterComboBox.Location = new System.Drawing.Point(235, 653);
+            this.newInvoicePermissionToEnterComboBox.Location = new System.Drawing.Point(232, 653);
             this.newInvoicePermissionToEnterComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoicePermissionToEnterComboBox.Name = "newInvoicePermissionToEnterComboBox";
             this.newInvoicePermissionToEnterComboBox.Size = new System.Drawing.Size(245, 24);
-            this.newInvoicePermissionToEnterComboBox.TabIndex = 16;
+            this.newInvoicePermissionToEnterComboBox.TabIndex = 14;
             // 
             // newInvoiceAnimalsInHomeComboBox
             // 
+            this.newInvoiceAnimalsInHomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newInvoiceAnimalsInHomeComboBox.FormattingEnabled = true;
             this.newInvoiceAnimalsInHomeComboBox.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.newInvoiceAnimalsInHomeComboBox.Location = new System.Drawing.Point(235, 687);
+            this.newInvoiceAnimalsInHomeComboBox.Location = new System.Drawing.Point(232, 687);
             this.newInvoiceAnimalsInHomeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.newInvoiceAnimalsInHomeComboBox.Name = "newInvoiceAnimalsInHomeComboBox";
             this.newInvoiceAnimalsInHomeComboBox.Size = new System.Drawing.Size(245, 24);
-            this.newInvoiceAnimalsInHomeComboBox.TabIndex = 17;
+            this.newInvoiceAnimalsInHomeComboBox.TabIndex = 15;
             // 
             // newInvoiceRequestTimeOfServiceComboBox
             // 
@@ -433,11 +439,16 @@
             "AM",
             "PM",
             "Any"});
+            this.newInvoiceRequestTimeOfServiceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newInvoiceRequestTimeOfServiceComboBox.FormattingEnabled = true;
-            this.newInvoiceRequestTimeOfServiceComboBox.Location = new System.Drawing.Point(233, 621);
+            this.newInvoiceRequestTimeOfServiceComboBox.Items.AddRange(new object[] {
+            "AM",
+            "PM",
+            "Any"});
+            this.newInvoiceRequestTimeOfServiceComboBox.Location = new System.Drawing.Point(232, 621);
             this.newInvoiceRequestTimeOfServiceComboBox.Name = "newInvoiceRequestTimeOfServiceComboBox";
-            this.newInvoiceRequestTimeOfServiceComboBox.Size = new System.Drawing.Size(244, 24);
-            this.newInvoiceRequestTimeOfServiceComboBox.TabIndex = 1100;
+            this.newInvoiceRequestTimeOfServiceComboBox.Size = new System.Drawing.Size(245, 24);
+            this.newInvoiceRequestTimeOfServiceComboBox.TabIndex = 13;
             // 
             // NewWorkOrderForm
             // 

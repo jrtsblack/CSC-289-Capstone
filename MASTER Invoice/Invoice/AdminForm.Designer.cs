@@ -44,16 +44,17 @@
             this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectDBData = new Invoice.ProjectDBData();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.userAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.invoiceTableAdapter = new Invoice.ProjectDBDataTableAdapters.InvoiceTableAdapter();
-            this.userAccountsTableAdapter = new Invoice.ProjectDBDataTableAdapters.UserAccountsTableAdapter();
-            this.officeWorkerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.officeWorkerTableAdapter = new Invoice.ProjectDBDataTableAdapters.OfficeWorkerTableAdapter();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.confirmedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.userAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.invoiceTableAdapter = new Invoice.ProjectDBDataTableAdapters.InvoiceTableAdapter();
+            this.userAccountsTableAdapter = new Invoice.ProjectDBDataTableAdapters.UserAccountsTableAdapter();
+            this.officeWorkerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.officeWorkerTableAdapter = new Invoice.ProjectDBDataTableAdapters.OfficeWorkerTableAdapter();
+            this.logoutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDBData)).BeginInit();
@@ -196,28 +197,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(545, 192);
             this.dataGridView1.TabIndex = 10;
             // 
-            // userAccountsBindingSource
-            // 
-            this.userAccountsBindingSource.DataMember = "UserAccounts";
-            this.userAccountsBindingSource.DataSource = this.projectDBData;
-            // 
-            // invoiceTableAdapter
-            // 
-            this.invoiceTableAdapter.ClearBeforeFill = true;
-            // 
-            // userAccountsTableAdapter
-            // 
-            this.userAccountsTableAdapter.ClearBeforeFill = true;
-            // 
-            // officeWorkerBindingSource
-            // 
-            this.officeWorkerBindingSource.DataMember = "OfficeWorker";
-            this.officeWorkerBindingSource.DataSource = this.projectDBData;
-            // 
-            // officeWorkerTableAdapter
-            // 
-            this.officeWorkerTableAdapter.ClearBeforeFill = true;
-            // 
             // selected
             // 
             this.selected.HeaderText = "Selected";
@@ -247,11 +226,44 @@
             this.confirmedDataGridViewCheckBoxColumn.HeaderText = "Confirmed";
             this.confirmedDataGridViewCheckBoxColumn.Name = "confirmedDataGridViewCheckBoxColumn";
             // 
+            // userAccountsBindingSource
+            // 
+            this.userAccountsBindingSource.DataMember = "UserAccounts";
+            this.userAccountsBindingSource.DataSource = this.projectDBData;
+            // 
+            // invoiceTableAdapter
+            // 
+            this.invoiceTableAdapter.ClearBeforeFill = true;
+            // 
+            // userAccountsTableAdapter
+            // 
+            this.userAccountsTableAdapter.ClearBeforeFill = true;
+            // 
+            // officeWorkerBindingSource
+            // 
+            this.officeWorkerBindingSource.DataMember = "OfficeWorker";
+            this.officeWorkerBindingSource.DataSource = this.projectDBData;
+            // 
+            // officeWorkerTableAdapter
+            // 
+            this.officeWorkerTableAdapter.ClearBeforeFill = true;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(756, 332);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 18;
+            this.logoutButton.Text = "Log Out";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 367);
+            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.updateInvoiceButton);
             this.Controls.Add(this.showAllInvoiceButton);
             this.Controls.Add(this.deleteUserButton);
@@ -299,5 +311,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn confirmedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Button logoutButton;
     }
 }

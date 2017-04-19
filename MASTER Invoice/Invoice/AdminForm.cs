@@ -41,12 +41,10 @@ namespace Invoice
                     data += "'" + (dataGridView1.Rows[i].Cells[1].Value.ToString()) + "'" + ",";
                 }
             }
-            MessageBox.Show(data);
             data = data.TrimEnd(',');
             OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=ProjectDB.accdb");
 
             string updatesql = "UPDATE UserAccounts SET Confirmed='1' WHERE email IN (" + data + ")";
-            MessageBox.Show(updatesql);
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[selected.Name].Value) == true)
@@ -174,6 +172,20 @@ namespace Invoice
 
             OleDbCommandBuilder cmdbl = new OleDbCommandBuilder(adapter);
             adapter.Update(ds, "Invoices");
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=ProjectDB.accdb");
+            connection.Open();
+            OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '0'" +
+                               "WHERE LoggedIn=1", connection);
+            loggedIn.ExecuteNonQuery();
+            connection.Close();
+
+            LoginForm login = new LoginForm();
+            login.Show();
+            this.Close();
         }
     }
 }

@@ -34,6 +34,8 @@ namespace Invoice
          */
         private void cancelButton_Click(object sender, EventArgs e)
         {
+
+            
             // Assign false to logged in.
             if (!string.IsNullOrEmpty(emailEntryTextBox.Text))
             {
@@ -88,7 +90,11 @@ namespace Invoice
                 /**
                  * MySQLCommand that will be used to query the database using the entered email and password
                  */
-                OleDbCommand command = new OleDbCommand("Select Email, Password, UserType, Confirmed from UserAccounts where Email='" + emailEntryTextBox.Text.ToLower() + "'and Password='" + passwordEntryTextBox.Text + "'", connection);
+                OleDbCommand command = new OleDbCommand("Select Email, Password, UserType, Confirmed from UserAccounts where Email='" + emailEntryTextBox.Text.ToLower() + "'and StrComp(Password, '" + passwordEntryTextBox.Text + "', 0)=0", connection);
+
+                command.ExecuteNonQuery();
+                
+                
 
                 /**
                  *  Fill the DataTable with results from the query. 

@@ -162,3 +162,21 @@ C:\Users\renzi\Downloads\CSC-289-Capstone-master (2)\CSC-289-Capstone-master\MAS
 C:\Users\renzi\Downloads\CSC-289-Capstone-master (2)\CSC-289-Capstone-master\MASTER Invoice\Invoice\obj\Debug\Invoice.Properties.Resources.resources
 C:\Users\renzi\Downloads\CSC-289-Capstone-master (2)\CSC-289-Capstone-master\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
 C:\Users\renzi\Downloads\CSC-289-Capstone-master (2)\CSC-289-Capstone-master\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.exe.config
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.exe
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.pdb
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\ProjectDB.accdb
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.exe
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.pdb
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\MySql.Data.dll
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\MySql.Data.xml
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.csprojResolveAssemblyReference.cache
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.AdminForm.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.ContractorWorkOrderForm.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.OfficeWorkOrder.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.WorkOrderForm.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.LoginForm.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.NewWorkOrderForm.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.Properties.Resources.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
+C:\Users\renzi\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache

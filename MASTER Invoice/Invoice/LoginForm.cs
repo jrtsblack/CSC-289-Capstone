@@ -34,7 +34,7 @@ namespace Invoice
          */
         private void cancelButton_Click(object sender, EventArgs e)
         {
-
+           
             
             // Assign false to logged in.
             if (!string.IsNullOrEmpty(emailEntryTextBox.Text))
@@ -123,13 +123,14 @@ namespace Invoice
                      */
                     else if (confirmed == "True")
                     {
+                        ActiveUser.email = email;
+                        ActiveUser.usertype = usertype;
                         if (usertype == "Occupant" || usertype == "Office Worker")
                         {
                             // Set user loggedIn status to True
                             OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '1'" +
                                 "WHERE Email =" + "'" + email + "'", connection);
                             loggedIn.ExecuteNonQuery();
-
                             MessageBox.Show("Login Successful!");
                             WorkOrderForm invoice = new WorkOrderForm();
                             this.Hide();

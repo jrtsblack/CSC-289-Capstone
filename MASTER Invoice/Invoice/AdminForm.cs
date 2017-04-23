@@ -178,14 +178,38 @@ namespace Invoice
         {
             OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=ProjectDB.accdb");
             connection.Open();
-            OleDbCommand loggedIn = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '0'" +
-                               "WHERE LoggedIn=1", connection);
-            loggedIn.ExecuteNonQuery();
+            OleDbCommand logout = new OleDbCommand("UPDATE UserAccounts SET LoggedIn = '0'" +
+                               "WHERE Email='" + ActiveUser.email + "'", connection);
+            logout.ExecuteNonQuery();
             connection.Close();
 
             LoginForm login = new LoginForm();
             login.Show();
             this.Close();
+        }
+
+        private void showWorkOrderFormButton_Click(object sender, EventArgs e)
+        {
+            WorkOrderForm wof = new WorkOrderForm();
+            wof.Show();            
+        }
+
+        private void showContractorWorkOrderFormButton_Click(object sender, EventArgs e)
+        {
+            ContractorWorkOrderForm cwof = new ContractorWorkOrderForm();
+            cwof.Show();
+        }
+
+        private void showNewWorkOrderFormButton_Click(object sender, EventArgs e)
+        {
+            NewWorkOrderForm nwof = new NewWorkOrderForm();
+            nwof.Show();
+        }
+        
+        private void showOfficeWorkOrderForm_Click(object sender, EventArgs e)
+        {
+            OfficeWorkOrder owof = new OfficeWorkOrder();
+            owof.Show();
         }
     }
 }

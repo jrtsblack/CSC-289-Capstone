@@ -66,75 +66,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveUser.cs" />
-    <Compile Include="AdminForm.cs">
+    <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
+    <Compile Include="Forms\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContractorWorkOrderForm.cs">
+    <Compile Include="Forms\ContractorWorkOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContractorWorkOrderForm.Designer.cs">
+    <Compile Include="Forms\ContractorWorkOrderForm.Designer.cs">
       <DependentUpon>ContractorWorkOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OfficeWorkOrder.cs">
+    <Compile Include="Forms\OfficeWorkOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OfficeWorkOrder.Designer.cs">
+    <Compile Include="Forms\OfficeWorkOrder.Designer.cs">
       <DependentUpon>OfficeWorkOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectDBData.cs">
-      <DependentUpon>ProjectDBData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectDBData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProjectDBData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="WorkOrderForm.cs">
+    <Compile Include="Forms\WorkOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkOrderForm.Designer.cs">
+    <Compile Include="Forms\WorkOrderForm.Designer.cs">
       <DependentUpon>WorkOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewWorkOrderForm.cs">
+    <Compile Include="Forms\NewWorkOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewWorkOrderForm.Designer.cs">
+    <Compile Include="Forms\NewWorkOrderForm.Designer.cs">
       <DependentUpon>NewWorkOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterForm.cs">
+    <Compile Include="Forms\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterForm.Designer.cs">
+    <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminForm.resx">
+    <EmbeddedResource Include="Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContractorWorkOrderForm.resx">
+    <EmbeddedResource Include="Forms\ContractorWorkOrderForm.resx">
       <DependentUpon>ContractorWorkOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OfficeWorkOrder.resx">
+    <EmbeddedResource Include="Forms\OfficeWorkOrder.resx">
       <DependentUpon>OfficeWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WorkOrderForm.resx">
+    <EmbeddedResource Include="Forms\WorkOrderForm.resx">
       <DependentUpon>WorkOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewWorkOrderForm.resx">
+    <EmbeddedResource Include="Forms\NewWorkOrderForm.resx">
       <DependentUpon>NewWorkOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -146,19 +142,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegisterForm.resx">
+    <EmbeddedResource Include="Forms\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ProjectDBData.xsc">
-      <DependentUpon>ProjectDBData.xsd</DependentUpon>
+    <None Include="bin\Debug\Invoice.exe.config" />
+    <None Include="bin\Debug\Invoice.vshost.exe.config" />
+    <None Include="ProjectDBDataSet.xsc">
+      <DependentUpon>ProjectDBDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ProjectDBData.xsd">
+    <None Include="ProjectDBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ProjectDBData.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProjectDBDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="ProjectDBData.xss">
-      <DependentUpon>ProjectDBData.xsd</DependentUpon>
+    <None Include="ProjectDBDataSet.xss">
+      <DependentUpon>ProjectDBDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -174,7 +172,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ProjectDB.accdb">
+    <Content Include="bin\Debug\Engine.dll" />
+    <Content Include="bin\Debug\Engine.pdb" />
+    <Content Include="bin\Debug\Invoice.exe" />
+    <Content Include="bin\Debug\Invoice.pdb" />
+    <Content Include="bin\Debug\Invoice.vshost.exe" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\MySql.Data.xml" />
+    <Content Include="bin\Debug\ProjectDB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\ProjectDB_log.ldf">
+      <DependentUpon>ProjectDB.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -189,6 +198,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.csproj">
+      <Project>{a48a823b-422f-43e4-be07-50660490af6e}</Project>
+      <Name>Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

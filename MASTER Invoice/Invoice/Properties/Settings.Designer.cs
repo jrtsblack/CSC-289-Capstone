@@ -44,5 +44,39 @@ namespace Invoice.Properties {
                 return ((string)(this["ProjectDBAccessConnection"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\renzi\\Desktop\\Sourc" +
+            "e\\Repos\\CSC-289-Capstone\\MASTER Invoice\\Engine\\ProjectDB.mdf\";Integrated Securit" +
+            "y=True")]
+        public string ProjectDBConnectionString {
+            get {
+                return ((string)(this["ProjectDBConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ProjectDB.mdf" +
+            ";Integrated Security=True")]
+        public string ProjectDBConnectionString1 {
+            get {
+                return ((string)(this["ProjectDBConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\bin\\Debug\\Pro" +
+            "jectDB.mdf;Integrated Security=True")]
+        public string ProjectDBConnectionString2 {
+            get {
+                return ((string)(this["ProjectDBConnectionString2"]));
+            }
+        }
     }
 }

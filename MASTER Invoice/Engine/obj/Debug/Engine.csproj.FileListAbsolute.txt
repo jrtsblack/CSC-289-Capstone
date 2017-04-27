@@ -1,0 +1,5 @@
+C:\Users\renzi\Desktop\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\bin\Debug\Engine.dll
+C:\Users\renzi\Desktop\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\bin\Debug\Engine.pdb
+C:\Users\renzi\Desktop\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.dll
+C:\Users\renzi\Desktop\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.pdb
+C:\Users\renzi\Desktop\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache

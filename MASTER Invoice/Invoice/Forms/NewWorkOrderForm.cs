@@ -87,7 +87,7 @@ namespace Invoice
                 // Open DB connection to manipulate data
                 conn.Open();
                 i += saveOccupant().ExecuteNonQuery();
-                i += saveInvoiceStatus().ExecuteNonQuery();
+                i += saveInvoice().ExecuteNonQuery();
                 conn.Close();
 
                 if (i > 0)

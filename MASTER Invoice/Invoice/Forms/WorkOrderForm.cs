@@ -48,12 +48,13 @@ namespace Invoice
             // Open DB connection
             conn.Open();
             string commName, firstName, lastName, address, email, primPhoneType, altPhoneType, pte, pets, invoiceType, description,
-                complete, tos, primNum, primExtension, altNum, altExtension, invoiceID, comments;          
+                complete, tos, primNum, primExtension, altNum, altExtension, invoiceID, customerID, comments;          
 
             // Command to grab user information from the database
-            SqlCommand user = new SqlCommand($"SELECT First, Last, Email, Address, Community_Name, Primary#, Primary_Phone_Type, Primary_Extension, " + 
-                "Alternate_Phone#, Alternate_Phone_Type, Alternate_Extension, Permission_To_Enter, Pets, Invoice_ID, Invoice_Type, Description, Complete, TimeOfService, Comments " +
-                "FROM Customer, Invoice WHERE Customer.Email ={userName.emailEntryTextBox.Text} AND Customer.Customer_ID LIKE Invoice.Customer_ID;", conn);
+            SqlCommand user = new SqlCommand("SELECT Invoice_ID, Customer_ID, Community_Name, Address, " +
+                "Email, Primary#, Primary#Extension, Primary#Type, Alt#, Alt#Extension, Alt#Type, " +
+                "PermissionToEnter, Pets, Complete, TimeOfService, InvoiceType, Description, Comments, " +
+                "First, Last FROM Invoice, Customer", conn);
             SqlDataAdapter data = new SqlDataAdapter(user);
             // Table to hold the user data
             DataTable table1 = new DataTable();
@@ -70,18 +71,19 @@ namespace Invoice
                 address = table1.Rows[0]["Address"].ToString();
                 email = table1.Rows[0]["Email"].ToString();
                 primNum = table1.Rows[0]["Primary#"].ToString();
-                primPhoneType = table1.Rows[0]["Primary_Phone_Type"].ToString();
-                primExtension = table1.Rows[0]["Primary_Extension"].ToString();
-                altNum = table1.Rows[0]["Alternate_Phone#"].ToString();
-                altPhoneType = table1.Rows[0]["Alternate_Phone_Type"].ToString();
-                altExtension = table1.Rows[0]["Alternate_Extension"].ToString();
-                pte = table1.Rows[0]["Permission_To_Enter"].ToString();
+                primPhoneType = table1.Rows[0]["Primary#Type"].ToString();
+                primExtension = table1.Rows[0]["Primary#Extension"].ToString();
+                altNum = table1.Rows[0]["Alt#"].ToString();
+                altPhoneType = table1.Rows[0]["Alt#Type"].ToString();
+                altExtension = table1.Rows[0]["Alt#Extension"].ToString();
+                pte = table1.Rows[0]["PermissionToEnter"].ToString();
                 pets = table1.Rows[0]["Pets"].ToString();
-                invoiceType = table1.Rows[0]["Invoice_Type"].ToString();
+                invoiceType = table1.Rows[0]["InvoiceType"].ToString();
                 description = table1.Rows[0]["Description"].ToString();
                 complete = table1.Rows[0]["Complete"].ToString();
                 tos = table1.Rows[0]["TimeOfService"].ToString();
                 invoiceID = table1.Rows[0]["Invoice_ID"].ToString();
+                customerID = table1.Rows[0]["Customer_ID"].ToString();
                 comments = table1.Rows[0]["Comments"].ToString();
 
                 invoiceInformationFirstNameLabel.Text = firstName;

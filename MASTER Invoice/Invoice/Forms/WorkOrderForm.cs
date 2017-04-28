@@ -51,10 +51,9 @@ namespace Invoice
                 complete, tos, primNum, primExtension, altNum, altExtension, invoiceID, comments;          
 
             // Command to grab user information from the database
-            SqlCommand user = new SqlCommand($"SELECT Community_Name, First, Last, Address,  Email, Primary#, Primary_Phone_Type, Primary_Extension, " + 
+            SqlCommand user = new SqlCommand($"SELECT First, Last, Email, Address, Community_Name, Primary#, Primary_Phone_Type, Primary_Extension, " + 
                 "Alternate_Phone#, Alternate_Phone_Type, Alternate_Extension, Permission_To_Enter, Pets, Invoice_ID, Invoice_Type, Description, Complete, TimeOfService, Comments " +
-                "FROM Customer, Invoice, InvoiceStatus WHERE Customer.Email ={userName.emailEntryTextBox.Text} AND Customer.Customer_ID LIKE Invoice.Customer_ID AND Invoice.Invoice_Status_ID " + 
-                "LIKE  InvoiceStatus.Invoice_Status_ID;", conn);
+                "FROM Customer, Invoice WHERE Customer.Email ={userName.emailEntryTextBox.Text} AND Customer.Customer_ID LIKE Invoice.Customer_ID;", conn);
             SqlDataAdapter data = new SqlDataAdapter(user);
             // Table to hold the user data
             DataTable table1 = new DataTable();

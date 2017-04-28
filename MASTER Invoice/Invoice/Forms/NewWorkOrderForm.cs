@@ -340,61 +340,78 @@ namespace Invoice
         {
             SqlCommand saveOccupant;
 
-            if (string.IsNullOrWhiteSpace(newInvoiceAlternatePhoneNumberTextBox.Text))
-            {
-                saveOccupant = new SqlCommand("INSERT INTO customer (first, last, address, community_name, "
-                + "email, primary#, primary_phone_type, primary_extension, "
-                + "permission_to_enter, pets) VALUES (@firstname, @lastname, @address, "
-                + "@communityname, @emailaddress, @primarynum, @phonetype, @primaryex,  @pte, @pet)", conn);
+            saveOccupant = new SqlCommand("INSERT INTO customer (first, last, email, phone#) VALUES "
+                    + "(@firstname, @lastname, @emailaddress, @phonenum", conn);
 
-                saveOccupant.Parameters.AddWithValue("@firstname", newInvoiceFirstNameTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@lastname", newInvoiceLastNameTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@address", newInvoiceStreetAddressTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower());
-                saveOccupant.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@primarynum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@phonetype", newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower());
-                saveOccupant.Parameters.AddWithValue("@primaryex", newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@pte", getPTE());
-                saveOccupant.Parameters.AddWithValue("@pet", getPET());
-            }
-            else
-            {
-                saveOccupant = new SqlCommand("INSERT INTO customer (first, last, address, community_name, "
-                + "email, primary#, primary_phone_type, primary_extension, alternate_phone#, alternate_phone_type, "
-                + "alternate_extension, permission_to_enter, pets) VALUES (@firstname, @lastname, @address, "
-                + "@communityname, @emailaddress, @primarynum, @phonetype, @primaryex, @altnum, @altphonetype, @altex, @pte, @pet)", conn);
-
-                saveOccupant.Parameters.AddWithValue("@firstname", newInvoiceFirstNameTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@lastname", newInvoiceLastNameTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@address", newInvoiceStreetAddressTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower());
-                saveOccupant.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@primarynum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@phonetype", newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower());
-                saveOccupant.Parameters.AddWithValue("@primaryex", newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@altnum", newInvoiceAlternatePhoneNumberTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@altphonetype", newInvoiceAlternatePhoneTypeComboBox.SelectedItem.ToString().ToLower());
-                saveOccupant.Parameters.AddWithValue("@altex", newInvoiceAlternatePhoneExtensionTextBox.Text.ToLower());
-                saveOccupant.Parameters.AddWithValue("@pte", getPTE());
-                saveOccupant.Parameters.AddWithValue("@pet", getPET());
-            }
+            saveOccupant.Parameters.AddWithValue("@firstname", newInvoiceFirstNameTextBox.Text.ToLower());
+            saveOccupant.Parameters.AddWithValue("@lastname", newInvoiceLastNameTextBox.Text.ToLower());
+            saveOccupant.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
+            saveOccupant.Parameters.AddWithValue("@phonenum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
 
             return saveOccupant;
             
         }
 
-        // Save the String Values into the InvoiceStatus table
-        private SqlCommand saveInvoiceStatus()
+        // Save the String Values into the Invoice table
+        private SqlCommand saveInvoice()
         {
-            SqlCommand saveInvoiceStatus;
-            saveInvoiceStatus = new SqlCommand("insert into invoiceStatus (invoice_type, description, timeOfService) VALUES" + 
-                "(@invoice_type, @description, @timeOfService)", conn);
-            saveInvoiceStatus.Parameters.AddWithValue("@invoice_type", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
-            saveInvoiceStatus.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
-            saveInvoiceStatus.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());
+            SqlCommand saveInvoice;            
 
-            return saveInvoiceStatus;
+            if (string.IsNullOrWhiteSpace(newInvoiceAlternatePhoneNumberTextBox.Text))
+            {
+                saveInvoice = new SqlCommand("INSERT INTO invoice (community_name, occupantStatus, "
+                + "address, email, primary#, primary#type, primary#extension, "
+                + "permissiontoenter, pets, accepted, complete, timeOfService, " 
+                + "invoiceType, description) VALUES (@communityname, @occStatus, @address, "
+                + "@emailaddress, @primarynum, @phonetype, @primaryex,  @pte, @pet, @accepted, @complete, "
+                + "@timeOfService, @invoiceType, @description)", conn);
+
+
+                saveInvoice.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@occStatus", true);
+                saveInvoice.Parameters.AddWithValue("@address", newInvoiceStreetAddressTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@primarynum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@phonetype", newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@primaryex", newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@pte", getPTE());
+                saveInvoice.Parameters.AddWithValue("@pet", getPET());
+                saveInvoice.Parameters.AddWithValue("@accepted", false);
+                saveInvoice.Parameters.AddWithValue("@complete", false);
+                saveInvoice.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@invoice_type", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
+            }
+            else
+            {
+                saveInvoice = new SqlCommand("INSERT INTO invoice (community_name, occupantStatus, "
+                + "address, email, primary#, primary#Type, primary#Extension, alt#, "
+                + "alt#Extension, alt#Type, permissiontoenter, pets, accepted, complete, timeOfService, "
+                + "invoiceType, description) VALUES (@communityname, @occStatus, @address, "
+                + "@emailaddress, @primarynum, @phonetype, @primaryex, @altnum, @altphonetype, " 
+                + "@altex, @pte, @pet, @accepted, @complete, @timeOfService, @invoiceType, @description)", conn);
+
+
+                saveInvoice.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@occStatus", true);
+                saveInvoice.Parameters.AddWithValue("@address", newInvoiceStreetAddressTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@primarynum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@phonetype", newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@primaryex", newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@altnum", newInvoiceAlternatePhoneNumberTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@altphonetype", newInvoiceAlternatePhoneTypeComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@altex", newInvoiceAlternatePhoneExtensionTextBox.Text.ToLower());
+                saveInvoice.Parameters.AddWithValue("@pte", getPTE());
+                saveInvoice.Parameters.AddWithValue("@pet", getPET());
+                saveInvoice.Parameters.AddWithValue("@accepted", false);
+                saveInvoice.Parameters.AddWithValue("@complete", false);
+                saveInvoice.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@invoice_type", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
+            }
+
+                return saveInvoice;
         }
     }
 }

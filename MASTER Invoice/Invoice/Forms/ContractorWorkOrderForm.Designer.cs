@@ -101,7 +101,7 @@
             this.lblDatePrompt.AutoSize = true;
             this.lblDatePrompt.Location = new System.Drawing.Point(8, 422);
             this.lblDatePrompt.Name = "lblDatePrompt";
-            this.lblDatePrompt.Size = new System.Drawing.Size(87, 13);
+            this.lblDatePrompt.Size = new System.Drawing.Size(113, 17);
             this.lblDatePrompt.TabIndex = 1052;
             this.lblDatePrompt.Text = "Scheduled Date:";
             // 
@@ -131,7 +131,7 @@
             this.lblRequestTimeOfServicePrompt.Location = new System.Drawing.Point(8, 323);
             this.lblRequestTimeOfServicePrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRequestTimeOfServicePrompt.Name = "lblRequestTimeOfServicePrompt";
-            this.lblRequestTimeOfServicePrompt.Size = new System.Drawing.Size(127, 13);
+            this.lblRequestTimeOfServicePrompt.Size = new System.Drawing.Size(167, 17);
             this.lblRequestTimeOfServicePrompt.TabIndex = 1050;
             this.lblRequestTimeOfServicePrompt.Text = "Request Time of Service:";
             // 
@@ -141,7 +141,7 @@
             this.lblPermissionToEnterPrompt.Location = new System.Drawing.Point(8, 356);
             this.lblPermissionToEnterPrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPermissionToEnterPrompt.Name = "lblPermissionToEnterPrompt";
-            this.lblPermissionToEnterPrompt.Size = new System.Drawing.Size(130, 13);
+            this.lblPermissionToEnterPrompt.Size = new System.Drawing.Size(176, 17);
             this.lblPermissionToEnterPrompt.TabIndex = 1046;
             this.lblPermissionToEnterPrompt.Text = "Permission to Enter (PTE):";
             // 
@@ -161,7 +161,7 @@
             this.lblDescriptionPrompt.Location = new System.Drawing.Point(8, 173);
             this.lblDescriptionPrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescriptionPrompt.Name = "lblDescriptionPrompt";
-            this.lblDescriptionPrompt.Size = new System.Drawing.Size(214, 13);
+            this.lblDescriptionPrompt.Size = new System.Drawing.Size(284, 17);
             this.lblDescriptionPrompt.TabIndex = 1049;
             this.lblDescriptionPrompt.Text = "Description of Request (Including Location):";
             // 
@@ -171,7 +171,7 @@
             this.lblAnimalsPrompt.Location = new System.Drawing.Point(8, 389);
             this.lblAnimalsPrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAnimalsPrompt.Name = "lblAnimalsPrompt";
-            this.lblAnimalsPrompt.Size = new System.Drawing.Size(88, 13);
+            this.lblAnimalsPrompt.Size = new System.Drawing.Size(117, 17);
             this.lblAnimalsPrompt.TabIndex = 1047;
             this.lblAnimalsPrompt.Text = "Animals in Home:";
             // 
@@ -181,7 +181,7 @@
             this.lblWorkOrderTypePrompt.Location = new System.Drawing.Point(9, 138);
             this.lblWorkOrderTypePrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWorkOrderTypePrompt.Name = "lblWorkOrderTypePrompt";
-            this.lblWorkOrderTypePrompt.Size = new System.Drawing.Size(89, 13);
+            this.lblWorkOrderTypePrompt.Size = new System.Drawing.Size(118, 17);
             this.lblWorkOrderTypePrompt.TabIndex = 1048;
             this.lblWorkOrderTypePrompt.Text = "Work Order Type";
             // 
@@ -211,7 +211,7 @@
             this.lblStreetAddressPrompt.Location = new System.Drawing.Point(9, 100);
             this.lblStreetAddressPrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStreetAddressPrompt.Name = "lblStreetAddressPrompt";
-            this.lblStreetAddressPrompt.Size = new System.Drawing.Size(79, 13);
+            this.lblStreetAddressPrompt.Size = new System.Drawing.Size(106, 17);
             this.lblStreetAddressPrompt.TabIndex = 1040;
             this.lblStreetAddressPrompt.Text = "Street Address:";
             this.lblStreetAddressPrompt.Click += new System.EventHandler(this.lblStreetAddressPrompt_Click);
@@ -232,7 +232,7 @@
             this.lblFirstNamePrompt.Location = new System.Drawing.Point(9, 24);
             this.lblFirstNamePrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstNamePrompt.Name = "lblFirstNamePrompt";
-            this.lblFirstNamePrompt.Size = new System.Drawing.Size(60, 13);
+            this.lblFirstNamePrompt.Size = new System.Drawing.Size(80, 17);
             this.lblFirstNamePrompt.TabIndex = 1038;
             this.lblFirstNamePrompt.Text = "First Name:";
             this.lblFirstNamePrompt.Click += new System.EventHandler(this.lblFirstNamePrompt_Click);
@@ -253,7 +253,7 @@
             this.lblLastNamePrompt.Location = new System.Drawing.Point(9, 62);
             this.lblLastNamePrompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastNamePrompt.Name = "lblLastNamePrompt";
-            this.lblLastNamePrompt.Size = new System.Drawing.Size(61, 13);
+            this.lblLastNamePrompt.Size = new System.Drawing.Size(80, 17);
             this.lblLastNamePrompt.TabIndex = 1037;
             this.lblLastNamePrompt.Text = "Last Name:";
             this.lblLastNamePrompt.Click += new System.EventHandler(this.lblLastNamePrompt_Click);
@@ -271,9 +271,10 @@
             // lbxWorkOrders
             // 
             this.lbxWorkOrders.FormattingEnabled = true;
+            this.lbxWorkOrders.ItemHeight = 16;
             this.lbxWorkOrders.Location = new System.Drawing.Point(12, 29);
             this.lbxWorkOrders.Name = "lbxWorkOrders";
-            this.lbxWorkOrders.Size = new System.Drawing.Size(320, 186);
+            this.lbxWorkOrders.Size = new System.Drawing.Size(320, 180);
             this.lbxWorkOrders.TabIndex = 1;
             // 
             // lblWorkOrderPrompt
@@ -281,7 +282,7 @@
             this.lblWorkOrderPrompt.AutoSize = true;
             this.lblWorkOrderPrompt.Location = new System.Drawing.Point(12, 9);
             this.lblWorkOrderPrompt.Name = "lblWorkOrderPrompt";
-            this.lblWorkOrderPrompt.Size = new System.Drawing.Size(107, 13);
+            this.lblWorkOrderPrompt.Size = new System.Drawing.Size(141, 17);
             this.lblWorkOrderPrompt.TabIndex = 2;
             this.lblWorkOrderPrompt.Text = "Select a Work Order:";
             // 
@@ -307,7 +308,7 @@
             this.rbtnIncomplete.Checked = true;
             this.rbtnIncomplete.Location = new System.Drawing.Point(196, 154);
             this.rbtnIncomplete.Name = "rbtnIncomplete";
-            this.rbtnIncomplete.Size = new System.Drawing.Size(77, 17);
+            this.rbtnIncomplete.Size = new System.Drawing.Size(97, 21);
             this.rbtnIncomplete.TabIndex = 6;
             this.rbtnIncomplete.TabStop = true;
             this.rbtnIncomplete.Text = "Incomplete";
@@ -318,7 +319,7 @@
             this.rbtnComplete.AutoSize = true;
             this.rbtnComplete.Location = new System.Drawing.Point(31, 154);
             this.rbtnComplete.Name = "rbtnComplete";
-            this.rbtnComplete.Size = new System.Drawing.Size(69, 17);
+            this.rbtnComplete.Size = new System.Drawing.Size(88, 21);
             this.rbtnComplete.TabIndex = 5;
             this.rbtnComplete.Text = "Complete";
             this.rbtnComplete.UseVisualStyleBackColor = true;
@@ -336,7 +337,7 @@
             this.lblCommentsPrompt.AutoSize = true;
             this.lblCommentsPrompt.Location = new System.Drawing.Point(7, 22);
             this.lblCommentsPrompt.Name = "lblCommentsPrompt";
-            this.lblCommentsPrompt.Size = new System.Drawing.Size(87, 13);
+            this.lblCommentsPrompt.Size = new System.Drawing.Size(116, 17);
             this.lblCommentsPrompt.TabIndex = 3;
             this.lblCommentsPrompt.Text = "Enter Comments:";
             // 
@@ -375,7 +376,7 @@
             this.Controls.Add(this.lbxWorkOrders);
             this.Controls.Add(this.groupBox1);
             this.Name = "ContractorWorkOrderForm";
-            this.Text = "Contractor Work Order";
+            this.Text = "Contractor Work Orders";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbxUpdate.ResumeLayout(false);

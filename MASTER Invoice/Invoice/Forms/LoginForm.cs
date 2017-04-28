@@ -64,7 +64,7 @@ namespace Invoice
             if (string.IsNullOrEmpty(passwordEntryTextBox.Text))
             {
                 ToolTip tip2 = new ToolTip();
-                tip2.Show("Please Enter A Passwords", passwordEntryTextBox, 10000);
+                tip2.Show("Please Enter A Password", passwordEntryTextBox, 10000);
 
             }
             /**

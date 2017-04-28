@@ -190,6 +190,7 @@ namespace Invoice
                 req11.Show("Please select Yes/No", newInvoiceAnimalsInHomeComboBox, 10000);
         }
 
+        // Automatically format phone numbers to correct format in the textbox
         private void newInvoicePrimaryPhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
@@ -206,6 +207,7 @@ namespace Invoice
             }
         }
 
+        // Automatically format phone numbers to correct format in the textbox
         private void newInvoiceAlternatePhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
@@ -222,10 +224,11 @@ namespace Invoice
             }
         }
 
+        // Display tooltips if values are empty
         private bool nullOrEmptyCheck()
         {
             bool check = false;
-            // Save String Values into the Customer table
+            
             if (string.IsNullOrEmpty(newInvoiceFirstNameTextBox.Text))
             {
                 FirstNameToolTip();
@@ -277,6 +280,7 @@ namespace Invoice
             {
                 AnimalToolTip();
             }
+            // Set default values, if required fields are not null
             else if (!string.IsNullOrEmpty(newInvoiceFirstNameTextBox.Text) && !string.IsNullOrEmpty(newInvoiceLastNameTextBox.Text) && !string.IsNullOrEmpty(newInvoiceStreetAddressTextBox.Text) &&
                 newInvoiceCommunityComboBox.SelectedIndex != -1 && !string.IsNullOrEmpty(newInvoicePrimaryPhoneNumberTextBox.Text) && newInvoicePrimaryPhoneTypeComboBox.SelectedIndex != -1 &&
                 ((!string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text) && newInvoiceAlternatePhoneTypeComboBox.SelectedIndex != -1) || string.IsNullOrEmpty(newInvoiceAlternatePhoneNumberTextBox.Text)) &&
@@ -301,6 +305,7 @@ namespace Invoice
             return check;
         }
 
+        // Set bool to true or false if occupant consented to permission to enter
         private bool getPTE()
         {
             bool permissionToEnter = false;
@@ -315,6 +320,7 @@ namespace Invoice
             return permissionToEnter;
         }
 
+        // Set bool to true or false if occupant has a pet
         private bool getPET()
         {
             bool animal = false;
@@ -329,6 +335,7 @@ namespace Invoice
             return animal;
         }
 
+        // Save String Values into the Customer table
         private SqlCommand saveOccupant()
         {
             SqlCommand saveOccupant;
@@ -377,11 +384,12 @@ namespace Invoice
             
         }
 
+        // Save the String Values into the InvoiceStatus table
         private SqlCommand saveInvoiceStatus()
         {
-            // Save the String Values into the InvoiceStatus table
             SqlCommand saveInvoiceStatus;
-            saveInvoiceStatus = new SqlCommand("insert into invoiceStatus (invoice_type, description, timeOfService) VALUES(@invoice_type, @description, @timeOfService)", conn);
+            saveInvoiceStatus = new SqlCommand("insert into invoiceStatus (invoice_type, description, timeOfService) VALUES" + 
+                "(@invoice_type, @description, @timeOfService)", conn);
             saveInvoiceStatus.Parameters.AddWithValue("@invoice_type", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
             saveInvoiceStatus.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
             saveInvoiceStatus.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());

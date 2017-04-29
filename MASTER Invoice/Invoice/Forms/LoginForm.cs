@@ -134,6 +134,7 @@ namespace Invoice
                 {
                     MessageBox.Show("That Email Address Was Not Found In Our Systems");
                 }
+                connection.Close();
             }
 
         }

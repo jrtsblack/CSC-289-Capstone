@@ -67,7 +67,7 @@
             this.rolePanel.Controls.Add(this.occupantRadioButton);
             this.rolePanel.Controls.Add(this.contractorRadioButton);
             this.rolePanel.Controls.Add(this.officeWorkerRadioButton);
-            this.rolePanel.Location = new System.Drawing.Point(14, 133);
+            this.rolePanel.Location = new System.Drawing.Point(14, 201);
             this.rolePanel.Name = "rolePanel";
             this.rolePanel.Size = new System.Drawing.Size(257, 24);
             this.rolePanel.TabIndex = 23;
@@ -82,7 +82,6 @@
             this.occupantRadioButton.TabStop = true;
             this.occupantRadioButton.Text = "Occupant";
             this.occupantRadioButton.UseVisualStyleBackColor = true;
-            this.occupantRadioButton.CheckedChanged += new System.EventHandler(this.occupantRadioButton_CheckedChanged_1);
             // 
             // contractorRadioButton
             // 
@@ -106,7 +105,6 @@
             this.officeWorkerRadioButton.TabStop = true;
             this.officeWorkerRadioButton.Text = "Office Worker";
             this.officeWorkerRadioButton.UseVisualStyleBackColor = true;
-            this.officeWorkerRadioButton.CheckedChanged += new System.EventHandler(this.officeWorkerRadioButton_CheckedChanged);
             // 
             // registerHeaderLabel
             // 
@@ -119,7 +117,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(196, 173);
+            this.cancelButton.Location = new System.Drawing.Point(196, 231);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 22;
@@ -129,7 +127,7 @@
             // 
             // registerButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(14, 173);
+            this.registerButton.Location = new System.Drawing.Point(14, 231);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(75, 23);
             this.registerButton.TabIndex = 20;
@@ -278,7 +276,7 @@
             this.personalInfoPanel.Controls.Add(this.phoneNumberTextBox);
             this.personalInfoPanel.Location = new System.Drawing.Point(2, 115);
             this.personalInfoPanel.Name = "personalInfoPanel";
-            this.personalInfoPanel.Size = new System.Drawing.Size(1, 1);
+            this.personalInfoPanel.Size = new System.Drawing.Size(280, 80);
             this.personalInfoPanel.TabIndex = 25;
             // 
             // firstnamePromptLabel
@@ -333,7 +331,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 212);
+            this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.personalInfoPanel);
             this.Controls.Add(this.registerHeaderLabel);
             this.Controls.Add(this.cancelButton);

@@ -10,5 +10,10 @@ namespace Invoice
     {
         public static string email { get; set; }
         public static string usertype { get; set; }
+
+        public static int id { get; set; }
+
+        public static string phonenum { get; set; }
+
     }
 }

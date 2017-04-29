@@ -66,6 +66,7 @@ namespace Invoice
                     MessageBox.Show(pswd);
                     SqlCommand cmd = new SqlCommand("insert into UserAccounts ([Email], [Password], [UserType], [Confirmed]) VALUES ('" + emailEntryTextBox.Text.ToLower() + "', '" + pswd + "', '" + checkedButton.Text + "', '" + 0 + "')", connection);
                     SqlCommand owcmd = new SqlCommand("Insert into OfficeWorker (First, Last, Email, Phone#) VALUES (@firstname, @lastname, @emailaddress, @phonenumber)", connection);
+                    SqlCommand occmd = new SqlCommand("Insert into Customer (First, Last, Email, Phone#) VALUES (@firstname, @lastname, @emailaddress, @phonenumber)", connection);
 
                     /**
                      * Opens a connection to the MySQL Database 
@@ -97,6 +98,15 @@ namespace Invoice
                     }
                     else if(checkedButton.Text == occupantRadioButton.Text)
                     {
+
+                        connection.Open();
+                        occmd.Parameters.AddWithValue("@firstname", firstNameTextBox.Text);
+                        occmd.Parameters.AddWithValue("@lastname", lastNameTextBox.Text);
+                        occmd.Parameters.AddWithValue("@emailaddress", emailEntryTextBox.Text);
+                        occmd.Parameters.AddWithValue("@phonenumber", phoneNumberTextBox.Text);
+                        int j = owcmd.ExecuteNonQuery();
+                        connection.Close();
+
                         if (i > 0)
                         {
                             MessageBox.Show("Registration Successful");
@@ -139,12 +149,6 @@ namespace Invoice
                         string pswd = Engine.PasswordEncryption.CreateHash(passwordEntryTextBox.Text);
                         connection.Open();
                         SqlCommand cmd = new SqlCommand("insert into UserAccounts ([Email], [Password], [UserType], [Confirmed]) VALUES ('" + emailEntryTextBox.Text.ToLower() + "', '" + pswd + "', '" + checkedButton.Text + "', '" + 0 + "')", connection);
-                        SqlCommand cmd2 = new SqlCommand("insert into ContractorCompany ([Company_Name], [Company_Address], [Phone#], [Email]) VALUES ('" + companyNameEntryTextBox.Text + "', '" + companyAddressEntryTextBox.Text + "', '" + companyPhoneEntryTextBox.Text + "', '" + companyEmailEntryTextBox.Text + "')", connection);
-                        SqlCommand ccmd = new SqlCommand("Insert into Contractor (First, Last, Email, Phone#) VALUES (@firstname, @lastname, @emailaddress, @phonenumber)", connection);
-                        ccmd.Parameters.AddWithValue("@firstname", firstNameTextBox.Text);
-                        ccmd.Parameters.AddWithValue("@lastname", lastNameTextBox.Text);
-                        ccmd.Parameters.AddWithValue("@emailaddress", emailEntryTextBox.Text);
-                        ccmd.Parameters.AddWithValue("@phonenumber", phoneNumberTextBox.Text);
                         /**
                          * Opens a connection to the MySQL Database 
                          */
@@ -152,13 +156,12 @@ namespace Invoice
                         /**
                          * Executes the above SQL Statement as well as returns an integer of rows that were affected. As long as this value is higher than 0 we know that we have inserted the information & added a new row to the User table. 
                          * */
+                        int j = companyCheck(companyNameEntryTextBox.Text).ExecuteNonQuery();
                         int i = cmd.ExecuteNonQuery();
-                            int j = cmd2.ExecuteNonQuery();
-                        int k = ccmd.ExecuteNonQuery();
+                            
 
-                        
                         connection.Close();
-                            if (i > 0 && j > 0 && k > 0)
+                            if (i > 0 && j > 0)
                             {
                                 MessageBox.Show("Registration Successful");
 
@@ -226,7 +229,7 @@ namespace Invoice
 
         private void contractorRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (contractorRadioButton.Checked == true)
+            if (contractorRadioButton.Checked)
             {
                 this.Size = new Size(300, 440);
                 personalInfoPanel.Visible = true;
@@ -238,32 +241,11 @@ namespace Invoice
                 registerButton.Location = new Point(14, 365);
                 cancelButton.Location = new Point(196, 365);
             }
-        }
-
-
-        private void occupantRadioButton_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (occupantRadioButton.Checked == true)
-            {
-                this.Size = new Size(300, 251);
-                companyPanel.Visible = false;
-                personalInfoPanel.Visible = false;
-                companyPanel.Size = new Size(1, 1);
-                personalInfoPanel.Size = new Size(1, 1);
-                rolePanel.Location = new Point(14, 133);
-                registerButton.Location = new Point(14, 173);
-                cancelButton.Location = new Point(196, 173);
-            }
-        }
-
-        private void officeWorkerRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-           if (officeWorkerRadioButton.Checked == true)
+            else if (occupantRadioButton.Checked || officeWorkerRadioButton.Checked)
             {
                 this.Size = new Size(300, 300);
-                personalInfoPanel.Visible = true;
-                personalInfoPanel.Size = new Size(280, 80);
                 companyPanel.Visible = false;
+                companyPanel.Size = new Size(1, 1);
                 rolePanel.Location = new Point(14, 201);
                 registerButton.Location = new Point(14, 231);
                 cancelButton.Location = new Point(196, 231);
@@ -293,6 +275,53 @@ namespace Invoice
                 available = true;
             }
             return available;
+        }
+
+        private SqlCommand companyCheck(string company)
+        {
+            
+            SqlCommand existing;
+            SqlCommand checking = new SqlCommand("Select * from ContractorCompany where company_name=@name", connection);
+            checking.Parameters.AddWithValue("@name", System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(company));
+            SqlDataAdapter data = new SqlDataAdapter(checking);
+            DataTable table = new DataTable();
+            data.Fill(table);
+            if(table.Rows.Count > 0)
+            {
+                existing = new SqlCommand("Insert into Contractor (Company_ID, First, Last, Email, Phone#) VALUES (@compid, @firstname, @lastname, @emailaddress, @phonenumber)", connection);
+                existing.Parameters.AddWithValue("@compid", table.Rows[0]["Company_ID"]);
+                existing.Parameters.AddWithValue("@firstname", firstNameTextBox.Text);
+                existing.Parameters.AddWithValue("@lastname", lastNameTextBox.Text);
+                existing.Parameters.AddWithValue("@emailaddress", emailEntryTextBox.Text);
+                existing.Parameters.AddWithValue("@phonenumber", phoneNumberTextBox.Text);
+            }
+            else
+            {
+                SqlCommand newCompany = new SqlCommand("insert into ContractorCompany ([Company_Name], [Company_Address], [Phone#], [Email]) VALUES (@compName, @compAddress, @phone, @email)", connection);
+                newCompany.Parameters.AddWithValue("@compName", System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(companyNameEntryTextBox.Text));
+                newCompany.Parameters.AddWithValue("@compAddress", companyAddressEntryTextBox.Text);
+                newCompany.Parameters.AddWithValue("@phone", companyPhoneEntryTextBox.Text);
+                newCompany.Parameters.AddWithValue("@email", companyEmailEntryTextBox.Text);
+
+                newCompany.ExecuteNonQuery();
+
+                SqlCommand getNew = new SqlCommand("Select * from ContractorCompany where company_name=@name", connection);
+                getNew.Parameters.AddWithValue("@name", System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(company));
+                SqlDataAdapter newData = new SqlDataAdapter(getNew);
+                DataTable dt = new DataTable();
+                data.Fill(dt);
+                
+                    existing = new SqlCommand("Insert into Contractor (Company_ID, First, Last, Email, Phone#) VALUES (@compid, @firstname, @lastname, @emailaddress, @phonenumber)", connection);
+                    existing.Parameters.AddWithValue("@compid", dt.Rows[0]["Company_ID"]);
+                    existing.Parameters.AddWithValue("@firstname", firstNameTextBox.Text);
+                    existing.Parameters.AddWithValue("@lastname", lastNameTextBox.Text);
+                    existing.Parameters.AddWithValue("@emailaddress", emailEntryTextBox.Text);
+                    existing.Parameters.AddWithValue("@phonenumber", phoneNumberTextBox.Text);
+            }
+            return existing;
+            
+
+
         }
 
 

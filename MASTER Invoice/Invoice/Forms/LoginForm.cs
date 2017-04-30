@@ -75,7 +75,7 @@ namespace Invoice
                 connection.Open();
 
                 SqlCommand cmd = new SqlCommand("Select Email, Password, usertype, confirmed from UserAccounts where Email=@Email", connection);
-                cmd.Parameters.AddWithValue("@Email", emailEntryTextBox.Text);
+                cmd.Parameters.AddWithValue("@Email", emailEntryTextBox.Text.ToLower());
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 /**
@@ -86,17 +86,17 @@ namespace Invoice
                 if (dt.Rows.Count > 0)
                 {
                     password = dt.Rows[0]["Password"].ToString();
-                    email = dt.Rows[0]["Email"].ToString();          // Store the username from your DataTable 
-                    usertype = dt.Rows[0]["usertype"].ToString(); // Store the usertype item from your dataTable into the usertype variable
+                    email = dt.Rows[0]["Email"].ToString().ToLower();          // Store the username from your DataTable 
+                    usertype = dt.Rows[0]["usertype"].ToString().ToLower(); // Store the usertype item from your dataTable into the usertype variable
                     confirmed = dt.Rows[0]["confirmed"].ToString(); // store the confirmed item from your dataTable
                     bool verify = Engine.PasswordEncryption.VerifyPassword(passwordEntryTextBox.Text, password);
 
-                    if (email == emailEntryTextBox.Text && verify == true && confirmed == "True")
+                    if (email == emailEntryTextBox.Text.ToLower() && verify == true && confirmed == "True")
                     {
-                        ActiveUser.email = email;
+                        ActiveUser.email = email.ToLower();
                         ActiveUser.usertype = usertype;
                         getIDandUserInfo(ActiveUser.usertype.ToLower(), ActiveUser.email.ToLower());
-                        if (usertype == "Occupant" || usertype == "Office Worker")
+                        if (usertype == "occupant" || usertype == "office worker")
                         {
                             
                             MessageBox.Show("Login Successful!");
@@ -105,14 +105,14 @@ namespace Invoice
                             this.Hide();
                             invoice.Show();
                         }
-                        else if (usertype == "Administrator")
+                        else if (usertype == "administrator")
                         {
                             MessageBox.Show("Login Successful!");
                             AdminForm invoice = new AdminForm();
                             this.Hide();
                             invoice.Show();
                         }
-                        else if (usertype == "Contractor")
+                        else if (usertype == "contractor")
                         {
                             MessageBox.Show("Login Successful!");
                             ContractorWorkOrderForm workOrder = new ContractorWorkOrderForm();
@@ -174,6 +174,7 @@ namespace Invoice
             {
                 SqlCommand occ = new SqlCommand("Select * From OfficeWorker WHERE email =@email", connection);
                 occ.Parameters.AddWithValue("@email", email);
+
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(occ);
                 da.Fill(dt);
@@ -191,6 +192,8 @@ namespace Invoice
             {
                 SqlCommand occ = new SqlCommand("Select * From Contractor WHERE email =@email", connection);
                 occ.Parameters.AddWithValue("@email", email);
+                
+
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(occ);
                 da.Fill(dt);
@@ -199,10 +202,12 @@ namespace Invoice
                 firstname = dt.Rows[0]["First"].ToString();
                 lastname = dt.Rows[0]["Last"].ToString();
                 phone = dt.Rows[0]["Phone#"].ToString();
+                int companyid = Int32.Parse(dt.Rows[0]["Company_ID"].ToString());
                 ActiveUser.id = id;
                 ActiveUser.firstname = firstname;
                 ActiveUser.lastname = lastname;
                 ActiveUser.phonenum = phone;
+                ActiveUser.companyid = companyid;
             }
             else if (usertype == "Administrator")
             {

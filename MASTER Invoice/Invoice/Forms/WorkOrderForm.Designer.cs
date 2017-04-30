@@ -33,7 +33,7 @@
             this.invoiceDatabaseListBox = new System.Windows.Forms.ListBox();
             this.invoiceDatabaseListboxLabelPrompt = new System.Windows.Forms.Label();
             this.newInvoiceButton = new System.Windows.Forms.Button();
-            this.invoiceInformationCancelButton = new System.Windows.Forms.Button();
+            this.invoiceInformationLogOutButton = new System.Windows.Forms.Button();
             this.printInvoiceButton = new System.Windows.Forms.Button();
             this.invoiceInformationDescriptionOfRequestRichTextBox = new System.Windows.Forms.RichTextBox();
             this.invoiceInformationRequestTimeOfServiceLabelPrompt = new System.Windows.Forms.Label();
@@ -78,21 +78,21 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.gbxOfficeWorkerTools = new System.Windows.Forms.GroupBox();
             this.cbxCompanySelect = new System.Windows.Forms.ComboBox();
+            this.contractorCompanyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectDBDataSet = new Invoice.ProjectDBDataSet();
             this.lblSelectCompany = new System.Windows.Forms.Label();
             this.gbxOccupancyStatus = new System.Windows.Forms.GroupBox();
             this.rbtnOccupied = new System.Windows.Forms.RadioButton();
             this.rbtnUnoccupied = new System.Windows.Forms.RadioButton();
             this.dtpDue = new System.Windows.Forms.DateTimePicker();
             this.lblDueDatePrompt = new System.Windows.Forms.Label();
-            this.projectDBDataSet = new Invoice.ProjectDBDataSet();
-            this.contractorCompanyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractorCompanyTableAdapter = new Invoice.ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter();
             this.invoiceInformationGroupBox.SuspendLayout();
             this.gbxCommentsAndStatus.SuspendLayout();
             this.gbxOfficeWorkerTools.SuspendLayout();
-            this.gbxOccupancyStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
+            this.gbxOccupancyStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // invoiceDatabaseListBox
@@ -123,15 +123,15 @@
             this.newInvoiceButton.UseVisualStyleBackColor = true;
             this.newInvoiceButton.Click += new System.EventHandler(this.newInvoiceButton_Click);
             // 
-            // invoiceInformationCancelButton
+            // invoiceInformationLogOutButton
             // 
-            this.invoiceInformationCancelButton.Location = new System.Drawing.Point(168, 562);
-            this.invoiceInformationCancelButton.Name = "invoiceInformationCancelButton";
-            this.invoiceInformationCancelButton.Size = new System.Drawing.Size(75, 23);
-            this.invoiceInformationCancelButton.TabIndex = 3;
-            this.invoiceInformationCancelButton.Text = "Close";
-            this.invoiceInformationCancelButton.UseVisualStyleBackColor = true;
-            this.invoiceInformationCancelButton.Click += new System.EventHandler(this.invoiceInformationCancelButton_Click);
+            this.invoiceInformationLogOutButton.Location = new System.Drawing.Point(168, 562);
+            this.invoiceInformationLogOutButton.Name = "invoiceInformationLogOutButton";
+            this.invoiceInformationLogOutButton.Size = new System.Drawing.Size(75, 23);
+            this.invoiceInformationLogOutButton.TabIndex = 3;
+            this.invoiceInformationLogOutButton.Text = "Log Out";
+            this.invoiceInformationLogOutButton.UseVisualStyleBackColor = true;
+            this.invoiceInformationLogOutButton.Click += new System.EventHandler(this.invoiceInformationCancelButton_Click);
             // 
             // printInvoiceButton
             // 
@@ -308,7 +308,7 @@
             this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationLastNameLabel);
             this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationFirstNameLabel);
             this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationFirstNameLabelPrompt);
-            this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationCancelButton);
+            this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationLogOutButton);
             this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationStreetAddressLabelPrompt);
             this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationAlternatePhoneTypeLabel);
             this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationAlternatePhoneExtensionLabel);
@@ -344,7 +344,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(245, 562);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 0;
@@ -356,7 +356,7 @@
             // invoiceInformationAnimalsLabel
             // 
             this.invoiceInformationAnimalsLabel.Location = new System.Drawing.Point(143, 518);
-            this.invoiceInformationAnimalsLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationAnimalsLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationAnimalsLabel.Name = "invoiceInformationAnimalsLabel";
             this.invoiceInformationAnimalsLabel.ReadOnly = true;
             this.invoiceInformationAnimalsLabel.Size = new System.Drawing.Size(179, 20);
@@ -365,7 +365,7 @@
             // invoiceInformationPermissionToEnterLabel
             // 
             this.invoiceInformationPermissionToEnterLabel.Location = new System.Drawing.Point(143, 492);
-            this.invoiceInformationPermissionToEnterLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationPermissionToEnterLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationPermissionToEnterLabel.Name = "invoiceInformationPermissionToEnterLabel";
             this.invoiceInformationPermissionToEnterLabel.ReadOnly = true;
             this.invoiceInformationPermissionToEnterLabel.Size = new System.Drawing.Size(179, 20);
@@ -374,7 +374,7 @@
             // invoiceInformationRequestTimeOfServiceLabel
             // 
             this.invoiceInformationRequestTimeOfServiceLabel.Location = new System.Drawing.Point(143, 467);
-            this.invoiceInformationRequestTimeOfServiceLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationRequestTimeOfServiceLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationRequestTimeOfServiceLabel.Name = "invoiceInformationRequestTimeOfServiceLabel";
             this.invoiceInformationRequestTimeOfServiceLabel.ReadOnly = true;
             this.invoiceInformationRequestTimeOfServiceLabel.Size = new System.Drawing.Size(179, 20);
@@ -383,7 +383,7 @@
             // invoiceInformationWorkOrderTypeLabel
             // 
             this.invoiceInformationWorkOrderTypeLabel.Location = new System.Drawing.Point(143, 321);
-            this.invoiceInformationWorkOrderTypeLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationWorkOrderTypeLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationWorkOrderTypeLabel.Name = "invoiceInformationWorkOrderTypeLabel";
             this.invoiceInformationWorkOrderTypeLabel.ReadOnly = true;
             this.invoiceInformationWorkOrderTypeLabel.Size = new System.Drawing.Size(179, 20);
@@ -392,7 +392,7 @@
             // invoiceInformationEmailLabel
             // 
             this.invoiceInformationEmailLabel.Location = new System.Drawing.Point(143, 292);
-            this.invoiceInformationEmailLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationEmailLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationEmailLabel.Name = "invoiceInformationEmailLabel";
             this.invoiceInformationEmailLabel.ReadOnly = true;
             this.invoiceInformationEmailLabel.Size = new System.Drawing.Size(179, 20);
@@ -401,7 +401,7 @@
             // invoiceInformationLastNameLabel
             // 
             this.invoiceInformationLastNameLabel.Location = new System.Drawing.Point(143, 50);
-            this.invoiceInformationLastNameLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationLastNameLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationLastNameLabel.Name = "invoiceInformationLastNameLabel";
             this.invoiceInformationLastNameLabel.ReadOnly = true;
             this.invoiceInformationLastNameLabel.Size = new System.Drawing.Size(179, 20);
@@ -410,7 +410,7 @@
             // invoiceInformationFirstNameLabel
             // 
             this.invoiceInformationFirstNameLabel.Location = new System.Drawing.Point(143, 24);
-            this.invoiceInformationFirstNameLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationFirstNameLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationFirstNameLabel.Name = "invoiceInformationFirstNameLabel";
             this.invoiceInformationFirstNameLabel.ReadOnly = true;
             this.invoiceInformationFirstNameLabel.Size = new System.Drawing.Size(179, 20);
@@ -419,7 +419,7 @@
             // invoiceInformationAlternatePhoneTypeLabel
             // 
             this.invoiceInformationAlternatePhoneTypeLabel.Location = new System.Drawing.Point(143, 266);
-            this.invoiceInformationAlternatePhoneTypeLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationAlternatePhoneTypeLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationAlternatePhoneTypeLabel.Name = "invoiceInformationAlternatePhoneTypeLabel";
             this.invoiceInformationAlternatePhoneTypeLabel.ReadOnly = true;
             this.invoiceInformationAlternatePhoneTypeLabel.Size = new System.Drawing.Size(179, 20);
@@ -428,7 +428,7 @@
             // invoiceInformationAlternatePhoneExtensionLabel
             // 
             this.invoiceInformationAlternatePhoneExtensionLabel.Location = new System.Drawing.Point(143, 239);
-            this.invoiceInformationAlternatePhoneExtensionLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationAlternatePhoneExtensionLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationAlternatePhoneExtensionLabel.Name = "invoiceInformationAlternatePhoneExtensionLabel";
             this.invoiceInformationAlternatePhoneExtensionLabel.ReadOnly = true;
             this.invoiceInformationAlternatePhoneExtensionLabel.Size = new System.Drawing.Size(179, 20);
@@ -437,7 +437,7 @@
             // invoiceInformationAlternatePhoneNumberLabel
             // 
             this.invoiceInformationAlternatePhoneNumberLabel.Location = new System.Drawing.Point(143, 211);
-            this.invoiceInformationAlternatePhoneNumberLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationAlternatePhoneNumberLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationAlternatePhoneNumberLabel.Name = "invoiceInformationAlternatePhoneNumberLabel";
             this.invoiceInformationAlternatePhoneNumberLabel.ReadOnly = true;
             this.invoiceInformationAlternatePhoneNumberLabel.Size = new System.Drawing.Size(179, 20);
@@ -446,7 +446,7 @@
             // invoiceInformationPrimaryPhoneTypeLabel
             // 
             this.invoiceInformationPrimaryPhoneTypeLabel.Location = new System.Drawing.Point(143, 184);
-            this.invoiceInformationPrimaryPhoneTypeLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationPrimaryPhoneTypeLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationPrimaryPhoneTypeLabel.Name = "invoiceInformationPrimaryPhoneTypeLabel";
             this.invoiceInformationPrimaryPhoneTypeLabel.ReadOnly = true;
             this.invoiceInformationPrimaryPhoneTypeLabel.Size = new System.Drawing.Size(179, 20);
@@ -455,7 +455,7 @@
             // invoiceInformationPrimaryPhoneExtensionLabel
             // 
             this.invoiceInformationPrimaryPhoneExtensionLabel.Location = new System.Drawing.Point(143, 158);
-            this.invoiceInformationPrimaryPhoneExtensionLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationPrimaryPhoneExtensionLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationPrimaryPhoneExtensionLabel.Name = "invoiceInformationPrimaryPhoneExtensionLabel";
             this.invoiceInformationPrimaryPhoneExtensionLabel.ReadOnly = true;
             this.invoiceInformationPrimaryPhoneExtensionLabel.Size = new System.Drawing.Size(179, 20);
@@ -464,7 +464,7 @@
             // invoiceInformationPrimaryPhoneNumberLabel
             // 
             this.invoiceInformationPrimaryPhoneNumberLabel.Location = new System.Drawing.Point(143, 131);
-            this.invoiceInformationPrimaryPhoneNumberLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationPrimaryPhoneNumberLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationPrimaryPhoneNumberLabel.Name = "invoiceInformationPrimaryPhoneNumberLabel";
             this.invoiceInformationPrimaryPhoneNumberLabel.ReadOnly = true;
             this.invoiceInformationPrimaryPhoneNumberLabel.Size = new System.Drawing.Size(179, 20);
@@ -473,7 +473,7 @@
             // invoiceInformationCommunityLabel
             // 
             this.invoiceInformationCommunityLabel.Location = new System.Drawing.Point(143, 105);
-            this.invoiceInformationCommunityLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationCommunityLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationCommunityLabel.Name = "invoiceInformationCommunityLabel";
             this.invoiceInformationCommunityLabel.ReadOnly = true;
             this.invoiceInformationCommunityLabel.Size = new System.Drawing.Size(179, 20);
@@ -482,7 +482,7 @@
             // invoiceInformationStreetAddressLabel
             // 
             this.invoiceInformationStreetAddressLabel.Location = new System.Drawing.Point(143, 77);
-            this.invoiceInformationStreetAddressLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invoiceInformationStreetAddressLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationStreetAddressLabel.Name = "invoiceInformationStreetAddressLabel";
             this.invoiceInformationStreetAddressLabel.ReadOnly = true;
             this.invoiceInformationStreetAddressLabel.Size = new System.Drawing.Size(179, 20);
@@ -496,9 +496,9 @@
             this.gbxCommentsAndStatus.Controls.Add(this.rButtonComplete);
             this.gbxCommentsAndStatus.Enabled = false;
             this.gbxCommentsAndStatus.Location = new System.Drawing.Point(15, 443);
-            this.gbxCommentsAndStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxCommentsAndStatus.Margin = new System.Windows.Forms.Padding(2);
             this.gbxCommentsAndStatus.Name = "gbxCommentsAndStatus";
-            this.gbxCommentsAndStatus.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxCommentsAndStatus.Padding = new System.Windows.Forms.Padding(2);
             this.gbxCommentsAndStatus.Size = new System.Drawing.Size(282, 165);
             this.gbxCommentsAndStatus.TabIndex = 1038;
             this.gbxCommentsAndStatus.TabStop = false;
@@ -507,7 +507,7 @@
             // rTxtBoxComments
             // 
             this.rTxtBoxComments.Location = new System.Drawing.Point(8, 58);
-            this.rTxtBoxComments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTxtBoxComments.Margin = new System.Windows.Forms.Padding(2);
             this.rTxtBoxComments.Name = "rTxtBoxComments";
             this.rTxtBoxComments.ReadOnly = true;
             this.rTxtBoxComments.Size = new System.Drawing.Size(271, 105);
@@ -529,7 +529,7 @@
             this.rButtonIncomplete.AutoCheck = false;
             this.rButtonIncomplete.AutoSize = true;
             this.rButtonIncomplete.Location = new System.Drawing.Point(93, 18);
-            this.rButtonIncomplete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rButtonIncomplete.Margin = new System.Windows.Forms.Padding(2);
             this.rButtonIncomplete.Name = "rButtonIncomplete";
             this.rButtonIncomplete.Size = new System.Drawing.Size(77, 17);
             this.rButtonIncomplete.TabIndex = 1;
@@ -541,7 +541,7 @@
             this.rButtonComplete.AutoCheck = false;
             this.rButtonComplete.AutoSize = true;
             this.rButtonComplete.Location = new System.Drawing.Point(5, 18);
-            this.rButtonComplete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rButtonComplete.Margin = new System.Windows.Forms.Padding(2);
             this.rButtonComplete.Name = "rButtonComplete";
             this.rButtonComplete.Size = new System.Drawing.Size(69, 17);
             this.rButtonComplete.TabIndex = 0;
@@ -571,9 +571,9 @@
             this.gbxOfficeWorkerTools.Controls.Add(this.dtpDue);
             this.gbxOfficeWorkerTools.Controls.Add(this.lblDueDatePrompt);
             this.gbxOfficeWorkerTools.Location = new System.Drawing.Point(15, 318);
-            this.gbxOfficeWorkerTools.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOfficeWorkerTools.Margin = new System.Windows.Forms.Padding(2);
             this.gbxOfficeWorkerTools.Name = "gbxOfficeWorkerTools";
-            this.gbxOfficeWorkerTools.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOfficeWorkerTools.Padding = new System.Windows.Forms.Padding(2);
             this.gbxOfficeWorkerTools.Size = new System.Drawing.Size(282, 121);
             this.gbxOfficeWorkerTools.TabIndex = 1039;
             this.gbxOfficeWorkerTools.TabStop = false;
@@ -586,11 +586,21 @@
             this.cbxCompanySelect.DisplayMember = "Company_Name";
             this.cbxCompanySelect.FormattingEnabled = true;
             this.cbxCompanySelect.Location = new System.Drawing.Point(94, 49);
-            this.cbxCompanySelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxCompanySelect.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCompanySelect.Name = "cbxCompanySelect";
             this.cbxCompanySelect.Size = new System.Drawing.Size(180, 21);
             this.cbxCompanySelect.TabIndex = 1040;
             this.cbxCompanySelect.ValueMember = "Company_ID";
+            // 
+            // contractorCompanyBindingSource
+            // 
+            this.contractorCompanyBindingSource.DataMember = "ContractorCompany";
+            this.contractorCompanyBindingSource.DataSource = this.projectDBDataSet;
+            // 
+            // projectDBDataSet
+            // 
+            this.projectDBDataSet.DataSetName = "ProjectDBDataSet";
+            this.projectDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblSelectCompany
             // 
@@ -607,9 +617,9 @@
             this.gbxOccupancyStatus.Controls.Add(this.rbtnOccupied);
             this.gbxOccupancyStatus.Controls.Add(this.rbtnUnoccupied);
             this.gbxOccupancyStatus.Location = new System.Drawing.Point(8, 70);
-            this.gbxOccupancyStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOccupancyStatus.Margin = new System.Windows.Forms.Padding(2);
             this.gbxOccupancyStatus.Name = "gbxOccupancyStatus";
-            this.gbxOccupancyStatus.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOccupancyStatus.Padding = new System.Windows.Forms.Padding(2);
             this.gbxOccupancyStatus.Size = new System.Drawing.Size(265, 46);
             this.gbxOccupancyStatus.TabIndex = 1038;
             this.gbxOccupancyStatus.TabStop = false;
@@ -619,7 +629,7 @@
             // 
             this.rbtnOccupied.AutoSize = true;
             this.rbtnOccupied.Location = new System.Drawing.Point(41, 17);
-            this.rbtnOccupied.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnOccupied.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnOccupied.Name = "rbtnOccupied";
             this.rbtnOccupied.Size = new System.Drawing.Size(71, 17);
             this.rbtnOccupied.TabIndex = 1035;
@@ -630,7 +640,7 @@
             // 
             this.rbtnUnoccupied.AutoSize = true;
             this.rbtnUnoccupied.Location = new System.Drawing.Point(145, 17);
-            this.rbtnUnoccupied.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnUnoccupied.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnUnoccupied.Name = "rbtnUnoccupied";
             this.rbtnUnoccupied.Size = new System.Drawing.Size(83, 17);
             this.rbtnUnoccupied.TabIndex = 1036;
@@ -640,7 +650,7 @@
             // dtpDue
             // 
             this.dtpDue.Location = new System.Drawing.Point(94, 18);
-            this.dtpDue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDue.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDue.Name = "dtpDue";
             this.dtpDue.Size = new System.Drawing.Size(180, 20);
             this.dtpDue.TabIndex = 1;
@@ -654,16 +664,6 @@
             this.lblDueDatePrompt.Size = new System.Drawing.Size(89, 13);
             this.lblDueDatePrompt.TabIndex = 0;
             this.lblDueDatePrompt.Text = "Select Due Date:";
-            // 
-            // projectDBDataSet
-            // 
-            this.projectDBDataSet.DataSetName = "ProjectDBDataSet";
-            this.projectDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // contractorCompanyBindingSource
-            // 
-            this.contractorCompanyBindingSource.DataMember = "ContractorCompany";
-            this.contractorCompanyBindingSource.DataSource = this.projectDBDataSet;
             // 
             // contractorCompanyTableAdapter
             // 
@@ -688,10 +688,10 @@
             this.gbxCommentsAndStatus.PerformLayout();
             this.gbxOfficeWorkerTools.ResumeLayout(false);
             this.gbxOfficeWorkerTools.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
             this.gbxOccupancyStatus.ResumeLayout(false);
             this.gbxOccupancyStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,7 +702,7 @@
         private System.Windows.Forms.ListBox invoiceDatabaseListBox;
         private System.Windows.Forms.Label invoiceDatabaseListboxLabelPrompt;
         private System.Windows.Forms.Button newInvoiceButton;
-        private System.Windows.Forms.Button invoiceInformationCancelButton;
+        private System.Windows.Forms.Button invoiceInformationLogOutButton;
         private System.Windows.Forms.Button printInvoiceButton;
         private System.Windows.Forms.RichTextBox invoiceInformationDescriptionOfRequestRichTextBox;
         private System.Windows.Forms.Label invoiceInformationRequestTimeOfServiceLabelPrompt;

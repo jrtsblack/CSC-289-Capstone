@@ -172,11 +172,6 @@ namespace Invoice
             return submit;
         }
 
-        private void getContractingCompanyId(string company)
-        {
-
-        }
-
         // Set bool to true or false if occupant consented to permission to enter
         private bool getPTE()
         {

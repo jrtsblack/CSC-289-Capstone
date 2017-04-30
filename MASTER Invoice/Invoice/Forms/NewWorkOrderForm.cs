@@ -405,7 +405,6 @@ namespace Invoice
 
         private void defaultInformation()
         {
-            MessageBox.Show(ActiveUser.firstname);
             newInvoiceFirstNameTextBox.Text = ActiveUser.firstname;
             newInvoiceLastNameTextBox.Text = ActiveUser.lastname;
             newInvoiceEmailTextBox.Text = ActiveUser.email;

@@ -75,8 +75,8 @@ namespace Invoice
         private void invoiceInformationCancelButton_Click(object sender, EventArgs e)
         {
             // Message to be displayed in MessageBox
-            const string prompt = "Are you sure you want to close the program?";
-            const string caption = "Close?";
+            const string prompt = "Are you sure you want to log out of the program?";
+            const string caption = "Logout?";
 
             // MessageBox pop up to confirm
             var result = MessageBox.Show(prompt, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -84,7 +84,9 @@ namespace Invoice
             // Close form if yes was pressed
             if (result == DialogResult.Yes)
             {
-                Application.Exit();
+                LoginForm login = new LoginForm();
+                login.Show();
+                this.Close();
             }
 
         }

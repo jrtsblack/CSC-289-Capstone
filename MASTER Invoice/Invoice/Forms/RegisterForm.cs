@@ -63,7 +63,6 @@ namespace Invoice
                     connection.Open();
 
                     string pswd = Engine.PasswordEncryption.CreateHash(passwordEntryTextBox.Text);
-                    MessageBox.Show(pswd);
                     SqlCommand cmd = new SqlCommand("insert into UserAccounts ([Email], [Password], [UserType], [Confirmed]) VALUES ('" + emailEntryTextBox.Text.ToLower() + "', '" + pswd + "', '" + checkedButton.Text + "', '" + 0 + "')", connection);
                     SqlCommand owcmd = new SqlCommand("Insert into OfficeWorker (First, Last, Email, Phone#) VALUES (@firstname, @lastname, @emailaddress, @phonenumber)", connection);
                     SqlCommand occmd = new SqlCommand("Insert into Customer (First, Last, Email, Phone#) VALUES (@firstname, @lastname, @emailaddress, @phonenumber)", connection);

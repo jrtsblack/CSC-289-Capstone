@@ -17,7 +17,7 @@ namespace Invoice
         public NewWorkOrderForm()
         {
             InitializeComponent();
-            newInvoiceEmailTextBox.Text = ActiveUser.email;
+            defaultInformation();
         }
 
         // Database connection statement
@@ -86,11 +86,14 @@ namespace Invoice
             {
                 // Open DB connection to manipulate data
                 conn.Open();
-                i += saveOccupant().ExecuteNonQuery();
                 i += saveInvoice().ExecuteNonQuery();
+
+                SqlCommand invoiceName = new SqlCommand("UPDATE INVOICE SET InvoiceName= CONCAT(Address, Invoice_ID)  WHERE InvoiceName IS NULL", conn);
+
+                i += invoiceName.ExecuteNonQuery();
                 conn.Close();
 
-                if (i > 0)
+                if (i > 1)
                 {
                     // Display confirmation that information has been saved
                     MessageBox.Show("Information successfully saved.");
@@ -336,21 +339,7 @@ namespace Invoice
         }
 
         // Save String Values into the Customer table
-        private SqlCommand saveOccupant()
-        {
-            SqlCommand saveOccupant;
-
-            saveOccupant = new SqlCommand("INSERT INTO customer (first, last, email, phone#) VALUES "
-                    + "(@firstname, @lastname, @emailaddress, @phonenum", conn);
-
-            saveOccupant.Parameters.AddWithValue("@firstname", newInvoiceFirstNameTextBox.Text.ToLower());
-            saveOccupant.Parameters.AddWithValue("@lastname", newInvoiceLastNameTextBox.Text.ToLower());
-            saveOccupant.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
-            saveOccupant.Parameters.AddWithValue("@phonenum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
-
-            return saveOccupant;
-            
-        }
+        
 
         // Save the String Values into the Invoice table
         private SqlCommand saveInvoice()
@@ -359,14 +348,14 @@ namespace Invoice
 
             if (string.IsNullOrWhiteSpace(newInvoiceAlternatePhoneNumberTextBox.Text))
             {
-                saveInvoice = new SqlCommand("INSERT INTO invoice (community_name, occupantStatus, "
+                saveInvoice = new SqlCommand("INSERT INTO invoice (Customer_ID, community_name, occupantStatus, "
                 + "address, email, primary#, primary#type, primary#extension, "
                 + "permissiontoenter, pets, accepted, complete, timeOfService, " 
-                + "invoiceType, description) VALUES (@communityname, @occStatus, @address, "
+                + "invoiceType, description) VALUES (@custid, @communityname, @occStatus, @address, "
                 + "@emailaddress, @primarynum, @phonetype, @primaryex,  @pte, @pet, @accepted, @complete, "
                 + "@timeOfService, @invoiceType, @description)", conn);
 
-
+                saveInvoice.Parameters.AddWithValue("@custid", ActiveUser.id);
                 saveInvoice.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower());
                 saveInvoice.Parameters.AddWithValue("@occStatus", true);
                 saveInvoice.Parameters.AddWithValue("@address", newInvoiceStreetAddressTextBox.Text.ToLower());
@@ -379,7 +368,7 @@ namespace Invoice
                 saveInvoice.Parameters.AddWithValue("@accepted", false);
                 saveInvoice.Parameters.AddWithValue("@complete", false);
                 saveInvoice.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@invoice_type", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@invoiceType", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
                 saveInvoice.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
             }
             else
@@ -407,11 +396,21 @@ namespace Invoice
                 saveInvoice.Parameters.AddWithValue("@accepted", false);
                 saveInvoice.Parameters.AddWithValue("@complete", false);
                 saveInvoice.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@invoice_type", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
+                saveInvoice.Parameters.AddWithValue("@invoiceType", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
                 saveInvoice.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
             }
 
-                return saveInvoice;
+            return saveInvoice;
+        }
+
+        private void defaultInformation()
+        {
+            MessageBox.Show(ActiveUser.firstname);
+            newInvoiceFirstNameTextBox.Text = ActiveUser.firstname;
+            newInvoiceLastNameTextBox.Text = ActiveUser.lastname;
+            newInvoiceEmailTextBox.Text = ActiveUser.email;
+            newInvoicePrimaryPhoneNumberTextBox.Text = ActiveUser.phonenum;
+
         }
     }
 }

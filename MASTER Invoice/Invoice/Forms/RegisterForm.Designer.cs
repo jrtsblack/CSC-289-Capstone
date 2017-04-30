@@ -265,6 +265,7 @@
             this.companyPhoneEntryTextBox.Name = "companyPhoneEntryTextBox";
             this.companyPhoneEntryTextBox.Size = new System.Drawing.Size(161, 20);
             this.companyPhoneEntryTextBox.TabIndex = 2;
+            this.companyPhoneEntryTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.companyPhoneEntryTextBox_KeyPress);
             // 
             // personalInfoPanel
             // 
@@ -326,6 +327,7 @@
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(161, 20);
             this.phoneNumberTextBox.TabIndex = 2;
+            this.phoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumberTextBox_KeyPress);
             // 
             // RegisterForm
             // 

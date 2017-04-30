@@ -104,7 +104,7 @@ namespace Invoice
                         occmd.Parameters.AddWithValue("@lastname", lastNameTextBox.Text);
                         occmd.Parameters.AddWithValue("@emailaddress", emailEntryTextBox.Text);
                         occmd.Parameters.AddWithValue("@phonenumber", phoneNumberTextBox.Text);
-                        int j = owcmd.ExecuteNonQuery();
+                        int j = occmd.ExecuteNonQuery();
                         connection.Close();
 
                         if (i > 0)
@@ -324,6 +324,41 @@ namespace Invoice
 
         }
 
+        private void newInvoicePrimaryPhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
 
+        private void phoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+
+            if (phoneNumberTextBox.Text.Length == 3)
+            {
+                phoneNumberTextBox.Text += "-";
+                phoneNumberTextBox.SelectionStart = 4;
+            }
+            if (phoneNumberTextBox.Text.Length == 7)
+            {
+                phoneNumberTextBox.Text += "-";
+                phoneNumberTextBox.SelectionStart = 8;
+            }
+        }
+
+        private void companyPhoneEntryTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+
+            if (companyPhoneEntryTextBox.Text.Length == 3)
+            {
+                companyPhoneEntryTextBox.Text += "-";
+                companyPhoneEntryTextBox.SelectionStart = 4;
+            }
+            if (companyPhoneEntryTextBox.Text.Length == 7)
+            {
+                companyPhoneEntryTextBox.Text += "-";
+                companyPhoneEntryTextBox.SelectionStart = 8;
+            }
+        }
     }
 }

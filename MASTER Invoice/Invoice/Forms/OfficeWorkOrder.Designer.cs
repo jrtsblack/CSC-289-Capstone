@@ -34,6 +34,14 @@
             this.lblDescriptionPrompt = new System.Windows.Forms.Label();
             this.lblWorkOrderTypePrompt = new System.Windows.Forms.Label();
             this.gbxOfficeWorkOrder = new System.Windows.Forms.GroupBox();
+            this.occupiedPanel = new System.Windows.Forms.Panel();
+            this.newInvoiceAnimalsInHomeComboBox = new System.Windows.Forms.ComboBox();
+            this.newInvoicePermissionToEnterLabelPrompt = new System.Windows.Forms.Label();
+            this.newInvoicePermissionToEnterComboBox = new System.Windows.Forms.ComboBox();
+            this.newInvoiceAnimalsLabelPrompt = new System.Windows.Forms.Label();
+            this.newInvoiceCommunityComboBox = new System.Windows.Forms.ComboBox();
+            this.newInvoiceCommunityLabelPrompt = new System.Windows.Forms.Label();
+            this.cmbxContractingCompany = new System.Windows.Forms.ComboBox();
             this.cmbxWorkOrderType = new System.Windows.Forms.ComboBox();
             this.gbxOccupancyStatus = new System.Windows.Forms.GroupBox();
             this.rbtnOccupied = new System.Windows.Forms.RadioButton();
@@ -45,22 +53,14 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.cmbxContractingCompany = new System.Windows.Forms.ComboBox();
-            this.projectDBDataSet = new Invoice.ProjectDBDataSet();
+            this.projectDBDataSet1 = new Invoice.ProjectDBDataSet();
             this.contractorCompanyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractorCompanyTableAdapter = new Invoice.ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter();
-            this.newInvoiceCommunityComboBox = new System.Windows.Forms.ComboBox();
-            this.newInvoiceCommunityLabelPrompt = new System.Windows.Forms.Label();
-            this.occupiedPanel = new System.Windows.Forms.Panel();
-            this.newInvoiceAnimalsInHomeComboBox = new System.Windows.Forms.ComboBox();
-            this.newInvoicePermissionToEnterComboBox = new System.Windows.Forms.ComboBox();
-            this.newInvoiceAnimalsLabelPrompt = new System.Windows.Forms.Label();
-            this.newInvoicePermissionToEnterLabelPrompt = new System.Windows.Forms.Label();
+            this.contractorCompanyTableAdapter1 = new Invoice.ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter();
             this.gbxOfficeWorkOrder.SuspendLayout();
-            this.gbxOccupancyStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).BeginInit();
             this.occupiedPanel.SuspendLayout();
+            this.gbxOccupancyStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStreetAddressPrompt
@@ -115,155 +115,66 @@
             this.gbxOfficeWorkOrder.Controls.Add(this.lblStreetAddressPrompt);
             this.gbxOfficeWorkOrder.Controls.Add(this.lblWorkOrderTypePrompt);
             this.gbxOfficeWorkOrder.Location = new System.Drawing.Point(10, 11);
-            this.gbxOfficeWorkOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOfficeWorkOrder.Margin = new System.Windows.Forms.Padding(2);
             this.gbxOfficeWorkOrder.Name = "gbxOfficeWorkOrder";
-            this.gbxOfficeWorkOrder.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOfficeWorkOrder.Padding = new System.Windows.Forms.Padding(2);
             this.gbxOfficeWorkOrder.Size = new System.Drawing.Size(338, 333);
             this.gbxOfficeWorkOrder.TabIndex = 1033;
             this.gbxOfficeWorkOrder.TabStop = false;
             this.gbxOfficeWorkOrder.Text = "Work Order Information:";
             // 
-            // cmbxWorkOrderType
+            // occupiedPanel
             // 
-            this.cmbxWorkOrderType.FormattingEnabled = true;
-            this.cmbxWorkOrderType.Items.AddRange(new object[] {
-            "Plumbing",
-            "Carpentry",
-            "Electrical",
-            "HVAC",
-            "Other"});
-            this.cmbxWorkOrderType.Location = new System.Drawing.Point(140, 69);
-            this.cmbxWorkOrderType.Name = "cmbxWorkOrderType";
-            this.cmbxWorkOrderType.Size = new System.Drawing.Size(180, 21);
-            this.cmbxWorkOrderType.TabIndex = 1037;
+            this.occupiedPanel.Controls.Add(this.newInvoiceAnimalsInHomeComboBox);
+            this.occupiedPanel.Controls.Add(this.newInvoicePermissionToEnterLabelPrompt);
+            this.occupiedPanel.Controls.Add(this.newInvoicePermissionToEnterComboBox);
+            this.occupiedPanel.Controls.Add(this.newInvoiceAnimalsLabelPrompt);
+            this.occupiedPanel.Location = new System.Drawing.Point(13, 216);
+            this.occupiedPanel.Name = "occupiedPanel";
+            this.occupiedPanel.Size = new System.Drawing.Size(1, 1);
+            this.occupiedPanel.TabIndex = 1106;
             // 
-            // gbxOccupancyStatus
+            // newInvoiceAnimalsInHomeComboBox
             // 
-            this.gbxOccupancyStatus.Controls.Add(this.rbtnOccupied);
-            this.gbxOccupancyStatus.Controls.Add(this.rbtnUnoccupied);
-            this.gbxOccupancyStatus.Location = new System.Drawing.Point(13, 155);
-            this.gbxOccupancyStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbxOccupancyStatus.Name = "gbxOccupancyStatus";
-            this.gbxOccupancyStatus.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbxOccupancyStatus.Size = new System.Drawing.Size(175, 46);
-            this.gbxOccupancyStatus.TabIndex = 1037;
-            this.gbxOccupancyStatus.TabStop = false;
-            this.gbxOccupancyStatus.Text = "Occupancy Status:";
+            this.newInvoiceAnimalsInHomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.newInvoiceAnimalsInHomeComboBox.FormattingEnabled = true;
+            this.newInvoiceAnimalsInHomeComboBox.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.newInvoiceAnimalsInHomeComboBox.Location = new System.Drawing.Point(167, 39);
+            this.newInvoiceAnimalsInHomeComboBox.Name = "newInvoiceAnimalsInHomeComboBox";
+            this.newInvoiceAnimalsInHomeComboBox.Size = new System.Drawing.Size(145, 21);
+            this.newInvoiceAnimalsInHomeComboBox.TabIndex = 1108;
             // 
-            // rbtnOccupied
+            // newInvoicePermissionToEnterLabelPrompt
             // 
-            this.rbtnOccupied.AutoSize = true;
-            this.rbtnOccupied.Location = new System.Drawing.Point(19, 17);
-            this.rbtnOccupied.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.rbtnOccupied.Name = "rbtnOccupied";
-            this.rbtnOccupied.Size = new System.Drawing.Size(71, 17);
-            this.rbtnOccupied.TabIndex = 1035;
-            this.rbtnOccupied.Text = "Occupied";
-            this.rbtnOccupied.UseVisualStyleBackColor = true;
-            this.rbtnOccupied.CheckedChanged += new System.EventHandler(this.rbtnOccupied_CheckedChanged);
+            this.newInvoicePermissionToEnterLabelPrompt.AutoSize = true;
+            this.newInvoicePermissionToEnterLabelPrompt.Location = new System.Drawing.Point(6, 15);
+            this.newInvoicePermissionToEnterLabelPrompt.Name = "newInvoicePermissionToEnterLabelPrompt";
+            this.newInvoicePermissionToEnterLabelPrompt.Size = new System.Drawing.Size(130, 13);
+            this.newInvoicePermissionToEnterLabelPrompt.TabIndex = 1109;
+            this.newInvoicePermissionToEnterLabelPrompt.Text = "Permission to Enter (PTE):";
             // 
-            // rbtnUnoccupied
+            // newInvoicePermissionToEnterComboBox
             // 
-            this.rbtnUnoccupied.AutoSize = true;
-            this.rbtnUnoccupied.Location = new System.Drawing.Point(90, 17);
-            this.rbtnUnoccupied.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.rbtnUnoccupied.Name = "rbtnUnoccupied";
-            this.rbtnUnoccupied.Size = new System.Drawing.Size(83, 17);
-            this.rbtnUnoccupied.TabIndex = 1036;
-            this.rbtnUnoccupied.Text = "Unoccupied";
-            this.rbtnUnoccupied.UseVisualStyleBackColor = true;
+            this.newInvoicePermissionToEnterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.newInvoicePermissionToEnterComboBox.FormattingEnabled = true;
+            this.newInvoicePermissionToEnterComboBox.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.newInvoicePermissionToEnterComboBox.Location = new System.Drawing.Point(167, 12);
+            this.newInvoicePermissionToEnterComboBox.Name = "newInvoicePermissionToEnterComboBox";
+            this.newInvoicePermissionToEnterComboBox.Size = new System.Drawing.Size(145, 21);
+            this.newInvoicePermissionToEnterComboBox.TabIndex = 1107;
             // 
-            // dateTimePicker
+            // newInvoiceAnimalsLabelPrompt
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(140, 121);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(179, 20);
-            this.dateTimePicker.TabIndex = 1039;
-            // 
-            // lblContractingCompanyPrompt
-            // 
-            this.lblContractingCompanyPrompt.AutoSize = true;
-            this.lblContractingCompanyPrompt.Location = new System.Drawing.Point(10, 98);
-            this.lblContractingCompanyPrompt.Name = "lblContractingCompanyPrompt";
-            this.lblContractingCompanyPrompt.Size = new System.Drawing.Size(111, 13);
-            this.lblContractingCompanyPrompt.TabIndex = 1035;
-            this.lblContractingCompanyPrompt.Text = "Contracting Company:";
-            // 
-            // lblDueDatePrompt
-            // 
-            this.lblDueDatePrompt.AutoSize = true;
-            this.lblDueDatePrompt.Location = new System.Drawing.Point(10, 124);
-            this.lblDueDatePrompt.Name = "lblDueDatePrompt";
-            this.lblDueDatePrompt.Size = new System.Drawing.Size(56, 13);
-            this.lblDueDatePrompt.TabIndex = 1036;
-            this.lblDueDatePrompt.Text = "Due Date:";
-            // 
-            // txtStreetAddress
-            // 
-            this.txtStreetAddress.Location = new System.Drawing.Point(140, 17);
-            this.txtStreetAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtStreetAddress.Name = "txtStreetAddress";
-            this.txtStreetAddress.Size = new System.Drawing.Size(179, 20);
-            this.txtStreetAddress.TabIndex = 1034;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(10, 358);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(76, 36);
-            this.btnSubmit.TabIndex = 1034;
-            this.btnSubmit.Text = "Submit Work Order";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(142, 358);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(76, 36);
-            this.btnClear.TabIndex = 1035;
-            this.btnClear.Text = "Clear Screen";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(272, 358);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 36);
-            this.btnCancel.TabIndex = 1036;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // cmbxContractingCompany
-            // 
-            this.cmbxContractingCompany.DataSource = this.contractorCompanyBindingSource;
-            this.cmbxContractingCompany.DisplayMember = "Company_Name";
-            this.cmbxContractingCompany.FormattingEnabled = true;
-            this.cmbxContractingCompany.Location = new System.Drawing.Point(139, 95);
-            this.cmbxContractingCompany.Name = "cmbxContractingCompany";
-            this.cmbxContractingCompany.Size = new System.Drawing.Size(180, 21);
-            this.cmbxContractingCompany.TabIndex = 1040;
-            this.cmbxContractingCompany.ValueMember = "Company_ID";
-            // 
-            // projectDBDataSet
-            // 
-            this.projectDBDataSet.DataSetName = "ProjectDBDataSet";
-            this.projectDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // contractorCompanyBindingSource
-            // 
-            this.contractorCompanyBindingSource.DataMember = "ContractorCompany";
-            this.contractorCompanyBindingSource.DataSource = this.projectDBDataSet;
-            // 
-            // contractorCompanyTableAdapter
-            // 
-            this.contractorCompanyTableAdapter.ClearBeforeFill = true;
+            this.newInvoiceAnimalsLabelPrompt.AutoSize = true;
+            this.newInvoiceAnimalsLabelPrompt.Location = new System.Drawing.Point(6, 42);
+            this.newInvoiceAnimalsLabelPrompt.Name = "newInvoiceAnimalsLabelPrompt";
+            this.newInvoiceAnimalsLabelPrompt.Size = new System.Drawing.Size(88, 13);
+            this.newInvoiceAnimalsLabelPrompt.TabIndex = 1110;
+            this.newInvoiceAnimalsLabelPrompt.Text = "Animals in Home:";
             // 
             // newInvoiceCommunityComboBox
             // 
@@ -293,58 +204,147 @@
             this.newInvoiceCommunityLabelPrompt.TabIndex = 1105;
             this.newInvoiceCommunityLabelPrompt.Text = "Community:";
             // 
-            // occupiedPanel
+            // cmbxContractingCompany
             // 
-            this.occupiedPanel.Controls.Add(this.newInvoiceAnimalsInHomeComboBox);
-            this.occupiedPanel.Controls.Add(this.newInvoicePermissionToEnterLabelPrompt);
-            this.occupiedPanel.Controls.Add(this.newInvoicePermissionToEnterComboBox);
-            this.occupiedPanel.Controls.Add(this.newInvoiceAnimalsLabelPrompt);
-            this.occupiedPanel.Location = new System.Drawing.Point(13, 216);
-            this.occupiedPanel.Name = "occupiedPanel";
-            this.occupiedPanel.Size = new System.Drawing.Size(1, 1);
-            this.occupiedPanel.TabIndex = 1106;
+            this.cmbxContractingCompany.DataSource = this.contractorCompanyBindingSource;
+            this.cmbxContractingCompany.DisplayMember = "Company_Name";
+            this.cmbxContractingCompany.FormattingEnabled = true;
+            this.cmbxContractingCompany.Location = new System.Drawing.Point(139, 95);
+            this.cmbxContractingCompany.Name = "cmbxContractingCompany";
+            this.cmbxContractingCompany.Size = new System.Drawing.Size(180, 21);
+            this.cmbxContractingCompany.TabIndex = 1040;
+            this.cmbxContractingCompany.ValueMember = "Company_ID";
             // 
-            // newInvoiceAnimalsInHomeComboBox
+            // cmbxWorkOrderType
             // 
-            this.newInvoiceAnimalsInHomeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.newInvoiceAnimalsInHomeComboBox.FormattingEnabled = true;
-            this.newInvoiceAnimalsInHomeComboBox.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.newInvoiceAnimalsInHomeComboBox.Location = new System.Drawing.Point(167, 39);
-            this.newInvoiceAnimalsInHomeComboBox.Name = "newInvoiceAnimalsInHomeComboBox";
-            this.newInvoiceAnimalsInHomeComboBox.Size = new System.Drawing.Size(145, 21);
-            this.newInvoiceAnimalsInHomeComboBox.TabIndex = 1108;
+            this.cmbxWorkOrderType.FormattingEnabled = true;
+            this.cmbxWorkOrderType.Items.AddRange(new object[] {
+            "Plumbing",
+            "Carpentry",
+            "Electrical",
+            "HVAC",
+            "Other"});
+            this.cmbxWorkOrderType.Location = new System.Drawing.Point(140, 69);
+            this.cmbxWorkOrderType.Name = "cmbxWorkOrderType";
+            this.cmbxWorkOrderType.Size = new System.Drawing.Size(180, 21);
+            this.cmbxWorkOrderType.TabIndex = 1037;
             // 
-            // newInvoicePermissionToEnterComboBox
+            // gbxOccupancyStatus
             // 
-            this.newInvoicePermissionToEnterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.newInvoicePermissionToEnterComboBox.FormattingEnabled = true;
-            this.newInvoicePermissionToEnterComboBox.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.newInvoicePermissionToEnterComboBox.Location = new System.Drawing.Point(167, 12);
-            this.newInvoicePermissionToEnterComboBox.Name = "newInvoicePermissionToEnterComboBox";
-            this.newInvoicePermissionToEnterComboBox.Size = new System.Drawing.Size(145, 21);
-            this.newInvoicePermissionToEnterComboBox.TabIndex = 1107;
+            this.gbxOccupancyStatus.Controls.Add(this.rbtnOccupied);
+            this.gbxOccupancyStatus.Controls.Add(this.rbtnUnoccupied);
+            this.gbxOccupancyStatus.Location = new System.Drawing.Point(13, 155);
+            this.gbxOccupancyStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.gbxOccupancyStatus.Name = "gbxOccupancyStatus";
+            this.gbxOccupancyStatus.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxOccupancyStatus.Size = new System.Drawing.Size(175, 46);
+            this.gbxOccupancyStatus.TabIndex = 1037;
+            this.gbxOccupancyStatus.TabStop = false;
+            this.gbxOccupancyStatus.Text = "Occupancy Status:";
             // 
-            // newInvoiceAnimalsLabelPrompt
+            // rbtnOccupied
             // 
-            this.newInvoiceAnimalsLabelPrompt.AutoSize = true;
-            this.newInvoiceAnimalsLabelPrompt.Location = new System.Drawing.Point(6, 42);
-            this.newInvoiceAnimalsLabelPrompt.Name = "newInvoiceAnimalsLabelPrompt";
-            this.newInvoiceAnimalsLabelPrompt.Size = new System.Drawing.Size(88, 13);
-            this.newInvoiceAnimalsLabelPrompt.TabIndex = 1110;
-            this.newInvoiceAnimalsLabelPrompt.Text = "Animals in Home:";
+            this.rbtnOccupied.AutoSize = true;
+            this.rbtnOccupied.Location = new System.Drawing.Point(19, 17);
+            this.rbtnOccupied.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtnOccupied.Name = "rbtnOccupied";
+            this.rbtnOccupied.Size = new System.Drawing.Size(71, 17);
+            this.rbtnOccupied.TabIndex = 1035;
+            this.rbtnOccupied.Text = "Occupied";
+            this.rbtnOccupied.UseVisualStyleBackColor = true;
+            this.rbtnOccupied.CheckedChanged += new System.EventHandler(this.rbtnOccupied_CheckedChanged);
             // 
-            // newInvoicePermissionToEnterLabelPrompt
+            // rbtnUnoccupied
             // 
-            this.newInvoicePermissionToEnterLabelPrompt.AutoSize = true;
-            this.newInvoicePermissionToEnterLabelPrompt.Location = new System.Drawing.Point(6, 15);
-            this.newInvoicePermissionToEnterLabelPrompt.Name = "newInvoicePermissionToEnterLabelPrompt";
-            this.newInvoicePermissionToEnterLabelPrompt.Size = new System.Drawing.Size(130, 13);
-            this.newInvoicePermissionToEnterLabelPrompt.TabIndex = 1109;
-            this.newInvoicePermissionToEnterLabelPrompt.Text = "Permission to Enter (PTE):";
+            this.rbtnUnoccupied.AutoSize = true;
+            this.rbtnUnoccupied.Location = new System.Drawing.Point(90, 17);
+            this.rbtnUnoccupied.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtnUnoccupied.Name = "rbtnUnoccupied";
+            this.rbtnUnoccupied.Size = new System.Drawing.Size(83, 17);
+            this.rbtnUnoccupied.TabIndex = 1036;
+            this.rbtnUnoccupied.Text = "Unoccupied";
+            this.rbtnUnoccupied.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(140, 121);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(179, 20);
+            this.dateTimePicker.TabIndex = 1039;
+            // 
+            // lblContractingCompanyPrompt
+            // 
+            this.lblContractingCompanyPrompt.AutoSize = true;
+            this.lblContractingCompanyPrompt.Location = new System.Drawing.Point(10, 98);
+            this.lblContractingCompanyPrompt.Name = "lblContractingCompanyPrompt";
+            this.lblContractingCompanyPrompt.Size = new System.Drawing.Size(111, 13);
+            this.lblContractingCompanyPrompt.TabIndex = 1035;
+            this.lblContractingCompanyPrompt.Text = "Contracting Company:";
+            // 
+            // lblDueDatePrompt
+            // 
+            this.lblDueDatePrompt.AutoSize = true;
+            this.lblDueDatePrompt.Location = new System.Drawing.Point(10, 124);
+            this.lblDueDatePrompt.Name = "lblDueDatePrompt";
+            this.lblDueDatePrompt.Size = new System.Drawing.Size(56, 13);
+            this.lblDueDatePrompt.TabIndex = 1036;
+            this.lblDueDatePrompt.Text = "Due Date:";
+            // 
+            // txtStreetAddress
+            // 
+            this.txtStreetAddress.Location = new System.Drawing.Point(140, 17);
+            this.txtStreetAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStreetAddress.Name = "txtStreetAddress";
+            this.txtStreetAddress.Size = new System.Drawing.Size(179, 20);
+            this.txtStreetAddress.TabIndex = 1034;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(10, 358);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(76, 36);
+            this.btnSubmit.TabIndex = 1034;
+            this.btnSubmit.Text = "Submit Work Order";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(142, 358);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(76, 36);
+            this.btnClear.TabIndex = 1035;
+            this.btnClear.Text = "Clear Screen";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(272, 358);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(76, 36);
+            this.btnCancel.TabIndex = 1036;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // projectDBDataSet1
+            // 
+            this.projectDBDataSet1.DataSetName = "ProjectDBDataSet";
+            this.projectDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // contractorCompanyBindingSource
+            // 
+            this.contractorCompanyBindingSource.DataMember = "ContractorCompany";
+            this.contractorCompanyBindingSource.DataSource = this.projectDBDataSet1;
+            // 
+            // contractorCompanyTableAdapter1
+            // 
+            this.contractorCompanyTableAdapter1.ClearBeforeFill = true;
             // 
             // OfficeWorkOrder
             // 
@@ -355,18 +355,18 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.gbxOfficeWorkOrder);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OfficeWorkOrder";
             this.Text = "Work Order";
             this.Load += new System.EventHandler(this.OfficeWorkOrder_Load);
             this.gbxOfficeWorkOrder.ResumeLayout(false);
             this.gbxOfficeWorkOrder.PerformLayout();
-            this.gbxOccupancyStatus.ResumeLayout(false);
-            this.gbxOccupancyStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).EndInit();
             this.occupiedPanel.ResumeLayout(false);
             this.occupiedPanel.PerformLayout();
+            this.gbxOccupancyStatus.ResumeLayout(false);
+            this.gbxOccupancyStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -391,7 +391,6 @@
         private System.Windows.Forms.ComboBox cmbxWorkOrderType;
         private System.Windows.Forms.ComboBox cmbxContractingCompany;
         private ProjectDBDataSet projectDBDataSet;
-        private System.Windows.Forms.BindingSource contractorCompanyBindingSource;
         private ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter contractorCompanyTableAdapter;
         private System.Windows.Forms.ComboBox newInvoiceCommunityComboBox;
         private System.Windows.Forms.Label newInvoiceCommunityLabelPrompt;
@@ -400,5 +399,8 @@
         private System.Windows.Forms.Label newInvoicePermissionToEnterLabelPrompt;
         private System.Windows.Forms.ComboBox newInvoicePermissionToEnterComboBox;
         private System.Windows.Forms.Label newInvoiceAnimalsLabelPrompt;
+        private ProjectDBDataSet projectDBDataSet1;
+        private System.Windows.Forms.BindingSource contractorCompanyBindingSource;
+        private ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter contractorCompanyTableAdapter1;
     }
 }

@@ -95,8 +95,10 @@ namespace Invoice
                     {
                         ActiveUser.email = email;
                         ActiveUser.usertype = usertype;
+                        getIDandUserInfo(ActiveUser.usertype.ToLower(), ActiveUser.email.ToLower());
                         if (usertype == "Occupant" || usertype == "Office Worker")
                         {
+                            
                             MessageBox.Show("Login Successful!");
 
                             WorkOrderForm invoice = new WorkOrderForm();
@@ -141,6 +143,72 @@ namespace Invoice
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+        }
+
+        private void getIDandUserInfo(string usertype, string email)
+        {
+            int id;
+            string firstname;
+            string lastname;
+            string phone;
+            
+            if (usertype == "occupant")
+            {
+                SqlCommand occ = new SqlCommand("Select * From Customer WHERE email =@email", connection);
+                occ.Parameters.AddWithValue("@email", email);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(occ);
+                da.Fill(dt);
+
+                id = Int32.Parse(dt.Rows[0]["Customer_ID"].ToString());
+                firstname = dt.Rows[0]["First"].ToString();
+                MessageBox.Show(firstname);
+                lastname = dt.Rows[0]["Last"].ToString();
+                phone = dt.Rows[0]["Phone#"].ToString();
+                ActiveUser.id = id;
+                ActiveUser.firstname = firstname;
+                ActiveUser.lastname = lastname;
+                ActiveUser.phonenum = phone;
+            }
+            else if (usertype == "office worker")
+            {
+                SqlCommand occ = new SqlCommand("Select * From OfficeWorker WHERE email =@email", connection);
+                occ.Parameters.AddWithValue("@email", email);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(occ);
+                da.Fill(dt);
+
+                id = Int32.Parse(dt.Rows[0]["OfficeWorker_ID"].ToString());
+                firstname = dt.Rows[0]["First"].ToString();
+                lastname = dt.Rows[0]["Last"].ToString();
+                phone = dt.Rows[0]["Phone#"].ToString();
+                ActiveUser.id = id;
+                ActiveUser.firstname = firstname;
+                ActiveUser.lastname = lastname;
+                ActiveUser.phonenum = phone;
+            }
+            else if (usertype == "contractor")
+            {
+                SqlCommand occ = new SqlCommand("Select * From Contractor WHERE email =@email", connection);
+                occ.Parameters.AddWithValue("@email", email);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(occ);
+                da.Fill(dt);
+
+                id = Int32.Parse(dt.Rows[0]["Contractor_ID"].ToString());
+                firstname = dt.Rows[0]["First"].ToString();
+                lastname = dt.Rows[0]["Last"].ToString();
+                phone = dt.Rows[0]["Phone#"].ToString();
+                ActiveUser.id = id;
+                ActiveUser.firstname = firstname;
+                ActiveUser.lastname = lastname;
+                ActiveUser.phonenum = phone;
+            }
+            else if (usertype == "Administrator")
+            {
+                ActiveUser.id = 0;
+                ActiveUser.phonenum = "555-555-5555";
+            }
         }
     }
 }

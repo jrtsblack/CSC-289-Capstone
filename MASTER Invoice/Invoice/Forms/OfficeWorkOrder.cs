@@ -23,8 +23,12 @@ namespace Invoice
 
         private void OfficeWorkOrder_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'projectDBDataSet.ContractorCompany' table. You can move, or remove it, as needed.
-            this.contractorCompanyTableAdapter.Fill(this.projectDBDataSet.ContractorCompany);
+            // TODO: This line of code loads data into the 'projectDBDataSet1.ContractorCompany' table. You can move, or remove it, as needed.
+            this.contractorCompanyTableAdapter1.Fill(this.projectDBDataSet1.ContractorCompany);
+            // TODO: This line of code loads data into the 'projectDBDataSet1.ContractorCompany' table. You can move, or remove it, as needed.
+            this.contractorCompanyTableAdapter1.Fill(this.projectDBDataSet1.ContractorCompany);
+            // TODO: This line of code loads data into the 'projectDBDataSet1.ContractorCompany' table. You can move, or remove it, as needed.
+            this.contractorCompanyTableAdapter1.Fill(this.projectDBDataSet1.ContractorCompany);
 
         }
 
@@ -86,8 +90,9 @@ namespace Invoice
         private SqlCommand SubmitWorkOrder()
         {
             SqlCommand submit;
-            SqlCommand checking = new SqlCommand("Select Company_ID from ContractorCompany where company_name=@name", connection);
-            checking.Parameters.AddWithValue("@name", cmbxContractingCompany.SelectedItem.ToString());
+            SqlCommand checking = new SqlCommand("Select Company_ID from ContractorCompany where company_name= @name", connection);
+            checking.Parameters.AddWithValue("@name", cmbxContractingCompany.Text);
+            MessageBox.Show(cmbxContractingCompany.Text);
             checking.ExecuteNonQuery();
             SqlDataAdapter data = new SqlDataAdapter(checking);
             DataTable table = new DataTable();
@@ -98,14 +103,16 @@ namespace Invoice
             if (rbtnOccupied.Checked && ActiveUser.usertype == "Office Worker")
             {
                 submit = new SqlCommand("Insert Into Invoice (OfficeWorker_ID, ContractorCompany_ID, Community_Name, OccupantStatus, Address, Email, Primary#, "
-                     + "Primary#Extension, Primary#Type, PermissionToEnter, Pets, Accepted, Complete, TimeOfService, DueDate, InvoiceType, Description) " +
-                       "VALUES(@officeworkerid, @contractorcompid, @communityname, @occupantStatus, @number, @extension, @phonetype, @pte, @pet, @accepted, @complete, @tos, @due, " +
-                       " @type, @desc", connection);
+                     + "Primary#Extension, Primary#Type, PermissionToEnter, Pets, Accepted, Complete, TimeOfService, DueDate, InvoiceType, Description, InvoiceName) " +
+                       "VALUES(@officeworkerid, @contractorcompid, @communityname, @occupantStatus, @address, @email, @number, @extension, @phonetype, @pte, @pet, @accepted, @complete, @tos, @due, " +
+                       " @type, @desc, @invoicename)", connection);
                 submit.Parameters.AddWithValue("@officeworkerid", ActiveUser.id);
                 submit.Parameters.AddWithValue("@contractorcompid", id);
                 submit.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString());
                 submit.Parameters.AddWithValue("@occupantStatus", rbtnOccupied.Text);
-                submit.Parameters.AddWithValue("@phoneNumber", ActiveUser.phonenum);
+                submit.Parameters.AddWithValue("@address", txtStreetAddress.Text);
+                submit.Parameters.AddWithValue("@email", ActiveUser.email);
+                submit.Parameters.AddWithValue("@number", ActiveUser.phonenum);
                 submit.Parameters.AddWithValue("@extension", "0");
                 submit.Parameters.AddWithValue("@phonetype", "Work");
                 submit.Parameters.AddWithValue("@pte", getPTE());
@@ -113,49 +120,55 @@ namespace Invoice
                 submit.Parameters.AddWithValue("@accepted", false);
                 submit.Parameters.AddWithValue("@complete", false);
                 submit.Parameters.AddWithValue("@tos", "any");
-                submit.Parameters.AddWithValue("@due", dateTimePicker);
+                submit.Parameters.AddWithValue("@due", dateTimePicker.Value);
                 submit.Parameters.AddWithValue("@type", cmbxWorkOrderType.SelectedItem.ToString().ToLower());
-                submit.Parameters.AddWithValue("@desc", rtxtDescriptionOfRequest.Text.ToString().ToLower());
+                submit.Parameters.AddWithValue("@desc", rtxtDescriptionOfRequest.Text);
+
             }
-            else if (rbtnOccupied.Checked && ActiveUser.usertype == "Office Worker") 
+            else if (rbtnUnoccupied.Checked && ActiveUser.usertype == "Office Worker") 
             {
                 submit = new SqlCommand("Insert Into Invoice (OfficeWorker_ID, ContractorCompany_ID, Community_Name, OccupantStatus, Address, Email, Primary#, "
                      + "Primary#Extension, Primary#Type, Accepted, Complete, TimeOfService, DueDate, InvoiceType, Description) " +
-                       "VALUES(@officeworkerid, @contractorcompid, @communityname, @occupantStatus, @number, @extension, @phonetype, @accepted, @complete, @tos, @due, " +
-                       " @type, @desc", connection);
+                       "VALUES(@officeworkerid, @contractorcompid, @communityname, @occupantStatus, @address, @email, @number, @extension, @phonetype, @accepted, @complete, @tos, @due, " +
+                       " @type, @desc)", connection);
                 submit.Parameters.AddWithValue("@officeworkerid", ActiveUser.id);
                 submit.Parameters.AddWithValue("@contractorcompid", id);
                 submit.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString());
-                submit.Parameters.AddWithValue("@occupantStatus", rbtnOccupied.Text);
-                submit.Parameters.AddWithValue("@phoneNumber", ActiveUser.phonenum);
+                submit.Parameters.AddWithValue("@occupantStatus", rbtnUnoccupied.Text);
+                submit.Parameters.AddWithValue("@address", txtStreetAddress.Text);
+                submit.Parameters.AddWithValue("@email", ActiveUser.email);
+                submit.Parameters.AddWithValue("@number", ActiveUser.phonenum);
                 submit.Parameters.AddWithValue("@extension", "0");
                 submit.Parameters.AddWithValue("@phonetype", "Work");
                 submit.Parameters.AddWithValue("@accepted", false);
                 submit.Parameters.AddWithValue("@complete", false);
                 submit.Parameters.AddWithValue("@tos", "any");
-                submit.Parameters.AddWithValue("@due", dateTimePicker);
+                submit.Parameters.AddWithValue("@due", dateTimePicker.Value);
                 submit.Parameters.AddWithValue("@type", cmbxWorkOrderType.SelectedItem.ToString().ToLower());
-                submit.Parameters.AddWithValue("@desc", rtxtDescriptionOfRequest.Text.ToString().ToLower());
+                submit.Parameters.AddWithValue("@desc", rtxtDescriptionOfRequest.Text);
             }
             else
             {
                 submit = new SqlCommand("Insert Into Invoice ( ContractorCompany_ID, Community_Name, OccupantStatus, Address, Email, Primary#, "
                      + "Primary#Extension, Primary#Type, Accepted, Complete, TimeOfService, DueDate, InvoiceType, Description) " +
-                       "VALUES(@contractorcompid, @communityname, @occupantStatus, @number, @extension, @phonetype, @accepted, @complete, @tos, @due, " +
-                       " @type, @desc", connection);
+                       "VALUES(@contractorcompid, @communityname, @occupantStatus, @address, @email, @number, @extension, @phonetype, @accepted, @complete, @tos, @due, " +
+                       " @type, @desc)", connection);
                 submit.Parameters.AddWithValue("@contractorcompid", id);
                 submit.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString());
                 submit.Parameters.AddWithValue("@occupantStatus", rbtnOccupied.Text);
-                submit.Parameters.AddWithValue("@phoneNumber", ActiveUser.phonenum);
+                submit.Parameters.AddWithValue("@address", txtStreetAddress.Text);
+                submit.Parameters.AddWithValue("@email", ActiveUser.email);
+                submit.Parameters.AddWithValue("@number", ActiveUser.phonenum);
                 submit.Parameters.AddWithValue("@extension", "0");
                 submit.Parameters.AddWithValue("@phonetype", "Work");
                 submit.Parameters.AddWithValue("@accepted", false);
                 submit.Parameters.AddWithValue("@complete", false);
                 submit.Parameters.AddWithValue("@tos", "any");
-                submit.Parameters.AddWithValue("@due", dateTimePicker);
+                submit.Parameters.AddWithValue("@due", dateTimePicker.Value);
                 submit.Parameters.AddWithValue("@type", cmbxWorkOrderType.SelectedItem.ToString().ToLower());
-                submit.Parameters.AddWithValue("@desc", rtxtDescriptionOfRequest.Text.ToString().ToLower());
+                submit.Parameters.AddWithValue("@desc", rtxtDescriptionOfRequest.Text);
             }
+
             return submit;
         }
 
@@ -201,6 +214,8 @@ namespace Invoice
             {
                 connection.Open();
                 SubmitWorkOrder().ExecuteNonQuery();
+                SqlCommand invoiceName = new SqlCommand("UPDATE INVOICE SET InvoiceName= CONCAT(Address, Invoice_ID)  WHERE InvoiceName IS NULL", connection);
+                invoiceName.ExecuteNonQuery();
                 connection.Close();
             }
         }
@@ -233,20 +248,26 @@ namespace Invoice
             {
                 //Add Tooltip
             }
-            if (newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
+            if (rbtnOccupied.Checked && newInvoicePermissionToEnterComboBox.SelectedIndex == -1)
             {
                 //Add Tooltip
             }
-            if (newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
+            if (rbtnOccupied.Checked && newInvoiceAnimalsInHomeComboBox.SelectedIndex == -1)
             {
                 //Add Tooltip
             }
             // return true if required fields are not null
             else if (!string.IsNullOrEmpty(txtStreetAddress.Text) && newInvoiceCommunityComboBox.SelectedIndex != -1 && cmbxWorkOrderType.SelectedIndex != -1 &&
-                     cmbxContractingCompany.SelectedIndex != -1 && (rbtnOccupied.Checked || rbtnUnoccupied.Checked) && !string.IsNullOrEmpty(rtxtDescriptionOfRequest.Text) &&
-                     newInvoicePermissionToEnterComboBox.SelectedIndex != -1 && newInvoiceAnimalsInHomeComboBox.SelectedIndex != -1)
+                     cmbxContractingCompany.SelectedIndex != -1 && (rbtnOccupied.Checked || rbtnUnoccupied.Checked) && !string.IsNullOrEmpty(rtxtDescriptionOfRequest.Text))
             {
-                check = true;
+                if(rbtnOccupied.Checked && newInvoicePermissionToEnterComboBox.SelectedIndex != -1 && newInvoiceAnimalsInHomeComboBox.SelectedIndex != -1)
+                {
+                    check = true;
+                }
+                else if(rbtnUnoccupied.Checked)
+                {
+                    check = true;
+                }
             }
             return check;
         }

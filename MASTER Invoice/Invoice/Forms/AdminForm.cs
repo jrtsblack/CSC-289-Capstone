@@ -21,6 +21,8 @@ namespace Invoice
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectDBDataSet.Invoice' table. You can move, or remove it, as needed.
+            this.invoiceTableAdapter.Fill(this.projectDBDataSet.Invoice);
             // TODO: This line of code loads data into the 'projectDBDataSet.UserAccounts' table. You can move, or remove it, as needed.
             this.userAccountsTableAdapter.Fill(this.projectDBDataSet.UserAccounts);
 

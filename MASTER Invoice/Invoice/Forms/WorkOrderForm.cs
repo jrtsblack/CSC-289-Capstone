@@ -19,248 +19,37 @@ namespace Invoice
         {
             InitializeComponent();
 
-            GetInvoices();
+            Fill_ListBox();
+            checkUserType();
         }
-        // Database connection statement
         static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-        SqlConnection conn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True");
+        string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True";
+        string query = "SELECT i.Invoice_ID, c.First, c.last, o.First, o.Last, i.Community_Name, i.Address, i.Primary#, i.Primary#Extension, i.Primary#Type, i.Alt#, i.Alt#Extension, i.Alt#Type, " +
+            "i.Email, i.InvoiceType, i.Description, i.TimeOfService, i.PermissionToEnter, i.Pets, i.DueDate, i.ContractorCompany_ID, i.OccupantStatus, i.Complete, i.Comments, " +
+            "i.InvoiceName FROM Invoice i LEFT OUTER JOIN Customer c ON (i.Customer_ID=c.Customer_ID) LEFT OUTER JOIN OfficeWorker o ON (i.OfficeWorker_ID=o.OfficeWorker_ID)";
 
-        private void GetInvoices()
+        string query3 = "SELECT i.Invoice_ID, c.First, c.last, i.Community_Name, i.Address, i.Primary#, i.Primary#Extension, i.Primary#Type, i.Alt#, i.Alt#Extension, i.Alt#Type, " +
+            "i.Email, i.InvoiceType, i.Description, i.TimeOfService, i.PermissionToEnter, i.Pets, i.DueDate, i.ContractorCompany_ID, i.OccupantStatus, i.Complete, i.Comments, " +
+            "i.InvoiceName FROM Invoice i INNER JOIN Customer c ON i.Customer_ID=c.Customer_ID WHERE i.Customer_ID = " + ActiveUser.id;
+        private void newInvoiceButton_Click(object sender, EventArgs e)
         {
             if (ActiveUser.usertype.ToLower() == "occupant")
             {
-                // set office worker tools to invisible
-                gbxOfficeWorkerTools.Visible = false;
-                gbxOccupancyStatus.Visible = false;
-                lblDueDatePrompt.Visible = false;
-                lblSelectCompany.Visible = false;
-                dtpDue.Visible = false;
-                cbxCompanySelect.Visible = false;
-                rbtnOccupied.Visible = false;
-                rbtnUnoccupied.Visible = false;
-                btnUpdate.Visible = false;
-
-                // Make sure occupant can't update any fields
-                invoiceInformationFirstNameLabel.ReadOnly = true;
-                invoiceInformationLastNameLabel.ReadOnly = true;
-                invoiceInformationStreetAddressLabel.ReadOnly = true;
-                invoiceInformationCommunityLabel.ReadOnly = true;
-                invoiceInformationPrimaryPhoneNumberLabel.ReadOnly = true;
-                invoiceInformationPrimaryPhoneExtensionLabel.ReadOnly = true;
-                invoiceInformationPrimaryPhoneTypeLabel.ReadOnly = true;
-                invoiceInformationAlternatePhoneNumberLabel.ReadOnly = true;
-                invoiceInformationAlternatePhoneTypeLabel.ReadOnly = true;
-                invoiceInformationAlternatePhoneExtensionLabel.ReadOnly = true;
-                invoiceInformationEmailLabel.ReadOnly = true;
-                invoiceInformationWorkOrderTypeLabel.ReadOnly = true;
-                invoiceInformationDescriptionOfRequestRichTextBox.ReadOnly = true;
-                invoiceInformationRequestTimeOfServiceLabel.ReadOnly = true;
-                invoiceInformationPermissionToEnterLabel.ReadOnly = true;
-                invoiceInformationAnimalsLabel.ReadOnly = true;
-                rTxtBoxComments.ReadOnly = true;
-                rButtonComplete.AutoCheck = false;
-                rButtonIncomplete.AutoCheck = false;
-
-                // grab the active user info to compare in sql statement
-                string occupantEmail = ActiveUser.email.ToString();
-                conn.Open();
-                // sql statement to grab the info to be displayed in the list box 
-                SqlCommand findOccupantData = new SqlCommand("SELECT Invoice_ID, Address FROM Invoice WHERE" +
-                    "Email = '" + occupantEmail + "';", conn);
-
-                SqlDataAdapter occData = new SqlDataAdapter(findOccupantData);
-                DataTable occTable = new DataTable();
-                occData.Fill(occTable);
-
-
-                if(occTable.Rows.Count > 0)
-                {
-                    // Add the rows to the list box
-                    foreach (DataRow dr in occTable.Rows)
-                    {
-                        invoiceDatabaseListBox.Items.Add(dr);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Nothing in the dataTable.");
-                }
-                conn.Close();
-
+                NewWorkOrderForm newWorkOrder = new NewWorkOrderForm();
+                newWorkOrder.Show();
+                this.Hide();
             }
-            else if (ActiveUser.usertype.ToLower() == "office worker")
+            if(ActiveUser.usertype.ToLower() == "office worker")
             {
-                // Set office worker tools to visible
-                gbxOfficeWorkerTools.Visible = true;
-                gbxOccupancyStatus.Visible = true;
-                lblDueDatePrompt.Visible = true;
-                lblSelectCompany.Visible = true;
-                dtpDue.Visible = true;
-                cbxCompanySelect.Visible = true;
-                rbtnOccupied.Visible = true;
-                rbtnUnoccupied.Visible = true;
-                btnUpdate.Visible = true;
-
-                // Allow office worker to edit fields
-                invoiceInformationFirstNameLabel.ReadOnly = false;
-                invoiceInformationLastNameLabel.ReadOnly = false;
-                invoiceInformationStreetAddressLabel.ReadOnly = false;
-                invoiceInformationCommunityLabel.ReadOnly = false;
-                invoiceInformationPrimaryPhoneNumberLabel.ReadOnly = false;
-                invoiceInformationPrimaryPhoneExtensionLabel.ReadOnly = false;
-                invoiceInformationPrimaryPhoneTypeLabel.ReadOnly = false;
-                invoiceInformationAlternatePhoneNumberLabel.ReadOnly = false;
-                invoiceInformationAlternatePhoneTypeLabel.ReadOnly = false;
-                invoiceInformationAlternatePhoneExtensionLabel.ReadOnly = false;
-                invoiceInformationEmailLabel.ReadOnly = false;
-                invoiceInformationWorkOrderTypeLabel.ReadOnly = false;
-                invoiceInformationDescriptionOfRequestRichTextBox.ReadOnly = false;
-                invoiceInformationRequestTimeOfServiceLabel.ReadOnly = false;
-                invoiceInformationPermissionToEnterLabel.ReadOnly = false;
-                invoiceInformationAnimalsLabel.ReadOnly = false;
-                rTxtBoxComments.ReadOnly = false;
-                rButtonComplete.AutoCheck = true;
-                rButtonIncomplete.AutoCheck = true;
-
-                conn.Open();
-                // sql statement to grab the information to be displayed in the list box
-                SqlCommand officeInvoiceList = new SqlCommand("SELECT Invoice_ID, Address FROM Invoice " +
-                    "WHERE Complete = false;", conn);
-
-                SqlDataAdapter offData = new SqlDataAdapter(officeInvoiceList);
-                DataTable offTable = new DataTable();
-                offData.Fill(offTable);
-
-                if(offTable.Rows.Count > 0)
-                {
-                    // Add the rows to the list box
-                    foreach (DataRow dr in offTable.Rows)
-                    {
-                        invoiceDatabaseListBox.Items.Add(dr);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Nothing in the dataTable.");
-                }
-
-                // Grab company names to fill combobox
-                SqlCommand companyNames = new SqlCommand("SELECT Company_Name FROM ContractorCompany", conn);
-                SqlDataAdapter nameData = new SqlDataAdapter(companyNames);
-                DataTable nameTable = new DataTable();
-                nameData.Fill(nameTable);
-
-                if(nameTable.Rows.Count > 0)
-                {
-                    foreach (DataRow nDr in nameTable.Rows)
-                    {
-                        cbxCompanySelect.Items.Add(nDr);
-                    }
-                }
-
-                conn.Close();
+                OfficeWorkOrder newOfficeWorkOrder = new OfficeWorkOrder();
+                newOfficeWorkOrder.Show();
+                this.Hide();
             }
-
-        }
-
-       
-        // Username information entered on login form.
-        private LoginForm userName = new LoginForm();
-
-        // Get user information to determine what to display
-        private void GetOccupantAcctInfo()
-        {
-            
-            string commName, firstName, lastName, address, email, primPhoneType, altPhoneType, pte, pets, invoiceType, description,
-                complete, tos, primNum, primExtension, altNum, altExtension, invoiceID, customerID, comments;
-            // Command to grab user information from the database
-            SqlCommand user = new SqlCommand("SELECT Invoice_ID, Customer_ID, Community_Name, Address, " +
-                "Email, Primary#, Primary#Extension, Primary#Type, Alt#, Alt#Extension, Alt#Type, " +
-                "PermissionToEnter, Pets, Complete, TimeOfService, InvoiceType, Description, Comments, " +
-                "First, Last FROM Invoice, Customer WHERE Invoice.Email = '" + ActiveUser.email.ToString() + "' AND Invoice.Customer_ID = Customer.Customer_ID;", conn);
-
-            SqlDataAdapter data = new SqlDataAdapter(user);
-            // Table to hold the user data
-            DataTable table1 = new DataTable();
-            // Fill table with the data
-            data.Fill(table1);
-
-            // Check if something is in the table
-            if (table1.Rows.Count > 0)
+            if(ActiveUser.usertype.ToLower() == "administrator")
             {
-                // Add content from table to variables
-                commName = table1.Rows[0]["Community_Name"].ToString();
-                firstName = table1.Rows[0]["First"].ToString();
-                lastName = table1.Rows[0]["Last"].ToString();
-                address = table1.Rows[0]["Address"].ToString();
-                email = table1.Rows[0]["Email"].ToString();
-                primNum = table1.Rows[0]["Primary#"].ToString();
-                primPhoneType = table1.Rows[0]["Primary#Type"].ToString();
-                primExtension = table1.Rows[0]["Primary#Extension"].ToString();
-                altNum = table1.Rows[0]["Alt#"].ToString();
-                altPhoneType = table1.Rows[0]["Alt#Type"].ToString();
-                altExtension = table1.Rows[0]["Alt#Extension"].ToString();
-                pte = table1.Rows[0]["PermissionToEnter"].ToString();
-                pets = table1.Rows[0]["Pets"].ToString();
-                invoiceType = table1.Rows[0]["InvoiceType"].ToString();
-                description = table1.Rows[0]["Description"].ToString();
-                complete = table1.Rows[0]["Complete"].ToString();
-                tos = table1.Rows[0]["TimeOfService"].ToString();
-                invoiceID = table1.Rows[0]["Invoice_ID"].ToString();
-                customerID = table1.Rows[0]["Customer_ID"].ToString();
-                comments = table1.Rows[0]["Comments"].ToString();
-
-                invoiceInformationFirstNameLabel.Text = firstName;
-                invoiceInformationLastNameLabel.Text = lastName;
-                invoiceInformationStreetAddressLabel.Text = address;
-                invoiceInformationCommunityLabel.Text = commName;
-                invoiceInformationPrimaryPhoneNumberLabel.Text = primNum;
-                invoiceInformationPrimaryPhoneExtensionLabel.Text = primExtension;
-                invoiceInformationPrimaryPhoneTypeLabel.Text = primPhoneType;
-                invoiceInformationAlternatePhoneNumberLabel.Text = altNum;
-                invoiceInformationAlternatePhoneExtensionLabel.Text = altExtension;
-                invoiceInformationAlternatePhoneTypeLabel.Text = altPhoneType;
-                invoiceInformationEmailLabel.Text = email;
-                invoiceInformationWorkOrderTypeLabel.Text = invoiceType;
-                invoiceInformationDescriptionOfRequestRichTextBox.Text = description;
-                invoiceInformationDescriptionOfRequestRichTextBox.AppendText(Environment.NewLine + invoiceID);
-                invoiceInformationRequestTimeOfServiceLabel.Text = tos;
-                rTxtBoxComments.Text = comments;
-
-                if(pte == "true" || pte == "yes")
-                {
-                    invoiceInformationPermissionToEnterLabel.Text = "Yes";
-                }
-                else
-                {
-                    invoiceInformationPermissionToEnterLabel.Text = "No";
-                }
-
-                if(pets == "true" || pets == "yes")
-                {
-                    invoiceInformationAnimalsLabel.Text = "Yes";
-                }
-                else
-                {
-                    invoiceInformationAnimalsLabel.Text = "No";
-                }
-
-                if (complete == "true" || complete == "yes")
-                {
-                    rButtonComplete.Checked = true;
-                }
-                else
-                {
-                    rButtonIncomplete.Checked = true;
-                }
+                Forms.AdminNewInvoiceCheck admin = new Forms.AdminNewInvoiceCheck();
+                admin.Show();
             }
-        }
-
-        private void newInvoiceButton_Click(object sender, EventArgs e)
-        {
-            NewWorkOrderForm newWorkOrder = new NewWorkOrderForm();
-            newWorkOrder.Show();
-            this.Hide();
         }
         Bitmap bit;
 
@@ -297,7 +86,7 @@ namespace Invoice
             {
                 Application.Exit();
             }
-            
+
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -307,98 +96,266 @@ namespace Invoice
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int i = 0, j = 0, k = 0, l = 0;
-            // Message to be displayed in MessageBox
-            const string prompt = "Are you sure you would like to save?";
-            const string caption = "Update Work Order";
-
-            // MessageBox pop up to confirm
-            var result = MessageBox.Show(prompt, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                          
-            // Close form if yes was pressed
-            if (result == DialogResult.Yes)
-            {
-                bool occupied, status;
-                conn.Open();
-                
-                // Create SQL statements to update information///////////////////////////////////////////////////////////////////////////////WIP
-                SqlCommand update1 = new SqlCommand("UPDATE Customer SET [First] = '@first', [Last] = '@last' WHERE  = '" +
-                     "';" , conn);
-                SqlCommand update2 = new SqlCommand("UPDATE Invoice SET [Address] = '@address', [Community_Name] = '@commName', [Primary#] = '@primary#', " +
-                    "[Primary#Extension] = '@p#Ext', [Primary#Type] = '@p#Type', [Email] = '@email', [InvoiceType] = '@invoiceType', [Description] = '" +
-                    "@desc', [TimeOfService] = '@tos', [PermissionToEnter] = '@pte', [Pets] = '@pets', [Comments] = '@comments', " +
-                    "[DueDate] = '@due' WHERE  = '" +  "';", conn);
-
-                // add the values 
-                update1.Parameters.AddWithValue("@first", invoiceInformationFirstNameLabel.Text.ToLower());
-                update1.Parameters.AddWithValue("@last", invoiceInformationLastNameLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@address", invoiceInformationStreetAddressLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@commName", invoiceInformationCommunityLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@primary#", invoiceInformationPrimaryPhoneNumberLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@p#Ext", invoiceInformationPrimaryPhoneExtensionLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@p#Type", invoiceInformationPrimaryPhoneTypeLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@email", invoiceInformationEmailLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@invoiceType", invoiceInformationWorkOrderTypeLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@desc", invoiceInformationDescriptionOfRequestRichTextBox.Text.ToLower());
-                update2.Parameters.AddWithValue("@tos", invoiceInformationRequestTimeOfServiceLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@pte", invoiceInformationPermissionToEnterLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@pets", invoiceInformationAnimalsLabel.Text.ToLower());
-                update2.Parameters.AddWithValue("@comments", rTxtBoxComments.Text.ToLower());
-                update2.Parameters.AddWithValue("@due", dtpDue.Text);
-
-                if(rbtnOccupied.Checked)
-                {
-                    occupied = true;
-                }
-                else
-                {
-                    occupied = false;
-                }
-
-                if(rButtonComplete.Checked)
-                {
-                    status = true;
-                }
-                else
-                {
-                    status = false;
-                }
-                // Set up true/false update statement////////////////////////////////////////////////////////////////////////////////////////////////WIP
-                SqlCommand update3 = new SqlCommand("UPDATE Invoice SET [OccupantStatus] = @status, [Complete] = @complete " +
-                    "WHERE " +  "';", conn);
-                update3.Parameters.AddWithValue("@status", occupied);
-                update3.Parameters.AddWithValue("@complete", status);
-
-                // Grab the company information to get the company ID
-                SqlCommand companyID = new SqlCommand("SELECT ContractorCompany_ID FROM Invoice WHERE ContractorCompany.Company_Name = '" + 
-                    cbxCompanySelect.SelectedItem.ToString() + "';");
-                SqlDataAdapter comID = new SqlDataAdapter(companyID);
-                DataTable compID = new DataTable();
-                comID.Fill(compID);
-
-                // Set up the final update//////////////////////////////////////////////////////////////////////////////////////////////// WIP
-                if (compID.Rows.Count > 0)
-                {
-                    string num;
-                    int cID;
-                    num = compID.Rows[0]["ContractorCompany_ID"].ToString();
-                    cID = int.Parse(num);
-                    SqlCommand update4 = new SqlCommand("UPDATE Invoice SET [ContractorCompany_ID] = '" + cID + 
-                        "WHERE Invoice_ID = '" +  "';", conn);
-                    l += update4.ExecuteNonQuery();
-                }
-
-                i += update1.ExecuteNonQuery();
-                j += update2.ExecuteNonQuery();
-                k += update3.ExecuteNonQuery();
-
-                conn.Close();
-            }
+            updateInvoice();
         }
 
         private void invoiceDatabaseListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetOccupantAcctInfo();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string query2 = "SELECT i.Invoice_ID, c.Customer_ID, c.First as custFirst, c.Last as custLast, o.First as owFirst, o.Last as owLast, i.Community_Name, i.Address, i.Primary#, i.Primary#Extension, i.Primary#Type, i.Alt#, i.Alt#Extension, i.Alt#Type, i.Email, i.InvoiceType, i.Description, i.TimeOfService, i.PermissionToEnter, i.Pets, i.DueDate, i.ContractorCompany_ID, i.OccupantStatus, i.Complete, i.Comments, i.InvoiceName FROM Invoice i LEFT OUTER JOIN Customer c ON (i.Customer_ID=c.Customer_ID) LEFT OUTER JOIN OfficeWorker o ON (i.OfficeWorker_ID=o.OfficeWorker_ID) WHERE InvoiceName= '" + invoiceDatabaseListBox.SelectedItem.ToString()+"'";
+
+            SqlCommand cmd = new SqlCommand(query2, conn);
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["Customer_ID"] == DBNull.Value)
+                {
+                    invoiceInformationFirstNameLabel.Text = dr["owFirst"].ToString();
+                    invoiceInformationLastNameLabel.Text = dr["owLast"].ToString();
+                }
+                else
+                {
+                    invoiceInformationFirstNameLabel.Text = dr["custFirst"].ToString();
+                    invoiceInformationLastNameLabel.Text = dr["custLast"].ToString();
+                }
+                
+                invoiceInformationStreetAddressLabel.Text = dr["Address"].ToString();
+                invoiceInformationCommunityLabel.Text = dr["Community_Name"].ToString();
+                invoiceInformationPrimaryPhoneNumberLabel.Text = dr["Primary#"].ToString();
+                invoiceInformationPrimaryPhoneExtensionLabel.Text = dr["Primary#Extension"].ToString();
+                invoiceInformationPrimaryPhoneTypeLabel.Text = dr["Primary#Type"].ToString();
+                invoiceInformationAlternatePhoneNumberLabel.Text = dr["Alt#"].ToString();
+                invoiceInformationAlternatePhoneExtensionLabel.Text = dr["Alt#Extension"].ToString();
+                invoiceInformationAlternatePhoneTypeLabel.Text = dr["Alt#Type"].ToString();
+                invoiceInformationEmailLabel.Text = dr["Email"].ToString();
+                invoiceInformationWorkOrderTypeLabel.Text = dr["InvoiceType"].ToString();
+                invoiceInformationDescriptionOfRequestRichTextBox.Text = dr["Description"].ToString();
+                invoiceInformationRequestTimeOfServiceLabel.Text = dr["TimeOfService"].ToString();
+                if(dr["PermissionToEnter"].ToString().ToLower() == "true")
+                {
+                    invoiceInformationPermissionToEnterLabel.Text = "True";
+                }
+                else if(dr["PermissionToEnter"].ToString().ToLower() == "false")
+                {
+                    invoiceInformationPermissionToEnterLabel.Text = "False";
+                }
+                if (dr["Pets"].ToString().ToLower() == "true")
+                {
+                    invoiceInformationAnimalsLabel.Text = "True";
+                }
+                else if (dr["Pets"].ToString().ToLower() == "false")
+                {
+                    invoiceInformationAnimalsLabel.Text = "False";
+                }
+                if (dr["Complete"].ToString().ToLower() == "true")
+                {
+                    rButtonComplete.Checked = true;
+                }
+                else if (dr["Complete"].ToString().ToLower() == "false")
+                {
+                    rButtonIncomplete.Checked = true;
+                }
+                rTxtBoxComments.Text = dr["Comments"].ToString();
+                if (dr["OccupantStatus"].ToString().ToLower() == "1")
+                {
+                    rbtnOccupied.Checked = true;
+                }
+                else if (dr["OccupantStatus"].ToString().ToLower() == "0")
+                {
+                    rbtnUnoccupied.Checked = true;
+                }
+                if(String.IsNullOrEmpty(dr["ContractorCompany_ID"].ToString()))
+                {
+                    cbxCompanySelect.SelectedIndex = -1;
+                }
+                else
+                {
+                    SqlCommand contractorcomp = new SqlCommand("Select Company_Name FROM ContractorCompany WHERE Company_ID=" + Convert.ToInt32(dr["ContractorCompany_ID"].ToString()), conn);
+                    contractorcomp.ExecuteNonQuery();
+                    DataTable dt2 = new DataTable();
+                    SqlDataAdapter da2 = new SqlDataAdapter(contractorcomp);
+                    da2.Fill(dt2);
+                    cbxCompanySelect.Text = dt2.Rows[0]["Company_Name"].ToString();
+                }
+                if(dr["DueDate"] == DBNull.Value)
+                {
+                    dtpDue.Checked = false;
+                    dtpDue.CustomFormat = " ";
+                    dtpDue.Format = DateTimePickerFormat.Custom;
+                }
+                else
+                {
+                    dtpDue.Checked = true;
+                    dtpDue.CustomFormat = null;
+                    dtpDue.Format = DateTimePickerFormat.Long;
+                    dtpDue.Value = Convert.ToDateTime(dr["DueDate"].ToString());
+                }
+            }
+
+        }
+
+        private void Fill_ListBox()
+        {
+            invoiceDatabaseListBox.Items.Clear();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            if (ActiveUser.usertype.ToLower() == "office worker" || ActiveUser.usertype.ToLower() == "administrator")
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    invoiceDatabaseListBox.Items.Add(dr["InvoiceName"].ToString());
+                }
+            }
+            else if(ActiveUser.usertype.ToLower() == "occupant")
+            {
+                SqlCommand cmd = new SqlCommand(query3, conn);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    invoiceDatabaseListBox.Items.Add(dr["InvoiceName"].ToString());
+                }
+            }
+            
+
+        }
+
+
+
+        private void updateInvoice()
+        {
+            int? company_id = 0;
+            string occupancy_status = " ";
+            bool complete = false;
+            string companyquery = "SELECT Company_ID FROM ContractorCompany WHERE Company_Name= '" + cbxCompanySelect.Text + "'";
+
+            string invoiceUpdate = "UPDATE Invoice SET Invoice.Address " +
+                "= @address, Invoice.Primary# = @primenum, Invoice.Primary#Extension = @primenumext, Invoice.Primary#Type " +
+                "= @primenumtype, Invoice.Alt# = @altnum, Invoice.Alt#Extension = @altnumext, Invoice.Alt#Type = @altnumtype, Invoice.Email = @email, Invoice.InvoiceType " +
+                "= @invoicetype, Invoice.TimeOfService = @tos, Invoice.PermissionToEnter = @pte, Invoice.Pets = @pets, Invoice.Comments = @comments, Invoice.Complete " +
+                "= @complete, Invoice.OccupantStatus = @occupantstatus, Invoice.ContractorCompany_ID = @contractorcompany_id, Invoice.DueDate = @duedate, Invoice.Description = @description " +
+                "FROM Invoice LEFT OUTER JOIN Customer ON (Invoice.Customer_ID = Customer.Customer_ID) LEFT OUTER JOIN OfficeWorker ON (Invoice.OfficeWorker_ID = OfficeWorker.OfficeWorker_ID) WHERE InvoiceName =@invoicename";
+
+            string customerUpdate = "UPDATE Customer SET Customer.First = @first, Customer.Last = @last FROM Customer INNER JOIN Invoice ON Invoice.Customer_ID = Customer.Customer_ID " +
+                "WHERE InvoiceName =@invoicename AND Invoice.Customer_ID = Customer.Customer_ID";
+            string officeUpdate = "UPDATE OfficeWorker SET OfficeWorker.First = @first, OfficeWorker.Last = @last FROM OfficeWorker INNER JOIN Invoice ON Invoice.OfficeWorker_ID = OfficeWorker.OfficeWorker_ID " +
+                "WHERE InvoiceName =@invoicename AND Invoice.OfficeWorker_ID = OfficeWorker.OfficeWorker_ID";
+            string name = invoiceDatabaseListBox.GetItemText(invoiceDatabaseListBox.SelectedItem);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
+                SqlTransaction transaction;
+                transaction = conn.BeginTransaction("SampleTransaction");
+                command.Connection = conn;
+                command.Transaction = transaction;
+                try
+                {
+                    command.CommandText = companyquery;
+                    company_id = Convert.ToInt32(command.ExecuteScalar());
+                    
+                    command.CommandText = invoiceUpdate;
+                    
+                    command.Parameters.AddWithValue("@address", invoiceInformationStreetAddressLabel.Text);
+                    command.Parameters.AddWithValue("@community", invoiceInformationCommunityLabel.Text);
+                    command.Parameters.AddWithValue("@primenum", invoiceInformationPrimaryPhoneNumberLabel.Text);
+                    command.Parameters.AddWithValue("@primenumext", invoiceInformationPrimaryPhoneExtensionLabel.Text);
+                    command.Parameters.AddWithValue("@primenumtype", invoiceInformationPrimaryPhoneTypeLabel.Text);
+                    command.Parameters.AddWithValue("@altnum", invoiceInformationAlternatePhoneNumberLabel.Text);
+                    command.Parameters.AddWithValue("@altnumext", invoiceInformationAlternatePhoneExtensionLabel.Text);
+                    command.Parameters.AddWithValue("@altnumtype", invoiceInformationAlternatePhoneTypeLabel.Text);
+                    command.Parameters.AddWithValue("@email", invoiceInformationEmailLabel.Text);
+                    command.Parameters.AddWithValue("@invoicetype", invoiceInformationWorkOrderTypeLabel.Text);
+                    command.Parameters.AddWithValue("@tos", invoiceInformationRequestTimeOfServiceLabel.Text);
+                    command.Parameters.AddWithValue("@pte", invoiceInformationPermissionToEnterLabel.Text);
+                    command.Parameters.AddWithValue("@pets", invoiceInformationPermissionToEnterLabel.Text);
+                    command.Parameters.AddWithValue("@comments", rTxtBoxComments.Text);
+                    command.Parameters.AddWithValue("@complete", complete);
+                    command.Parameters.AddWithValue("@occupantstatus", occupancy_status);
+                    if (company_id == 0)
+                    {
+                        company_id = null;
+                        command.Parameters.AddWithValue("@contractorcompany_id", DBNull.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@contractorcompany_id", company_id);
+                    }
+                    if(dtpDue.Checked == true)
+                    {
+                        command.Parameters.AddWithValue("@duedate", dtpDue.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@duedate", DBNull.Value);
+                    }
+                    command.Parameters.AddWithValue("@invoicename", name);
+                    command.Parameters.AddWithValue("description", invoiceInformationDescriptionOfRequestRichTextBox.Text);
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = customerUpdate;
+                    command.Parameters.AddWithValue("@first", invoiceInformationFirstNameLabel.Text);
+                    command.Parameters.AddWithValue("@last", invoiceInformationLastNameLabel.Text);
+                    command.ExecuteNonQuery();
+                    command.CommandText = officeUpdate;
+                    command.ExecuteNonQuery();
+                    
+                    transaction.Commit();
+                    MessageBox.Show("Invoice Updated");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void checkUserType()
+        {
+            if(ActiveUser.usertype.ToLower() == "occupant")
+            {
+                //
+            }
+            if(ActiveUser.usertype.ToLower() == "office worker")
+            {
+                btnUpdate.Visible = true;
+                gbxOfficeWorkerTools.Visible = true;
+                gbxCommentsAndStatus.Enabled = true;
+                invoiceInformationFirstNameLabel.ReadOnly = false;
+                invoiceInformationLastNameLabel.ReadOnly = false;
+                invoiceInformationStreetAddressLabel.ReadOnly = false;
+                invoiceInformationCommunityLabel.ReadOnly = false;
+                invoiceInformationPrimaryPhoneNumberLabel.ReadOnly = false;
+                invoiceInformationPrimaryPhoneExtensionLabel.ReadOnly = false;
+                invoiceInformationPrimaryPhoneTypeLabel.ReadOnly = false;
+                invoiceInformationAlternatePhoneNumberLabel.ReadOnly = false;
+                invoiceInformationAlternatePhoneExtensionLabel.ReadOnly = false;
+                invoiceInformationAlternatePhoneTypeLabel.ReadOnly = false;
+                invoiceInformationEmailLabel.ReadOnly = false;
+                invoiceInformationWorkOrderTypeLabel.ReadOnly = false;
+                invoiceInformationDescriptionOfRequestRichTextBox.ReadOnly = false;
+                invoiceInformationRequestTimeOfServiceLabel.ReadOnly = false;
+                invoiceInformationPermissionToEnterLabel.ReadOnly = false;
+                invoiceInformationAnimalsLabel.ReadOnly = false;
+            }
+        }
+
+        private void WorkOrderForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'projectDBDataSet.ContractorCompany' table. You can move, or remove it, as needed.
+            this.contractorCompanyTableAdapter.Fill(this.projectDBDataSet.ContractorCompany);
+
         }
     }
 }

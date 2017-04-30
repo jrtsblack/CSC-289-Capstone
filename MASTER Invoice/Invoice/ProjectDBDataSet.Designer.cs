@@ -2708,8 +2708,6 @@ namespace Invoice {
                 this.columnInvoice_ID.AllowDBNull = false;
                 this.columnInvoice_ID.ReadOnly = true;
                 this.columnInvoice_ID.Unique = true;
-                this.columnCustomer_ID.AllowDBNull = false;
-                this.columnOfficeWorker_ID.AllowDBNull = false;
                 this.columnCommunity_Name.AllowDBNull = false;
                 this.columnCommunity_Name.MaxLength = 40;
                 this.columnOccupantStatus.AllowDBNull = false;
@@ -2725,8 +2723,6 @@ namespace Invoice {
                 this._columnAlt_.MaxLength = 24;
                 this._columnAlt_Extension.MaxLength = 10;
                 this._columnAlt_Type.MaxLength = 10;
-                this.columnPermissionToEnter.AllowDBNull = false;
-                this.columnPets.AllowDBNull = false;
                 this.columnAccepted.AllowDBNull = false;
                 this.columnComplete.AllowDBNull = false;
                 this.columnTimeOfService.AllowDBNull = false;
@@ -4301,7 +4297,12 @@ namespace Invoice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Customer_ID {
                 get {
-                    return ((int)(this[this.tableInvoice.Customer_IDColumn]));
+                    try {
+                        return ((int)(this[this.tableInvoice.Customer_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_ID\' in table \'Invoice\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableInvoice.Customer_IDColumn] = value;
@@ -4312,7 +4313,12 @@ namespace Invoice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int OfficeWorker_ID {
                 get {
-                    return ((int)(this[this.tableInvoice.OfficeWorker_IDColumn]));
+                    try {
+                        return ((int)(this[this.tableInvoice.OfficeWorker_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OfficeWorker_ID\' in table \'Invoice\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableInvoice.OfficeWorker_IDColumn] = value;
@@ -4490,7 +4496,12 @@ namespace Invoice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool PermissionToEnter {
                 get {
-                    return ((bool)(this[this.tableInvoice.PermissionToEnterColumn]));
+                    try {
+                        return ((bool)(this[this.tableInvoice.PermissionToEnterColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PermissionToEnter\' in table \'Invoice\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableInvoice.PermissionToEnterColumn] = value;
@@ -4501,7 +4512,12 @@ namespace Invoice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Pets {
                 get {
-                    return ((bool)(this[this.tableInvoice.PetsColumn]));
+                    try {
+                        return ((bool)(this[this.tableInvoice.PetsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pets\' in table \'Invoice\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableInvoice.PetsColumn] = value;
@@ -4641,6 +4657,30 @@ namespace Invoice {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomer_IDNull() {
+                return this.IsNull(this.tableInvoice.Customer_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomer_IDNull() {
+                this[this.tableInvoice.Customer_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOfficeWorker_IDNull() {
+                return this.IsNull(this.tableInvoice.OfficeWorker_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOfficeWorker_IDNull() {
+                this[this.tableInvoice.OfficeWorker_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsContractorCompany_IDNull() {
                 return this.IsNull(this.tableInvoice.ContractorCompany_IDColumn);
             }
@@ -4721,6 +4761,30 @@ namespace Invoice {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set_Alt_TypeNull() {
                 this[this.tableInvoice._Alt_TypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPermissionToEnterNull() {
+                return this.IsNull(this.tableInvoice.PermissionToEnterColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPermissionToEnterNull() {
+                this[this.tableInvoice.PermissionToEnterColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPetsNull() {
+                return this.IsNull(this.tableInvoice.PetsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPetsNull() {
+                this[this.tableInvoice.PetsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5427,7 +5491,7 @@ SELECT Community_ID, Community_Name FROM Community WHERE (Community_ID = @Commun
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5777,7 +5841,7 @@ SELECT Contractor_ID, Company_ID, First, Last, Phone#, Email FROM Contractor WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6208,7 +6272,7 @@ SELECT Company_ID, Company_Name, Company_Address, Phone#, Email FROM ContractorC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6637,7 +6701,7 @@ SELECT Customer_ID, First, Last, Email, Phone# FROM Customer WHERE (Customer_ID 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7085,7 +7149,7 @@ SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7587,10 +7651,33 @@ SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Invoice] WHERE (([Invoice_ID] = @Original_Invoice_ID) AND ([Customer_ID] = @Original_Customer_ID) AND ([OfficeWorker_ID] = @Original_OfficeWorker_ID) AND ((@IsNull_ContractorCompany_ID = 1 AND [ContractorCompany_ID] IS NULL) OR ([ContractorCompany_ID] = @Original_ContractorCompany_ID)) AND ((@IsNull_Contractor_ID = 1 AND [Contractor_ID] IS NULL) OR ([Contractor_ID] = @Original_Contractor_ID)) AND ([Community_Name] = @Original_Community_Name) AND ([OccupantStatus] = @Original_OccupantStatus) AND ([Address] = @Original_Address) AND ([Email] = @Original_Email) AND ([Primary#] = @Original_Primary#) AND ((@IsNull_Primary#Extension = 1 AND [Primary#Extension] IS NULL) OR ([Primary#Extension] = @Original_Primary#Extension)) AND ((@IsNull_Primary#Type = 1 AND [Primary#Type] IS NULL) OR ([Primary#Type] = @Original_Primary#Type)) AND ((@IsNull_Alt# = 1 AND [Alt#] IS NULL) OR ([Alt#] = @Original_Alt#)) AND ((@IsNull_Alt#Extension = 1 AND [Alt#Extension] IS NULL) OR ([Alt#Extension] = @Original_Alt#Extension)) AND ((@IsNull_Alt#Type = 1 AND [Alt#Type] IS NULL) OR ([Alt#Type] = @Original_Alt#Type)) AND ([PermissionToEnter] = @Original_PermissionToEnter) AND ([Pets] = @Original_Pets) AND ([Accepted] = @Original_Accepted) AND ([Complete] = @Original_Complete) AND ([TimeOfService] = @Original_TimeOfService) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR ([DueDate] = @Original_DueDate)) AND ([InvoiceType] = @Original_InvoiceType))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Invoice] WHERE (([Invoice_ID] = @Original_Invoice_ID) AND ((@I" +
+                "sNull_Customer_ID = 1 AND [Customer_ID] IS NULL) OR ([Customer_ID] = @Original_C" +
+                "ustomer_ID)) AND ((@IsNull_OfficeWorker_ID = 1 AND [OfficeWorker_ID] IS NULL) OR" +
+                " ([OfficeWorker_ID] = @Original_OfficeWorker_ID)) AND ((@IsNull_ContractorCompan" +
+                "y_ID = 1 AND [ContractorCompany_ID] IS NULL) OR ([ContractorCompany_ID] = @Origi" +
+                "nal_ContractorCompany_ID)) AND ((@IsNull_Contractor_ID = 1 AND [Contractor_ID] I" +
+                "S NULL) OR ([Contractor_ID] = @Original_Contractor_ID)) AND ([Community_Name] = " +
+                "@Original_Community_Name) AND ([OccupantStatus] = @Original_OccupantStatus) AND " +
+                "([Address] = @Original_Address) AND ([Email] = @Original_Email) AND ([Primary#] " +
+                "= @Original_Primary#) AND ((@IsNull_Primary#Extension = 1 AND [Primary#Extension" +
+                "] IS NULL) OR ([Primary#Extension] = @Original_Primary#Extension)) AND ((@IsNull" +
+                "_Primary#Type = 1 AND [Primary#Type] IS NULL) OR ([Primary#Type] = @Original_Pri" +
+                "mary#Type)) AND ((@IsNull_Alt# = 1 AND [Alt#] IS NULL) OR ([Alt#] = @Original_Al" +
+                "t#)) AND ((@IsNull_Alt#Extension = 1 AND [Alt#Extension] IS NULL) OR ([Alt#Exten" +
+                "sion] = @Original_Alt#Extension)) AND ((@IsNull_Alt#Type = 1 AND [Alt#Type] IS N" +
+                "ULL) OR ([Alt#Type] = @Original_Alt#Type)) AND ((@IsNull_PermissionToEnter = 1 A" +
+                "ND [PermissionToEnter] IS NULL) OR ([PermissionToEnter] = @Original_PermissionTo" +
+                "Enter)) AND ((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets))" +
+                " AND ([Accepted] = @Original_Accepted) AND ([Complete] = @Original_Complete) AND" +
+                " ([TimeOfService] = @Original_TimeOfService) AND ((@IsNull_DueDate = 1 AND [DueD" +
+                "ate] IS NULL) OR ([DueDate] = @Original_DueDate)) AND ([InvoiceType] = @Original" +
+                "_InvoiceType))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Invoice_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfficeWorker_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficeWorker_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfficeWorker_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficeWorker_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ContractorCompany_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractorCompany_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContractorCompany_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractorCompany_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7611,7 +7698,9 @@ SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Alt#Extension", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Alt#Extension", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Alt#Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Alt#Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Alt#Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Alt#Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PermissionToEnter", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionToEnter", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PermissionToEnter", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionToEnter", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pets", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Accepted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Accepted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Complete", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7658,29 +7747,32 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                 "= @PermissionToEnter, [Pets] = @Pets, [Accepted] = @Accepted, [Complete] = @Comp" +
                 "lete, [TimeOfService] = @TimeOfService, [DueDate] = @DueDate, [InvoiceType] = @I" +
                 "nvoiceType, [Description] = @Description, [Comments] = @Comments WHERE (([Invoic" +
-                "e_ID] = @Original_Invoice_ID) AND ([Customer_ID] = @Original_Customer_ID) AND ([" +
-                "OfficeWorker_ID] = @Original_OfficeWorker_ID) AND ((@IsNull_ContractorCompany_ID" +
-                " = 1 AND [ContractorCompany_ID] IS NULL) OR ([ContractorCompany_ID] = @Original_" +
-                "ContractorCompany_ID)) AND ((@IsNull_Contractor_ID = 1 AND [Contractor_ID] IS NU" +
-                "LL) OR ([Contractor_ID] = @Original_Contractor_ID)) AND ([Community_Name] = @Ori" +
-                "ginal_Community_Name) AND ([OccupantStatus] = @Original_OccupantStatus) AND ([Ad" +
-                "dress] = @Original_Address) AND ([Email] = @Original_Email) AND ([Primary#] = @O" +
-                "riginal_Primary#) AND ((@IsNull_Primary#Extension = 1 AND [Primary#Extension] IS" +
-                " NULL) OR ([Primary#Extension] = @Original_Primary#Extension)) AND ((@IsNull_Pri" +
-                "mary#Type = 1 AND [Primary#Type] IS NULL) OR ([Primary#Type] = @Original_Primary" +
-                "#Type)) AND ((@IsNull_Alt# = 1 AND [Alt#] IS NULL) OR ([Alt#] = @Original_Alt#))" +
-                " AND ((@IsNull_Alt#Extension = 1 AND [Alt#Extension] IS NULL) OR ([Alt#Extension" +
-                "] = @Original_Alt#Extension)) AND ((@IsNull_Alt#Type = 1 AND [Alt#Type] IS NULL)" +
-                " OR ([Alt#Type] = @Original_Alt#Type)) AND ([PermissionToEnter] = @Original_Perm" +
-                "issionToEnter) AND ([Pets] = @Original_Pets) AND ([Accepted] = @Original_Accepte" +
-                "d) AND ([Complete] = @Original_Complete) AND ([TimeOfService] = @Original_TimeOf" +
-                "Service) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR ([DueDate] = @Origi" +
-                "nal_DueDate)) AND ([InvoiceType] = @Original_InvoiceType));\r\nSELECT Invoice_ID, " +
-                "Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contractor_ID, Community_Nam" +
-                "e, OccupantStatus, Address, Email, Primary#, Primary#Extension, Primary#Type, Al" +
-                "t#, Alt#Extension, Alt#Type, PermissionToEnter, Pets, Accepted, Complete, TimeOf" +
-                "Service, DueDate, InvoiceType, Description, Comments FROM Invoice WHERE (Invoice" +
-                "_ID = @Invoice_ID)";
+                "e_ID] = @Original_Invoice_ID) AND ((@IsNull_Customer_ID = 1 AND [Customer_ID] IS" +
+                " NULL) OR ([Customer_ID] = @Original_Customer_ID)) AND ((@IsNull_OfficeWorker_ID" +
+                " = 1 AND [OfficeWorker_ID] IS NULL) OR ([OfficeWorker_ID] = @Original_OfficeWork" +
+                "er_ID)) AND ((@IsNull_ContractorCompany_ID = 1 AND [ContractorCompany_ID] IS NUL" +
+                "L) OR ([ContractorCompany_ID] = @Original_ContractorCompany_ID)) AND ((@IsNull_C" +
+                "ontractor_ID = 1 AND [Contractor_ID] IS NULL) OR ([Contractor_ID] = @Original_Co" +
+                "ntractor_ID)) AND ([Community_Name] = @Original_Community_Name) AND ([OccupantSt" +
+                "atus] = @Original_OccupantStatus) AND ([Address] = @Original_Address) AND ([Emai" +
+                "l] = @Original_Email) AND ([Primary#] = @Original_Primary#) AND ((@IsNull_Primar" +
+                "y#Extension = 1 AND [Primary#Extension] IS NULL) OR ([Primary#Extension] = @Orig" +
+                "inal_Primary#Extension)) AND ((@IsNull_Primary#Type = 1 AND [Primary#Type] IS NU" +
+                "LL) OR ([Primary#Type] = @Original_Primary#Type)) AND ((@IsNull_Alt# = 1 AND [Al" +
+                "t#] IS NULL) OR ([Alt#] = @Original_Alt#)) AND ((@IsNull_Alt#Extension = 1 AND [" +
+                "Alt#Extension] IS NULL) OR ([Alt#Extension] = @Original_Alt#Extension)) AND ((@I" +
+                "sNull_Alt#Type = 1 AND [Alt#Type] IS NULL) OR ([Alt#Type] = @Original_Alt#Type))" +
+                " AND ((@IsNull_PermissionToEnter = 1 AND [PermissionToEnter] IS NULL) OR ([Permi" +
+                "ssionToEnter] = @Original_PermissionToEnter)) AND ((@IsNull_Pets = 1 AND [Pets] " +
+                "IS NULL) OR ([Pets] = @Original_Pets)) AND ([Accepted] = @Original_Accepted) AND" +
+                " ([Complete] = @Original_Complete) AND ([TimeOfService] = @Original_TimeOfServic" +
+                "e) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR ([DueDate] = @Original_Du" +
+                "eDate)) AND ([InvoiceType] = @Original_InvoiceType));\r\nSELECT Invoice_ID, Custom" +
+                "er_ID, OfficeWorker_ID, ContractorCompany_ID, Contractor_ID, Community_Name, Occ" +
+                "upantStatus, Address, Email, Primary#, Primary#Extension, Primary#Type, Alt#, Al" +
+                "t#Extension, Alt#Type, PermissionToEnter, Pets, Accepted, Complete, TimeOfServic" +
+                "e, DueDate, InvoiceType, Description, Comments FROM Invoice WHERE (Invoice_ID = " +
+                "@Invoice_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfficeWorker_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficeWorker_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7706,7 +7798,9 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comments", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comments", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Invoice_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OfficeWorker_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficeWorker_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OfficeWorker_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficeWorker_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ContractorCompany_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractorCompany_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContractorCompany_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContractorCompany_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7727,7 +7821,9 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Alt#Extension", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Alt#Extension", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Alt#Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Alt#Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Alt#Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Alt#Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PermissionToEnter", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionToEnter", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PermissionToEnter", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionToEnter", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Pets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Pets", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Pets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Accepted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Accepted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Complete", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Complete", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7742,7 +7838,7 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7814,8 +7910,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
                     int Original_Invoice_ID, 
-                    int Original_Customer_ID, 
-                    int Original_OfficeWorker_ID, 
+                    global::System.Nullable<int> Original_Customer_ID, 
+                    global::System.Nullable<int> Original_OfficeWorker_ID, 
                     global::System.Nullable<int> Original_ContractorCompany_ID, 
                     global::System.Nullable<int> Original_Contractor_ID, 
                     string Original_Community_Name, 
@@ -7828,125 +7924,153 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string _Original_Alt_, 
                     string _Original_Alt_Extension, 
                     string _Original_Alt_Type, 
-                    bool Original_PermissionToEnter, 
-                    bool Original_Pets, 
+                    global::System.Nullable<bool> Original_PermissionToEnter, 
+                    global::System.Nullable<bool> Original_Pets, 
                     bool Original_Accepted, 
                     bool Original_Complete, 
                     string Original_TimeOfService, 
                     global::System.Nullable<global::System.DateTime> Original_DueDate, 
                     string Original_InvoiceType) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Invoice_ID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Customer_ID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_OfficeWorker_ID));
-            if ((Original_ContractorCompany_ID.HasValue == true)) {
+            if ((Original_Customer_ID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Customer_ID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_OfficeWorker_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ContractorCompany_ID.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_OfficeWorker_ID.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_Contractor_ID.HasValue == true)) {
+            if ((Original_ContractorCompany_ID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Contractor_ID.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ContractorCompany_ID.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            if ((Original_Contractor_ID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Contractor_ID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             if ((Original_Community_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Community_Name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Community_Name));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Community_Name));
             }
             if ((Original_OccupantStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_OccupantStatus");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_OccupantStatus));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_OccupantStatus));
             }
             if ((Original_Address == null)) {
                 throw new global::System.ArgumentNullException("Original_Address");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Address));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Address));
             }
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Email));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Email));
             }
             if ((_Original_Primary_ == null)) {
                 throw new global::System.ArgumentNullException("_Original_Primary_");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(_Original_Primary_));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(_Original_Primary_));
             }
             if ((_Original_Primary_Extension == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(_Original_Primary_Extension));
-            }
-            if ((_Original_Primary_Type == null)) {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(_Original_Primary_Type));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(_Original_Primary_Extension));
             }
-            if ((_Original_Alt_ == null)) {
+            if ((_Original_Primary_Type == null)) {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(_Original_Alt_));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(_Original_Primary_Type));
             }
-            if ((_Original_Alt_Extension == null)) {
+            if ((_Original_Alt_ == null)) {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(_Original_Alt_Extension));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(_Original_Alt_));
             }
-            if ((_Original_Alt_Type == null)) {
+            if ((_Original_Alt_Extension == null)) {
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(_Original_Alt_Type));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(_Original_Alt_Extension));
             }
-            this.Adapter.DeleteCommand.Parameters[22].Value = ((bool)(Original_PermissionToEnter));
-            this.Adapter.DeleteCommand.Parameters[23].Value = ((bool)(Original_Pets));
-            this.Adapter.DeleteCommand.Parameters[24].Value = ((bool)(Original_Accepted));
-            this.Adapter.DeleteCommand.Parameters[25].Value = ((bool)(Original_Complete));
+            if ((_Original_Alt_Type == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(_Original_Alt_Type));
+            }
+            if ((Original_PermissionToEnter.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((bool)(Original_PermissionToEnter.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Pets.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((bool)(Original_Pets.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[28].Value = ((bool)(Original_Accepted));
+            this.Adapter.DeleteCommand.Parameters[29].Value = ((bool)(Original_Complete));
             if ((Original_TimeOfService == null)) {
                 throw new global::System.ArgumentNullException("Original_TimeOfService");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_TimeOfService));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_TimeOfService));
             }
             if ((Original_DueDate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((System.DateTime)(Original_DueDate.Value));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((System.DateTime)(Original_DueDate.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             if ((Original_InvoiceType == null)) {
                 throw new global::System.ArgumentNullException("Original_InvoiceType");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_InvoiceType));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_InvoiceType));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7969,8 +8093,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    int Customer_ID, 
-                    int OfficeWorker_ID, 
+                    global::System.Nullable<int> Customer_ID, 
+                    global::System.Nullable<int> OfficeWorker_ID, 
                     global::System.Nullable<int> ContractorCompany_ID, 
                     global::System.Nullable<int> Contractor_ID, 
                     string Community_Name, 
@@ -7983,8 +8107,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string _Alt_, 
                     string _Alt_Extension, 
                     string _Alt_Type, 
-                    bool PermissionToEnter, 
-                    bool Pets, 
+                    global::System.Nullable<bool> PermissionToEnter, 
+                    global::System.Nullable<bool> Pets, 
                     bool Accepted, 
                     bool Complete, 
                     string TimeOfService, 
@@ -7992,8 +8116,18 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string InvoiceType, 
                     string Description, 
                     string Comments) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Customer_ID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(OfficeWorker_ID));
+            if ((Customer_ID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Customer_ID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((OfficeWorker_ID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(OfficeWorker_ID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((ContractorCompany_ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ContractorCompany_ID.Value));
             }
@@ -8066,8 +8200,18 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
             else {
                 this.Adapter.InsertCommand.Parameters[13].Value = ((string)(_Alt_Type));
             }
-            this.Adapter.InsertCommand.Parameters[14].Value = ((bool)(PermissionToEnter));
-            this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(Pets));
+            if ((PermissionToEnter.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((bool)(PermissionToEnter.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Pets.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(Pets.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             this.Adapter.InsertCommand.Parameters[16].Value = ((bool)(Accepted));
             this.Adapter.InsertCommand.Parameters[17].Value = ((bool)(Complete));
             if ((TimeOfService == null)) {
@@ -8121,8 +8265,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int Customer_ID, 
-                    int OfficeWorker_ID, 
+                    global::System.Nullable<int> Customer_ID, 
+                    global::System.Nullable<int> OfficeWorker_ID, 
                     global::System.Nullable<int> ContractorCompany_ID, 
                     global::System.Nullable<int> Contractor_ID, 
                     string Community_Name, 
@@ -8135,8 +8279,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string _Alt_, 
                     string _Alt_Extension, 
                     string _Alt_Type, 
-                    bool PermissionToEnter, 
-                    bool Pets, 
+                    global::System.Nullable<bool> PermissionToEnter, 
+                    global::System.Nullable<bool> Pets, 
                     bool Accepted, 
                     bool Complete, 
                     string TimeOfService, 
@@ -8145,8 +8289,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string Description, 
                     string Comments, 
                     int Original_Invoice_ID, 
-                    int Original_Customer_ID, 
-                    int Original_OfficeWorker_ID, 
+                    global::System.Nullable<int> Original_Customer_ID, 
+                    global::System.Nullable<int> Original_OfficeWorker_ID, 
                     global::System.Nullable<int> Original_ContractorCompany_ID, 
                     global::System.Nullable<int> Original_Contractor_ID, 
                     string Original_Community_Name, 
@@ -8159,16 +8303,26 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string _Original_Alt_, 
                     string _Original_Alt_Extension, 
                     string _Original_Alt_Type, 
-                    bool Original_PermissionToEnter, 
-                    bool Original_Pets, 
+                    global::System.Nullable<bool> Original_PermissionToEnter, 
+                    global::System.Nullable<bool> Original_Pets, 
                     bool Original_Accepted, 
                     bool Original_Complete, 
                     string Original_TimeOfService, 
                     global::System.Nullable<global::System.DateTime> Original_DueDate, 
                     string Original_InvoiceType, 
                     int Invoice_ID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Customer_ID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(OfficeWorker_ID));
+            if ((Customer_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Customer_ID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((OfficeWorker_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(OfficeWorker_ID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((ContractorCompany_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ContractorCompany_ID.Value));
             }
@@ -8241,8 +8395,18 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(_Alt_Type));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(PermissionToEnter));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(Pets));
+            if ((PermissionToEnter.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(PermissionToEnter.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Pets.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(Pets.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Accepted));
             this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Complete));
             if ((TimeOfService == null)) {
@@ -8276,119 +8440,147 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Comments));
             }
             this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_Invoice_ID));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_Customer_ID));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_OfficeWorker_ID));
-            if ((Original_ContractorCompany_ID.HasValue == true)) {
+            if ((Original_Customer_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Customer_ID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_OfficeWorker_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_ContractorCompany_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_OfficeWorker_ID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Original_Contractor_ID.HasValue == true)) {
+            if ((Original_ContractorCompany_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_Contractor_ID.Value));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_ContractorCompany_ID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
+            if ((Original_Contractor_ID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_Contractor_ID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
             if ((Original_Community_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Community_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Community_Name));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Community_Name));
             }
             if ((Original_OccupantStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_OccupantStatus");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_OccupantStatus));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_OccupantStatus));
             }
             if ((Original_Address == null)) {
                 throw new global::System.ArgumentNullException("Original_Address");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_Address));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Address));
             }
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Email));
             }
             if ((_Original_Primary_ == null)) {
                 throw new global::System.ArgumentNullException("_Original_Primary_");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(_Original_Primary_));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(_Original_Primary_));
             }
             if ((_Original_Primary_Extension == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(_Original_Primary_Extension));
-            }
-            if ((_Original_Primary_Type == null)) {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(_Original_Primary_Type));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(_Original_Primary_Extension));
             }
-            if ((_Original_Alt_ == null)) {
+            if ((_Original_Primary_Type == null)) {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(_Original_Alt_));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(_Original_Primary_Type));
             }
-            if ((_Original_Alt_Extension == null)) {
+            if ((_Original_Alt_ == null)) {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(_Original_Alt_Extension));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(_Original_Alt_));
             }
-            if ((_Original_Alt_Type == null)) {
+            if ((_Original_Alt_Extension == null)) {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(_Original_Alt_Type));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(_Original_Alt_Extension));
             }
-            this.Adapter.UpdateCommand.Parameters[45].Value = ((bool)(Original_PermissionToEnter));
-            this.Adapter.UpdateCommand.Parameters[46].Value = ((bool)(Original_Pets));
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((bool)(Original_Accepted));
-            this.Adapter.UpdateCommand.Parameters[48].Value = ((bool)(Original_Complete));
+            if ((_Original_Alt_Type == null)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(_Original_Alt_Type));
+            }
+            if ((Original_PermissionToEnter.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((bool)(Original_PermissionToEnter.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Pets.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((bool)(Original_Pets.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(Original_Accepted));
+            this.Adapter.UpdateCommand.Parameters[52].Value = ((bool)(Original_Complete));
             if ((Original_TimeOfService == null)) {
                 throw new global::System.ArgumentNullException("Original_TimeOfService");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_TimeOfService));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_TimeOfService));
             }
             if ((Original_DueDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((System.DateTime)(Original_DueDate.Value));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((System.DateTime)(Original_DueDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
             if ((Original_InvoiceType == null)) {
                 throw new global::System.ArgumentNullException("Original_InvoiceType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_InvoiceType));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_InvoiceType));
             }
-            this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Invoice_ID));
+            this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(Invoice_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8410,8 +8602,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int Customer_ID, 
-                    int OfficeWorker_ID, 
+                    global::System.Nullable<int> Customer_ID, 
+                    global::System.Nullable<int> OfficeWorker_ID, 
                     global::System.Nullable<int> ContractorCompany_ID, 
                     global::System.Nullable<int> Contractor_ID, 
                     string Community_Name, 
@@ -8424,8 +8616,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string _Alt_, 
                     string _Alt_Extension, 
                     string _Alt_Type, 
-                    bool PermissionToEnter, 
-                    bool Pets, 
+                    global::System.Nullable<bool> PermissionToEnter, 
+                    global::System.Nullable<bool> Pets, 
                     bool Accepted, 
                     bool Complete, 
                     string TimeOfService, 
@@ -8434,8 +8626,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string Description, 
                     string Comments, 
                     int Original_Invoice_ID, 
-                    int Original_Customer_ID, 
-                    int Original_OfficeWorker_ID, 
+                    global::System.Nullable<int> Original_Customer_ID, 
+                    global::System.Nullable<int> Original_OfficeWorker_ID, 
                     global::System.Nullable<int> Original_ContractorCompany_ID, 
                     global::System.Nullable<int> Original_Contractor_ID, 
                     string Original_Community_Name, 
@@ -8448,8 +8640,8 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
                     string _Original_Alt_, 
                     string _Original_Alt_Extension, 
                     string _Original_Alt_Type, 
-                    bool Original_PermissionToEnter, 
-                    bool Original_Pets, 
+                    global::System.Nullable<bool> Original_PermissionToEnter, 
+                    global::System.Nullable<bool> Original_Pets, 
                     bool Original_Accepted, 
                     bool Original_Complete, 
                     string Original_TimeOfService, 
@@ -8634,7 +8826,7 @@ SELECT OfficeWorker_ID, First, Last, Email, Phone# FROM OfficeWorker WHERE (Offi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9054,7 +9246,7 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
+            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

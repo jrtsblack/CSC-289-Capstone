@@ -67,9 +67,16 @@ namespace Invoice
             // Close form if yes was pressed
             if (result == DialogResult.Yes)
             {
-                this.Close();
-                WorkOrderForm workOrder = new WorkOrderForm();
-                workOrder.Show();
+                if (ActiveUser.usertype.ToLower() == "administrator")
+                {
+                    this.Close();
+                }
+                else
+                {
+                    this.Close();
+                    WorkOrderForm workOrder = new WorkOrderForm();
+                    workOrder.Show();
+                }              
             }
             
             

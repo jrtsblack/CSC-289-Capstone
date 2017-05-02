@@ -275,9 +275,16 @@ namespace Invoice
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm();
-            login.Show();
-            this.Close();
+            if (ActiveUser.usertype.ToLower() == "administrator")
+            {
+                this.Close();
+            }
+            else
+            {
+                LoginForm login = new LoginForm();
+                login.Show();
+                this.Close();
+            }
         }
     }
 }

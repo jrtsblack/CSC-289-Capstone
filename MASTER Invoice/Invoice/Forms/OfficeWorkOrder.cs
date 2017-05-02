@@ -68,10 +68,6 @@ namespace Invoice
             {
                 this.Close();
             }
-            else if(cancelResult == DialogResult.No)
-            {
-                
-            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -79,11 +75,12 @@ namespace Invoice
             DialogResult clearResult = MessageBox.Show("Are you sure you want to clear this Work Order?", "Clear Work Order", MessageBoxButtons.YesNo);
             if (clearResult == DialogResult.Yes)
             {
-                this.Close();
-            }
-            else if (clearResult == DialogResult.No)
-            {
-
+                txtStreetAddress.Text = null;
+                newInvoiceCommunityComboBox.SelectedIndex = -1;
+                cmbxWorkOrderType.SelectedIndex = -1;
+                cmbxContractingCompany.SelectedIndex = -1;
+                dateTimePicker.Value = DateTimePicker.MinimumDateTime;
+                rtxtDescriptionOfRequest.Text = null;
             }
         }
 

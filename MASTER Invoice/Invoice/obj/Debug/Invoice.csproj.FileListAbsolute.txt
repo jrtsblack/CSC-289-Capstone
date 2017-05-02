@@ -241,3 +241,24 @@ C:\Users\renzi\Desktop\Csc-289\MASTER Invoice\Invoice\obj\Debug\Invoice.Properti
 C:\Users\renzi\Desktop\Csc-289\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
 C:\Users\renzi\Desktop\Csc-289\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache
 C:\Users\renzi\Desktop\Csc-289\MASTER Invoice\Invoice\obj\Debug\Invoice.Forms.AdminNewInvoiceCheck.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\bin\Debug\ProjectDB.mdf
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\bin\Debug\ProjectDB_log.ldf
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\Invoice.exe.config
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\Invoice.exe
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\Invoice.pdb
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\Engine.dll
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\Engine.pdb
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\bin\Debug\MySql.Data.xml
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.csprojResolveAssemblyReference.cache
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.AdminForm.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.Forms.AdminNewInvoiceCheck.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.ContractorWorkOrderForm.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.OfficeWorkOrder.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.WorkOrderForm.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.LoginForm.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.NewWorkOrderForm.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.Properties.Resources.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.exe
+E:\SP2017\CSC 289\Capstone-Presentation\MASTER Invoice\Invoice\obj\Debug\Invoice.pdb

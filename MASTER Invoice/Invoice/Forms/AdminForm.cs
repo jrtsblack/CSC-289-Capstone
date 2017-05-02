@@ -174,37 +174,34 @@ namespace Invoice
             SqlCommandBuilder cmdbl = new SqlCommandBuilder(adapter);
             adapter.Update(ds, "Invoices");
         }
-
+        private LoginForm login = new LoginForm();
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            
-
-            LoginForm login = new LoginForm();
             login.Show();
             this.Close();
         }
 
+        private WorkOrderForm wof = new WorkOrderForm();
         private void showWorkOrderFormButton_Click(object sender, EventArgs e)
         {
-            WorkOrderForm wof = new WorkOrderForm();
             wof.Show();            
         }
 
+        private ContractorWorkOrderForm cwof = new ContractorWorkOrderForm();
         private void showContractorWorkOrderFormButton_Click(object sender, EventArgs e)
-        {
-            ContractorWorkOrderForm cwof = new ContractorWorkOrderForm();
+        {    
             cwof.Show();
         }
 
+        private NewWorkOrderForm nwof = new NewWorkOrderForm();
         private void showNewWorkOrderFormButton_Click(object sender, EventArgs e)
         {
-            NewWorkOrderForm nwof = new NewWorkOrderForm();
             nwof.Show();
         }
-        
+
+        private OfficeWorkOrder owof = new OfficeWorkOrder();
         private void showOfficeWorkOrderForm_Click(object sender, EventArgs e)
         {
-            OfficeWorkOrder owof = new OfficeWorkOrder();
             owof.Show();
         }
     }

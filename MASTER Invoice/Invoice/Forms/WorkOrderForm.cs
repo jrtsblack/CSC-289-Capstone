@@ -84,6 +84,12 @@ namespace Invoice
             // Close form if yes was pressed
             if (result == DialogResult.Yes)
             {
+                Form admin = Application.OpenForms["AdminForm"];
+                if (admin != null)
+                {
+                    admin.Close();
+                }
+
                 LoginForm login = new LoginForm();
                 login.Show();
                 this.Close();
@@ -105,96 +111,105 @@ namespace Invoice
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string query2 = "SELECT i.Invoice_ID, c.Customer_ID, c.First as custFirst, c.Last as custLast, o.First as owFirst, o.Last as owLast, i.Community_Name, i.Address, i.Primary#, i.Primary#Extension, i.Primary#Type, i.Alt#, i.Alt#Extension, i.Alt#Type, i.Email, i.InvoiceType, i.Description, i.TimeOfService, i.PermissionToEnter, i.Pets, i.DueDate, i.ContractorCompany_ID, i.OccupantStatus, i.Complete, i.Comments, i.InvoiceName FROM Invoice i LEFT OUTER JOIN Customer c ON (i.Customer_ID=c.Customer_ID) LEFT OUTER JOIN OfficeWorker o ON (i.OfficeWorker_ID=o.OfficeWorker_ID) WHERE InvoiceName= '" + invoiceDatabaseListBox.SelectedItem.ToString()+"'";
+            if (invoiceDatabaseListBox.SelectedIndex > -1)
+            {
+                string query2 = "SELECT i.Invoice_ID, c.Customer_ID, c.First as custFirst, c.Last as custLast, o.First as owFirst, o.Last as owLast, i.Community_Name, i.Address, " +
+                    "i.Primary#, i.Primary#Extension, i.Primary#Type, i.Alt#, i.Alt#Extension, i.Alt#Type, i.Email, i.InvoiceType, i.Description, i.TimeOfService, i.PermissionToEnter, i.Pets, i.DueDate, i.ContractorCompany_ID, " +
+                    "i.OccupantStatus, i.Complete, i.Comments, i.InvoiceName FROM Invoice i LEFT OUTER JOIN Customer c ON (i.Customer_ID=c.Customer_ID) LEFT OUTER JOIN OfficeWorker o ON (i.OfficeWorker_ID=o.OfficeWorker_ID) WHERE " +
+                    "InvoiceName= '" + invoiceDatabaseListBox.SelectedItem.ToString() + "'";
+            
+
+
 
             SqlCommand cmd = new SqlCommand(query2, conn);
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                if (dr["Customer_ID"] == DBNull.Value)
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
                 {
-                    invoiceInformationFirstNameLabel.Text = dr["owFirst"].ToString();
-                    invoiceInformationLastNameLabel.Text = dr["owLast"].ToString();
-                }
-                else
-                {
-                    invoiceInformationFirstNameLabel.Text = dr["custFirst"].ToString();
-                    invoiceInformationLastNameLabel.Text = dr["custLast"].ToString();
-                }
-                
-                invoiceInformationStreetAddressLabel.Text = dr["Address"].ToString();
-                invoiceInformationCommunityLabel.Text = dr["Community_Name"].ToString();
-                invoiceInformationPrimaryPhoneNumberLabel.Text = dr["Primary#"].ToString();
-                invoiceInformationPrimaryPhoneExtensionLabel.Text = dr["Primary#Extension"].ToString();
-                invoiceInformationPrimaryPhoneTypeLabel.Text = dr["Primary#Type"].ToString();
-                invoiceInformationAlternatePhoneNumberLabel.Text = dr["Alt#"].ToString();
-                invoiceInformationAlternatePhoneExtensionLabel.Text = dr["Alt#Extension"].ToString();
-                invoiceInformationAlternatePhoneTypeLabel.Text = dr["Alt#Type"].ToString();
-                invoiceInformationEmailLabel.Text = dr["Email"].ToString();
-                invoiceInformationWorkOrderTypeLabel.Text = dr["InvoiceType"].ToString();
-                invoiceInformationDescriptionOfRequestRichTextBox.Text = dr["Description"].ToString();
-                invoiceInformationRequestTimeOfServiceLabel.Text = dr["TimeOfService"].ToString();
-                if(dr["PermissionToEnter"].ToString().ToLower() == "true")
-                {
-                    invoiceInformationPermissionToEnterLabel.Text = "True";
-                }
-                else if(dr["PermissionToEnter"].ToString().ToLower() == "false")
-                {
-                    invoiceInformationPermissionToEnterLabel.Text = "False";
-                }
-                if (dr["Pets"].ToString().ToLower() == "true")
-                {
-                    invoiceInformationAnimalsLabel.Text = "True";
-                }
-                else if (dr["Pets"].ToString().ToLower() == "false")
-                {
-                    invoiceInformationAnimalsLabel.Text = "False";
-                }
-                if (dr["Complete"].ToString().ToLower() == "true")
-                {
-                    rButtonComplete.Checked = true;
-                }
-                else if (dr["Complete"].ToString().ToLower() == "false")
-                {
-                    rButtonIncomplete.Checked = true;
-                }
-                rTxtBoxComments.Text = dr["Comments"].ToString();
-                if (dr["OccupantStatus"].ToString().ToLower() == "1")
-                {
-                    rbtnOccupied.Checked = true;
-                }
-                else if (dr["OccupantStatus"].ToString().ToLower() == "0")
-                {
-                    rbtnUnoccupied.Checked = true;
-                }
-                if(String.IsNullOrEmpty(dr["ContractorCompany_ID"].ToString()))
-                {
-                    cbxCompanySelect.SelectedIndex = -1;
-                }
-                else
-                {
-                    SqlCommand contractorcomp = new SqlCommand("Select Company_Name FROM ContractorCompany WHERE Company_ID=" + Convert.ToInt32(dr["ContractorCompany_ID"].ToString()), conn);
-                    contractorcomp.ExecuteNonQuery();
-                    DataTable dt2 = new DataTable();
-                    SqlDataAdapter da2 = new SqlDataAdapter(contractorcomp);
-                    da2.Fill(dt2);
-                    cbxCompanySelect.Text = dt2.Rows[0]["Company_Name"].ToString();
-                }
-                if(dr["DueDate"] == DBNull.Value)
-                {
-                    dtpDue.Checked = false;
-                    dtpDue.CustomFormat = " ";
-                    dtpDue.Format = DateTimePickerFormat.Custom;
-                }
-                else
-                {
-                    dtpDue.Checked = true;
-                    dtpDue.CustomFormat = null;
-                    dtpDue.Format = DateTimePickerFormat.Long;
-                    dtpDue.Value = Convert.ToDateTime(dr["DueDate"].ToString());
+                    if (dr["Customer_ID"] == DBNull.Value)
+                    {
+                        invoiceInformationFirstNameLabel.Text = dr["owFirst"].ToString();
+                        invoiceInformationLastNameLabel.Text = dr["owLast"].ToString();
+                    }
+                    else
+                    {
+                        invoiceInformationFirstNameLabel.Text = dr["custFirst"].ToString();
+                        invoiceInformationLastNameLabel.Text = dr["custLast"].ToString();
+                    }
+
+                    invoiceInformationStreetAddressLabel.Text = dr["Address"].ToString();
+                    invoiceInformationCommunityLabel.Text = dr["Community_Name"].ToString();
+                    invoiceInformationPrimaryPhoneNumberLabel.Text = dr["Primary#"].ToString();
+                    invoiceInformationPrimaryPhoneExtensionLabel.Text = dr["Primary#Extension"].ToString();
+                    invoiceInformationPrimaryPhoneTypeLabel.Text = dr["Primary#Type"].ToString();
+                    invoiceInformationAlternatePhoneNumberLabel.Text = dr["Alt#"].ToString();
+                    invoiceInformationAlternatePhoneExtensionLabel.Text = dr["Alt#Extension"].ToString();
+                    invoiceInformationAlternatePhoneTypeLabel.Text = dr["Alt#Type"].ToString();
+                    invoiceInformationEmailLabel.Text = dr["Email"].ToString();
+                    invoiceInformationWorkOrderTypeLabel.Text = dr["InvoiceType"].ToString();
+                    invoiceInformationDescriptionOfRequestRichTextBox.Text = dr["Description"].ToString();
+                    invoiceInformationRequestTimeOfServiceLabel.Text = dr["TimeOfService"].ToString();
+                    if (dr["PermissionToEnter"].ToString().ToLower() == "true")
+                    {
+                        invoiceInformationPermissionToEnterLabel.Text = "True";
+                    }
+                    else if (dr["PermissionToEnter"].ToString().ToLower() == "false")
+                    {
+                        invoiceInformationPermissionToEnterLabel.Text = "False";
+                    }
+                    if (dr["Pets"].ToString().ToLower() == "true")
+                    {
+                        invoiceInformationAnimalsLabel.Text = "True";
+                    }
+                    else if (dr["Pets"].ToString().ToLower() == "false")
+                    {
+                        invoiceInformationAnimalsLabel.Text = "False";
+                    }
+                    if (dr["Complete"].ToString().ToLower() == "true")
+                    {
+                        rButtonComplete.Checked = true;
+                    }
+                    else if (dr["Complete"].ToString().ToLower() == "false")
+                    {
+                        rButtonIncomplete.Checked = true;
+                    }
+                    rTxtBoxComments.Text = dr["Comments"].ToString();
+                    if (dr["OccupantStatus"].ToString().ToLower() == "1")
+                    {
+                        rbtnOccupied.Checked = true;
+                    }
+                    else if (dr["OccupantStatus"].ToString().ToLower() == "0")
+                    {
+                        rbtnUnoccupied.Checked = true;
+                    }
+                    if (String.IsNullOrEmpty(dr["ContractorCompany_ID"].ToString()))
+                    {
+                        cbxCompanySelect.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        SqlCommand contractorcomp = new SqlCommand("Select Company_Name FROM ContractorCompany WHERE Company_ID=" + Convert.ToInt32(dr["ContractorCompany_ID"].ToString()), conn);
+                        contractorcomp.ExecuteNonQuery();
+                        DataTable dt2 = new DataTable();
+                        SqlDataAdapter da2 = new SqlDataAdapter(contractorcomp);
+                        da2.Fill(dt2);
+                        cbxCompanySelect.Text = dt2.Rows[0]["Company_Name"].ToString();
+                    }
+                    if (dr["DueDate"] == DBNull.Value)
+                    {
+                        dtpDue.Checked = false;
+                        dtpDue.CustomFormat = " ";
+                        dtpDue.Format = DateTimePickerFormat.Custom;
+                    }
+                    else
+                    {
+                        dtpDue.Checked = true;
+                        dtpDue.CustomFormat = null;
+                        dtpDue.Format = DateTimePickerFormat.Long;
+                        dtpDue.Value = Convert.ToDateTime(dr["DueDate"].ToString());
+                    }
                 }
             }
 

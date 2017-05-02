@@ -17,15 +17,15 @@ namespace Invoice.Forms
             InitializeComponent();
         }
 
+        private NewWorkOrderForm occ = new NewWorkOrderForm();
         private void btnoccupantInvoice_Click(object sender, EventArgs e)
-        {
-            NewWorkOrderForm occ = new NewWorkOrderForm();
+        {  
             occ.Show();
         }
 
+        private OfficeWorkOrder owo = new OfficeWorkOrder();
         private void btnofficeWorkerInvoice_Click(object sender, EventArgs e)
         {
-            OfficeWorkOrder owo = new OfficeWorkOrder();
             owo.Show();
         }
     }

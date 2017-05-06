@@ -21,18 +21,15 @@ namespace Invoice
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'projectDBDataSet.Invoice' table. You can move, or remove it, as needed.
-            this.invoiceTableAdapter.Fill(this.projectDBDataSet.Invoice);
-            // TODO: This line of code loads data into the 'projectDBDataSet.UserAccounts' table. You can move, or remove it, as needed.
-            this.userAccountsTableAdapter.Fill(this.projectDBDataSet.UserAccounts);
+            // TODO: This line of code loads data into the 'projectDBDataSet1.UserAccounts' table. You can move, or remove it, as needed.
+            this.userAccountsTableAdapter1.Fill(this.projectDBDataSet1.UserAccounts);
+            // TODO: This line of code loads data into the 'projectDBDataSet1.Invoice' table. You can move, or remove it, as needed.
+            this.invoiceTableAdapter1.Fill(this.projectDBDataSet1.Invoice);
+
 
 
 
         }
-        SqlDataAdapter adapter;
-        DataSet ds;
-        static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-        SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True");
 
         private void activateAccountButton_Click(object sender, EventArgs e)
         {
@@ -45,31 +42,27 @@ namespace Invoice
                 if (clmSelect.Value != null &&
                        Convert.ToBoolean(clmSelect.Value) == true)
                 {
-                    data += "'" + (dataGridView1.Rows[i].Cells[1].Value.ToString()) + "'" + ",";
+                    data += "'" + (dataGridView1.Rows[i].Cells[1].Value.ToString()) + "' ,";
                 }
             }
+
+            if (string.IsNullOrEmpty(data))
+            {
+                MessageBox.Show("Please select an account to activate");
+            }
+
             data = data.TrimEnd(',');
 
-            string updatesql = "UPDATE UserAccounts SET Confirmed='1' WHERE email IN (" + data + ")";
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (Convert.ToBoolean(row.Cells[selected.Name].Value) == true)
                 {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand(updatesql, connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                    string update = "SELECT * FROM UserAccounts";
-
-                    SqlDataAdapter userAdapter = new SqlDataAdapter(update, connection);
-                    DataTable users = new DataTable();
-                    users.Clear();
-                    userAdapter.Fill(users);
-
-                    if (users.Rows.Count > 0)
+                    Engine.Administration.activateAccount(data, row.Cells[1].Value.ToString());
+                    if (Engine.Administration.datatable.Rows.Count > 0)
                     {
-                        dataGridView1.DataSource = users;
+                        dataGridView1.DataSource = Engine.Administration.datatable;
                     }
+                    
                 }
             }
         }
@@ -79,19 +72,16 @@ namespace Invoice
 
             dataGridView2.Hide();
             dataGridView1.Show();
+            Engine.Administration.unconfirmedAccounts();
 
-            connection.Open();
-            string unconfirmedsql = "SELECT * FROM UserAccounts WHERE confirmed=0";
-            SqlDataAdapter unconfirmedAdapter = new SqlDataAdapter(unconfirmedsql, connection);
-            DataTable users = new DataTable();
-            users.Clear();
-            unconfirmedAdapter.Fill(users);
-
-            if (users.Rows.Count > 0)
+            if (Engine.Administration.datatable.Rows.Count > 0)
             {
-                dataGridView1.DataSource = users;
+                dataGridView1.DataSource = Engine.Administration.datatable;
             }
-            connection.Close();
+            else
+            {
+                MessageBox.Show("All Accounts Activated");
+            }
         }
 
         private void showAllAccountsButton_Click_1(object sender, EventArgs e)
@@ -100,18 +90,13 @@ namespace Invoice
             dataGridView2.Hide();
             dataGridView1.Show();
 
-            connection.Open();
-            string allsql = "SELECT * FROM UserAccounts";
-            SqlDataAdapter allAdapter = new SqlDataAdapter(allsql, connection);
-            DataTable users = new DataTable();
-            users.Clear();
-            allAdapter.Fill(users);
+            Engine.Administration.allAccounts();
 
-            if (users.Rows.Count > 0)
+            if (Engine.Administration.datatable.Rows.Count > 0)
             {
-                dataGridView1.DataSource = users;
+                dataGridView1.DataSource = Engine.Administration.datatable;
             }
-            connection.Close();
+            
         }
 
         private void deleteUserButton_Click(object sender, EventArgs e)
@@ -119,8 +104,9 @@ namespace Invoice
 
             dataGridView2.Hide();
             dataGridView1.Show();
-            connection.Open();
             string data = "";
+            string usertype = "";
+            int count = 0;
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
@@ -129,27 +115,33 @@ namespace Invoice
                 if (clmSelect.Value != null &&
                        Convert.ToBoolean(clmSelect.Value) == true)
                 {
-                    data += (dataGridView1.Rows[i].Cells[1].Value.ToString()) + ",";
+                    data += "'" + (dataGridView1.Rows[i].Cells[1].Value.ToString()) + "' ,";
+                    usertype += "'" + (dataGridView1.Rows[i].Cells[3].Value.ToString()).ToLower() + "' ,";
+                    count++;
                 }
+            }
+
+            if(string.IsNullOrEmpty(data))
+            {
+                MessageBox.Show("Please select a user to delete");
             }
 
             data = data.TrimEnd(',');
 
-            string deletesql = "DELETE FROM UserAccounts WHERE email IN ('" + data + "')";
-
-            SqlCommand cmd = new SqlCommand(deletesql, connection);
-            cmd.ExecuteNonQuery();
-            connection.Close();
-            string update = "SELECT * FROM UserAccounts";
-
-            SqlDataAdapter userAdapter = new SqlDataAdapter(update, connection);
-            DataTable users = new DataTable();
-            users.Clear();
-            userAdapter.Fill(users);
-
-            if (users.Rows.Count > 0)
+            if (count > 0)
             {
-                dataGridView1.DataSource = users;
+                DialogResult deleteResult = MessageBox.Show("You Are About To Delete " + count + " Users", "Delete Users", MessageBoxButtons.YesNo);
+
+                if (deleteResult == DialogResult.Yes)
+                {
+                    Engine.Administration.deleteUsers(data, usertype);
+                    MessageBox.Show(Engine.Administration.message);
+
+                    if (Engine.Administration.datatable.Rows.Count > 0)
+                    {
+                        dataGridView1.DataSource = Engine.Administration.datatable;
+                    }
+                }
             }
         }
 
@@ -158,22 +150,12 @@ namespace Invoice
 
             dataGridView1.Hide();
             dataGridView2.Show();
-            connection.Open();
-            string allinvoice = "SELECT * FROM Invoice";
-            adapter = new SqlDataAdapter(allinvoice, connection);
-            ds = new DataSet();
-            adapter.Fill(ds, "Invoices");
-            dataGridView2.DataSource = ds.Tables[0];
 
-            connection.Close();
+            Engine.Administration.allInvoices();
+
+            dataGridView2.DataSource = Engine.Administration.datatable;
         }
 
-        private void updateInvoiceButton_Click(object sender, EventArgs e)
-        {
-
-            SqlCommandBuilder cmdbl = new SqlCommandBuilder(adapter);
-            adapter.Update(ds, "Invoices");
-        }
         private LoginForm login = new LoginForm();
         private void logoutButton_Click(object sender, EventArgs e)
         {
@@ -203,6 +185,46 @@ namespace Invoice
         private void showOfficeWorkOrderForm_Click(object sender, EventArgs e)
         {
             owof.Show();
+        }
+
+        private void deleteInvoiceButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Hide();
+            dataGridView2.Show();
+            string data = "";
+            int count = 0;
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                DataGridViewCheckBoxCell clmSelect = new DataGridViewCheckBoxCell();
+                clmSelect = (DataGridViewCheckBoxCell)dataGridView2.Rows[i].Cells[0];
+                if (clmSelect.Value != null &&
+                       Convert.ToBoolean(clmSelect.Value) == true)
+                {
+                    data += "'" + (dataGridView2.Rows[i].Cells[2].Value.ToString()) + "' ,";
+                    count++;
+                }
+            }
+
+            if (string.IsNullOrEmpty(data))
+            {
+                MessageBox.Show("Please select an invoice to delete");
+            }
+
+            data = data.TrimEnd(',');
+            if(count > 0)
+            {
+                DialogResult deleteResult = MessageBox.Show("You Are About To Delete " + count + " Invoices", "Delete Work Order", MessageBoxButtons.YesNo);
+
+                if (deleteResult == DialogResult.Yes)
+                {
+                    Engine.Administration.deleteInvoices(data);
+
+                    if (Engine.Administration.datatable.Rows.Count > 0)
+                    {
+                        dataGridView2.DataSource = Engine.Administration.datatable;
+                    }
+                }
+            }   
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblacceptedavailable = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblDatePrompt = new System.Windows.Forms.Label();
             this.rtbxDescriptionOfRequest = new System.Windows.Forms.RichTextBox();
@@ -58,7 +59,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lbxAcceptedWorkOrders = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblacceptedavailable = new System.Windows.Forms.Label();
             this.btnAcceptWorkOrder = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxUpdate.SuspendLayout();
@@ -91,6 +91,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Work Order:";
+            // 
+            // lblacceptedavailable
+            // 
+            this.lblacceptedavailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblacceptedavailable.Location = new System.Drawing.Point(10, 17);
+            this.lblacceptedavailable.Name = "lblacceptedavailable";
+            this.lblacceptedavailable.Size = new System.Drawing.Size(416, 23);
+            this.lblacceptedavailable.TabIndex = 1054;
+            this.lblacceptedavailable.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblDate
             // 
@@ -218,7 +227,6 @@
             this.lblStreetAddressPrompt.Size = new System.Drawing.Size(79, 13);
             this.lblStreetAddressPrompt.TabIndex = 1040;
             this.lblStreetAddressPrompt.Text = "Street Address:";
-            this.lblStreetAddressPrompt.Click += new System.EventHandler(this.lblStreetAddressPrompt_Click);
             // 
             // lblStreetAddress
             // 
@@ -239,7 +247,6 @@
             this.lblFirstNamePrompt.Size = new System.Drawing.Size(60, 13);
             this.lblFirstNamePrompt.TabIndex = 1038;
             this.lblFirstNamePrompt.Text = "First Name:";
-            this.lblFirstNamePrompt.Click += new System.EventHandler(this.lblFirstNamePrompt_Click);
             // 
             // lblFirstName
             // 
@@ -260,7 +267,6 @@
             this.lblLastNamePrompt.Size = new System.Drawing.Size(61, 13);
             this.lblLastNamePrompt.TabIndex = 1037;
             this.lblLastNamePrompt.Text = "Last Name:";
-            this.lblLastNamePrompt.Click += new System.EventHandler(this.lblLastNamePrompt_Click);
             // 
             // lblLastName
             // 
@@ -382,15 +388,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Select Accepted Work Order";
             // 
-            // lblacceptedavailable
-            // 
-            this.lblacceptedavailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblacceptedavailable.Location = new System.Drawing.Point(10, 17);
-            this.lblacceptedavailable.Name = "lblacceptedavailable";
-            this.lblacceptedavailable.Size = new System.Drawing.Size(416, 23);
-            this.lblacceptedavailable.TabIndex = 1054;
-            this.lblacceptedavailable.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // btnAcceptWorkOrder
             // 
             this.btnAcceptWorkOrder.Location = new System.Drawing.Point(115, 468);
@@ -424,13 +421,7 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.ImageList FolderFileImageList;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader colName;
-        private System.Windows.Forms.ColumnHeader colType;
-        private System.Windows.Forms.ColumnHeader colLastModified;
+        
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lbxAvailableWorkOrders;
         private System.Windows.Forms.Label lblWorkOrderPrompt;

@@ -70,7 +70,7 @@
             this.rolePanel.Location = new System.Drawing.Point(14, 201);
             this.rolePanel.Name = "rolePanel";
             this.rolePanel.Size = new System.Drawing.Size(257, 24);
-            this.rolePanel.TabIndex = 23;
+            this.rolePanel.TabIndex = 8;
             // 
             // occupantRadioButton
             // 
@@ -78,7 +78,7 @@
             this.occupantRadioButton.Location = new System.Drawing.Point(3, 4);
             this.occupantRadioButton.Name = "occupantRadioButton";
             this.occupantRadioButton.Size = new System.Drawing.Size(72, 17);
-            this.occupantRadioButton.TabIndex = 8;
+            this.occupantRadioButton.TabIndex = 9;
             this.occupantRadioButton.TabStop = true;
             this.occupantRadioButton.Text = "Occupant";
             this.occupantRadioButton.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             this.contractorRadioButton.Location = new System.Drawing.Point(178, 4);
             this.contractorRadioButton.Name = "contractorRadioButton";
             this.contractorRadioButton.Size = new System.Drawing.Size(74, 17);
-            this.contractorRadioButton.TabIndex = 10;
+            this.contractorRadioButton.TabIndex = 11;
             this.contractorRadioButton.TabStop = true;
             this.contractorRadioButton.Text = "Contractor";
             this.contractorRadioButton.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.officeWorkerRadioButton.Location = new System.Drawing.Point(81, 4);
             this.officeWorkerRadioButton.Name = "officeWorkerRadioButton";
             this.officeWorkerRadioButton.Size = new System.Drawing.Size(91, 17);
-            this.officeWorkerRadioButton.TabIndex = 9;
+            this.officeWorkerRadioButton.TabIndex = 10;
             this.officeWorkerRadioButton.TabStop = true;
             this.officeWorkerRadioButton.Text = "Office Worker";
             this.officeWorkerRadioButton.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.registerHeaderLabel.Location = new System.Drawing.Point(34, 9);
             this.registerHeaderLabel.Name = "registerHeaderLabel";
             this.registerHeaderLabel.Size = new System.Drawing.Size(222, 13);
-            this.registerHeaderLabel.TabIndex = 17;
+            this.registerHeaderLabel.TabIndex = 0;
             this.registerHeaderLabel.Text = "Please enter the information requested below:";
             // 
             // cancelButton
@@ -141,7 +141,7 @@
             this.confirmPasswordEntryTextBox.Name = "confirmPasswordEntryTextBox";
             this.confirmPasswordEntryTextBox.PasswordChar = '*';
             this.confirmPasswordEntryTextBox.Size = new System.Drawing.Size(161, 20);
-            this.confirmPasswordEntryTextBox.TabIndex = 19;
+            this.confirmPasswordEntryTextBox.TabIndex = 3;
             this.confirmPasswordEntryTextBox.UseSystemPasswordChar = true;
             // 
             // passwordEntryTextBox
@@ -150,7 +150,7 @@
             this.passwordEntryTextBox.Name = "passwordEntryTextBox";
             this.passwordEntryTextBox.PasswordChar = '*';
             this.passwordEntryTextBox.Size = new System.Drawing.Size(161, 20);
-            this.passwordEntryTextBox.TabIndex = 18;
+            this.passwordEntryTextBox.TabIndex = 2;
             this.passwordEntryTextBox.UseSystemPasswordChar = true;
             // 
             // emailEntryTextBox
@@ -158,7 +158,7 @@
             this.emailEntryTextBox.Location = new System.Drawing.Point(111, 37);
             this.emailEntryTextBox.Name = "emailEntryTextBox";
             this.emailEntryTextBox.Size = new System.Drawing.Size(161, 20);
-            this.emailEntryTextBox.TabIndex = 16;
+            this.emailEntryTextBox.TabIndex = 1;
             // 
             // confirmPasswordPromptLabel
             // 
@@ -166,7 +166,7 @@
             this.confirmPasswordPromptLabel.Location = new System.Drawing.Point(11, 92);
             this.confirmPasswordPromptLabel.Name = "confirmPasswordPromptLabel";
             this.confirmPasswordPromptLabel.Size = new System.Drawing.Size(94, 13);
-            this.confirmPasswordPromptLabel.TabIndex = 13;
+            this.confirmPasswordPromptLabel.TabIndex = 0;
             this.confirmPasswordPromptLabel.Text = "Confirm Password:";
             // 
             // passwordPromptLabel
@@ -175,7 +175,7 @@
             this.passwordPromptLabel.Location = new System.Drawing.Point(49, 66);
             this.passwordPromptLabel.Name = "passwordPromptLabel";
             this.passwordPromptLabel.Size = new System.Drawing.Size(56, 13);
-            this.passwordPromptLabel.TabIndex = 14;
+            this.passwordPromptLabel.TabIndex = 0;
             this.passwordPromptLabel.Text = "Password:";
             // 
             // emailLabelPrompt
@@ -184,7 +184,7 @@
             this.emailLabelPrompt.Location = new System.Drawing.Point(70, 40);
             this.emailLabelPrompt.Name = "emailLabelPrompt";
             this.emailLabelPrompt.Size = new System.Drawing.Size(35, 13);
-            this.emailLabelPrompt.TabIndex = 15;
+            this.emailLabelPrompt.TabIndex = 0;
             this.emailLabelPrompt.Text = "Email:";
             // 
             // companyPanel
@@ -278,7 +278,7 @@
             this.personalInfoPanel.Location = new System.Drawing.Point(2, 115);
             this.personalInfoPanel.Name = "personalInfoPanel";
             this.personalInfoPanel.Size = new System.Drawing.Size(280, 80);
-            this.personalInfoPanel.TabIndex = 25;
+            this.personalInfoPanel.TabIndex = 4;
             // 
             // firstnamePromptLabel
             // 
@@ -312,21 +312,22 @@
             this.firstNameTextBox.Location = new System.Drawing.Point(109, 0);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(161, 20);
-            this.firstNameTextBox.TabIndex = 2;
+            this.firstNameTextBox.TabIndex = 4;
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Location = new System.Drawing.Point(109, 26);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(161, 20);
-            this.lastNameTextBox.TabIndex = 2;
+            this.lastNameTextBox.TabIndex = 5;
             // 
             // phoneNumberTextBox
             // 
             this.phoneNumberTextBox.Location = new System.Drawing.Point(109, 52);
+            this.phoneNumberTextBox.MaxLength = 12;
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(161, 20);
-            this.phoneNumberTextBox.TabIndex = 2;
+            this.phoneNumberTextBox.TabIndex = 6;
             this.phoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumberTextBox_KeyPress);
             // 
             // RegisterForm

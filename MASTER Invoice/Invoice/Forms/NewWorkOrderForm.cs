@@ -27,7 +27,24 @@ namespace Invoice
         // Save values into the project DB
         private void saveInvoiceButton_Click(object sender, EventArgs e)
         {
-            SaveWorkOrderInfo();
+            nullOrEmptyCheck();
+            if (nullOrEmptyCheck())
+            {
+
+                Engine.WorkOrders.saveInvoice(newInvoiceAlternatePhoneNumberTextBox.Text, newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower(),
+                                            newInvoiceStreetAddressTextBox.Text.ToLower(), newInvoiceEmailTextBox.Text.ToLower(), newInvoicePrimaryPhoneNumberTextBox.Text.ToLower(),
+                                            newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower(), newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower(),
+                                            newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower(), newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower(),
+                                            newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower(), newInvoicePermissionToEnterComboBox.SelectedItem.ToString().ToLower(), newInvoiceAnimalsInHomeComboBox.SelectedItem.ToString().ToLower());
+
+
+                MessageBox.Show(Engine.WorkOrders.message);
+
+                WorkOrderForm workorder = new WorkOrderForm();
+                workorder.Show();
+                this.Close();
+            }
+            
         }
 
         // Set the invoice fields to be empty
@@ -67,7 +84,7 @@ namespace Invoice
             // Close form if yes was pressed
             if (result == DialogResult.Yes)
             {
-                if (ActiveUser.usertype.ToLower() == "administrator")
+                if (Engine.ActiveUser.usertype.ToLower() == "administrator")
                 {
                     this.Close();
                 }
@@ -80,33 +97,6 @@ namespace Invoice
             }
             
             
-        }
-
-        // Save WorkOrderInfo Method saves the values entered into the ProjectDB
-        private void SaveWorkOrderInfo()
-        {
-            // Incrementory value 
-            int i = 0;
-
-            nullOrEmptyCheck();
-            if (nullOrEmptyCheck())
-            {
-                // Open DB connection to manipulate data
-                conn.Open();
-                i += saveInvoice().ExecuteNonQuery();
-
-                SqlCommand invoiceName = new SqlCommand("UPDATE INVOICE SET InvoiceName= CONCAT(Address, Invoice_ID)  WHERE InvoiceName IS NULL", conn);
-
-                i += invoiceName.ExecuteNonQuery();
-                conn.Close();
-
-                if (i > 1)
-                {
-                    // Display confirmation that information has been saved
-                    MessageBox.Show("Information successfully saved.");
-                }
-
-            }
         }
 
         // Display Tooltip If first name textbox is empty
@@ -315,107 +305,12 @@ namespace Invoice
             return check;
         }
 
-        // Set bool to true or false if occupant consented to permission to enter
-        private bool getPTE()
-        {
-            bool permissionToEnter = false;
-            if (newInvoicePermissionToEnterComboBox.SelectedItem.ToString().ToLower() == "yes")
-            {
-                permissionToEnter = true;
-            }
-            else if(newInvoicePermissionToEnterComboBox.SelectedItem.ToString().ToLower() == "no")
-            {
-                permissionToEnter = false;
-            }
-            return permissionToEnter;
-        }
-
-        // Set bool to true or false if occupant has a pet
-        private bool getPET()
-        {
-            bool animal = false;
-            if (newInvoiceAnimalsInHomeComboBox.SelectedItem.ToString().ToLower() == "yes")
-            {
-                animal = true;
-            }
-            else if(newInvoiceAnimalsInHomeComboBox.SelectedItem.ToString().ToLower() == "no")
-            {
-                animal = false;
-            }
-            return animal;
-        }
-
-        // Save String Values into the Customer table
-        
-
-        // Save the String Values into the Invoice table
-        private SqlCommand saveInvoice()
-        {
-            SqlCommand saveInvoice;            
-
-            if (string.IsNullOrWhiteSpace(newInvoiceAlternatePhoneNumberTextBox.Text))
-            {
-                saveInvoice = new SqlCommand("INSERT INTO invoice (Customer_ID, community_name, occupantStatus, "
-                + "address, email, primary#, primary#type, primary#extension, "
-                + "permissiontoenter, pets, accepted, complete, timeOfService, " 
-                + "invoiceType, description) VALUES (@custid, @communityname, @occStatus, @address, "
-                + "@emailaddress, @primarynum, @phonetype, @primaryex,  @pte, @pet, @accepted, @complete, "
-                + "@timeOfService, @invoiceType, @description)", conn);
-
-                saveInvoice.Parameters.AddWithValue("@custid", ActiveUser.id);
-                saveInvoice.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@occStatus", true);
-                saveInvoice.Parameters.AddWithValue("@address", newInvoiceStreetAddressTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@primarynum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@phonetype", newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@primaryex", newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@pte", getPTE());
-                saveInvoice.Parameters.AddWithValue("@pet", getPET());
-                saveInvoice.Parameters.AddWithValue("@accepted", false);
-                saveInvoice.Parameters.AddWithValue("@complete", false);
-                saveInvoice.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@invoiceType", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
-            }
-            else
-            {
-                saveInvoice = new SqlCommand("INSERT INTO invoice (community_name, occupantStatus, "
-                + "address, email, primary#, primary#Type, primary#Extension, alt#, "
-                + "alt#Extension, alt#Type, permissiontoenter, pets, accepted, complete, timeOfService, "
-                + "invoiceType, description) VALUES (@communityname, @occStatus, @address, "
-                + "@emailaddress, @primarynum, @phonetype, @primaryex, @altnum, @altphonetype, " 
-                + "@altex, @pte, @pet, @accepted, @complete, @timeOfService, @invoiceType, @description)", conn);
-
-
-                saveInvoice.Parameters.AddWithValue("@communityname", newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@occStatus", true);
-                saveInvoice.Parameters.AddWithValue("@address", newInvoiceStreetAddressTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@emailaddress", newInvoiceEmailTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@primarynum", newInvoicePrimaryPhoneNumberTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@phonetype", newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@primaryex", newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@altnum", newInvoiceAlternatePhoneNumberTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@altphonetype", newInvoiceAlternatePhoneTypeComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@altex", newInvoiceAlternatePhoneExtensionTextBox.Text.ToLower());
-                saveInvoice.Parameters.AddWithValue("@pte", getPTE());
-                saveInvoice.Parameters.AddWithValue("@pet", getPET());
-                saveInvoice.Parameters.AddWithValue("@accepted", false);
-                saveInvoice.Parameters.AddWithValue("@complete", false);
-                saveInvoice.Parameters.AddWithValue("@timeOfService", newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@invoiceType", newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower());
-                saveInvoice.Parameters.AddWithValue("@description", newInvoiceDescriptionOfRequestRichTextBox.Text.ToString().ToLower());
-            }
-
-            return saveInvoice;
-        }
-
         private void defaultInformation()
         {
-            newInvoiceFirstNameTextBox.Text = ActiveUser.firstname;
-            newInvoiceLastNameTextBox.Text = ActiveUser.lastname;
-            newInvoiceEmailTextBox.Text = ActiveUser.email;
-            newInvoicePrimaryPhoneNumberTextBox.Text = ActiveUser.phonenum;
+            newInvoiceFirstNameTextBox.Text = Engine.ActiveUser.firstname;
+            newInvoiceLastNameTextBox.Text = Engine.ActiveUser.lastname;
+            newInvoiceEmailTextBox.Text = Engine.ActiveUser.email;
+            newInvoicePrimaryPhoneNumberTextBox.Text = Engine.ActiveUser.phonenum;
 
         }
     }

@@ -29,80 +29,71 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.updateInvoiceButton = new System.Windows.Forms.Button();
             this.showAllInvoiceButton = new System.Windows.Forms.Button();
             this.deleteUserButton = new System.Windows.Forms.Button();
             this.showAllAccountsButton = new System.Windows.Forms.Button();
             this.showUnconfirmedAccountsButton = new System.Windows.Forms.Button();
             this.activateAccountButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.userAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectDBDataSet = new Invoice.ProjectDBDataSet();
             this.logoutButton = new System.Windows.Forms.Button();
             this.showContractorWorkOrderFormButton = new System.Windows.Forms.Button();
             this.showWorkOrderFormButton = new System.Windows.Forms.Button();
             this.showOfficeWorkOrderForm = new System.Windows.Forms.Button();
             this.showNewWorkOrderFormButton = new System.Windows.Forms.Button();
-            this.userAccountsTableAdapter = new Invoice.ProjectDBDataSetTableAdapters.UserAccountsTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.deleteInvoiceButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.projectDBDataSet1 = new Invoice.ProjectDBDataSet();
             this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.invoiceTableAdapter = new Invoice.ProjectDBDataSetTableAdapters.InvoiceTableAdapter();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractorCompanyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.communityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.occupantStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryExtensionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.altDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.altExtensionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.altTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permissionToEnterDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.petsDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.acceptedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.completeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.timeOfServiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceTableAdapter1 = new Invoice.ProjectDBDataSetTableAdapters.InvoiceTableAdapter();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.officeWorkerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userAccountsTableAdapter1 = new Invoice.ProjectDBDataSetTableAdapters.UserAccountsTableAdapter();
+            this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.confirmedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // updateInvoiceButton
-            // 
-            this.updateInvoiceButton.Location = new System.Drawing.Point(5, 18);
-            this.updateInvoiceButton.Name = "updateInvoiceButton";
-            this.updateInvoiceButton.Size = new System.Drawing.Size(86, 61);
-            this.updateInvoiceButton.TabIndex = 16;
-            this.updateInvoiceButton.Text = "Update Invoices";
-            this.updateInvoiceButton.UseVisualStyleBackColor = true;
-            this.updateInvoiceButton.Click += new System.EventHandler(this.updateInvoiceButton_Click);
             // 
             // showAllInvoiceButton
             // 
-            this.showAllInvoiceButton.Location = new System.Drawing.Point(98, 18);
+            this.showAllInvoiceButton.Location = new System.Drawing.Point(5, 18);
             this.showAllInvoiceButton.Name = "showAllInvoiceButton";
             this.showAllInvoiceButton.Size = new System.Drawing.Size(86, 61);
             this.showAllInvoiceButton.TabIndex = 15;
@@ -116,7 +107,7 @@
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(86, 61);
             this.deleteUserButton.TabIndex = 14;
-            this.deleteUserButton.Text = "Delete Selected User";
+            this.deleteUserButton.Text = "Delete Selected User(s)";
             this.deleteUserButton.UseVisualStyleBackColor = true;
             this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
             // 
@@ -157,41 +148,37 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.contractorCompanyIDDataGridViewTextBoxColumn,
-            this.contractorIDDataGridViewTextBoxColumn,
-            this.communityNameDataGridViewTextBoxColumn,
-            this.occupantStatusDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn7,
-            this.primaryDataGridViewTextBoxColumn,
-            this.primaryExtensionDataGridViewTextBoxColumn,
-            this.primaryTypeDataGridViewTextBoxColumn,
-            this.altDataGridViewTextBoxColumn,
-            this.altExtensionDataGridViewTextBoxColumn,
-            this.altTypeDataGridViewTextBoxColumn,
-            this.permissionToEnterDataGridViewCheckBoxColumn,
-            this.petsDataGridViewCheckBoxColumn,
-            this.acceptedDataGridViewCheckBoxColumn,
-            this.completeDataGridViewCheckBoxColumn,
-            this.timeOfServiceDataGridViewTextBoxColumn,
-            this.dueDateDataGridViewTextBoxColumn,
-            this.invoiceTypeDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.commentsDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn24,
+            this.invoiceIDDataGridViewTextBoxColumn,
+            this.customerIDDataGridViewTextBoxColumn,
+            this.officeWorkerIDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.emailDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewCheckBoxColumn3,
+            this.dataGridViewCheckBoxColumn4,
+            this.dataGridViewCheckBoxColumn5,
+            this.dataGridViewCheckBoxColumn6,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23});
             this.dataGridView2.DataSource = this.invoiceBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(32, 25);
+            this.dataGridView2.Location = new System.Drawing.Point(32, 26);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(545, 192);
             this.dataGridView2.TabIndex = 17;
             this.dataGridView2.Visible = false;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Selected";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
             // dataGridView1
             // 
@@ -200,10 +187,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.selected,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewCheckBoxColumn2});
+            this.emailDataGridViewTextBoxColumn1,
+            this.passwordDataGridViewTextBoxColumn,
+            this.userTypeDataGridViewTextBoxColumn,
+            this.confirmedDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.userAccountsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(32, 25);
             this.dataGridView1.Name = "dataGridView1";
@@ -215,43 +202,9 @@
             this.selected.HeaderText = "Selected";
             this.selected.Name = "selected";
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Email";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Password";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Password";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "UserType";
-            this.dataGridViewTextBoxColumn3.HeaderText = "UserType";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "Confirmed";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "Confirmed";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            // 
-            // userAccountsBindingSource
-            // 
-            this.userAccountsBindingSource.DataMember = "UserAccounts";
-            this.userAccountsBindingSource.DataSource = this.projectDBDataSet;
-            // 
-            // projectDBDataSet
-            // 
-            this.projectDBDataSet.DataSetName = "ProjectDBDataSet";
-            this.projectDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // logoutButton
             // 
-            this.logoutButton.Location = new System.Drawing.Point(266, 351);
+            this.logoutButton.Location = new System.Drawing.Point(267, 346);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(75, 23);
             this.logoutButton.TabIndex = 18;
@@ -299,10 +252,6 @@
             this.showNewWorkOrderFormButton.UseVisualStyleBackColor = true;
             this.showNewWorkOrderFormButton.Click += new System.EventHandler(this.showNewWorkOrderFormButton_Click);
             // 
-            // userAccountsTableAdapter
-            // 
-            this.userAccountsTableAdapter.ClearBeforeFill = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.activateAccountButton);
@@ -310,9 +259,9 @@
             this.groupBox1.Controls.Add(this.showAllAccountsButton);
             this.groupBox1.Controls.Add(this.deleteUserButton);
             this.groupBox1.Location = new System.Drawing.Point(9, 223);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(196, 153);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
@@ -320,16 +269,26 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.updateInvoiceButton);
+            this.groupBox2.Controls.Add(this.deleteInvoiceButton);
             this.groupBox2.Controls.Add(this.showAllInvoiceButton);
             this.groupBox2.Location = new System.Drawing.Point(209, 223);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(190, 123);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(190, 89);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Invoice Tools";
+            // 
+            // deleteInvoiceButton
+            // 
+            this.deleteInvoiceButton.Location = new System.Drawing.Point(99, 18);
+            this.deleteInvoiceButton.Name = "deleteInvoiceButton";
+            this.deleteInvoiceButton.Size = new System.Drawing.Size(86, 61);
+            this.deleteInvoiceButton.TabIndex = 17;
+            this.deleteInvoiceButton.Text = "Delete Selected Invoice(s)";
+            this.deleteInvoiceButton.UseVisualStyleBackColor = true;
+            this.deleteInvoiceButton.Click += new System.EventHandler(this.deleteInvoiceButton_Click);
             // 
             // groupBox3
             // 
@@ -338,220 +297,258 @@
             this.groupBox3.Controls.Add(this.showContractorWorkOrderFormButton);
             this.groupBox3.Controls.Add(this.showNewWorkOrderFormButton);
             this.groupBox3.Location = new System.Drawing.Point(404, 223);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(189, 153);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Form Tools";
             // 
+            // projectDBDataSet1
+            // 
+            this.projectDBDataSet1.DataSetName = "ProjectDBDataSet";
+            this.projectDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // invoiceBindingSource
             // 
             this.invoiceBindingSource.DataMember = "Invoice";
-            this.invoiceBindingSource.DataSource = this.projectDBDataSet;
+            this.invoiceBindingSource.DataSource = this.projectDBDataSet1;
             // 
-            // invoiceTableAdapter
+            // invoiceTableAdapter1
             // 
-            this.invoiceTableAdapter.ClearBeforeFill = true;
+            this.invoiceTableAdapter1.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewCheckBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Invoice_ID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Invoice_ID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Selected";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
-            // dataGridViewTextBoxColumn5
+            // dataGridViewTextBoxColumn24
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Customer_ID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Customer_ID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "InvoiceName";
+            this.dataGridViewTextBoxColumn24.HeaderText = "InvoiceName";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             // 
-            // dataGridViewTextBoxColumn6
+            // invoiceIDDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "OfficeWorker_ID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "OfficeWorker_ID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.invoiceIDDataGridViewTextBoxColumn.DataPropertyName = "Invoice_ID";
+            this.invoiceIDDataGridViewTextBoxColumn.HeaderText = "Invoice_ID";
+            this.invoiceIDDataGridViewTextBoxColumn.Name = "invoiceIDDataGridViewTextBoxColumn";
+            this.invoiceIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // contractorCompanyIDDataGridViewTextBoxColumn
+            // customerIDDataGridViewTextBoxColumn
             // 
-            this.contractorCompanyIDDataGridViewTextBoxColumn.DataPropertyName = "ContractorCompany_ID";
-            this.contractorCompanyIDDataGridViewTextBoxColumn.HeaderText = "ContractorCompany_ID";
-            this.contractorCompanyIDDataGridViewTextBoxColumn.Name = "contractorCompanyIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "Customer_ID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "Customer_ID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
             // 
-            // contractorIDDataGridViewTextBoxColumn
+            // officeWorkerIDDataGridViewTextBoxColumn
             // 
-            this.contractorIDDataGridViewTextBoxColumn.DataPropertyName = "Contractor_ID";
-            this.contractorIDDataGridViewTextBoxColumn.HeaderText = "Contractor_ID";
-            this.contractorIDDataGridViewTextBoxColumn.Name = "contractorIDDataGridViewTextBoxColumn";
+            this.officeWorkerIDDataGridViewTextBoxColumn.DataPropertyName = "OfficeWorker_ID";
+            this.officeWorkerIDDataGridViewTextBoxColumn.HeaderText = "OfficeWorker_ID";
+            this.officeWorkerIDDataGridViewTextBoxColumn.Name = "officeWorkerIDDataGridViewTextBoxColumn";
             // 
-            // communityNameDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn8
             // 
-            this.communityNameDataGridViewTextBoxColumn.DataPropertyName = "Community_Name";
-            this.communityNameDataGridViewTextBoxColumn.HeaderText = "Community_Name";
-            this.communityNameDataGridViewTextBoxColumn.Name = "communityNameDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "ContractorCompany_ID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "ContractorCompany_ID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // occupantStatusDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn9
             // 
-            this.occupantStatusDataGridViewTextBoxColumn.DataPropertyName = "OccupantStatus";
-            this.occupantStatusDataGridViewTextBoxColumn.HeaderText = "OccupantStatus";
-            this.occupantStatusDataGridViewTextBoxColumn.Name = "occupantStatusDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Contractor_ID";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Contractor_ID";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
-            // addressDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn10
             // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Community_Name";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Community_Name";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
-            // dataGridViewTextBoxColumn7
+            // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Email";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "OccupantStatus";
+            this.dataGridViewTextBoxColumn11.HeaderText = "OccupantStatus";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
-            // primaryDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn12
             // 
-            this.primaryDataGridViewTextBoxColumn.DataPropertyName = "Primary#";
-            this.primaryDataGridViewTextBoxColumn.HeaderText = "Primary#";
-            this.primaryDataGridViewTextBoxColumn.Name = "primaryDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
-            // primaryExtensionDataGridViewTextBoxColumn
+            // emailDataGridViewTextBoxColumn
             // 
-            this.primaryExtensionDataGridViewTextBoxColumn.DataPropertyName = "Primary#Extension";
-            this.primaryExtensionDataGridViewTextBoxColumn.HeaderText = "Primary#Extension";
-            this.primaryExtensionDataGridViewTextBoxColumn.Name = "primaryExtensionDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
-            // primaryTypeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn13
             // 
-            this.primaryTypeDataGridViewTextBoxColumn.DataPropertyName = "Primary#Type";
-            this.primaryTypeDataGridViewTextBoxColumn.HeaderText = "Primary#Type";
-            this.primaryTypeDataGridViewTextBoxColumn.Name = "primaryTypeDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Primary#";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Primary#";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
-            // altDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn14
             // 
-            this.altDataGridViewTextBoxColumn.DataPropertyName = "Alt#";
-            this.altDataGridViewTextBoxColumn.HeaderText = "Alt#";
-            this.altDataGridViewTextBoxColumn.Name = "altDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Primary#Extension";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Primary#Extension";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // altExtensionDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn15
             // 
-            this.altExtensionDataGridViewTextBoxColumn.DataPropertyName = "Alt#Extension";
-            this.altExtensionDataGridViewTextBoxColumn.HeaderText = "Alt#Extension";
-            this.altExtensionDataGridViewTextBoxColumn.Name = "altExtensionDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Primary#Type";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Primary#Type";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             // 
-            // altTypeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn16
             // 
-            this.altTypeDataGridViewTextBoxColumn.DataPropertyName = "Alt#Type";
-            this.altTypeDataGridViewTextBoxColumn.HeaderText = "Alt#Type";
-            this.altTypeDataGridViewTextBoxColumn.Name = "altTypeDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Alt#";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Alt#";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             // 
-            // permissionToEnterDataGridViewCheckBoxColumn
+            // dataGridViewTextBoxColumn17
             // 
-            this.permissionToEnterDataGridViewCheckBoxColumn.DataPropertyName = "PermissionToEnter";
-            this.permissionToEnterDataGridViewCheckBoxColumn.HeaderText = "PermissionToEnter";
-            this.permissionToEnterDataGridViewCheckBoxColumn.Name = "permissionToEnterDataGridViewCheckBoxColumn";
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Alt#Extension";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Alt#Extension";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             // 
-            // petsDataGridViewCheckBoxColumn
+            // dataGridViewTextBoxColumn18
             // 
-            this.petsDataGridViewCheckBoxColumn.DataPropertyName = "Pets";
-            this.petsDataGridViewCheckBoxColumn.HeaderText = "Pets";
-            this.petsDataGridViewCheckBoxColumn.Name = "petsDataGridViewCheckBoxColumn";
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Alt#Type";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Alt#Type";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             // 
-            // acceptedDataGridViewCheckBoxColumn
+            // dataGridViewCheckBoxColumn3
             // 
-            this.acceptedDataGridViewCheckBoxColumn.DataPropertyName = "Accepted";
-            this.acceptedDataGridViewCheckBoxColumn.HeaderText = "Accepted";
-            this.acceptedDataGridViewCheckBoxColumn.Name = "acceptedDataGridViewCheckBoxColumn";
+            this.dataGridViewCheckBoxColumn3.DataPropertyName = "PermissionToEnter";
+            this.dataGridViewCheckBoxColumn3.HeaderText = "PermissionToEnter";
+            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
             // 
-            // completeDataGridViewCheckBoxColumn
+            // dataGridViewCheckBoxColumn4
             // 
-            this.completeDataGridViewCheckBoxColumn.DataPropertyName = "Complete";
-            this.completeDataGridViewCheckBoxColumn.HeaderText = "Complete";
-            this.completeDataGridViewCheckBoxColumn.Name = "completeDataGridViewCheckBoxColumn";
+            this.dataGridViewCheckBoxColumn4.DataPropertyName = "Pets";
+            this.dataGridViewCheckBoxColumn4.HeaderText = "Pets";
+            this.dataGridViewCheckBoxColumn4.Name = "dataGridViewCheckBoxColumn4";
             // 
-            // timeOfServiceDataGridViewTextBoxColumn
+            // dataGridViewCheckBoxColumn5
             // 
-            this.timeOfServiceDataGridViewTextBoxColumn.DataPropertyName = "TimeOfService";
-            this.timeOfServiceDataGridViewTextBoxColumn.HeaderText = "TimeOfService";
-            this.timeOfServiceDataGridViewTextBoxColumn.Name = "timeOfServiceDataGridViewTextBoxColumn";
+            this.dataGridViewCheckBoxColumn5.DataPropertyName = "Accepted";
+            this.dataGridViewCheckBoxColumn5.HeaderText = "Accepted";
+            this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
             // 
-            // dueDateDataGridViewTextBoxColumn
+            // dataGridViewCheckBoxColumn6
             // 
-            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
+            this.dataGridViewCheckBoxColumn6.DataPropertyName = "Complete";
+            this.dataGridViewCheckBoxColumn6.HeaderText = "Complete";
+            this.dataGridViewCheckBoxColumn6.Name = "dataGridViewCheckBoxColumn6";
             // 
-            // invoiceTypeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn19
             // 
-            this.invoiceTypeDataGridViewTextBoxColumn.DataPropertyName = "InvoiceType";
-            this.invoiceTypeDataGridViewTextBoxColumn.HeaderText = "InvoiceType";
-            this.invoiceTypeDataGridViewTextBoxColumn.Name = "invoiceTypeDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "TimeOfService";
+            this.dataGridViewTextBoxColumn19.HeaderText = "TimeOfService";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn20
             // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "DueDate";
+            this.dataGridViewTextBoxColumn20.HeaderText = "DueDate";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
-            // commentsDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn21
             // 
-            this.commentsDataGridViewTextBoxColumn.DataPropertyName = "Comments";
-            this.commentsDataGridViewTextBoxColumn.HeaderText = "Comments";
-            this.commentsDataGridViewTextBoxColumn.Name = "commentsDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "InvoiceType";
+            this.dataGridViewTextBoxColumn21.HeaderText = "InvoiceType";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Comments";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Comments";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            // 
+            // userAccountsBindingSource
+            // 
+            this.userAccountsBindingSource.DataMember = "UserAccounts";
+            this.userAccountsBindingSource.DataSource = this.projectDBDataSet1;
+            // 
+            // userAccountsTableAdapter1
+            // 
+            this.userAccountsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // emailDataGridViewTextBoxColumn1
+            // 
+            this.emailDataGridViewTextBoxColumn1.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn1.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
+            // userTypeDataGridViewTextBoxColumn
+            // 
+            this.userTypeDataGridViewTextBoxColumn.DataPropertyName = "UserType";
+            this.userTypeDataGridViewTextBoxColumn.HeaderText = "UserType";
+            this.userTypeDataGridViewTextBoxColumn.Name = "userTypeDataGridViewTextBoxColumn";
+            // 
+            // confirmedDataGridViewCheckBoxColumn
+            // 
+            this.confirmedDataGridViewCheckBoxColumn.DataPropertyName = "Confirmed";
+            this.confirmedDataGridViewCheckBoxColumn.HeaderText = "Confirmed";
+            this.confirmedDataGridViewCheckBoxColumn.Name = "confirmedDataGridViewCheckBoxColumn";
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 387);
+            this.ClientSize = new System.Drawing.Size(602, 420);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.logoutButton);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView2);
             this.Name = "AdminForm";
             this.Text = "Admin Form";
             this.Load += new System.EventHandler(this.AdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button updateInvoiceButton;
         private System.Windows.Forms.Button showAllInvoiceButton;
         private System.Windows.Forms.Button deleteUserButton;
         private System.Windows.Forms.Button showAllAccountsButton;
         private System.Windows.Forms.Button showUnconfirmedAccountsButton;
         private System.Windows.Forms.Button activateAccountButton;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn officeWorkerIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceStatusIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn selected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn confirmedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button showContractorWorkOrderFormButton;
         private System.Windows.Forms.Button showWorkOrderFormButton;
         private System.Windows.Forms.Button showOfficeWorkOrderForm;
         private System.Windows.Forms.Button showNewWorkOrderFormButton;
         private ProjectDBDataSet projectDBDataSet;
-        private System.Windows.Forms.BindingSource userAccountsBindingSource;
         private ProjectDBDataSetTableAdapters.UserAccountsTableAdapter userAccountsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -560,8 +557,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.BindingSource invoiceBindingSource;
         private ProjectDBDataSetTableAdapters.InvoiceTableAdapter invoiceTableAdapter;
+        private System.Windows.Forms.Button deleteInvoiceButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -586,5 +584,40 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn invoiceTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentsDataGridViewTextBoxColumn;
+        private ProjectDBDataSet projectDBDataSet1;
+        private System.Windows.Forms.BindingSource invoiceBindingSource;
+        private ProjectDBDataSetTableAdapters.InvoiceTableAdapter invoiceTableAdapter1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn officeWorkerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn5;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.BindingSource userAccountsBindingSource;
+        private ProjectDBDataSetTableAdapters.UserAccountsTableAdapter userAccountsTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn confirmedDataGridViewCheckBoxColumn;
     }
 }

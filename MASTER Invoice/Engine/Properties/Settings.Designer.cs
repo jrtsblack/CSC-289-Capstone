@@ -34,5 +34,17 @@ namespace Engine.Properties {
                 return ((string)(this["ProjectDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\renzi\\Downloads\\Sou" +
+            "rce\\Repos\\CSC-289-Capstone\\MASTER Invoice\\Invoice\\bin\\Debug\\ProjectDB.mdf\";Integ" +
+            "rated Security=True")]
+        public string ProjectDBConnectionString1 {
+            get {
+                return ((string)(this["ProjectDBConnectionString1"]));
+            }
+        }
     }
 }

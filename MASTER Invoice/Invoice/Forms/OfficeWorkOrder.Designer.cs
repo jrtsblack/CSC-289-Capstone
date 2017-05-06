@@ -405,8 +405,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox cmbxWorkOrderType;
         private System.Windows.Forms.ComboBox cmbxContractingCompany;
-        private ProjectDBDataSet projectDBDataSet;
-        private ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter contractorCompanyTableAdapter;
         private System.Windows.Forms.ComboBox newInvoiceCommunityComboBox;
         private System.Windows.Forms.Label newInvoiceCommunityLabelPrompt;
         private System.Windows.Forms.Panel occupiedPanel;

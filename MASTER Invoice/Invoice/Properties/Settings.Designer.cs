@@ -26,56 +26,11 @@ namespace Invoice.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=abcabasketball.com;user id=abcaba5;password=test1;persistsecurityinfo=True" +
-            ";database=abcaba5_invoicelogin")]
-        public string abcaba5_invoiceloginConnectionString {
-            get {
-                return ((string)(this["abcaba5_invoiceloginConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\ProjectDB.accdb;Per" +
-            "sist Security Info=True")]
-        public string ProjectDBAccessConnection {
-            get {
-                return ((string)(this["ProjectDBAccessConnection"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\renzi\\Desktop\\Sourc" +
-            "e\\Repos\\CSC-289-Capstone\\MASTER Invoice\\Engine\\ProjectDB.mdf\";Integrated Securit" +
-            "y=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\bin\\Debug\\Pro" +
+            "jectDB.mdf;Integrated Security=True")]
         public string ProjectDBConnectionString {
             get {
                 return ((string)(this["ProjectDBConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ProjectDB.mdf" +
-            ";Integrated Security=True")]
-        public string ProjectDBConnectionString1 {
-            get {
-                return ((string)(this["ProjectDBConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\bin\\Debug\\Pro" +
-            "jectDB.mdf;Integrated Security=True")]
-        public string ProjectDBConnectionString2 {
-            get {
-                return ((string)(this["ProjectDBConnectionString2"]));
             }
         }
     }

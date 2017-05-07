@@ -32,6 +32,7 @@
             this.btnoccupantInvoice = new System.Windows.Forms.Button();
             this.btnofficeWorkerInvoice = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // btnoccupantInvoice
             // 
             this.btnoccupantInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnoccupantInvoice.Location = new System.Drawing.Point(179, 9);
+            this.btnoccupantInvoice.Location = new System.Drawing.Point(119, 9);
             this.btnoccupantInvoice.Name = "btnoccupantInvoice";
             this.btnoccupantInvoice.Size = new System.Drawing.Size(98, 37);
             this.btnoccupantInvoice.TabIndex = 1;
@@ -59,7 +60,7 @@
             // btnofficeWorkerInvoice
             // 
             this.btnofficeWorkerInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnofficeWorkerInvoice.Location = new System.Drawing.Point(283, 9);
+            this.btnofficeWorkerInvoice.Location = new System.Drawing.Point(223, 9);
             this.btnofficeWorkerInvoice.Name = "btnofficeWorkerInvoice";
             this.btnofficeWorkerInvoice.Size = new System.Drawing.Size(98, 37);
             this.btnofficeWorkerInvoice.TabIndex = 2;
@@ -70,12 +71,24 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.btnofficeWorkerInvoice);
             this.panel1.Controls.Add(this.btnoccupantInvoice);
             this.panel1.Location = new System.Drawing.Point(-3, 50);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(388, 49);
             this.panel1.TabIndex = 3;
+            // 
+            // btnBack
+            // 
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(327, 9);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(58, 37);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "Cancel";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // AdminNewInvoiceCheck
             // 
@@ -90,6 +103,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminNewInvoiceCheck";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminNewInvoiceCheck_FormClosed);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -101,5 +115,6 @@
         private System.Windows.Forms.Button btnoccupantInvoice;
         private System.Windows.Forms.Button btnofficeWorkerInvoice;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnBack;
     }
 }

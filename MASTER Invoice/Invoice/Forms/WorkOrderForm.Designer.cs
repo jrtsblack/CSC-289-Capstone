@@ -87,6 +87,7 @@
             this.dtpDue = new System.Windows.Forms.DateTimePicker();
             this.lblDueDatePrompt = new System.Windows.Forms.Label();
             this.contractorCompanyTableAdapter = new Invoice.ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter();
+            this.adminFormButton = new System.Windows.Forms.Button();
             this.invoiceInformationGroupBox.SuspendLayout();
             this.gbxCommentsAndStatus.SuspendLayout();
             this.gbxOfficeWorkerTools.SuspendLayout();
@@ -125,7 +126,7 @@
             // 
             // invoiceInformationLogOutButton
             // 
-            this.invoiceInformationLogOutButton.Location = new System.Drawing.Point(168, 562);
+            this.invoiceInformationLogOutButton.Location = new System.Drawing.Point(245, 562);
             this.invoiceInformationLogOutButton.Name = "invoiceInformationLogOutButton";
             this.invoiceInformationLogOutButton.Size = new System.Drawing.Size(75, 23);
             this.invoiceInformationLogOutButton.TabIndex = 3;
@@ -343,7 +344,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(245, 562);
+            this.btnUpdate.Location = new System.Drawing.Point(168, 562);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
@@ -669,11 +670,24 @@
             // 
             this.contractorCompanyTableAdapter.ClearBeforeFill = true;
             // 
+            // adminFormButton
+            // 
+            this.adminFormButton.Enabled = false;
+            this.adminFormButton.Location = new System.Drawing.Point(283, 611);
+            this.adminFormButton.Name = "adminFormButton";
+            this.adminFormButton.Size = new System.Drawing.Size(75, 47);
+            this.adminFormButton.TabIndex = 1040;
+            this.adminFormButton.Text = "Return To Admin Form";
+            this.adminFormButton.UseVisualStyleBackColor = true;
+            this.adminFormButton.Visible = false;
+            this.adminFormButton.Click += new System.EventHandler(this.adminFormButton_Click);
+            // 
             // WorkOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 617);
+            this.ClientSize = new System.Drawing.Size(634, 611);
+            this.Controls.Add(this.adminFormButton);
             this.Controls.Add(this.gbxOfficeWorkerTools);
             this.Controls.Add(this.gbxCommentsAndStatus);
             this.Controls.Add(this.invoiceInformationGroupBox);
@@ -756,5 +770,6 @@
         private ProjectDBDataSet projectDBDataSet;
         private System.Windows.Forms.BindingSource contractorCompanyBindingSource;
         private ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter contractorCompanyTableAdapter;
+        private System.Windows.Forms.Button adminFormButton;
     }
 }

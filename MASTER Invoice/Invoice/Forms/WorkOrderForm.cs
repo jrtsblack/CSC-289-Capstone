@@ -69,6 +69,7 @@ namespace Invoice
             if (Engine.ActiveUser.usertype.ToLower() == "office worker")
             {
                 btnUpdate.Visible = true;
+                btnUpdate.Enabled = false;
                 gbxOfficeWorkerTools.Visible = true;
                 gbxCommentsAndStatus.Enabled = true;
                 invoiceInformationFirstNameLabel.ReadOnly = false;
@@ -87,6 +88,17 @@ namespace Invoice
                 invoiceInformationRequestTimeOfServiceLabel.ReadOnly = false;
                 invoiceInformationPermissionToEnterLabel.ReadOnly = false;
                 invoiceInformationAnimalsLabel.ReadOnly = false;
+            }
+            if (Engine.ActiveUser.usertype.ToLower() == "administrator")
+            {
+                this.Height = 700;
+                adminFormButton.Enabled = true;
+                adminFormButton.Visible = true;
+                invoiceInformationLogOutButton.Location = new Point(168, 562);
+            }
+            if(Engine.ActiveUser.usertype.ToLower() == "occupant")
+            {
+                invoiceInformationLogOutButton.Location = new Point(168, 562);
             }
         }
 
@@ -125,10 +137,10 @@ namespace Invoice
             // Close form if yes was pressed
             if (result == DialogResult.Yes)
             {
-                Form admin = Application.OpenForms["AdminForm"];
-                if (admin != null)
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
                 {
-                    admin.Close();
+                    if (Application.OpenForms[i].Name != "LoginForm")
+                        Application.OpenForms[i].Close();
                 }
 
                 LoginForm login = new LoginForm();
@@ -197,6 +209,13 @@ namespace Invoice
                 dtpDue.Format = DateTimePickerFormat.Long;
                 dtpDue.Value = Engine.WorkOrders.date.Value;
             }
+        }
+
+        private void adminFormButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminForm admin = new AdminForm();
+            admin.Show();
         }
     }
 }

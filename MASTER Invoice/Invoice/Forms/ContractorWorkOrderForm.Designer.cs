@@ -60,6 +60,7 @@
             this.lbxAcceptedWorkOrders = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAcceptWorkOrder = new System.Windows.Forms.Button();
+            this.adminFormButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbxUpdate.SuspendLayout();
             this.SuspendLayout();
@@ -398,9 +399,22 @@
             this.btnAcceptWorkOrder.UseVisualStyleBackColor = true;
             this.btnAcceptWorkOrder.Click += new System.EventHandler(this.btnAcceptWorkOrder_Click);
             // 
+            // adminFormButton
+            // 
+            this.adminFormButton.Enabled = false;
+            this.adminFormButton.Location = new System.Drawing.Point(483, 467);
+            this.adminFormButton.Name = "adminFormButton";
+            this.adminFormButton.Size = new System.Drawing.Size(75, 47);
+            this.adminFormButton.TabIndex = 1108;
+            this.adminFormButton.Text = "Return To Admin Form";
+            this.adminFormButton.UseVisualStyleBackColor = true;
+            this.adminFormButton.Visible = false;
+            this.adminFormButton.Click += new System.EventHandler(this.adminFormButton_Click);
+            // 
             // ContractorWorkOrderForm
             // 
             this.ClientSize = new System.Drawing.Size(1174, 515);
+            this.Controls.Add(this.adminFormButton);
             this.Controls.Add(this.btnAcceptWorkOrder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbxAcceptedWorkOrders);
@@ -454,5 +468,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblacceptedavailable;
         private System.Windows.Forms.Button btnAcceptWorkOrder;
+        private System.Windows.Forms.Button adminFormButton;
     }
 }

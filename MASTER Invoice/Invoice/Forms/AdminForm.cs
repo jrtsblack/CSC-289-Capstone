@@ -106,6 +106,7 @@ namespace Invoice
             dataGridView1.Show();
             string data = "";
             string usertype = "";
+            string users = "";
             int count = 0;
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -117,6 +118,7 @@ namespace Invoice
                 {
                     data += "'" + (dataGridView1.Rows[i].Cells[1].Value.ToString()) + "' ,";
                     usertype += "'" + (dataGridView1.Rows[i].Cells[3].Value.ToString()).ToLower() + "' ,";
+                    users += dataGridView1.Rows[i].Cells[1].Value.ToString() + Environment.NewLine;
                     count++;
                 }
             }
@@ -130,7 +132,8 @@ namespace Invoice
 
             if (count > 0)
             {
-                DialogResult deleteResult = MessageBox.Show("You Are About To Delete " + count + " Users", "Delete Users", MessageBoxButtons.YesNo);
+                DialogResult deleteResult = MessageBox.Show("You Are About To Delete " + count + " Users." + Environment.NewLine + Environment.NewLine + 
+                    "Delete Following Users?" + Environment.NewLine + users, "Delete Users", MessageBoxButtons.YesNo);
 
                 if (deleteResult == DialogResult.Yes)
                 {
@@ -166,25 +169,29 @@ namespace Invoice
         private WorkOrderForm wof = new WorkOrderForm();
         private void showWorkOrderFormButton_Click(object sender, EventArgs e)
         {
-            wof.Show();            
+            wof.Show();
+            this.Close();          
         }
 
         private ContractorWorkOrderForm cwof = new ContractorWorkOrderForm();
         private void showContractorWorkOrderFormButton_Click(object sender, EventArgs e)
         {    
             cwof.Show();
+            this.Close();
         }
 
         private NewWorkOrderForm nwof = new NewWorkOrderForm();
         private void showNewWorkOrderFormButton_Click(object sender, EventArgs e)
         {
             nwof.Show();
+            this.Close();
         }
 
         private OfficeWorkOrder owof = new OfficeWorkOrder();
         private void showOfficeWorkOrderForm_Click(object sender, EventArgs e)
         {
             owof.Show();
+            this.Close();
         }
 
         private void deleteInvoiceButton_Click(object sender, EventArgs e)
@@ -193,6 +200,7 @@ namespace Invoice
             dataGridView2.Show();
             string data = "";
             int count = 0;
+            string invoices = " ";
             for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
                 DataGridViewCheckBoxCell clmSelect = new DataGridViewCheckBoxCell();
@@ -202,6 +210,7 @@ namespace Invoice
                 {
                     data += "'" + (dataGridView2.Rows[i].Cells[2].Value.ToString()) + "' ,";
                     count++;
+                    invoices += dataGridView2.Rows[i].Cells[1].Value.ToString() + Environment.NewLine;
                 }
             }
 
@@ -213,7 +222,8 @@ namespace Invoice
             data = data.TrimEnd(',');
             if(count > 0)
             {
-                DialogResult deleteResult = MessageBox.Show("You Are About To Delete " + count + " Invoices", "Delete Work Order", MessageBoxButtons.YesNo);
+                DialogResult deleteResult = MessageBox.Show("You Are About To Delete " + count + " Invoices." + Environment.NewLine + Environment.NewLine +
+                    "Delete Following Invoices?" + Environment.NewLine + invoices, "Delete Work Order", MessageBoxButtons.YesNo);
 
                 if (deleteResult == DialogResult.Yes)
                 {

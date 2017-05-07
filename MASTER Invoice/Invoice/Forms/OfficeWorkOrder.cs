@@ -21,13 +21,27 @@ namespace Invoice
         private void OfficeWorkOrder_Load(object sender, EventArgs e)
         {
             this.contractorCompanyTableAdapter1.Fill(this.projectDBDataSet1.ContractorCompany);
+            if(Engine.ActiveUser.usertype.ToLower() == "administrator")
+            {
+                this.Height = 502;
+                adminFormButton.Enabled = true;
+                adminFormButton.Visible = true;
+            }
         }
 
         private void rbtnOccupied_CheckedChanged(object sender, EventArgs e)
         {
             if(rbtnOccupied.Checked)
             {
-                this.Size = new Size(378, 528);
+                if(Engine.ActiveUser.usertype.ToLower() == "administrator")
+                {
+                    this.Height = 578;
+                    adminFormButton.Location = new Point(142, 488);
+                }
+                else
+                {
+                    this.Size = new Size(378, 528);
+                }
                 gbxOfficeWorkOrder.Size = new Size(338, 418);
                 occupiedPanel.Visible = true;
                 occupiedPanel.Size = new Size(320, 66);
@@ -39,7 +53,16 @@ namespace Invoice
             }
             else if(rbtnUnoccupied.Checked)
             {
-                this.Size = new Size(378, 443);
+
+                if (Engine.ActiveUser.usertype.ToLower() == "administrator")
+                {
+                    this.Height = 502;
+                    adminFormButton.Location = new Point(142, 408);
+                }
+                else
+                {
+                    this.Size = new Size(378, 443);
+                }
                 gbxOfficeWorkOrder.Size = new Size(338, 333);
                 occupiedPanel.Visible = false;
                 occupiedPanel.Size = new Size(1, 1);
@@ -160,6 +183,13 @@ namespace Invoice
                 }
             }
             return check;
+        }
+
+        private void adminFormButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminForm admin = new AdminForm();
+            admin.Show();
         }
     }
 }

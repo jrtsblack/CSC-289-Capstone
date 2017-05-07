@@ -35,20 +35,6 @@
             this.showUnconfirmedAccountsButton = new System.Windows.Forms.Button();
             this.activateAccountButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.logoutButton = new System.Windows.Forms.Button();
-            this.showContractorWorkOrderFormButton = new System.Windows.Forms.Button();
-            this.showWorkOrderFormButton = new System.Windows.Forms.Button();
-            this.showOfficeWorkOrderForm = new System.Windows.Forms.Button();
-            this.showNewWorkOrderFormButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.deleteInvoiceButton = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.projectDBDataSet1 = new Invoice.ProjectDBDataSet();
-            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.invoiceTableAdapter1 = new Invoice.ProjectDBDataSetTableAdapters.InvoiceTableAdapter();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.invoiceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,20 +61,34 @@
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userAccountsTableAdapter1 = new Invoice.ProjectDBDataSetTableAdapters.UserAccountsTableAdapter();
+            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectDBDataSet1 = new Invoice.ProjectDBDataSet();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.confirmedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.userAccountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.showContractorWorkOrderFormButton = new System.Windows.Forms.Button();
+            this.showWorkOrderFormButton = new System.Windows.Forms.Button();
+            this.showOfficeWorkOrderForm = new System.Windows.Forms.Button();
+            this.showNewWorkOrderFormButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.deleteInvoiceButton = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.invoiceTableAdapter1 = new Invoice.ProjectDBDataSetTableAdapters.InvoiceTableAdapter();
+            this.userAccountsTableAdapter1 = new Invoice.ProjectDBDataSetTableAdapters.UserAccountsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // showAllInvoiceButton
@@ -179,145 +179,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(545, 192);
             this.dataGridView2.TabIndex = 17;
             this.dataGridView2.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selected,
-            this.emailDataGridViewTextBoxColumn1,
-            this.passwordDataGridViewTextBoxColumn,
-            this.userTypeDataGridViewTextBoxColumn,
-            this.confirmedDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.userAccountsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(545, 192);
-            this.dataGridView1.TabIndex = 10;
-            // 
-            // selected
-            // 
-            this.selected.HeaderText = "Selected";
-            this.selected.Name = "selected";
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Location = new System.Drawing.Point(267, 346);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(75, 23);
-            this.logoutButton.TabIndex = 18;
-            this.logoutButton.Text = "Log Out";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-            // 
-            // showContractorWorkOrderFormButton
-            // 
-            this.showContractorWorkOrderFormButton.Location = new System.Drawing.Point(5, 85);
-            this.showContractorWorkOrderFormButton.Name = "showContractorWorkOrderFormButton";
-            this.showContractorWorkOrderFormButton.Size = new System.Drawing.Size(86, 61);
-            this.showContractorWorkOrderFormButton.TabIndex = 20;
-            this.showContractorWorkOrderFormButton.Text = "Show Contractor WorkOrder Form";
-            this.showContractorWorkOrderFormButton.UseVisualStyleBackColor = true;
-            this.showContractorWorkOrderFormButton.Click += new System.EventHandler(this.showContractorWorkOrderFormButton_Click);
-            // 
-            // showWorkOrderFormButton
-            // 
-            this.showWorkOrderFormButton.Location = new System.Drawing.Point(5, 18);
-            this.showWorkOrderFormButton.Name = "showWorkOrderFormButton";
-            this.showWorkOrderFormButton.Size = new System.Drawing.Size(86, 61);
-            this.showWorkOrderFormButton.TabIndex = 19;
-            this.showWorkOrderFormButton.Text = "Show WorkOrder Form";
-            this.showWorkOrderFormButton.UseVisualStyleBackColor = true;
-            this.showWorkOrderFormButton.Click += new System.EventHandler(this.showWorkOrderFormButton_Click);
-            // 
-            // showOfficeWorkOrderForm
-            // 
-            this.showOfficeWorkOrderForm.Location = new System.Drawing.Point(98, 18);
-            this.showOfficeWorkOrderForm.Name = "showOfficeWorkOrderForm";
-            this.showOfficeWorkOrderForm.Size = new System.Drawing.Size(86, 61);
-            this.showOfficeWorkOrderForm.TabIndex = 22;
-            this.showOfficeWorkOrderForm.Text = "Show Office WorkOrder Form";
-            this.showOfficeWorkOrderForm.UseVisualStyleBackColor = true;
-            this.showOfficeWorkOrderForm.Click += new System.EventHandler(this.showOfficeWorkOrderForm_Click);
-            // 
-            // showNewWorkOrderFormButton
-            // 
-            this.showNewWorkOrderFormButton.Location = new System.Drawing.Point(98, 85);
-            this.showNewWorkOrderFormButton.Name = "showNewWorkOrderFormButton";
-            this.showNewWorkOrderFormButton.Size = new System.Drawing.Size(86, 61);
-            this.showNewWorkOrderFormButton.TabIndex = 21;
-            this.showNewWorkOrderFormButton.Text = "Show New WorkOrder Form";
-            this.showNewWorkOrderFormButton.UseVisualStyleBackColor = true;
-            this.showNewWorkOrderFormButton.Click += new System.EventHandler(this.showNewWorkOrderFormButton_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.activateAccountButton);
-            this.groupBox1.Controls.Add(this.showUnconfirmedAccountsButton);
-            this.groupBox1.Controls.Add(this.showAllAccountsButton);
-            this.groupBox1.Controls.Add(this.deleteUserButton);
-            this.groupBox1.Location = new System.Drawing.Point(9, 223);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(196, 153);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Account Tools";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.deleteInvoiceButton);
-            this.groupBox2.Controls.Add(this.showAllInvoiceButton);
-            this.groupBox2.Location = new System.Drawing.Point(209, 223);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(190, 89);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Invoice Tools";
-            // 
-            // deleteInvoiceButton
-            // 
-            this.deleteInvoiceButton.Location = new System.Drawing.Point(99, 18);
-            this.deleteInvoiceButton.Name = "deleteInvoiceButton";
-            this.deleteInvoiceButton.Size = new System.Drawing.Size(86, 61);
-            this.deleteInvoiceButton.TabIndex = 17;
-            this.deleteInvoiceButton.Text = "Delete Selected Invoice(s)";
-            this.deleteInvoiceButton.UseVisualStyleBackColor = true;
-            this.deleteInvoiceButton.Click += new System.EventHandler(this.deleteInvoiceButton_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.showWorkOrderFormButton);
-            this.groupBox3.Controls.Add(this.showOfficeWorkOrderForm);
-            this.groupBox3.Controls.Add(this.showContractorWorkOrderFormButton);
-            this.groupBox3.Controls.Add(this.showNewWorkOrderFormButton);
-            this.groupBox3.Location = new System.Drawing.Point(404, 223);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(189, 153);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Form Tools";
-            // 
-            // projectDBDataSet1
-            // 
-            this.projectDBDataSet1.DataSetName = "ProjectDBDataSet";
-            this.projectDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // invoiceBindingSource
-            // 
-            this.invoiceBindingSource.DataMember = "Invoice";
-            this.invoiceBindingSource.DataSource = this.projectDBDataSet1;
-            // 
-            // invoiceTableAdapter1
-            // 
-            this.invoiceTableAdapter1.ClearBeforeFill = true;
             // 
             // dataGridViewCheckBoxColumn1
             // 
@@ -475,14 +336,37 @@
             this.dataGridViewTextBoxColumn23.HeaderText = "Comments";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             // 
-            // userAccountsBindingSource
+            // invoiceBindingSource
             // 
-            this.userAccountsBindingSource.DataMember = "UserAccounts";
-            this.userAccountsBindingSource.DataSource = this.projectDBDataSet1;
+            this.invoiceBindingSource.DataMember = "Invoice";
+            this.invoiceBindingSource.DataSource = this.projectDBDataSet1;
             // 
-            // userAccountsTableAdapter1
+            // projectDBDataSet1
             // 
-            this.userAccountsTableAdapter1.ClearBeforeFill = true;
+            this.projectDBDataSet1.DataSetName = "ProjectDBDataSet";
+            this.projectDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.selected,
+            this.emailDataGridViewTextBoxColumn1,
+            this.passwordDataGridViewTextBoxColumn,
+            this.userTypeDataGridViewTextBoxColumn,
+            this.confirmedDataGridViewCheckBoxColumn});
+            this.dataGridView1.DataSource = this.userAccountsBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(32, 25);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(545, 192);
+            this.dataGridView1.TabIndex = 10;
+            // 
+            // selected
+            // 
+            this.selected.HeaderText = "Selected";
+            this.selected.Name = "selected";
             // 
             // emailDataGridViewTextBoxColumn1
             // 
@@ -508,6 +392,122 @@
             this.confirmedDataGridViewCheckBoxColumn.HeaderText = "Confirmed";
             this.confirmedDataGridViewCheckBoxColumn.Name = "confirmedDataGridViewCheckBoxColumn";
             // 
+            // userAccountsBindingSource
+            // 
+            this.userAccountsBindingSource.DataMember = "UserAccounts";
+            this.userAccountsBindingSource.DataSource = this.projectDBDataSet1;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(267, 346);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(75, 23);
+            this.logoutButton.TabIndex = 18;
+            this.logoutButton.Text = "Log Out";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // showContractorWorkOrderFormButton
+            // 
+            this.showContractorWorkOrderFormButton.Location = new System.Drawing.Point(5, 85);
+            this.showContractorWorkOrderFormButton.Name = "showContractorWorkOrderFormButton";
+            this.showContractorWorkOrderFormButton.Size = new System.Drawing.Size(86, 61);
+            this.showContractorWorkOrderFormButton.TabIndex = 20;
+            this.showContractorWorkOrderFormButton.Text = "Show Contractor WorkOrder Form";
+            this.showContractorWorkOrderFormButton.UseVisualStyleBackColor = true;
+            this.showContractorWorkOrderFormButton.Click += new System.EventHandler(this.showContractorWorkOrderFormButton_Click);
+            // 
+            // showWorkOrderFormButton
+            // 
+            this.showWorkOrderFormButton.Location = new System.Drawing.Point(5, 18);
+            this.showWorkOrderFormButton.Name = "showWorkOrderFormButton";
+            this.showWorkOrderFormButton.Size = new System.Drawing.Size(86, 61);
+            this.showWorkOrderFormButton.TabIndex = 19;
+            this.showWorkOrderFormButton.Text = "Show WorkOrder Form";
+            this.showWorkOrderFormButton.UseVisualStyleBackColor = true;
+            this.showWorkOrderFormButton.Click += new System.EventHandler(this.showWorkOrderFormButton_Click);
+            // 
+            // showOfficeWorkOrderForm
+            // 
+            this.showOfficeWorkOrderForm.Location = new System.Drawing.Point(98, 18);
+            this.showOfficeWorkOrderForm.Name = "showOfficeWorkOrderForm";
+            this.showOfficeWorkOrderForm.Size = new System.Drawing.Size(86, 61);
+            this.showOfficeWorkOrderForm.TabIndex = 22;
+            this.showOfficeWorkOrderForm.Text = "Show Office WorkOrder Form";
+            this.showOfficeWorkOrderForm.UseVisualStyleBackColor = true;
+            this.showOfficeWorkOrderForm.Click += new System.EventHandler(this.showOfficeWorkOrderForm_Click);
+            // 
+            // showNewWorkOrderFormButton
+            // 
+            this.showNewWorkOrderFormButton.Location = new System.Drawing.Point(98, 85);
+            this.showNewWorkOrderFormButton.Name = "showNewWorkOrderFormButton";
+            this.showNewWorkOrderFormButton.Size = new System.Drawing.Size(86, 61);
+            this.showNewWorkOrderFormButton.TabIndex = 21;
+            this.showNewWorkOrderFormButton.Text = "Show New WorkOrder Form";
+            this.showNewWorkOrderFormButton.UseVisualStyleBackColor = true;
+            this.showNewWorkOrderFormButton.Click += new System.EventHandler(this.showNewWorkOrderFormButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.activateAccountButton);
+            this.groupBox1.Controls.Add(this.showUnconfirmedAccountsButton);
+            this.groupBox1.Controls.Add(this.showAllAccountsButton);
+            this.groupBox1.Controls.Add(this.deleteUserButton);
+            this.groupBox1.Location = new System.Drawing.Point(9, 223);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(196, 153);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Account Tools";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.deleteInvoiceButton);
+            this.groupBox2.Controls.Add(this.showAllInvoiceButton);
+            this.groupBox2.Location = new System.Drawing.Point(209, 223);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(190, 89);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Invoice Tools";
+            // 
+            // deleteInvoiceButton
+            // 
+            this.deleteInvoiceButton.Location = new System.Drawing.Point(99, 18);
+            this.deleteInvoiceButton.Name = "deleteInvoiceButton";
+            this.deleteInvoiceButton.Size = new System.Drawing.Size(86, 61);
+            this.deleteInvoiceButton.TabIndex = 17;
+            this.deleteInvoiceButton.Text = "Delete Selected Invoice(s)";
+            this.deleteInvoiceButton.UseVisualStyleBackColor = true;
+            this.deleteInvoiceButton.Click += new System.EventHandler(this.deleteInvoiceButton_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.showWorkOrderFormButton);
+            this.groupBox3.Controls.Add(this.showOfficeWorkOrderForm);
+            this.groupBox3.Controls.Add(this.showContractorWorkOrderFormButton);
+            this.groupBox3.Controls.Add(this.showNewWorkOrderFormButton);
+            this.groupBox3.Location = new System.Drawing.Point(404, 223);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(189, 153);
+            this.groupBox3.TabIndex = 25;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Form Tools";
+            // 
+            // invoiceTableAdapter1
+            // 
+            this.invoiceTableAdapter1.ClearBeforeFill = true;
+            // 
+            // userAccountsTableAdapter1
+            // 
+            this.userAccountsTableAdapter1.ClearBeforeFill = true;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,19 +517,19 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.logoutButton);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "AdminForm";
             this.Text = "Admin Form";
             this.Load += new System.EventHandler(this.AdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userAccountsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

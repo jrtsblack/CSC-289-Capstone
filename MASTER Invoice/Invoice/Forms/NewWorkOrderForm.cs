@@ -18,11 +18,14 @@ namespace Invoice
         {
             InitializeComponent();
             defaultInformation();
+            if (Engine.ActiveUser.usertype.ToLower() == "administrator")
+            {
+                this.Height = 700;
+                adminFormButton.Enabled = true;
+                adminFormButton.Visible = true;
+            }
         }
 
-        // Database connection statement
-        static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-        SqlConnection conn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True");
 
         // Save values into the project DB
         private void saveInvoiceButton_Click(object sender, EventArgs e)
@@ -68,7 +71,8 @@ namespace Invoice
             newInvoiceWorkOrderTypeComboBox.SelectedIndex = -1;
             newInvoicePermissionToEnterComboBox.SelectedIndex = -1; 
             newInvoiceAnimalsInHomeComboBox.SelectedIndex = -1;
-            
+
+            defaultInformation();
         }
 
         // Close the NewWorkOrder form, and move back to the WorkOrderForm
@@ -84,16 +88,10 @@ namespace Invoice
             // Close form if yes was pressed
             if (result == DialogResult.Yes)
             {
-                if (Engine.ActiveUser.usertype.ToLower() == "administrator")
-                {
-                    this.Close();
-                }
-                else
-                {
+                
                     this.Close();
                     WorkOrderForm workOrder = new WorkOrderForm();
-                    workOrder.Show();
-                }              
+                    workOrder.Show();          
             }
             
             
@@ -312,6 +310,13 @@ namespace Invoice
             newInvoiceEmailTextBox.Text = Engine.ActiveUser.email;
             newInvoicePrimaryPhoneNumberTextBox.Text = Engine.ActiveUser.phonenum;
 
+        }
+
+        private void adminFormButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminForm admin = new AdminForm();
+            admin.Show();
         }
     }
 }

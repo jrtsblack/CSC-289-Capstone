@@ -64,6 +64,7 @@
             this.newInvoicePermissionToEnterComboBox = new System.Windows.Forms.ComboBox();
             this.newInvoiceAnimalsInHomeComboBox = new System.Windows.Forms.ComboBox();
             this.newInvoiceRequestTimeOfServiceComboBox = new System.Windows.Forms.ComboBox();
+            this.adminFormButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titlePrompt
@@ -415,16 +416,29 @@
             "PM",
             "Any"});
             this.newInvoiceRequestTimeOfServiceComboBox.Location = new System.Drawing.Point(174, 505);
-            this.newInvoiceRequestTimeOfServiceComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newInvoiceRequestTimeOfServiceComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.newInvoiceRequestTimeOfServiceComboBox.Name = "newInvoiceRequestTimeOfServiceComboBox";
             this.newInvoiceRequestTimeOfServiceComboBox.Size = new System.Drawing.Size(185, 21);
             this.newInvoiceRequestTimeOfServiceComboBox.TabIndex = 13;
+            // 
+            // adminFormButton
+            // 
+            this.adminFormButton.Enabled = false;
+            this.adminFormButton.Location = new System.Drawing.Point(138, 613);
+            this.adminFormButton.Name = "adminFormButton";
+            this.adminFormButton.Size = new System.Drawing.Size(75, 47);
+            this.adminFormButton.TabIndex = 1109;
+            this.adminFormButton.Text = "Return To Admin Form";
+            this.adminFormButton.UseVisualStyleBackColor = true;
+            this.adminFormButton.Visible = false;
+            this.adminFormButton.Click += new System.EventHandler(this.adminFormButton_Click);
             // 
             // NewWorkOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 618);
+            this.ClientSize = new System.Drawing.Size(371, 611);
+            this.Controls.Add(this.adminFormButton);
             this.Controls.Add(this.newInvoiceRequestTimeOfServiceComboBox);
             this.Controls.Add(this.newInvoiceDescriptionOfRequestRichTextBox);
             this.Controls.Add(this.newInvoiceAnimalsInHomeComboBox);
@@ -506,5 +520,6 @@
         private System.Windows.Forms.ComboBox newInvoicePermissionToEnterComboBox;
         private System.Windows.Forms.ComboBox newInvoiceAnimalsInHomeComboBox;
         private System.Windows.Forms.ComboBox newInvoiceRequestTimeOfServiceComboBox;
+        private System.Windows.Forms.Button adminFormButton;
     }
 }

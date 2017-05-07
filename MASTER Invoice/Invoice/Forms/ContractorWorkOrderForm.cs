@@ -28,6 +28,11 @@ namespace Invoice
             {
                 lbxAcceptedWorkOrders.Items.Add(s);
             }
+            if(Engine.ActiveUser.usertype.ToLower() == "administrator")
+            {
+                adminFormButton.Enabled = true;
+                adminFormButton.Visible = true;
+            }
             
 
         }
@@ -46,7 +51,11 @@ namespace Invoice
         {
 
             lbxAcceptedWorkOrders.SelectedIndex = -1;
-            gbxUpdate.Enabled = false;
+            rtxtComments.Enabled = false;
+            rbtnComplete.Enabled = false;
+            rbtnIncomplete.Enabled = false;
+            btnUpdate.Enabled = false;
+
             if (lbxAvailableWorkOrders.SelectedIndex != -1)
             {
                 lblacceptedavailable.Text = "Available Work Order";
@@ -75,8 +84,10 @@ namespace Invoice
         private void lbxAcceptedWorkOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbxAvailableWorkOrders.SelectedIndex = -1;
-            gbxUpdate.Enabled = true;
-
+            rtxtComments.Enabled = true;
+            rbtnComplete.Enabled = true;
+            rbtnIncomplete.Enabled = true;
+            btnUpdate.Enabled = true;
             if (lbxAcceptedWorkOrders.SelectedIndex != -1)
             {
                 lblacceptedavailable.Text = "Accepted Work Order";
@@ -138,6 +149,13 @@ namespace Invoice
                 login.Show();
                 this.Close();
             }
+        }
+
+        private void adminFormButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminForm admin = new AdminForm();
+            admin.Show();
         }
     }
 }

@@ -32,8 +32,6 @@ namespace Invoice {
         
         private CustomerDataTable tableCustomer;
         
-        private HouseTypeDataTable tableHouseType;
-        
         private InvoiceDataTable tableInvoice;
         
         private OfficeWorkerDataTable tableOfficeWorker;
@@ -45,8 +43,6 @@ namespace Invoice {
         private global::System.Data.DataRelation relationFK_Contractor_UserAccounts;
         
         private global::System.Data.DataRelation relationFK_Customer_UserAccounts;
-        
-        private global::System.Data.DataRelation relationFK_HouseType_Community;
         
         private global::System.Data.DataRelation relationFK_Invoice_Contractor;
         
@@ -97,9 +93,6 @@ namespace Invoice {
                 }
                 if ((ds.Tables["Customer"] != null)) {
                     base.Tables.Add(new CustomerDataTable(ds.Tables["Customer"]));
-                }
-                if ((ds.Tables["HouseType"] != null)) {
-                    base.Tables.Add(new HouseTypeDataTable(ds.Tables["HouseType"]));
                 }
                 if ((ds.Tables["Invoice"] != null)) {
                     base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
@@ -165,16 +158,6 @@ namespace Invoice {
         public CustomerDataTable Customer {
             get {
                 return this.tableCustomer;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public HouseTypeDataTable HouseType {
-            get {
-                return this.tableHouseType;
             }
         }
         
@@ -287,9 +270,6 @@ namespace Invoice {
                 if ((ds.Tables["Customer"] != null)) {
                     base.Tables.Add(new CustomerDataTable(ds.Tables["Customer"]));
                 }
-                if ((ds.Tables["HouseType"] != null)) {
-                    base.Tables.Add(new HouseTypeDataTable(ds.Tables["HouseType"]));
-                }
                 if ((ds.Tables["Invoice"] != null)) {
                     base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
                 }
@@ -356,12 +336,6 @@ namespace Invoice {
                     this.tableCustomer.InitVars();
                 }
             }
-            this.tableHouseType = ((HouseTypeDataTable)(base.Tables["HouseType"]));
-            if ((initTable == true)) {
-                if ((this.tableHouseType != null)) {
-                    this.tableHouseType.InitVars();
-                }
-            }
             this.tableInvoice = ((InvoiceDataTable)(base.Tables["Invoice"]));
             if ((initTable == true)) {
                 if ((this.tableInvoice != null)) {
@@ -383,7 +357,6 @@ namespace Invoice {
             this.relationFK_Contractor_ContractorCompany = this.Relations["FK_Contractor_ContractorCompany"];
             this.relationFK_Contractor_UserAccounts = this.Relations["FK_Contractor_UserAccounts"];
             this.relationFK_Customer_UserAccounts = this.Relations["FK_Customer_UserAccounts"];
-            this.relationFK_HouseType_Community = this.Relations["FK_HouseType_Community"];
             this.relationFK_Invoice_Contractor = this.Relations["FK_Invoice_Contractor"];
             this.relationFK_Invoice_ContractorCompany = this.Relations["FK_Invoice_ContractorCompany"];
             this.relationFK_Invoice_Customer = this.Relations["FK_Invoice_Customer"];
@@ -407,8 +380,6 @@ namespace Invoice {
             base.Tables.Add(this.tableContractorCompany);
             this.tableCustomer = new CustomerDataTable();
             base.Tables.Add(this.tableCustomer);
-            this.tableHouseType = new HouseTypeDataTable();
-            base.Tables.Add(this.tableHouseType);
             this.tableInvoice = new InvoiceDataTable();
             base.Tables.Add(this.tableInvoice);
             this.tableOfficeWorker = new OfficeWorkerDataTable();
@@ -427,10 +398,6 @@ namespace Invoice {
                         this.tableUserAccounts.EmailColumn}, new global::System.Data.DataColumn[] {
                         this.tableCustomer.EmailColumn}, false);
             this.Relations.Add(this.relationFK_Customer_UserAccounts);
-            this.relationFK_HouseType_Community = new global::System.Data.DataRelation("FK_HouseType_Community", new global::System.Data.DataColumn[] {
-                        this.tableCommunity.Community_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableHouseType.Community_IDColumn}, false);
-            this.Relations.Add(this.relationFK_HouseType_Community);
             this.relationFK_Invoice_Contractor = new global::System.Data.DataRelation("FK_Invoice_Contractor", new global::System.Data.DataColumn[] {
                         this.tableContractor.Contractor_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvoice.Contractor_IDColumn}, false);
@@ -474,12 +441,6 @@ namespace Invoice {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeCustomer() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeHouseType() {
             return false;
         }
         
@@ -567,9 +528,6 @@ namespace Invoice {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void CustomerRowChangeEventHandler(object sender, CustomerRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void HouseTypeRowChangeEventHandler(object sender, HouseTypeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void InvoiceRowChangeEventHandler(object sender, InvoiceRowChangeEvent e);
@@ -1813,376 +1771,6 @@ namespace Invoice {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "CustomerDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class HouseTypeDataTable : global::System.Data.TypedTableBase<HouseTypeRow> {
-            
-            private global::System.Data.DataColumn columnHouseType_ID;
-            
-            private global::System.Data.DataColumn columnCommunity_ID;
-            
-            private global::System.Data.DataColumn columnHouse_Type;
-            
-            private global::System.Data.DataColumn _column_Levels;
-            
-            private global::System.Data.DataColumn columnSq_Footage;
-            
-            private global::System.Data.DataColumn _column_Bedrooms;
-            
-            private global::System.Data.DataColumn _column_Baths;
-            
-            private global::System.Data.DataColumn columnGarage;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeDataTable() {
-                this.TableName = "HouseType";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal HouseTypeDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected HouseTypeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HouseType_IDColumn {
-                get {
-                    return this.columnHouseType_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Community_IDColumn {
-                get {
-                    return this.columnCommunity_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn House_TypeColumn {
-                get {
-                    return this.columnHouse_Type;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn @__LevelsColumn {
-                get {
-                    return this._column_Levels;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Sq_FootageColumn {
-                get {
-                    return this.columnSq_Footage;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn @__BedroomsColumn {
-                get {
-                    return this._column_Bedrooms;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn @__BathsColumn {
-                get {
-                    return this._column_Baths;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn GarageColumn {
-                get {
-                    return this.columnGarage;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeRow this[int index] {
-                get {
-                    return ((HouseTypeRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event HouseTypeRowChangeEventHandler HouseTypeRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event HouseTypeRowChangeEventHandler HouseTypeRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event HouseTypeRowChangeEventHandler HouseTypeRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event HouseTypeRowChangeEventHandler HouseTypeRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddHouseTypeRow(HouseTypeRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeRow AddHouseTypeRow(CommunityRow parentCommunityRowByFK_HouseType_Community, string House_Type, int @__Levels, int Sq_Footage, int @__Bedrooms, double @__Baths, bool Garage) {
-                HouseTypeRow rowHouseTypeRow = ((HouseTypeRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        House_Type,
-                        @__Levels,
-                        Sq_Footage,
-                        @__Bedrooms,
-                        @__Baths,
-                        Garage};
-                if ((parentCommunityRowByFK_HouseType_Community != null)) {
-                    columnValuesArray[1] = parentCommunityRowByFK_HouseType_Community[0];
-                }
-                rowHouseTypeRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowHouseTypeRow);
-                return rowHouseTypeRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeRow FindByHouseType_ID(int HouseType_ID) {
-                return ((HouseTypeRow)(this.Rows.Find(new object[] {
-                            HouseType_ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                HouseTypeDataTable cln = ((HouseTypeDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new HouseTypeDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnHouseType_ID = base.Columns["HouseType_ID"];
-                this.columnCommunity_ID = base.Columns["Community_ID"];
-                this.columnHouse_Type = base.Columns["House_Type"];
-                this._column_Levels = base.Columns["#Levels"];
-                this.columnSq_Footage = base.Columns["Sq_Footage"];
-                this._column_Bedrooms = base.Columns["#Bedrooms"];
-                this._column_Baths = base.Columns["#Baths"];
-                this.columnGarage = base.Columns["Garage"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnHouseType_ID = new global::System.Data.DataColumn("HouseType_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHouseType_ID);
-                this.columnCommunity_ID = new global::System.Data.DataColumn("Community_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCommunity_ID);
-                this.columnHouse_Type = new global::System.Data.DataColumn("House_Type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHouse_Type);
-                this._column_Levels = new global::System.Data.DataColumn("#Levels", typeof(int), null, global::System.Data.MappingType.Element);
-                this._column_Levels.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_Levels");
-                this._column_Levels.ExtendedProperties.Add("Generator_UserColumnName", "#Levels");
-                base.Columns.Add(this._column_Levels);
-                this.columnSq_Footage = new global::System.Data.DataColumn("Sq_Footage", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSq_Footage);
-                this._column_Bedrooms = new global::System.Data.DataColumn("#Bedrooms", typeof(int), null, global::System.Data.MappingType.Element);
-                this._column_Bedrooms.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_Bedrooms");
-                this._column_Bedrooms.ExtendedProperties.Add("Generator_UserColumnName", "#Bedrooms");
-                base.Columns.Add(this._column_Bedrooms);
-                this._column_Baths = new global::System.Data.DataColumn("#Baths", typeof(double), null, global::System.Data.MappingType.Element);
-                this._column_Baths.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_Baths");
-                this._column_Baths.ExtendedProperties.Add("Generator_UserColumnName", "#Baths");
-                base.Columns.Add(this._column_Baths);
-                this.columnGarage = new global::System.Data.DataColumn("Garage", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGarage);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnHouseType_ID}, true));
-                this.columnHouseType_ID.AutoIncrement = true;
-                this.columnHouseType_ID.AutoIncrementSeed = -1;
-                this.columnHouseType_ID.AutoIncrementStep = -1;
-                this.columnHouseType_ID.AllowDBNull = false;
-                this.columnHouseType_ID.ReadOnly = true;
-                this.columnHouseType_ID.Unique = true;
-                this.columnHouse_Type.MaxLength = 40;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeRow NewHouseTypeRow() {
-                return ((HouseTypeRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new HouseTypeRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(HouseTypeRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.HouseTypeRowChanged != null)) {
-                    this.HouseTypeRowChanged(this, new HouseTypeRowChangeEvent(((HouseTypeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.HouseTypeRowChanging != null)) {
-                    this.HouseTypeRowChanging(this, new HouseTypeRowChangeEvent(((HouseTypeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.HouseTypeRowDeleted != null)) {
-                    this.HouseTypeRowDeleted(this, new HouseTypeRowChangeEvent(((HouseTypeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.HouseTypeRowDeleting != null)) {
-                    this.HouseTypeRowDeleting(this, new HouseTypeRowChangeEvent(((HouseTypeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveHouseTypeRow(HouseTypeRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProjectDBDataSet ds = new ProjectDBDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "HouseTypeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3578,17 +3166,6 @@ namespace Invoice {
             public void SetCommunity_NameNull() {
                 this[this.tableCommunity.Community_NameColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeRow[] GetHouseTypeRows() {
-                if ((this.Table.ChildRelations["FK_HouseType_Community"] == null)) {
-                    return new HouseTypeRow[0];
-                }
-                else {
-                    return ((HouseTypeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_HouseType_Community"])));
-                }
-            }
         }
         
         /// <summary>
@@ -4090,239 +3667,6 @@ namespace Invoice {
                 else {
                     return ((InvoiceRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Invoice_Customer"])));
                 }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class HouseTypeRow : global::System.Data.DataRow {
-            
-            private HouseTypeDataTable tableHouseType;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal HouseTypeRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableHouseType = ((HouseTypeDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int HouseType_ID {
-                get {
-                    return ((int)(this[this.tableHouseType.HouseType_IDColumn]));
-                }
-                set {
-                    this[this.tableHouseType.HouseType_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Community_ID {
-                get {
-                    try {
-                        return ((int)(this[this.tableHouseType.Community_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Community_ID\' in table \'HouseType\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHouseType.Community_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string House_Type {
-                get {
-                    try {
-                        return ((string)(this[this.tableHouseType.House_TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'House_Type\' in table \'HouseType\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHouseType.House_TypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int @__Levels {
-                get {
-                    try {
-                        return ((int)(this[this.tableHouseType.@__LevelsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'#Levels\' in table \'HouseType\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHouseType.@__LevelsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Sq_Footage {
-                get {
-                    try {
-                        return ((int)(this[this.tableHouseType.Sq_FootageColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Sq_Footage\' in table \'HouseType\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHouseType.Sq_FootageColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int @__Bedrooms {
-                get {
-                    try {
-                        return ((int)(this[this.tableHouseType.@__BedroomsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'#Bedrooms\' in table \'HouseType\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHouseType.@__BedroomsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double @__Baths {
-                get {
-                    try {
-                        return ((double)(this[this.tableHouseType.@__BathsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'#Baths\' in table \'HouseType\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHouseType.@__BathsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Garage {
-                get {
-                    try {
-                        return ((bool)(this[this.tableHouseType.GarageColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Garage\' in table \'HouseType\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableHouseType.GarageColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CommunityRow CommunityRow {
-                get {
-                    return ((CommunityRow)(this.GetParentRow(this.Table.ParentRelations["FK_HouseType_Community"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_HouseType_Community"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCommunity_IDNull() {
-                return this.IsNull(this.tableHouseType.Community_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCommunity_IDNull() {
-                this[this.tableHouseType.Community_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHouse_TypeNull() {
-                return this.IsNull(this.tableHouseType.House_TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHouse_TypeNull() {
-                this[this.tableHouseType.House_TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Is__LevelsNull() {
-                return this.IsNull(this.tableHouseType.@__LevelsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Set__LevelsNull() {
-                this[this.tableHouseType.@__LevelsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSq_FootageNull() {
-                return this.IsNull(this.tableHouseType.Sq_FootageColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSq_FootageNull() {
-                this[this.tableHouseType.Sq_FootageColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Is__BedroomsNull() {
-                return this.IsNull(this.tableHouseType.@__BedroomsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Set__BedroomsNull() {
-                this[this.tableHouseType.@__BedroomsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Is__BathsNull() {
-                return this.IsNull(this.tableHouseType.@__BathsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Set__BathsNull() {
-                this[this.tableHouseType.@__BathsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsGarageNull() {
-                return this.IsNull(this.tableHouseType.GarageColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetGarageNull() {
-                this[this.tableHouseType.GarageColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5289,40 +4633,6 @@ namespace Invoice {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CustomerRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class HouseTypeRowChangeEvent : global::System.EventArgs {
-            
-            private HouseTypeRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeRowChangeEvent(HouseTypeRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HouseTypeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7071,555 +6381,6 @@ SELECT Customer_ID, First, Last, Email, Phone# FROM Customer WHERE (Customer_ID 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class HouseTypeTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public HouseTypeTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "HouseType";
-            tableMapping.ColumnMappings.Add("HouseType_ID", "HouseType_ID");
-            tableMapping.ColumnMappings.Add("Community_ID", "Community_ID");
-            tableMapping.ColumnMappings.Add("House_Type", "House_Type");
-            tableMapping.ColumnMappings.Add("#Levels", "#Levels");
-            tableMapping.ColumnMappings.Add("Sq_Footage", "Sq_Footage");
-            tableMapping.ColumnMappings.Add("#Bedrooms", "#Bedrooms");
-            tableMapping.ColumnMappings.Add("#Baths", "#Baths");
-            tableMapping.ColumnMappings.Add("Garage", "Garage");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[HouseType] WHERE (([HouseType_ID] = @Original_HouseType_ID) AND ((@IsNull_Community_ID = 1 AND [Community_ID] IS NULL) OR ([Community_ID] = @Original_Community_ID)) AND ((@IsNull_House_Type = 1 AND [House_Type] IS NULL) OR ([House_Type] = @Original_House_Type)) AND ((@IsNull_#Levels = 1 AND [#Levels] IS NULL) OR ([#Levels] = @Original_#Levels)) AND ((@IsNull_Sq_Footage = 1 AND [Sq_Footage] IS NULL) OR ([Sq_Footage] = @Original_Sq_Footage)) AND ((@IsNull_#Bedrooms = 1 AND [#Bedrooms] IS NULL) OR ([#Bedrooms] = @Original_#Bedrooms)) AND ((@IsNull_#Baths = 1 AND [#Baths] IS NULL) OR ([#Baths] = @Original_#Baths)) AND ((@IsNull_Garage = 1 AND [Garage] IS NULL) OR ([Garage] = @Original_Garage)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HouseType_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HouseType_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Community_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Community_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Community_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Community_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_House_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "House_Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_House_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "House_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_#Levels", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Levels", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Levels", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Levels", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sq_Footage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sq_Footage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sq_Footage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sq_Footage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_#Bedrooms", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Bedrooms", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Bedrooms", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Bedrooms", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_#Baths", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Baths", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Baths", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Baths", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Garage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Garage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Garage", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Garage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[HouseType] ([Community_ID], [House_Type], [#Levels], [Sq_Footage], [#Bedrooms], [#Baths], [Garage]) VALUES (@Community_ID, @House_Type, @#Levels, @Sq_Footage, @#Bedrooms, @#Baths, @Garage);
-SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms], [#Baths], Garage FROM HouseType WHERE (HouseType_ID = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Community_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Community_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@House_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "House_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Levels", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Levels", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sq_Footage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sq_Footage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Bedrooms", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Bedrooms", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Baths", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Baths", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Garage", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Garage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[HouseType] SET [Community_ID] = @Community_ID, [House_Type] = @House_Type, [#Levels] = @#Levels, [Sq_Footage] = @Sq_Footage, [#Bedrooms] = @#Bedrooms, [#Baths] = @#Baths, [Garage] = @Garage WHERE (([HouseType_ID] = @Original_HouseType_ID) AND ((@IsNull_Community_ID = 1 AND [Community_ID] IS NULL) OR ([Community_ID] = @Original_Community_ID)) AND ((@IsNull_House_Type = 1 AND [House_Type] IS NULL) OR ([House_Type] = @Original_House_Type)) AND ((@IsNull_#Levels = 1 AND [#Levels] IS NULL) OR ([#Levels] = @Original_#Levels)) AND ((@IsNull_Sq_Footage = 1 AND [Sq_Footage] IS NULL) OR ([Sq_Footage] = @Original_Sq_Footage)) AND ((@IsNull_#Bedrooms = 1 AND [#Bedrooms] IS NULL) OR ([#Bedrooms] = @Original_#Bedrooms)) AND ((@IsNull_#Baths = 1 AND [#Baths] IS NULL) OR ([#Baths] = @Original_#Baths)) AND ((@IsNull_Garage = 1 AND [Garage] IS NULL) OR ([Garage] = @Original_Garage)));
-SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms], [#Baths], Garage FROM HouseType WHERE (HouseType_ID = @HouseType_ID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Community_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Community_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@House_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "House_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Levels", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Levels", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sq_Footage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sq_Footage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Bedrooms", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Bedrooms", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@#Baths", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Baths", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Garage", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Garage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HouseType_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HouseType_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Community_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Community_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Community_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Community_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_House_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "House_Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_House_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "House_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_#Levels", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Levels", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Levels", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Levels", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sq_Footage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sq_Footage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sq_Footage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sq_Footage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_#Bedrooms", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Bedrooms", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Bedrooms", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Bedrooms", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_#Baths", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Baths", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_#Baths", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "#Baths", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Garage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Garage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Garage", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Garage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HouseType_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "HouseType_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Invoice.Properties.Settings.Default.ProjectDBConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms]" +
-                ", [#Baths], Garage FROM dbo.HouseType";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ProjectDBDataSet.HouseTypeDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ProjectDBDataSet.HouseTypeDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            ProjectDBDataSet.HouseTypeDataTable dataTable = new ProjectDBDataSet.HouseTypeDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ProjectDBDataSet.HouseTypeDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ProjectDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "HouseType");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_HouseType_ID, global::System.Nullable<int> Original_Community_ID, string Original_House_Type, global::System.Nullable<int> _Original__Levels, global::System.Nullable<int> Original_Sq_Footage, global::System.Nullable<int> _Original__Bedrooms, global::System.Nullable<double> _Original__Baths, global::System.Nullable<bool> Original_Garage) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_HouseType_ID));
-            if ((Original_Community_ID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Community_ID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_House_Type == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_House_Type));
-            }
-            if ((_Original__Levels.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(_Original__Levels.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Sq_Footage.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Sq_Footage.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((_Original__Bedrooms.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(_Original__Bedrooms.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((_Original__Baths.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((double)(_Original__Baths.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Garage.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_Garage.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Community_ID, string House_Type, global::System.Nullable<int> @__Levels, global::System.Nullable<int> Sq_Footage, global::System.Nullable<int> @__Bedrooms, global::System.Nullable<double> @__Baths, global::System.Nullable<bool> Garage) {
-            if ((Community_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Community_ID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((House_Type == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(House_Type));
-            }
-            if ((@__Levels.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(@__Levels.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Sq_Footage.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Sq_Footage.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((@__Bedrooms.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(@__Bedrooms.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((@__Baths.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(@__Baths.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Garage.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Garage.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> Community_ID, 
-                    string House_Type, 
-                    global::System.Nullable<int> @__Levels, 
-                    global::System.Nullable<int> Sq_Footage, 
-                    global::System.Nullable<int> @__Bedrooms, 
-                    global::System.Nullable<double> @__Baths, 
-                    global::System.Nullable<bool> Garage, 
-                    int Original_HouseType_ID, 
-                    global::System.Nullable<int> Original_Community_ID, 
-                    string Original_House_Type, 
-                    global::System.Nullable<int> _Original__Levels, 
-                    global::System.Nullable<int> Original_Sq_Footage, 
-                    global::System.Nullable<int> _Original__Bedrooms, 
-                    global::System.Nullable<double> _Original__Baths, 
-                    global::System.Nullable<bool> Original_Garage, 
-                    int HouseType_ID) {
-            if ((Community_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Community_ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((House_Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(House_Type));
-            }
-            if ((@__Levels.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(@__Levels.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Sq_Footage.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Sq_Footage.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((@__Bedrooms.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(@__Bedrooms.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((@__Baths.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(@__Baths.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Garage.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Garage.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_HouseType_ID));
-            if ((Original_Community_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Community_ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_House_Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_House_Type));
-            }
-            if ((_Original__Levels.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(_Original__Levels.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Sq_Footage.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_Sq_Footage.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((_Original__Bedrooms.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(_Original__Bedrooms.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((_Original__Baths.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(_Original__Baths.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Garage.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_Garage.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(HouseType_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Community_ID, string House_Type, global::System.Nullable<int> @__Levels, global::System.Nullable<int> Sq_Footage, global::System.Nullable<int> @__Bedrooms, global::System.Nullable<double> @__Baths, global::System.Nullable<bool> Garage, int Original_HouseType_ID, global::System.Nullable<int> Original_Community_ID, string Original_House_Type, global::System.Nullable<int> _Original__Levels, global::System.Nullable<int> Original_Sq_Footage, global::System.Nullable<int> _Original__Bedrooms, global::System.Nullable<double> _Original__Baths, global::System.Nullable<bool> Original_Garage) {
-            return this.Update(Community_ID, House_Type, @__Levels, Sq_Footage, @__Bedrooms, @__Baths, Garage, Original_HouseType_ID, Original_Community_ID, Original_House_Type, _Original__Levels, Original_Sq_Footage, _Original__Bedrooms, _Original__Baths, Original_Garage, Original_HouseType_ID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class InvoiceTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -7760,28 +6521,28 @@ SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Invoice] WHERE (([Invoice_ID] = @Original_Invoice_ID) AND ((@I" +
-                "sNull_Customer_ID = 1 AND [Customer_ID] IS NULL) OR ([Customer_ID] = @Original_C" +
-                "ustomer_ID)) AND ((@IsNull_OfficeWorker_ID = 1 AND [OfficeWorker_ID] IS NULL) OR" +
-                " ([OfficeWorker_ID] = @Original_OfficeWorker_ID)) AND ((@IsNull_ContractorCompan" +
-                "y_ID = 1 AND [ContractorCompany_ID] IS NULL) OR ([ContractorCompany_ID] = @Origi" +
-                "nal_ContractorCompany_ID)) AND ((@IsNull_Contractor_ID = 1 AND [Contractor_ID] I" +
-                "S NULL) OR ([Contractor_ID] = @Original_Contractor_ID)) AND ([Community_Name] = " +
-                "@Original_Community_Name) AND ([OccupantStatus] = @Original_OccupantStatus) AND " +
-                "([Address] = @Original_Address) AND ([Email] = @Original_Email) AND ([Primary#] " +
-                "= @Original_Primary#) AND ((@IsNull_Primary#Extension = 1 AND [Primary#Extension" +
-                "] IS NULL) OR ([Primary#Extension] = @Original_Primary#Extension)) AND ((@IsNull" +
-                "_Primary#Type = 1 AND [Primary#Type] IS NULL) OR ([Primary#Type] = @Original_Pri" +
-                "mary#Type)) AND ((@IsNull_Alt# = 1 AND [Alt#] IS NULL) OR ([Alt#] = @Original_Al" +
-                "t#)) AND ((@IsNull_Alt#Extension = 1 AND [Alt#Extension] IS NULL) OR ([Alt#Exten" +
-                "sion] = @Original_Alt#Extension)) AND ((@IsNull_Alt#Type = 1 AND [Alt#Type] IS N" +
-                "ULL) OR ([Alt#Type] = @Original_Alt#Type)) AND ((@IsNull_PermissionToEnter = 1 A" +
-                "ND [PermissionToEnter] IS NULL) OR ([PermissionToEnter] = @Original_PermissionTo" +
-                "Enter)) AND ((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets))" +
-                " AND ([Accepted] = @Original_Accepted) AND ([Complete] = @Original_Complete) AND" +
-                " ([TimeOfService] = @Original_TimeOfService) AND ((@IsNull_DueDate = 1 AND [DueD" +
-                "ate] IS NULL) OR ([DueDate] = @Original_DueDate)) AND ([InvoiceType] = @Original" +
-                "_InvoiceType))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Invoice] WHERE (([Invoice_ID] = @Original_Invoice_ID) AND ((@IsNull_" +
+                "Customer_ID = 1 AND [Customer_ID] IS NULL) OR ([Customer_ID] = @Original_Custome" +
+                "r_ID)) AND ((@IsNull_OfficeWorker_ID = 1 AND [OfficeWorker_ID] IS NULL) OR ([Off" +
+                "iceWorker_ID] = @Original_OfficeWorker_ID)) AND ((@IsNull_ContractorCompany_ID =" +
+                " 1 AND [ContractorCompany_ID] IS NULL) OR ([ContractorCompany_ID] = @Original_Co" +
+                "ntractorCompany_ID)) AND ((@IsNull_Contractor_ID = 1 AND [Contractor_ID] IS NULL" +
+                ") OR ([Contractor_ID] = @Original_Contractor_ID)) AND ([Community_Name] = @Origi" +
+                "nal_Community_Name) AND ([OccupantStatus] = @Original_OccupantStatus) AND ([Addr" +
+                "ess] = @Original_Address) AND ([Email] = @Original_Email) AND ([Primary#] = @Ori" +
+                "ginal_Primary#) AND ((@IsNull_Primary#Extension = 1 AND [Primary#Extension] IS N" +
+                "ULL) OR ([Primary#Extension] = @Original_Primary#Extension)) AND ((@IsNull_Prima" +
+                "ry#Type = 1 AND [Primary#Type] IS NULL) OR ([Primary#Type] = @Original_Primary#T" +
+                "ype)) AND ((@IsNull_Alt# = 1 AND [Alt#] IS NULL) OR ([Alt#] = @Original_Alt#)) A" +
+                "ND ((@IsNull_Alt#Extension = 1 AND [Alt#Extension] IS NULL) OR ([Alt#Extension] " +
+                "= @Original_Alt#Extension)) AND ((@IsNull_Alt#Type = 1 AND [Alt#Type] IS NULL) O" +
+                "R ([Alt#Type] = @Original_Alt#Type)) AND ((@IsNull_PermissionToEnter = 1 AND [Pe" +
+                "rmissionToEnter] IS NULL) OR ([PermissionToEnter] = @Original_PermissionToEnter)" +
+                ") AND ((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets)) AND (" +
+                "[Accepted] = @Original_Accepted) AND ([Complete] = @Original_Complete) AND ([Tim" +
+                "eOfService] = @Original_TimeOfService) AND ((@IsNull_DueDate = 1 AND [DueDate] I" +
+                "S NULL) OR ([DueDate] = @Original_DueDate)) AND ([InvoiceType] = @Original_Invoi" +
+                "ceType))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Invoice_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -7819,7 +6580,7 @@ SELECT HouseType_ID, Community_ID, House_Type, [#Levels], Sq_Footage, [#Bedrooms
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InvoiceType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Invoice] ([Customer_ID], [OfficeWorker_ID], [ContractorCompany_ID], [Contractor_ID], [Community_Name], [OccupantStatus], [Address], [Email], [Primary#], [Primary#Extension], [Primary#Type], [Alt#], [Alt#Extension], [Alt#Type], [PermissionToEnter], [Pets], [Accepted], [Complete], [TimeOfService], [DueDate], [InvoiceType], [Description], [Comments], [InvoiceName]) VALUES (@Customer_ID, @OfficeWorker_ID, @ContractorCompany_ID, @Contractor_ID, @Community_Name, @OccupantStatus, @Address, @Email, @Primary#, @Primary#Extension, @Primary#Type, @Alt#, @Alt#Extension, @Alt#Type, @PermissionToEnter, @Pets, @Accepted, @Complete, @TimeOfService, @DueDate, @InvoiceType, @Description, @Comments, @InvoiceName);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Invoice] ([Customer_ID], [OfficeWorker_ID], [ContractorCompany_ID], [Contractor_ID], [Community_Name], [OccupantStatus], [Address], [Email], [Primary#], [Primary#Extension], [Primary#Type], [Alt#], [Alt#Extension], [Alt#Type], [PermissionToEnter], [Pets], [Accepted], [Complete], [TimeOfService], [DueDate], [InvoiceType], [Description], [Comments], [InvoiceName]) VALUES (@Customer_ID, @OfficeWorker_ID, @ContractorCompany_ID, @Contractor_ID, @Community_Name, @OccupantStatus, @Address, @Email, @Primary#, @Primary#Extension, @Primary#Type, @Alt#, @Alt#Extension, @Alt#Type, @PermissionToEnter, @Pets, @Accepted, @Complete, @TimeOfService, @DueDate, @InvoiceType, @Description, @Comments, @InvoiceName);
 SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contractor_ID, Community_Name, OccupantStatus, Address, Email, Primary#, Primary#Extension, Primary#Type, Alt#, Alt#Extension, Alt#Type, PermissionToEnter, Pets, Accepted, Complete, TimeOfService, DueDate, InvoiceType, Description, Comments, InvoiceName FROM Invoice WHERE (Invoice_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7848,41 +6609,41 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Invoice] SET [Customer_ID] = @Customer_ID, [OfficeWorker_ID] = @Off" +
-                "iceWorker_ID, [ContractorCompany_ID] = @ContractorCompany_ID, [Contractor_ID] = " +
-                "@Contractor_ID, [Community_Name] = @Community_Name, [OccupantStatus] = @Occupant" +
-                "Status, [Address] = @Address, [Email] = @Email, [Primary#] = @Primary#, [Primary" +
-                "#Extension] = @Primary#Extension, [Primary#Type] = @Primary#Type, [Alt#] = @Alt#" +
-                ", [Alt#Extension] = @Alt#Extension, [Alt#Type] = @Alt#Type, [PermissionToEnter] " +
-                "= @PermissionToEnter, [Pets] = @Pets, [Accepted] = @Accepted, [Complete] = @Comp" +
-                "lete, [TimeOfService] = @TimeOfService, [DueDate] = @DueDate, [InvoiceType] = @I" +
-                "nvoiceType, [Description] = @Description, [Comments] = @Comments, [InvoiceName] " +
-                "= @InvoiceName WHERE (([Invoice_ID] = @Original_Invoice_ID) AND ((@IsNull_Custom" +
-                "er_ID = 1 AND [Customer_ID] IS NULL) OR ([Customer_ID] = @Original_Customer_ID))" +
-                " AND ((@IsNull_OfficeWorker_ID = 1 AND [OfficeWorker_ID] IS NULL) OR ([OfficeWor" +
-                "ker_ID] = @Original_OfficeWorker_ID)) AND ((@IsNull_ContractorCompany_ID = 1 AND" +
-                " [ContractorCompany_ID] IS NULL) OR ([ContractorCompany_ID] = @Original_Contract" +
-                "orCompany_ID)) AND ((@IsNull_Contractor_ID = 1 AND [Contractor_ID] IS NULL) OR (" +
-                "[Contractor_ID] = @Original_Contractor_ID)) AND ([Community_Name] = @Original_Co" +
-                "mmunity_Name) AND ([OccupantStatus] = @Original_OccupantStatus) AND ([Address] =" +
-                " @Original_Address) AND ([Email] = @Original_Email) AND ([Primary#] = @Original_" +
-                "Primary#) AND ((@IsNull_Primary#Extension = 1 AND [Primary#Extension] IS NULL) O" +
-                "R ([Primary#Extension] = @Original_Primary#Extension)) AND ((@IsNull_Primary#Typ" +
-                "e = 1 AND [Primary#Type] IS NULL) OR ([Primary#Type] = @Original_Primary#Type)) " +
-                "AND ((@IsNull_Alt# = 1 AND [Alt#] IS NULL) OR ([Alt#] = @Original_Alt#)) AND ((@" +
-                "IsNull_Alt#Extension = 1 AND [Alt#Extension] IS NULL) OR ([Alt#Extension] = @Ori" +
-                "ginal_Alt#Extension)) AND ((@IsNull_Alt#Type = 1 AND [Alt#Type] IS NULL) OR ([Al" +
-                "t#Type] = @Original_Alt#Type)) AND ((@IsNull_PermissionToEnter = 1 AND [Permissi" +
-                "onToEnter] IS NULL) OR ([PermissionToEnter] = @Original_PermissionToEnter)) AND " +
-                "((@IsNull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets)) AND ([Accep" +
-                "ted] = @Original_Accepted) AND ([Complete] = @Original_Complete) AND ([TimeOfSer" +
-                "vice] = @Original_TimeOfService) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL" +
-                ") OR ([DueDate] = @Original_DueDate)) AND ([InvoiceType] = @Original_InvoiceType" +
-                "));\r\nSELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Cont" +
-                "ractor_ID, Community_Name, OccupantStatus, Address, Email, Primary#, Primary#Ext" +
-                "ension, Primary#Type, Alt#, Alt#Extension, Alt#Type, PermissionToEnter, Pets, Ac" +
-                "cepted, Complete, TimeOfService, DueDate, InvoiceType, Description, Comments, In" +
-                "voiceName FROM Invoice WHERE (Invoice_ID = @Invoice_ID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Invoice] SET [Customer_ID] = @Customer_ID, [OfficeWorker_ID] = @OfficeWor" +
+                "ker_ID, [ContractorCompany_ID] = @ContractorCompany_ID, [Contractor_ID] = @Contr" +
+                "actor_ID, [Community_Name] = @Community_Name, [OccupantStatus] = @OccupantStatus" +
+                ", [Address] = @Address, [Email] = @Email, [Primary#] = @Primary#, [Primary#Exten" +
+                "sion] = @Primary#Extension, [Primary#Type] = @Primary#Type, [Alt#] = @Alt#, [Alt" +
+                "#Extension] = @Alt#Extension, [Alt#Type] = @Alt#Type, [PermissionToEnter] = @Per" +
+                "missionToEnter, [Pets] = @Pets, [Accepted] = @Accepted, [Complete] = @Complete, " +
+                "[TimeOfService] = @TimeOfService, [DueDate] = @DueDate, [InvoiceType] = @Invoice" +
+                "Type, [Description] = @Description, [Comments] = @Comments, [InvoiceName] = @Inv" +
+                "oiceName WHERE (([Invoice_ID] = @Original_Invoice_ID) AND ((@IsNull_Customer_ID " +
+                "= 1 AND [Customer_ID] IS NULL) OR ([Customer_ID] = @Original_Customer_ID)) AND (" +
+                "(@IsNull_OfficeWorker_ID = 1 AND [OfficeWorker_ID] IS NULL) OR ([OfficeWorker_ID" +
+                "] = @Original_OfficeWorker_ID)) AND ((@IsNull_ContractorCompany_ID = 1 AND [Cont" +
+                "ractorCompany_ID] IS NULL) OR ([ContractorCompany_ID] = @Original_ContractorComp" +
+                "any_ID)) AND ((@IsNull_Contractor_ID = 1 AND [Contractor_ID] IS NULL) OR ([Contr" +
+                "actor_ID] = @Original_Contractor_ID)) AND ([Community_Name] = @Original_Communit" +
+                "y_Name) AND ([OccupantStatus] = @Original_OccupantStatus) AND ([Address] = @Orig" +
+                "inal_Address) AND ([Email] = @Original_Email) AND ([Primary#] = @Original_Primar" +
+                "y#) AND ((@IsNull_Primary#Extension = 1 AND [Primary#Extension] IS NULL) OR ([Pr" +
+                "imary#Extension] = @Original_Primary#Extension)) AND ((@IsNull_Primary#Type = 1 " +
+                "AND [Primary#Type] IS NULL) OR ([Primary#Type] = @Original_Primary#Type)) AND ((" +
+                "@IsNull_Alt# = 1 AND [Alt#] IS NULL) OR ([Alt#] = @Original_Alt#)) AND ((@IsNull" +
+                "_Alt#Extension = 1 AND [Alt#Extension] IS NULL) OR ([Alt#Extension] = @Original_" +
+                "Alt#Extension)) AND ((@IsNull_Alt#Type = 1 AND [Alt#Type] IS NULL) OR ([Alt#Type" +
+                "] = @Original_Alt#Type)) AND ((@IsNull_PermissionToEnter = 1 AND [PermissionToEn" +
+                "ter] IS NULL) OR ([PermissionToEnter] = @Original_PermissionToEnter)) AND ((@IsN" +
+                "ull_Pets = 1 AND [Pets] IS NULL) OR ([Pets] = @Original_Pets)) AND ([Accepted] =" +
+                " @Original_Accepted) AND ([Complete] = @Original_Complete) AND ([TimeOfService] " +
+                "= @Original_TimeOfService) AND ((@IsNull_DueDate = 1 AND [DueDate] IS NULL) OR (" +
+                "[DueDate] = @Original_DueDate)) AND ([InvoiceType] = @Original_InvoiceType));\r\nS" +
+                "ELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contractor" +
+                "_ID, Community_Name, OccupantStatus, Address, Email, Primary#, Primary#Extension" +
+                ", Primary#Type, Alt#, Alt#Extension, Alt#Type, PermissionToEnter, Pets, Accepted" +
+                ", Complete, TimeOfService, DueDate, InvoiceType, Description, Comments, InvoiceN" +
+                "ame FROM Invoice WHERE (Invoice_ID = @Invoice_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OfficeWorker_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OfficeWorker_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7958,7 +6719,7 @@ SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contracto
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contractor_ID, Community_Name, OccupantStatus, Address, Email, Primary#, Primary#Extension, Primary#Type, Alt#, Alt#Extension, Alt#Type, PermissionToEnter, Pets, Accepted, Complete, TimeOfService, DueDate, InvoiceType, Description, Comments, InvoiceName FROM dbo.Invoice";
+            this._commandCollection[0].CommandText = @"SELECT Invoice_ID, Customer_ID, OfficeWorker_ID, ContractorCompany_ID, Contractor_ID, Community_Name, OccupantStatus, Address, Email, Primary#, Primary#Extension, Primary#Type, Alt#, Alt#Extension, Alt#Type, PermissionToEnter, Pets, Accepted, Complete, TimeOfService, DueDate, InvoiceType, Description, Comments, InvoiceName FROM Invoice";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9630,8 +8391,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
         
         private CustomerTableAdapter _customerTableAdapter;
         
-        private HouseTypeTableAdapter _houseTypeTableAdapter;
-        
         private InvoiceTableAdapter _invoiceTableAdapter;
         
         private OfficeWorkerTableAdapter _officeWorkerTableAdapter;
@@ -9714,20 +8473,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public HouseTypeTableAdapter HouseTypeTableAdapter {
-            get {
-                return this._houseTypeTableAdapter;
-            }
-            set {
-                this._houseTypeTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public InvoiceTableAdapter InvoiceTableAdapter {
             get {
                 return this._invoiceTableAdapter;
@@ -9800,10 +8545,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                             && (this._customerTableAdapter.Connection != null))) {
                     return this._customerTableAdapter.Connection;
                 }
-                if (((this._houseTypeTableAdapter != null) 
-                            && (this._houseTypeTableAdapter.Connection != null))) {
-                    return this._houseTypeTableAdapter.Connection;
-                }
                 if (((this._invoiceTableAdapter != null) 
                             && (this._invoiceTableAdapter.Connection != null))) {
                     return this._invoiceTableAdapter.Connection;
@@ -9839,9 +8580,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                     count = (count + 1);
                 }
                 if ((this._customerTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._houseTypeTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._invoiceTableAdapter != null)) {
@@ -9882,15 +8620,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._communityTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Community.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._communityTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._contractorTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Contractor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -9918,12 +8647,12 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._houseTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.HouseType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._communityTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Community.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._houseTypeTableAdapter.Update(updatedRows));
+                    result = (result + this._communityTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -9962,14 +8691,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._communityTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Community.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._communityTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._contractorTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Contractor.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -9994,11 +8715,11 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._houseTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.HouseType.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._communityTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Community.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._houseTypeTableAdapter.Update(addedRows));
+                    result = (result + this._communityTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10028,11 +8749,11 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._houseTypeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.HouseType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._communityTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Community.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._houseTypeTableAdapter.Update(deletedRows));
+                    result = (result + this._communityTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10057,14 +8778,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._contractorTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._communityTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Community.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._communityTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10140,11 +8853,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
             }
             if (((this._customerTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._customerTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._houseTypeTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._houseTypeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -10229,15 +8937,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                     if (this._customerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._customerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._customerTableAdapter.Adapter);
-                    }
-                }
-                if ((this._houseTypeTableAdapter != null)) {
-                    revertConnections.Add(this._houseTypeTableAdapter, this._houseTypeTableAdapter.Connection);
-                    this._houseTypeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._houseTypeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._houseTypeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._houseTypeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._houseTypeTableAdapter.Adapter);
                     }
                 }
                 if ((this._invoiceTableAdapter != null)) {
@@ -10340,10 +9039,6 @@ SELECT Email, Password, UserType, Confirmed FROM UserAccounts WHERE (Email = @Em
                 if ((this._customerTableAdapter != null)) {
                     this._customerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._customerTableAdapter]));
                     this._customerTableAdapter.Transaction = null;
-                }
-                if ((this._houseTypeTableAdapter != null)) {
-                    this._houseTypeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._houseTypeTableAdapter]));
-                    this._houseTypeTableAdapter.Transaction = null;
                 }
                 if ((this._invoiceTableAdapter != null)) {
                     this._invoiceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._invoiceTableAdapter]));

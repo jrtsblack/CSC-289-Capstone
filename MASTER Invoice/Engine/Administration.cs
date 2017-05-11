@@ -14,7 +14,7 @@ namespace Engine
 
     public static class Administration
     {
-        static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+        static string path = AppDomain.CurrentDomain.BaseDirectory;
         static SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True");
         public static DataTable datatable;
         public static SqlDataAdapter invoiceAdapter;

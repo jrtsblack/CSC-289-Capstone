@@ -33,8 +33,19 @@ namespace Invoice
             nullOrEmptyCheck();
             if (nullOrEmptyCheck())
             {
+                string altnum = newInvoiceAlternatePhoneNumberTextBox.Text;
+                string altphonetype;
+                string altextension = newInvoiceAlternatePhoneExtensionTextBox.ToString();
+                if (newInvoiceAlternatePhoneTypeComboBox.SelectedIndex != -1)
+                {
+                    altphonetype = newInvoiceAlternatePhoneTypeComboBox.SelectedItem.ToString();
+                }
+                else
+                {
+                    altphonetype = null;
+                }
 
-                Engine.WorkOrders.saveInvoice(newInvoiceAlternatePhoneNumberTextBox.Text, newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower(),
+                Engine.WorkOrders.saveInvoice(altnum,altphonetype, altphonetype, newInvoiceCommunityComboBox.SelectedItem.ToString().ToLower(),
                                             newInvoiceStreetAddressTextBox.Text.ToLower(), newInvoiceEmailTextBox.Text.ToLower(), newInvoicePrimaryPhoneNumberTextBox.Text.ToLower(),
                                             newInvoicePrimaryPhoneTypeComboBox.SelectedItem.ToString().ToLower(), newInvoicePrimaryPhoneExtensionTextBox.Text.ToLower(),
                                             newInvoiceRequestTimeOfServiceComboBox.SelectedItem.ToString().ToLower(), newInvoiceWorkOrderTypeComboBox.SelectedItem.ToString().ToLower(),

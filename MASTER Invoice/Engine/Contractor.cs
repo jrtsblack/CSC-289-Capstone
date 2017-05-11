@@ -10,7 +10,7 @@ namespace Engine
 {
     public static class Contractor
     {
-        static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+        static string path = AppDomain.CurrentDomain.BaseDirectory;
         static SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True");
 
         static string query = "SELECT i.Invoice_ID, i.Contractor_ID, c.First, c.last, cont.First, cont.Last, i.Community_Name, i.Address, i.Primary#, i.Primary#Extension, i.Primary#Type, i.Alt#, i.Alt#Extension, i.Alt#Type, " +

@@ -27,3 +27,15 @@ C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\bin
 C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache
 C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.dll
 C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Engine\bin\Debug\Engine.dll.config
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Engine\bin\Debug\Engine.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Engine\bin\Debug\Engine.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Engine\obj\Debug\Engine.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Engine\bin\Debug\Engine.dll.config
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Engine\bin\Debug\Engine.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Engine\bin\Debug\Engine.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Engine\obj\Debug\Engine.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Engine\obj\Debug\Engine.pdb

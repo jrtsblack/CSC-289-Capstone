@@ -78,7 +78,7 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.gbxOfficeWorkerTools = new System.Windows.Forms.GroupBox();
             this.cbxCompanySelect = new System.Windows.Forms.ComboBox();
-            this.contractorCompanyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractorCompanyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.projectDBDataSet = new Invoice.ProjectDBDataSet();
             this.lblSelectCompany = new System.Windows.Forms.Label();
             this.gbxOccupancyStatus = new System.Windows.Forms.GroupBox();
@@ -91,7 +91,7 @@
             this.invoiceInformationGroupBox.SuspendLayout();
             this.gbxCommentsAndStatus.SuspendLayout();
             this.gbxOfficeWorkerTools.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
             this.gbxOccupancyStatus.SuspendLayout();
             this.SuspendLayout();
@@ -116,7 +116,7 @@
             // 
             // newInvoiceButton
             // 
-            this.newInvoiceButton.Location = new System.Drawing.Point(6, 562);
+            this.newInvoiceButton.Location = new System.Drawing.Point(6, 587);
             this.newInvoiceButton.Name = "newInvoiceButton";
             this.newInvoiceButton.Size = new System.Drawing.Size(75, 23);
             this.newInvoiceButton.TabIndex = 1;
@@ -126,7 +126,7 @@
             // 
             // invoiceInformationLogOutButton
             // 
-            this.invoiceInformationLogOutButton.Location = new System.Drawing.Point(245, 562);
+            this.invoiceInformationLogOutButton.Location = new System.Drawing.Point(245, 587);
             this.invoiceInformationLogOutButton.Name = "invoiceInformationLogOutButton";
             this.invoiceInformationLogOutButton.Size = new System.Drawing.Size(75, 23);
             this.invoiceInformationLogOutButton.TabIndex = 3;
@@ -136,7 +136,7 @@
             // 
             // printInvoiceButton
             // 
-            this.printInvoiceButton.Location = new System.Drawing.Point(87, 562);
+            this.printInvoiceButton.Location = new System.Drawing.Point(87, 587);
             this.printInvoiceButton.Name = "printInvoiceButton";
             this.printInvoiceButton.Size = new System.Drawing.Size(75, 23);
             this.printInvoiceButton.TabIndex = 2;
@@ -146,7 +146,7 @@
             // 
             // invoiceInformationDescriptionOfRequestRichTextBox
             // 
-            this.invoiceInformationDescriptionOfRequestRichTextBox.Location = new System.Drawing.Point(9, 367);
+            this.invoiceInformationDescriptionOfRequestRichTextBox.Location = new System.Drawing.Point(9, 392);
             this.invoiceInformationDescriptionOfRequestRichTextBox.Name = "invoiceInformationDescriptionOfRequestRichTextBox";
             this.invoiceInformationDescriptionOfRequestRichTextBox.ReadOnly = true;
             this.invoiceInformationDescriptionOfRequestRichTextBox.Size = new System.Drawing.Size(312, 96);
@@ -156,7 +156,7 @@
             // invoiceInformationRequestTimeOfServiceLabelPrompt
             // 
             this.invoiceInformationRequestTimeOfServiceLabelPrompt.AutoSize = true;
-            this.invoiceInformationRequestTimeOfServiceLabelPrompt.Location = new System.Drawing.Point(6, 470);
+            this.invoiceInformationRequestTimeOfServiceLabelPrompt.Location = new System.Drawing.Point(6, 495);
             this.invoiceInformationRequestTimeOfServiceLabelPrompt.Name = "invoiceInformationRequestTimeOfServiceLabelPrompt";
             this.invoiceInformationRequestTimeOfServiceLabelPrompt.Size = new System.Drawing.Size(127, 13);
             this.invoiceInformationRequestTimeOfServiceLabelPrompt.TabIndex = 1031;
@@ -183,7 +183,7 @@
             // invoiceInformationDescriptionLabelPrompt
             // 
             this.invoiceInformationDescriptionLabelPrompt.AutoSize = true;
-            this.invoiceInformationDescriptionLabelPrompt.Location = new System.Drawing.Point(6, 349);
+            this.invoiceInformationDescriptionLabelPrompt.Location = new System.Drawing.Point(6, 374);
             this.invoiceInformationDescriptionLabelPrompt.Name = "invoiceInformationDescriptionLabelPrompt";
             this.invoiceInformationDescriptionLabelPrompt.Size = new System.Drawing.Size(214, 13);
             this.invoiceInformationDescriptionLabelPrompt.TabIndex = 1028;
@@ -219,7 +219,7 @@
             // invoiceInformationAnimalsLabelPrompt
             // 
             this.invoiceInformationAnimalsLabelPrompt.AutoSize = true;
-            this.invoiceInformationAnimalsLabelPrompt.Location = new System.Drawing.Point(6, 521);
+            this.invoiceInformationAnimalsLabelPrompt.Location = new System.Drawing.Point(6, 546);
             this.invoiceInformationAnimalsLabelPrompt.Name = "invoiceInformationAnimalsLabelPrompt";
             this.invoiceInformationAnimalsLabelPrompt.Size = new System.Drawing.Size(88, 13);
             this.invoiceInformationAnimalsLabelPrompt.TabIndex = 1024;
@@ -255,7 +255,7 @@
             // invoiceInformationPermissionToEnterLabelPrompt
             // 
             this.invoiceInformationPermissionToEnterLabelPrompt.AutoSize = true;
-            this.invoiceInformationPermissionToEnterLabelPrompt.Location = new System.Drawing.Point(6, 495);
+            this.invoiceInformationPermissionToEnterLabelPrompt.Location = new System.Drawing.Point(6, 520);
             this.invoiceInformationPermissionToEnterLabelPrompt.Name = "invoiceInformationPermissionToEnterLabelPrompt";
             this.invoiceInformationPermissionToEnterLabelPrompt.Size = new System.Drawing.Size(130, 13);
             this.invoiceInformationPermissionToEnterLabelPrompt.TabIndex = 1019;
@@ -337,14 +337,14 @@
             this.invoiceInformationGroupBox.Controls.Add(this.invoiceInformationAlternatePhoneTypeLabelPrompt);
             this.invoiceInformationGroupBox.Location = new System.Drawing.Point(302, 9);
             this.invoiceInformationGroupBox.Name = "invoiceInformationGroupBox";
-            this.invoiceInformationGroupBox.Size = new System.Drawing.Size(324, 599);
+            this.invoiceInformationGroupBox.Size = new System.Drawing.Size(324, 629);
             this.invoiceInformationGroupBox.TabIndex = 1037;
             this.invoiceInformationGroupBox.TabStop = false;
             this.invoiceInformationGroupBox.Text = "Invoice Information";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(168, 562);
+            this.btnUpdate.Location = new System.Drawing.Point(168, 587);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
@@ -356,7 +356,7 @@
             // 
             // invoiceInformationAnimalsLabel
             // 
-            this.invoiceInformationAnimalsLabel.Location = new System.Drawing.Point(143, 518);
+            this.invoiceInformationAnimalsLabel.Location = new System.Drawing.Point(143, 543);
             this.invoiceInformationAnimalsLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationAnimalsLabel.Name = "invoiceInformationAnimalsLabel";
             this.invoiceInformationAnimalsLabel.ReadOnly = true;
@@ -365,7 +365,7 @@
             // 
             // invoiceInformationPermissionToEnterLabel
             // 
-            this.invoiceInformationPermissionToEnterLabel.Location = new System.Drawing.Point(143, 492);
+            this.invoiceInformationPermissionToEnterLabel.Location = new System.Drawing.Point(143, 517);
             this.invoiceInformationPermissionToEnterLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationPermissionToEnterLabel.Name = "invoiceInformationPermissionToEnterLabel";
             this.invoiceInformationPermissionToEnterLabel.ReadOnly = true;
@@ -374,7 +374,7 @@
             // 
             // invoiceInformationRequestTimeOfServiceLabel
             // 
-            this.invoiceInformationRequestTimeOfServiceLabel.Location = new System.Drawing.Point(143, 467);
+            this.invoiceInformationRequestTimeOfServiceLabel.Location = new System.Drawing.Point(143, 492);
             this.invoiceInformationRequestTimeOfServiceLabel.Margin = new System.Windows.Forms.Padding(2);
             this.invoiceInformationRequestTimeOfServiceLabel.Name = "invoiceInformationRequestTimeOfServiceLabel";
             this.invoiceInformationRequestTimeOfServiceLabel.ReadOnly = true;
@@ -500,7 +500,7 @@
             this.gbxCommentsAndStatus.Margin = new System.Windows.Forms.Padding(2);
             this.gbxCommentsAndStatus.Name = "gbxCommentsAndStatus";
             this.gbxCommentsAndStatus.Padding = new System.Windows.Forms.Padding(2);
-            this.gbxCommentsAndStatus.Size = new System.Drawing.Size(282, 165);
+            this.gbxCommentsAndStatus.Size = new System.Drawing.Size(282, 195);
             this.gbxCommentsAndStatus.TabIndex = 1038;
             this.gbxCommentsAndStatus.TabStop = false;
             this.gbxCommentsAndStatus.Text = "Status of Work Order";
@@ -511,7 +511,7 @@
             this.rTxtBoxComments.Margin = new System.Windows.Forms.Padding(2);
             this.rTxtBoxComments.Name = "rTxtBoxComments";
             this.rTxtBoxComments.ReadOnly = true;
-            this.rTxtBoxComments.Size = new System.Drawing.Size(271, 105);
+            this.rTxtBoxComments.Size = new System.Drawing.Size(271, 133);
             this.rTxtBoxComments.TabIndex = 3;
             this.rTxtBoxComments.Text = "";
             // 
@@ -583,7 +583,7 @@
             // 
             // cbxCompanySelect
             // 
-            this.cbxCompanySelect.DataSource = this.contractorCompanyBindingSource;
+            this.cbxCompanySelect.DataSource = this.contractorCompanyBindingSource1;
             this.cbxCompanySelect.DisplayMember = "Company_Name";
             this.cbxCompanySelect.FormattingEnabled = true;
             this.cbxCompanySelect.Location = new System.Drawing.Point(94, 49);
@@ -593,10 +593,10 @@
             this.cbxCompanySelect.TabIndex = 1040;
             this.cbxCompanySelect.ValueMember = "Company_ID";
             // 
-            // contractorCompanyBindingSource
+            // contractorCompanyBindingSource1
             // 
-            this.contractorCompanyBindingSource.DataMember = "ContractorCompany";
-            this.contractorCompanyBindingSource.DataSource = this.projectDBDataSet;
+            this.contractorCompanyBindingSource1.DataMember = "ContractorCompany";
+            this.contractorCompanyBindingSource1.DataSource = this.projectDBDataSet;
             // 
             // projectDBDataSet
             // 
@@ -673,7 +673,7 @@
             // adminFormButton
             // 
             this.adminFormButton.Enabled = false;
-            this.adminFormButton.Location = new System.Drawing.Point(283, 611);
+            this.adminFormButton.Location = new System.Drawing.Point(283, 644);
             this.adminFormButton.Name = "adminFormButton";
             this.adminFormButton.Size = new System.Drawing.Size(75, 47);
             this.adminFormButton.TabIndex = 1040;
@@ -686,7 +686,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 611);
+            this.ClientSize = new System.Drawing.Size(634, 703);
             this.Controls.Add(this.adminFormButton);
             this.Controls.Add(this.gbxOfficeWorkerTools);
             this.Controls.Add(this.gbxCommentsAndStatus);
@@ -702,7 +702,7 @@
             this.gbxCommentsAndStatus.PerformLayout();
             this.gbxOfficeWorkerTools.ResumeLayout(false);
             this.gbxOfficeWorkerTools.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractorCompanyBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
             this.gbxOccupancyStatus.ResumeLayout(false);
             this.gbxOccupancyStatus.PerformLayout();
@@ -768,8 +768,8 @@
         private System.Windows.Forms.ComboBox cbxCompanySelect;
         private System.Windows.Forms.Label lblSelectCompany;
         private ProjectDBDataSet projectDBDataSet;
-        private System.Windows.Forms.BindingSource contractorCompanyBindingSource;
         private ProjectDBDataSetTableAdapters.ContractorCompanyTableAdapter contractorCompanyTableAdapter;
         private System.Windows.Forms.Button adminFormButton;
+        private System.Windows.Forms.BindingSource contractorCompanyBindingSource1;
     }
 }

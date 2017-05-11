@@ -10,7 +10,7 @@ namespace Engine
 {
     public static class Login
     {
-        static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+        static string path = AppDomain.CurrentDomain.BaseDirectory;
         static SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True");
         static string email; // Will be used to store the user name to validate who is logged in
         static string confirmed; // will be used to store the result when we check whether the user's account has been confirmed by the admin or not

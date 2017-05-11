@@ -10,7 +10,7 @@ namespace Engine
 {
     public static class WorkOrders
     {
-        static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+        static string path = AppDomain.CurrentDomain.BaseDirectory;
         static string connectionstring = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True";
         static string invoice;
         static string query = "SELECT i.Invoice_ID, c.First, c.last, o.First, o.Last, i.Community_Name, i.Address, i.Primary#, i.Primary#Extension, i.Primary#Type, i.Alt#, i.Alt#Extension, i.Alt#Type, " +
@@ -21,6 +21,7 @@ namespace Engine
             "i.Email, i.InvoiceType, i.Description, i.TimeOfService, i.PermissionToEnter, i.Pets, i.DueDate, i.ContractorCompany_ID, i.OccupantStatus, i.Complete, i.Comments, " +
             "i.InvoiceName FROM Invoice i INNER JOIN Customer c ON i.Customer_ID=c.Customer_ID WHERE i.Customer_ID = " + ActiveUser.id;
 
+        static string query5 = "SELECT Company_Name, Company_ID from ContractorCompany";
         public static DataTable dt;
 
         public static string message;
@@ -28,26 +29,27 @@ namespace Engine
         public static string lastname;
         public static string customerfirstname;
         public static string customerlastname;
-        public static string address;
-        public static string community;
-        public static string primarynum;
-        public static string primaryext;
-        public static string primarytype;
-        public static string altnum;
-        public static string altext;
-        public static string alttype;
-        public static string email;
+        public static string streetaddress;
+        public static string communityname;
+        public static string primarynumber;
+        public static string primaryextension;
+        public static string primaryphonetype;
+        public static string altnumber;
+        public static string altextension;
+        public static string altphonetype;
+        public static string emailaddress;
         public static string invoicetype;
-        public static string description;
-        public static string tos;
-        public static string pte;
-        public static string pets;
-        public static bool complete;
-        public static string comments;
+        public static string desc;
+        public static string timeofservice;
+        public static string permissiontoenter;
+        public static string petsinhome;
+        public static bool workordercomplete;
+        public static string workordercomments;
         public static bool occupantstatus;
         public static string contractorid;
         public static string contractorname;
-        public static DateTime? date;
+        public static DateTime? duedate;
+        public static string cost;
 
         public static List<string> Fill_ListBox()
         {
@@ -63,6 +65,7 @@ namespace Engine
                 dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
+                
 
                 
             }
@@ -73,7 +76,6 @@ namespace Engine
                 dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
-
             }
             connection.Close();
             foreach (DataRow dr in dt.Rows)
@@ -205,43 +207,43 @@ namespace Engine
                     lastname = dr["custLast"].ToString();
                 }
 
-                address = dr["Address"].ToString();
-                community = dr["Community_Name"].ToString();
-                primarynum = dr["Primary#"].ToString();
-                primaryext = dr["Primary#Extension"].ToString();
-                primarytype = dr["Primary#Type"].ToString();
-                altnum = dr["Alt#"].ToString();
-                altext = dr["Alt#Extension"].ToString();
-                alttype = dr["Alt#Type"].ToString();
-                email = dr["Email"].ToString();
+                streetaddress = dr["Address"].ToString();
+                communityname = dr["Community_Name"].ToString();
+                primarynumber = dr["Primary#"].ToString();
+                primaryextension = dr["Primary#Extension"].ToString();
+                primaryphonetype = dr["Primary#Type"].ToString();
+                altnumber = dr["Alt#"].ToString();
+                altextension = dr["Alt#Extension"].ToString();
+                altphonetype = dr["Alt#Type"].ToString();
+                emailaddress = dr["Email"].ToString();
                 invoicetype = dr["InvoiceType"].ToString();
-                description = dr["Description"].ToString();
-                tos = dr["TimeOfService"].ToString();
+                desc = dr["Description"].ToString();
+                timeofservice = dr["TimeOfService"].ToString();
                 if (dr["PermissionToEnter"].ToString().ToLower() == "true")
                 {
-                    pte = "True";
+                    permissiontoenter = "True";
                 }
                 else if (dr["PermissionToEnter"].ToString().ToLower() == "false")
                 {
-                    pte = "False";
+                    permissiontoenter = "False";
                 }
                 if (dr["Pets"].ToString().ToLower() == "true")
                 {
-                    pets = "True";
+                    petsinhome = "True";
                 }
                 else if (dr["Pets"].ToString().ToLower() == "false")
                 {
-                    pets = "False";
+                    petsinhome = "False";
                 }
                 if (dr["Complete"].ToString().ToLower() == "true")
                 {
-                    complete = true;
+                    workordercomplete = true;
                 }
                 else if (dr["Complete"].ToString().ToLower() == "false")
                 {
-                    complete = false;
+                    workordercomplete = false;
                 }
-                comments = dr["Comments"].ToString();
+                workordercomments = dr["Comments"].ToString();
                 if (dr["OccupantStatus"].ToString().ToLower() == "occupied")
                 {
                     occupantstatus = true;
@@ -266,22 +268,22 @@ namespace Engine
                 }
                 if (dr["DueDate"] == DBNull.Value)
                 {
-                    date = null;
+                    duedate = null;
                 }
                 else
                 {
-                    date = Convert.ToDateTime(dr["DueDate"].ToString());
+                    duedate = Convert.ToDateTime(dr["DueDate"].ToString());
                 }
             }
             connection.Close();
 
         }
 
-        public static void saveInvoice(string altnum, string community, string address, string email, string primarynum, 
+        public static void saveInvoice(string altnum, string alttype, string altext, string community, string address, string email, string primarynum, 
             string primarytype, string primaryext, string tos, string workordertype, string description, string permission, string animal)
         {
             SqlConnection connection = new SqlConnection(connectionstring);
-
+            
             connection.Open();
             SqlCommand saveInvoice;
             SqlCommand invoicename = new SqlCommand("DECLARE @myVar int SET @myVar = 0 UPDATE Invoice SET @myVar = @myVar + 1, InvoiceName =  CONCAT(@address, @myvar) WHERE address = @address", connection);
@@ -311,6 +313,7 @@ namespace Engine
                 saveInvoice.Parameters.AddWithValue("@timeOfService", tos);
                 saveInvoice.Parameters.AddWithValue("@invoiceType", workordertype);
                 saveInvoice.Parameters.AddWithValue("@description", description);
+
             }
             else
             {
@@ -337,8 +340,10 @@ namespace Engine
                 saveInvoice.Parameters.AddWithValue("@accepted", false);
                 saveInvoice.Parameters.AddWithValue("@complete", false);
                 saveInvoice.Parameters.AddWithValue("@timeOfService", tos);
-                saveInvoice.Parameters.AddWithValue("@invoiceType", invoicetype);
+                saveInvoice.Parameters.AddWithValue("@invoiceType", workordertype);
                 saveInvoice.Parameters.AddWithValue("@description", description);
+                
+
             }
 
             int i = 0;
@@ -380,6 +385,20 @@ namespace Engine
                 animal = false;
             }
             return animal;
+        }
+
+        public static void getContractorCompanies()
+        {
+            SqlConnection connection = new SqlConnection(connectionstring);
+            connection.Open();
+            SqlCommand getcompanies = new SqlCommand(query5, connection);
+            getcompanies.ExecuteNonQuery();
+
+            dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(getcompanies);
+            da.Fill(dt);
+
+
         }
 
 

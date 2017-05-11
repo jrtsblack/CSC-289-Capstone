@@ -12,6 +12,7 @@ namespace Invoice
             invoiceDatabaseListBox.Items.Clear();
             invoiceDatabaseListBox.DataSource = Engine.WorkOrders.Fill_ListBox();
             checkUserType();
+            dtpDue.MinDate = System.DateTime.Today;
         }
 
         Bitmap bit;
@@ -46,6 +47,7 @@ namespace Invoice
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
             DateTime? date;
             if (dtpDue.Checked == true)
             {
@@ -69,7 +71,7 @@ namespace Invoice
             if (Engine.ActiveUser.usertype.ToLower() == "office worker")
             {
                 btnUpdate.Visible = true;
-                btnUpdate.Enabled = false;
+                btnUpdate.Enabled = true;
                 gbxOfficeWorkerTools.Visible = true;
                 gbxCommentsAndStatus.Enabled = true;
                 invoiceInformationFirstNameLabel.ReadOnly = false;
@@ -94,11 +96,11 @@ namespace Invoice
                 this.Height = 700;
                 adminFormButton.Enabled = true;
                 adminFormButton.Visible = true;
-                invoiceInformationLogOutButton.Location = new Point(168, 562);
+                invoiceInformationLogOutButton.Location = new Point(168, 587);
             }
             if(Engine.ActiveUser.usertype.ToLower() == "occupant")
             {
-                invoiceInformationLogOutButton.Location = new Point(168, 562);
+                invoiceInformationLogOutButton.Location = new Point(168, 587);
             }
         }
 
@@ -155,21 +157,21 @@ namespace Invoice
 
             invoiceInformationFirstNameLabel.Text = Engine.WorkOrders.firstname;
             invoiceInformationLastNameLabel.Text = Engine.WorkOrders.lastname;
-            invoiceInformationStreetAddressLabel.Text = Engine.WorkOrders.address;
-            invoiceInformationCommunityLabel.Text = Engine.WorkOrders.community;
-            invoiceInformationPrimaryPhoneNumberLabel.Text = Engine.WorkOrders.primarynum;
-            invoiceInformationPrimaryPhoneExtensionLabel.Text = Engine.WorkOrders.primaryext;
-            invoiceInformationPrimaryPhoneTypeLabel.Text = Engine.WorkOrders.primarytype;
-            invoiceInformationAlternatePhoneNumberLabel.Text = Engine.WorkOrders.altnum;
-            invoiceInformationAlternatePhoneExtensionLabel.Text = Engine.WorkOrders.altext;
-            invoiceInformationAlternatePhoneTypeLabel.Text = Engine.WorkOrders.alttype;
-            invoiceInformationEmailLabel.Text = Engine.WorkOrders.email;
+            invoiceInformationStreetAddressLabel.Text = Engine.WorkOrders.streetaddress;
+            invoiceInformationCommunityLabel.Text = Engine.WorkOrders.communityname;
+            invoiceInformationPrimaryPhoneNumberLabel.Text = Engine.WorkOrders.primarynumber;
+            invoiceInformationPrimaryPhoneExtensionLabel.Text = Engine.WorkOrders.primaryextension;
+            invoiceInformationPrimaryPhoneTypeLabel.Text = Engine.WorkOrders.primaryphonetype;
+            invoiceInformationAlternatePhoneNumberLabel.Text = Engine.WorkOrders.altnumber;
+            invoiceInformationAlternatePhoneExtensionLabel.Text = Engine.WorkOrders.altextension;
+            invoiceInformationAlternatePhoneTypeLabel.Text = Engine.WorkOrders.altphonetype;
+            invoiceInformationEmailLabel.Text = Engine.WorkOrders.emailaddress;
             invoiceInformationWorkOrderTypeLabel.Text = Engine.WorkOrders.invoicetype;
-            invoiceInformationDescriptionOfRequestRichTextBox.Text = Engine.WorkOrders.description;
-            invoiceInformationRequestTimeOfServiceLabel.Text = Engine.WorkOrders.tos;
-            invoiceInformationPermissionToEnterLabel.Text = Engine.WorkOrders.pte;
-            invoiceInformationAnimalsLabel.Text = Engine.WorkOrders.pets;
-            if (Engine.WorkOrders.complete)
+            invoiceInformationDescriptionOfRequestRichTextBox.Text = Engine.WorkOrders.desc;
+            invoiceInformationRequestTimeOfServiceLabel.Text = Engine.WorkOrders.timeofservice;
+            invoiceInformationPermissionToEnterLabel.Text = Engine.WorkOrders.permissiontoenter;
+            invoiceInformationAnimalsLabel.Text = Engine.WorkOrders.petsinhome;
+            if (Engine.WorkOrders.workordercomplete)
             {
                 rButtonComplete.Checked = true;
             }
@@ -178,7 +180,7 @@ namespace Invoice
                 rButtonIncomplete.Checked = true;
             }
 
-            rTxtBoxComments.Text = Engine.WorkOrders.comments;
+            rTxtBoxComments.Text = Engine.WorkOrders.workordercomments;
 
             if (Engine.WorkOrders.occupantstatus)
             {
@@ -196,7 +198,7 @@ namespace Invoice
             {
                 cbxCompanySelect.Text = Engine.WorkOrders.contractorname;
             }
-            if (Engine.WorkOrders.date == null)
+            if (Engine.WorkOrders.duedate == null)
             {
                 dtpDue.Checked = false;
                 dtpDue.CustomFormat = " ";
@@ -207,7 +209,7 @@ namespace Invoice
                 dtpDue.Checked = true;
                 dtpDue.CustomFormat = null;
                 dtpDue.Format = DateTimePickerFormat.Long;
-                dtpDue.Value = Engine.WorkOrders.date.Value;
+                dtpDue.Value = Engine.WorkOrders.duedate.Value;
             }
         }
 
@@ -217,5 +219,9 @@ namespace Invoice
             AdminForm admin = new AdminForm();
             admin.Show();
         }
+        
+
+        
     }
 }
+

@@ -283,3 +283,59 @@ C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bi
 C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Engine.dll
 C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Engine.pdb
 C:\Users\renzi\Downloads\Source\Repos\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\MySql.Data.xml
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.exe.config
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.exe
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\ProjectDB.mdf
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\ProjectDB_log.ldf
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.exe
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Engine.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\MySql.Data.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Engine.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\MySql.Data.xml
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.csprojResolveAssemblyReference.cache
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.AdminForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.Forms.AdminNewInvoiceCheck.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.ContractorWorkOrderForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.OfficeWorkOrder.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.WorkOrderForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.LoginForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.NewWorkOrderForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.Properties.Resources.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.exe.manifest
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\bin\Debug\Invoice.application
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.exe.manifest
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone\MASTER Invoice\Invoice\obj\Debug\Invoice.application
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\Invoice.exe.config
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.exe
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\ProjectDB.mdf
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\ProjectDB_log.ldf
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\Invoice.exe.manifest
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\Invoice.application
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\Invoice.exe
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\Invoice.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\Engine.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\MySql.Data.dll
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\Engine.pdb
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\MySql.Data.xml
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.csprojResolveAssemblyReference.cache
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.AdminForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.Forms.AdminNewInvoiceCheck.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.ContractorWorkOrderForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.OfficeWorkOrder.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.WorkOrderForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.LoginForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.NewWorkOrderForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.Properties.Resources.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.RegisterForm.resources
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.csproj.GenerateResource.Cache
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.exe.manifest
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\obj\Debug\Invoice.application
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\ProjectDBDataSet.xsd
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\ProjectDBDataSet.Designer.cs
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\ProjectDBDataSet.xsc
+C:\Users\renzi\Desktop\renzia\Source\Repo\CSC-289-Capstone - Copy\MASTER Invoice\Invoice\bin\Debug\ProjectDBDataSet.xss

@@ -10,7 +10,7 @@ namespace Engine
 {
     public static class OfficeWorker
     {
-        static string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+        static string path = AppDomain.CurrentDomain.BaseDirectory;
         static SqlConnection connection = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename=" + path + @"ProjectDB.mdf;Integrated Security = True");
         public static string message;
         public static void SubmitWorkOrder(string company, string occupantstatus, string community, string address, DateTime date, 

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Invoice.exe" version="1.0.0.6" publicKeyToken="8d5776f7fa033c12" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Invoice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Invoice.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Engine.dll" size="49152">
+      <assemblyIdentity name="Engine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Ak6oFAu9B1k4MB+Ia7CzmED6pgVjofbSjW4J6nuPKzg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Invoice.exe" size="280032">
+      <assemblyIdentity name="Invoice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Gsswnh9eWZEKtpIVMYB4E3t9690oDJqJ4dc+NHeujvk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="424448">
+      <assemblyIdentity name="MySql.Data" version="6.9.9.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>z1JCyodj5/UiC37FF0m11VPrQRt8tszqKfa8jk+yNYc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Invoice.exe.config" size="552">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>VNc8OARY6srRJfYCE/Vr+pm6xxW0MyG3H2qi6kRLEQ8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ProjectDB.mdf" size="8388608">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qtGU9ZHGx5D9d1wDqH7ht1LQ6AQl73zGGWSOF1PKxmA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ProjectDB_log.ldf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3Nz5WzqQQiV7lI3n931Pc9NVikfMHL2W8uXYKa9pEQs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ProjectDBDataSet.xsd" size="144878" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0NznRACVYdVFxB9YUkD/z6GkddU7x/cxRwPpxHQdWuY=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-CBOB7SA\renzi" issuerKeyHash="85009eb31d9357ce877285e01cc2853c00d86bcc" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>52tJtu8S2q8A+K8qi5pr7yxHREQsgFVSwUQbKTcYKfE=</DigestValue></Reference></SignedInfo><SignatureValue>IAToCV3sV0Os9WuP3n0RuZ95yTeCWttyS8tlvQf74xvPIWx+M4c2JN9aJfdDXllb+0+lbnpwulbjSplxV/Mzb7+w0fl05CHhu2fDKTV5qoP7+7MDBHx6giiytGY2odjcW1CYpRQPWo+8jKLisQDBM3Oi+JL4yoEShSNBLjIWEgA=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>9d3rtNy9E6wbQGzOMQZufWlCl7gNB3Hc0GhJeyWTCGLk/BezHJTJaRi0YnSjRw7HqKDRgBtivxb3131FSaQ/nJtMt51ym8cdqqzOLX2ntjrqnxUVIOpK/lg/meaHJqylRPk6DCtxDupBLwfBJAlVQfP0KnecRqjhmqWMBe2laEs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f1291837291b44c15255802c4444472cef6b9a8b2aaff800afda12efb6496be7" Description="" Url=""><as:assemblyIdentity name="Invoice.exe" version="1.0.0.6" publicKeyToken="8d5776f7fa033c12" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-CBOB7SA\renzi</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>EjevctHwzAJUaa2xdllr01B3wvvX8919SVpVfITRtUs=</DigestValue></Reference></SignedInfo><SignatureValue>tTmDwB2nVfRZbm8QllGJcBL2Un7/F98QWwhSnc99hmvJPLlnfgVuCrPzaQQ+PPOq9XxnorAD5wPzsAZjw/hVW2VnuKOxHybryRXbo39e8s+B3w1UhsxpFofauvPnk9XpwBgW/veLLiuwNDJMk0UL5wlSHaqxm6MJgHFBiO1qjyE=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>9d3rtNy9E6wbQGzOMQZufWlCl7gNB3Hc0GhJeyWTCGLk/BezHJTJaRi0YnSjRw7HqKDRgBtivxb3131FSaQ/nJtMt51ym8cdqqzOLX2ntjrqnxUVIOpK/lg/meaHJqylRPk6DCtxDupBLwfBJAlVQfP0KnecRqjhmqWMBe2laEs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQWC3cgKetEa1K+71kWWMCXTANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEMAQgBPAEIANwBTAEEAXAByAGUAbgB6AGkwHhcNMTcwNTA4MTU1ODI4WhcNMTgwNTA4MjE1ODI4WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEMAQgBPAEIANwBTAEEAXAByAGUAbgB6AGkwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAPXd67TcvROsG0BszjEGbn1pQpe4DQdx3NBoSXslkwhi5PwXsxyUyWkYtGJ0o0cOx6ig0YAbYr8W99d9RUmkP5ybTLedcpvHHaqszi19p7Y66p8VFSDqSv5YP5nmhyaspUT5OgwrcQ7qQS8HwSQJVUHz9Cp3nEao4ZqljAXtpWhLAgMBAAEwDQYJKoZIhvcNAQELBQADgYEA7XzzYeqplQvORGy9U2DMMAVaq6xwVawrBfQ0ivuvVAFKEepqR6yiWETs148FsbcCP5SiSAC28URFYxAW/PcaKUryyH6ypPjKzWFmuU8u3tdzrbS7Dv/M7RC9qm1iLNXCmpVsHr7XX8o1onAAZGzGM4ZJ4ojZVWluZHZWZaCTTEU=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

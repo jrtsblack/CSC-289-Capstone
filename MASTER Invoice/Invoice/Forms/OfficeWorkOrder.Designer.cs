@@ -75,7 +75,7 @@
             // 
             // rtxtDescriptionOfRequest
             // 
-            this.rtxtDescriptionOfRequest.Location = new System.Drawing.Point(12, 230);
+            this.rtxtDescriptionOfRequest.Location = new System.Drawing.Point(12, 245);
             this.rtxtDescriptionOfRequest.Name = "rtxtDescriptionOfRequest";
             this.rtxtDescriptionOfRequest.Size = new System.Drawing.Size(312, 96);
             this.rtxtDescriptionOfRequest.TabIndex = 1030;
@@ -84,7 +84,7 @@
             // lblDescriptionPrompt
             // 
             this.lblDescriptionPrompt.AutoSize = true;
-            this.lblDescriptionPrompt.Location = new System.Drawing.Point(9, 215);
+            this.lblDescriptionPrompt.Location = new System.Drawing.Point(9, 230);
             this.lblDescriptionPrompt.Name = "lblDescriptionPrompt";
             this.lblDescriptionPrompt.Size = new System.Drawing.Size(214, 13);
             this.lblDescriptionPrompt.TabIndex = 1032;
@@ -116,10 +116,10 @@
             this.gbxOfficeWorkOrder.Controls.Add(this.lblStreetAddressPrompt);
             this.gbxOfficeWorkOrder.Controls.Add(this.lblWorkOrderTypePrompt);
             this.gbxOfficeWorkOrder.Location = new System.Drawing.Point(10, 11);
-            this.gbxOfficeWorkOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOfficeWorkOrder.Margin = new System.Windows.Forms.Padding(2);
             this.gbxOfficeWorkOrder.Name = "gbxOfficeWorkOrder";
-            this.gbxOfficeWorkOrder.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbxOfficeWorkOrder.Size = new System.Drawing.Size(338, 333);
+            this.gbxOfficeWorkOrder.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxOfficeWorkOrder.Size = new System.Drawing.Size(338, 351);
             this.gbxOfficeWorkOrder.TabIndex = 1033;
             this.gbxOfficeWorkOrder.TabStop = false;
             this.gbxOfficeWorkOrder.Text = "Work Order Information:";
@@ -130,7 +130,7 @@
             this.occupiedPanel.Controls.Add(this.newInvoicePermissionToEnterLabelPrompt);
             this.occupiedPanel.Controls.Add(this.newInvoicePermissionToEnterComboBox);
             this.occupiedPanel.Controls.Add(this.newInvoiceAnimalsLabelPrompt);
-            this.occupiedPanel.Location = new System.Drawing.Point(13, 216);
+            this.occupiedPanel.Location = new System.Drawing.Point(13, 231);
             this.occupiedPanel.Name = "occupiedPanel";
             this.occupiedPanel.Size = new System.Drawing.Size(1, 1);
             this.occupiedPanel.TabIndex = 1106;
@@ -244,10 +244,10 @@
             // 
             this.gbxOccupancyStatus.Controls.Add(this.rbtnOccupied);
             this.gbxOccupancyStatus.Controls.Add(this.rbtnUnoccupied);
-            this.gbxOccupancyStatus.Location = new System.Drawing.Point(13, 155);
-            this.gbxOccupancyStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOccupancyStatus.Location = new System.Drawing.Point(13, 180);
+            this.gbxOccupancyStatus.Margin = new System.Windows.Forms.Padding(2);
             this.gbxOccupancyStatus.Name = "gbxOccupancyStatus";
-            this.gbxOccupancyStatus.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxOccupancyStatus.Padding = new System.Windows.Forms.Padding(2);
             this.gbxOccupancyStatus.Size = new System.Drawing.Size(175, 46);
             this.gbxOccupancyStatus.TabIndex = 1037;
             this.gbxOccupancyStatus.TabStop = false;
@@ -257,7 +257,7 @@
             // 
             this.rbtnOccupied.AutoSize = true;
             this.rbtnOccupied.Location = new System.Drawing.Point(19, 17);
-            this.rbtnOccupied.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnOccupied.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnOccupied.Name = "rbtnOccupied";
             this.rbtnOccupied.Size = new System.Drawing.Size(71, 17);
             this.rbtnOccupied.TabIndex = 1035;
@@ -269,7 +269,7 @@
             // 
             this.rbtnUnoccupied.AutoSize = true;
             this.rbtnUnoccupied.Location = new System.Drawing.Point(90, 17);
-            this.rbtnUnoccupied.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnUnoccupied.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnUnoccupied.Name = "rbtnUnoccupied";
             this.rbtnUnoccupied.Size = new System.Drawing.Size(83, 17);
             this.rbtnUnoccupied.TabIndex = 1036;
@@ -279,7 +279,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(140, 121);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(179, 20);
             this.dateTimePicker.TabIndex = 1039;
@@ -305,15 +305,15 @@
             // txtStreetAddress
             // 
             this.txtStreetAddress.Location = new System.Drawing.Point(140, 17);
-            this.txtStreetAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStreetAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtStreetAddress.Name = "txtStreetAddress";
             this.txtStreetAddress.Size = new System.Drawing.Size(179, 20);
             this.txtStreetAddress.TabIndex = 1034;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(10, 358);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Location = new System.Drawing.Point(11, 390);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(76, 36);
             this.btnSubmit.TabIndex = 1034;
@@ -323,8 +323,8 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(142, 358);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Location = new System.Drawing.Point(143, 390);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(76, 36);
             this.btnClear.TabIndex = 1035;
@@ -334,8 +334,8 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(272, 358);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(273, 390);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(76, 36);
             this.btnCancel.TabIndex = 1036;
@@ -350,7 +350,7 @@
             // adminFormButton
             // 
             this.adminFormButton.Enabled = false;
-            this.adminFormButton.Location = new System.Drawing.Point(143, 408);
+            this.adminFormButton.Location = new System.Drawing.Point(143, 436);
             this.adminFormButton.Name = "adminFormButton";
             this.adminFormButton.Size = new System.Drawing.Size(75, 47);
             this.adminFormButton.TabIndex = 1107;
@@ -363,13 +363,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 404);
+            this.ClientSize = new System.Drawing.Size(362, 429);
             this.Controls.Add(this.adminFormButton);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.gbxOfficeWorkOrder);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OfficeWorkOrder";
             this.Text = "Work Order";
             this.Load += new System.EventHandler(this.OfficeWorkOrder_Load);
